@@ -2,33 +2,41 @@ package com.jusfoun.web.controller.file;
 
 import java.io.Serializable;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 描述:上传文件包装类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月11日 下午4:21:16
  */
+@ApiModel
 public class FileItem implements Serializable {
 	private static final long serialVersionUID = -3547441100756863690L;
 
 	/**
 	 * 文件类型
 	 */
+	@ApiModelProperty("文件类型")
 	private String contentType;
 
 	/**
 	 * 文件原名
 	 */
+	@ApiModelProperty("文件原名")
 	private String originalFilename;
 
 	/**
 	 * 文件新名称
 	 */
+	@ApiModelProperty("文件新名称")
 	private String fileName;
 
 	/**
 	 * 文件路径
 	 */
+	@ApiModelProperty("文件路径")
 	private String filePath;
 
 	public FileItem() {

@@ -2,22 +2,46 @@ package com.jusfoun.web.controller.file.plupload;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * Plupload实体类固定格式，属性名不可修改 因为MultipartFile要用到Spring
  * web的依赖，而该依赖在web模块中才引入，所以不把该实体类放在entity模块
  */
+@ApiModel
 public class Plupload {
-	/** 文件原名 */
+
+	/**
+	 * 文件原名
+	 */
+	@ApiModelProperty("文件原名")
 	private String name;
-	/** 用户上传资料被分解总块数 */
+
+	/**
+	 * 用户上传资料被分解总块数
+	 */
+	@ApiModelProperty("用户上传资料被分解总块数")
 	private int chunks = -1;
-	/** 当前块数（从0开始计数） */
+
+	/**
+	 * 当前块数（从0开始计数）
+	 */
+	@ApiModelProperty("当前块数（从0开始计数）")
 	private int chunk = -1;
-	/** HttpServletRequest对象，不会自动赋值，需要手动传入 */
+
+	/**
+	 * HttpServletRequest对象，不会自动赋值，需要手动传入
+	 */
+	@ApiModelProperty("HttpServletRequest对象，不会自动赋值，需要手动传入 ")
 	private HttpServletRequest request;
-	/** 保存文件上传信息，不会自动赋值，需要手动传入 */
+
+	/**
+	 * 保存文件上传信息，不会自动赋值，需要手动传入
+	 */
+	@ApiModelProperty("保存文件上传信息，不会自动赋值，需要手动传入")
 	private MultipartFile multipartFile;
 
 	public String getName() {
