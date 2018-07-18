@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+		"
+	default-lazy-init="true">
+	<description>Spring jms 配置 </description>
+
+	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
+		p:brokerURL="${activemq.brokerURL}" p:userName="${activemq.username}"
+		p:password="${activemq.password}" p:maxThreadPoolSize="1000" />
+	<!-- 连接池工厂 -->
+	<bean id="pooledConnectionFactory" destroy-method="stop"
+		class="org.apache.activemq.pool.PooledConnectionFactory"
+		p:connectionFactory-ref="targetConnectionFactory" p:maxConnections="1000" />
+	<!-- 连接工厂 -->
+	<bean id="connectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory"
+		p:targetConnectionFactory-ref="pooledConnectionFactory" />
+	<!-- 消息转换器 -->
+	<bean id="messageConverter"
+		class="org.springframework.jms.support.converter.SimpleMessageConverter" />
+
+
+	<!-- ####################配置消息目标 #################### -->
+	<!-- 这个是队列目的地，点对点的 -->
+	<bean id="test.queue" class="org.apache.activemq.command.ActiveMQQueue"
+		c:name="test.queue" />
+
+	<!--这个是主题目的地，一对多的 -->
+	<bean id="test.topic" class="org.apache.activemq.command.ActiveMQTopic"
+		c:name="test.topic" />
+
+	<!-- #################### pub/sub模型 #################### -->
+	<!-- 消息模板 非pub/sub模型（发布/订阅），即队列模式 -->
+	<bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate"
+		p:connectionFactory-ref="connectionFactory" p:defaultDestination-ref="test.queue"
+		p:pubSubDomain="false" p:messageConverter-ref="messageConverter" />
+
+	<!-- 消息模板 pub/sub模型（发布/订阅），即订阅模式 -->
+	<bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate"
+		p:connectionFactory-ref="connectionFactory" p:defaultDestination-ref="test.topic"
+		p:pubSubDomain="true" p:messageConverter-ref="messageConverter" />
+
+
+	<!-- #################### 同步消息 #################### -->
+	<bean id="reqQueue" class="org.apache.activemq.command.ActiveMQQueue"
+		c:name="jms.sync.req.queue" />
+	<bean id="resQueue" class="org.apache.activemq.command.ActiveMQQueue"
+		c:name="jms.sync.res.queue" />
+
+
+	<!-- 定义Queue监听器 -->
+	<jms:listener-container destination-type="queue"
+		container-type="default" connection-factory="connectionFactory"
+		response-destination-type="queue" acknowledge="auto">
+		<jms:listener destination="reqQueue" ref="reqQueueComsumer" />
+	</jms:listener-container>
+	<jms:listener-container destination-type="queue"
+		container-type="default" connection-factory="connectionFactory"
+		response-destination-type="queue" acknowledge="auto">
+		<jms:listener destination="resQueue" ref="resQueueComsumer" />
+	</jms:listener-container>
+
+	<!-- 定义Topic监听器 -->
+	<jms:listener-container destination-type="topic"
+		container-type="default" connection-factory="connectionFactory"
+		acknowledge="auto">
+		<jms:listener destination="test.topic" ref="topicReceiver1" />
+		<jms:listener destination="test.topic" ref="topicReceiver2" />
+	</jms:listener-container>
+</beans>

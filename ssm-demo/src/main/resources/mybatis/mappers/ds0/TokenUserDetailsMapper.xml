@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jusfoun.mapper.ds0.TokenUserDetailsMapper">
+	<resultMap id="BaseResultMap" type="com.jusfoun.entity.TokenUserDetails">
+		<!-- WARNING - @mbg.generated -->
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="user_id" property="userId" jdbcType="BIGINT" />
+		<result column="client_id" property="clientId" jdbcType="VARCHAR" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="realname" property="realname" jdbcType="VARCHAR" />
+		<result column="authorities" property="authorities" typeHandler="com.jusfoun.common.mybatis.handler.BlobVsAuthorityCollectionTypeHandler" />
+		<result column="enabled" property="enabled" jdbcType="BIT" />
+		<result column="authenticated" property="authenticated" jdbcType="BIT" />
+		<result column="account_non_locked" property="accountNonLocked" jdbcType="BIT" />
+		<result column="account_non_expired" property="accountNonExpired" jdbcType="BIT" />
+		<result column="credentials_non_expired" property="credentialsNonExpired" jdbcType="BIT" />
+
+		<result column="access_token" property="accessToken" jdbcType="VARCHAR" />
+		<result column="refresh_token" property="refreshToken" jdbcType="VARCHAR" />
+		<result column="expires_in" property="expiresIn" jdbcType="INTEGER" />
+		<result column="access_token_exp_time" property="accessTokenExpTime" jdbcType="TIMESTAMP" />
+		<result column="refresh_token_exp_time" property="refreshTokenExpTime" jdbcType="TIMESTAMP" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+
+	<sql id="Base_Table_Name">
+		token_user_details
+	</sql>
+	<sql id="Base_Column_List">
+		*
+	</sql>
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="s.id           != null "><![CDATA[and id = #{s.id,jdbcType=BIGINT}]]></if>
+			<if test="s.clientId     != null "><![CDATA[and client_id = #{s.clientId,jdbcType=VARCHAR}]]></if>
+			<if test="s.username     != null "><![CDATA[and username = #{s.username,jdbcType=VARCHAR}]]></if>
+			<if test="s.accessToken  != null "><![CDATA[and access_token = #{s.accessToken,jdbcType=VARCHAR}]]></if>
+			<if test="s.refreshToken != null "><![CDATA[and refresh_token = #{s.refreshToken,jdbcType=VARCHAR}]]></if>
+		</where>
+	</sql>
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+
+	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+</mapper>

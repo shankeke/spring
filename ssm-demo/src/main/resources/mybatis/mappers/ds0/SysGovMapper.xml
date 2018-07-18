@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jusfoun.mapper.ds0.SysGovMapper">
+	<resultMap id="BaseResultMap" type="com.jusfoun.entity.SysGov">
+		<!-- WARNING - @mbg.generated -->
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="parent_id" property="parentId" jdbcType="BIGINT" />
+		<result column="full_name" property="fullName" jdbcType="VARCHAR" />
+		<result column="short_name" property="shortName" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="contacts" property="contacts" jdbcType="VARCHAR" />
+		<result column="tel" property="tel" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="weburl" property="weburl" jdbcType="VARCHAR" />
+		<result column="area" property="area" jdbcType="VARCHAR" />
+		<result column="status" jdbcType="BIT" property="status" />
+		<result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+		<result column="updater_id" jdbcType="BIGINT" property="updaterId" />
+		<result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+		<result column="updater_name" jdbcType="VARCHAR" property="updaterName" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+
+		<association property="sysGovs" column="id" fetchType="lazy" select="selectByParentId" />
+		<association property="parentName" column="parent_id" fetchType="lazy" select="selectNameByPrimaryKey" />
+	</resultMap>
+
+	<resultMap id="BaseListResultMap" type="com.jusfoun.entity.SysGov" extends="BaseResultMap">
+		<association property="sysGovs" column="id" fetchType="lazy" select="selectByParentId" />
+	</resultMap>
+	<resultMap id="BaseInfoResultMap" type="com.jusfoun.entity.SysGov" extends="BaseResultMap">
+		<association property="parentName" column="parent_id" fetchType="lazy" select="selectNameByPrimaryKey" />
+	</resultMap>
+
+	<sql id="Base_Table_Name">
+		sys_gov
+	</sql>
+	<sql id="Base_Column_List">
+		*
+	</sql>
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="s.id         != null"><![CDATA[and id = #{s.id ,jdbcType=BIGINT}]]></if>
+			<if test="s.parentId   != null"><![CDATA[and parent_id = #{s.parentId ,jdbcType=BIGINT}]]></if>
+			<if test="s.fullName   != null and s.fullName   != ''"><![CDATA[and full_name like CONCAT('%',#{s.fullName ,jdbcType=VARCHAR},'%') ]]></if>
+			<if test="s.shortName  != null and s.shortName  != ''"><![CDATA[and full_name like CONCAT('%',#{s.shortName ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="s.address    != null and s.address    != ''"><![CDATA[and address like CONCAT('%',#{s.address ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="s.contacts   != null and s.contacts   != ''"><![CDATA[and contacts = #{s.contacts ,jdbcType=VARCHAR}]]></if>
+			<if test="s.tel        != null and s.tel        != ''"><![CDATA[and tel = #{s.tel ,jdbcType=VARCHAR}]]></if>
+			<if test="s.email      != null and s.email      != ''"><![CDATA[and email = #{s.email ,jdbcType=VARCHAR}]]></if>
+			<if test="s.weburl     != null and s.weburl     != ''"><![CDATA[and weburl = #{s.weburl ,jdbcType=VARCHAR}]]></if>
+			<if test="s.area       != null and s.area       != ''"><![CDATA[and area = #{s.area ,jdbcType=VARCHAR}]]></if>
+			<if test="s.status     != null"><![CDATA[and status = #{s.status ,jdbcType=BIT}]]></if>
+			<if test="s.remark     != null and s.remark     != ''"><![CDATA[and remark like CONCAT('%',#{s.remark ,jdbcType=VARCHAR},'%') ]]></if>
+		</where>
+	</sql>
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseInfoResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseListResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+	<select id="selectNameByPrimaryKey" parameterType="Long" resultType="String">
+    <![CDATA[ select t.full_name from sys_gov t where t.id = #{_parameter,jdbcType=BIGINT} ]]>
+	</select>
+	<select id="selectByParentId" parameterType="Long" resultMap="BaseListResultMap">
+    <![CDATA[ select * from sys_gov t where t.parent_id = #{_parameter,jdbcType=BIGINT} ]]>
+	</select>
+</mapper>

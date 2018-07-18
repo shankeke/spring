@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 管理多个配置文件，如果有相同的参数名称，上面的的配置文件会覆盖下面的 -->
+	<!-- 环境变量参数 -->
+	<!-- <env /> -->
+	<xml fileName="core-default.xml">
+		<!-- 该配置的刷新频率，可以动态修改 -->
+		<reloadingStrategy refreshDelay="10000"
+			config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy" />
+	</xml>
+	<!-- 默认 -->
+	<properties fileName="core-default.properties">
+		<!-- 该配置的刷新频率，可以动态修改 -->
+		<reloadingStrategy refreshDelay="100000"
+			config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy" />
+	</properties>
+</configuration>

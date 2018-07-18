@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Hello World!</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap-theme.min.css}" />
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">菜鸟教程</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">C##</a></li>
+					<li><a href="#">Php</a></li>
+					<li><a href="#">.Net</a></li>
+					<li><a href="#">Python</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Java<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">jmeter</a></li>
+							<li><a href="#">EJB</a></li>
+							<li><a href="#">Jasper Report</a></li>
+							<li class="divider"></li>
+							<li><a href="#">分离的链接</a></li>
+							<li class="divider"></li>
+							<li><a href="#">另一个分离的链接</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<form class="bs-example bs-example-form" role="form">
+				<div class="col-md-3 pull-right" style="margin-top: 7px;">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="输入产品名称/单价/描述" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Go!</button>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</nav>
+	<div class="container">
+		<table class="table table-bordered">
+			<caption>
+				<h3>产品列表</h3>
+			</caption>
+			<thead>
+				<tr>
+					<th>产品ID</th>
+					<th>产品名称</th>
+					<th>产品单价</th>
+					<th>产品说明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="prod : ${model.products}" th:id="${prod.id}">
+					<td th:text="${prod.id}">0</td>
+					<td th:text="${prod.name}">Oranges</td>
+					<td th:text="${#numbers.formatDecimal(prod.price,1,2)}">0.99</td>
+					<td th:text="${prod.desc}">这是描述信息</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4"><span style="color: red;">&nbsp;*&nbsp;</span>
+						以上产品均以市场实际价格为准。</td>
+				</tr>
+			</tfoot>
+		</table>
+		<ul class="pagination pagination-md pull-right">
+			<li><a href="#" onclick="">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
+
+		<br /> <br /> <br /> <br />
+		<h1 th:inline="text">Hello.v.2</h1>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">申报报文</h2>
+			</div>
+			<div class="panel-body" th:text="${model.xml}">这里显示的是申报报文的内容，很长很长的一个xml报文。</div>
+		</div>
+		<br /> <br /> <br /> <br />
+
+		<!--<a class="auth" authority="/circulate/delivery/info" onload="checkAuthority(this);">修改</a> -->
+	</div>
+</body>
+</html>
+
+

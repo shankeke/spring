@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jusfoun.mapper.ds0.SysRoleMapper">
+	<resultMap id="BaseResultMap" type="com.jusfoun.entity.SysRole">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="parent_id" property="parentId" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		
+		<result column="status" jdbcType="BIT" property="status" />
+		<result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+		<result column="updater_id" jdbcType="BIGINT" property="updaterId" />
+		<result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+		<result column="updater_name" jdbcType="VARCHAR" property="updaterName" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+
+	<resultMap id="BaseInfoResultMap" extends="BaseResultMap" type="com.jusfoun.entity.SysRole">
+		<association property="sysModules" column="ID" fetchType="lazy"
+			select="com.jusfoun.mapper.ds0.SysModuleMapper.selectByRoleId" />
+	</resultMap>
+	<sql id="Base_Table_Name">
+		sys_role
+	</sql>
+	<sql id="Base_Column_List">
+	<![CDATA[id,name,remark,status,create_time]]>
+	</sql>
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="s.id       != null"><![CDATA[and id = #{s.id ,jdbcType=BIGINT }]]></if>
+			<if test="s.parentId != null"><![CDATA[and parent_id = #{s.parentId ,jdbcType=BIGINT }]]></if>
+			<if test="s.name   != null and s.name   != ''"><![CDATA[and name like CONCAT('%',#{s.name ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="s.status   != null"><![CDATA[and status = #{s.status ,jdbcType=TINYINT }]]></if>
+			<if test="s.remark != null and s.remark != ''"><![CDATA[and remark = #{s.remark ,jdbcType=VARCHAR }]]></if>
+		</where>
+	</sql>
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseInfoResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+
+	<select id="selectByUserId" parameterType="Long" resultMap="BaseInfoResultMap">
+	<![CDATA[ select t.* from sys_role t join sys_role_user t1 on t.ID = t1.ROLE_ID and t1.USER_ID = #{_parameter,jdbcType=BIGINT} ]]>
+	</select>
+	<select id="selectNamesByUserId" parameterType="Long" resultType="String">
+	<![CDATA[ select t.name from sys_role t join sys_role_user t1 on t.ID = t1.ROLE_ID and t1.USER_ID = #{_parameter,jdbcType=BIGINT} ]]>
+	</select>
+</mapper>

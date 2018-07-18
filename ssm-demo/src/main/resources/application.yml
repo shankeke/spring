@@ -1,0 +1,105 @@
+spring:
+  application:
+    name: GovSceneHexie
+  profiles:
+    active:
+     - @profileActive@
+  cache:
+    type: ehcache
+    cache-names:
+    - tempCache
+    - customCache
+    - persistentCache
+    - securityCache
+    ehcache:
+      config: classpath:cache/ehcache/ehcache.xml
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+  mvc:
+    static-path-pattern: /**
+    throw-exception-if-no-handler-found: true
+    date-format: yyyy-MM-dd HH:mm:ss
+    favicon:
+      enabled: true
+  resources:
+    add-mappings: false
+    static-locations:
+    - classpath:/META-INF/resources/
+    - classpath:/resources/
+    - classpath:/static/
+    - classpath:/public/
+    - file:${system.file.upload.root}
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 2000MB
+      max-request-size: 10MB
+      resolve-lazily: true
+      file-size-threshold: 0
+    converters:
+      preferred-json-mapper: jackson
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+      force-request: true
+      force-response: true
+  pid:
+    file: target/${spring.application.name}.pid
+    fail-on-write-error: true
+security:
+#  enable-csrf: false
+#  ignored:
+#  - /**
+#  headers:
+#    cache: true
+#    xss: true
+#  basic:
+#    authorize-mode: authenticated
+#    enabled: true
+#    path:
+#    - /**
+#    realm: Spring
+   jwt:
+    accessTokenExpIn: 60000
+    refreshTokenExpIn: 72000
+    tokenIssuer: tjhx.9cfcf.com
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+mapper:
+    mappers:
+        - tk.mybatis.mapper.common.IdsMapper
+        - com.jusfoun.common.mybatis.mapper.MyMapper
+        - com.jusfoun.common.mybatis.mapper.BaseWithAssociateSelectMapper
+    not-empty: false
+    identity: MYSQL
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+server:
+#  context-path: /aobo
+#  display-name: /AoBo
+  compression:
+    enabled: true
+    mime-types:
+    - application/json
+    - application/xml
+    - text/html
+    - text/xml
+    - text/plain
+    min-response-size: 2048
+  tomcat:
+    basedir: target/tomcat
+    accesslog:
+      enabled: true
+      directory: logs
+    max-threads: 200
+    uri-encoding: UTF-8
+  error:
+    path: /error  
+logging:
+  session:
+    timeout: 60

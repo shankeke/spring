@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache-4.3.xsd
+    ">
+	<bean id="redisSentinelConfiguration"
+		class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
+		<property name="master">
+			<bean class="org.springframework.data.redis.connection.RedisNode"
+				p:name="mymaster" />
+		</property>
+		<property name="sentinels">
+			<set>
+				<bean class="org.springframework.data.redis.connection.RedisNode"
+					c:host="${redis.sentinels.host1}" c:port="${redis.sentinels.port1}" />
+				<bean class="org.springframework.data.redis.connection.RedisNode"
+					c:host="${redis.sentinels.host2}" c:port="${redis.sentinels.port2}" />
+				<bean class="org.springframework.data.redis.connection.RedisNode"
+					c:host="${redis.sentinels.host3}" c:port="${redis.sentinels.port3}" />
+				<!--<bean class="org.springframework.data.redis.connection.RedisNode" 
+					c:host="${redis.sentinels.host4}" c:port="${redis.sentinels.port4}" /> -->
+			</set>
+		</property>
+	</bean>
+	<bean id="jeidsConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		c:sentinelConfig-ref="redisSentinelConfiguration" c:poolConfig-ref="jedisPoolConfig" />
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"
+		p:maxIdle="${redis.pool.maxIdle}" p:maxTotal="${redis.pool.maxActive}"
+		p:maxWaitMillis="${redis.pool.maxWait}" p:testOnBorrow="${redis.pool.testOnBorrow}"
+		p:testOnReturn="${redis.pool.testOnReturn}" />
+
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="jeidsConnectionFactory" />
+	<!-- 设置缓存key生成策略 -->
+	<bean id="keyGenerator" class="com.shanke.common.cache.CustomKeyGenerator" />
+	<!-- redis缓存管理器 -->
+	<!-- <bean id="redisCacheManager" class="org.springframework.data.redis.cache.RedisCacheManager" 
+		c:redisOperations-ref="redisTemplate" p:defaultExpiration="86400" p:loadRemoteCachesOnStartup="false" 
+		/> 开启缓存注解 <cache:annotation-driven cache-manager="redisCacheManager" key-generator="keyGenerator" 
+		mode="proxy" proxy-target-class="false" /> -->
+
+	<cache:annotation-driven cache-manager="redisCacheManager"
+		key-generator="keyGenerator" mode="proxy" proxy-target-class="false" />
+	<bean name="redisCacheManager" class="com.shanke.common.cache.CustomRedisCacheManager">
+		<constructor-arg name="redisOperations" ref="redisTemplate" />
+		<constructor-arg name="cacheNames">
+			<set>
+				<value>cacahe_default</value>
+				<value>cacahe_test</value>
+			</set>
+		</constructor-arg>
+		<!-- 默认缓存名字 -->
+		<property name="defaultCacheName" value="cacahe_default" />
+		<!-- 是否在容器启动时初始化 -->
+		<property name="loadRemoteCachesOnStartup" value="true" />
+		<!-- 是否使用前缀 -->
+		<property name="usePrefix" value="true" />
+		<!-- 前缀命名，仅当usePrefix为true时才生效 -->
+		<property name="cachePrefix">
+			<bean class="org.springframework.data.redis.cache.DefaultRedisCachePrefix">
+				<constructor-arg name="delimiter" value=":" />
+			</bean>
+		</property>
+		<!-- 缓存名字和有效期的分隔符 -->
+		<property name="separator" value="#" />
+		<!-- 默认有效期1h -->
+		<property name="defaultExpiration" value="3600" />
+		<!-- 多个缓存有效期，一般的单个工程可以省略此项 -->
+		<property name="expires">
+			<map>
+				<entry key="cacahe_default" value="1800" />
+				<entry key="cacahe_test" value="1800" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- session共享配置 -->
+	<bean
+		class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"
+		p:maxInactiveIntervalInSeconds="1800" />
+</beans>

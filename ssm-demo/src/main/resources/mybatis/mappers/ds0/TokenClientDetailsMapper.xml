@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jusfoun.mapper.ds0.TokenClientDetailsMapper">
+	<resultMap id="BaseResultMap" type="com.jusfoun.entity.TokenClientDetails">
+		<result column="client_id" property="clientId" jdbcType="VARCHAR" />
+		<result column="client_secret" property="clientSecret" jdbcType="VARCHAR" />
+		<result column="resource_ids" property="resourceIds" typeHandler="com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler" />
+		<result column="scopes" property="scopes" typeHandler="com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler" />
+		<result column="grant_types" property="grantTypes" typeHandler="com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler" />
+		<result column="authorities" property="authorities" typeHandler="com.jusfoun.common.mybatis.handler.BlobVsAuthorityCollectionTypeHandler" />
+		<result column="access_token_validity" property="accessTokenValidity" jdbcType="INTEGER" />
+		<result column="refresh_token_validity" property="refreshTokenValidity" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Table_Name">
+		token_client_details
+	</sql>
+	<sql id="Base_Column_List">
+		*
+	</sql>
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="s.clientId != null"><![CDATA[and client_id = #{s.clientId,jdbcType=VARCHAR}]]></if>
+			<if test="s.clientSecret != null"><![CDATA[and client_secret = #{s.clientSecret,jdbcType=VARCHAR}]]></if>
+		</where>
+	</sql>
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+</mapper>

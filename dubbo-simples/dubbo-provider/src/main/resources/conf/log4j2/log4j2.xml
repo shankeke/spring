@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="Log4j-config.xsd" status="debug" strict="false"
+	name="XMLConfigTest" packages="org.apache.logging.log4j.test">
+	<Properties>
+		<Property name="filename">target/test.log</Property>
+	</Properties>
+	<Filter type="ThresholdFilter" level="trace" />
+
+	<Appenders>
+		<Appender type="Console" name="STDOUT">
+			<Layout type="PatternLayout" pattern="%m MDC%X%n" />
+			<Filters>
+				<Filter type="MarkerFilter" marker="FLOW" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+				<Filter type="MarkerFilter" marker="EXCEPTION" onMatch="DENY"
+					onMismatch="ACCEPT" />
+			</Filters>
+		</Appender>
+		<Appender type="Console" name="FLOW">
+			<Layout type="PatternLayout" pattern="%C{1}.%M %m %ex%n" /><!-- 
+				class and line number -->
+			<Filters>
+				<Filter type="MarkerFilter" marker="FLOW" onMatch="ACCEPT"
+					onMismatch="NEUTRAL" />
+				<Filter type="MarkerFilter" marker="EXCEPTION" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+		</Appender>
+		<Appender type="File" name="File" fileName="${filename}">
+			<Layout type="PatternLayout">
+				<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+			</Layout>
+		</Appender>
+		<Appender type="List" name="List">
+		</Appender>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="org.apache.logging.log4j.test1" level="debug"
+			additivity="false">
+			<Filter type="ThreadContextMapFilter">
+				<KeyValuePair key="test" value="123" />
+			</Filter>
+			<AppenderRef ref="STDOUT" />
+		</Logger>
+
+		<Logger name="org.apache.logging.log4j.test2" level="debug"
+			additivity="false">
+			<AppenderRef ref="File" />
+		</Logger>
+
+		<Root level="trace">
+			<AppenderRef ref="List" />
+		</Root>
+	</Loggers>
+
+</Configuration>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+	<contextName>myboot</contextName>
+	<!-- <include resource="org/springframework/boot/logging/logback/base.xml" 
+		/> -->
+	<!-- 定义日志出输出路径 -->
+	<!-- <property name="LOG_HOME" value="D:/logs" /> -->
+	<property name="LOG_PATH" value="${spring-mvc-demo.root}/logs" />
+	<
+
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>
+				%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger -
+				%msg %n
+			</Pattern>
+			<!-- <Pattern> .%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg 
+				%n </Pattern> -->
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter>
+	</appender>
+
+	<!-- 按天滚动文件输出 -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<File>${LOG_PATH}/log.txt</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<FileNamePattern>
+				${LOG_PATH}/log.%d{yyyy-MM-dd}.%i.txt
+			</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>300MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 20 days' worth of history -->
+			<maxHistory>20</maxHistory>
+		</rollingPolicy>
+		<!-- append是否接着上次写文件结尾继续写，默认为true -->
+		<append>true</append>
+		<encoder>
+			<Pattern>
+				%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger -
+				%msg %n
+			</Pattern>
+			<!-- <Pattern> %d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg 
+				%n </Pattern> -->
+		</encoder>
+	</appender>
+
+	<!-- spring日志输出 -->
+	<logger name="org.springframework.web" level="WARN" />
+
+	<!-- hibernate日志输出 -->
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder"
+		level="DEBUG" />
+	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor"
+		level="DEBUG" />
+	<logger name="org.hibernate.SQL" level="DEBUG" />
+	<logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
+	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />
+
+	<!-- 配置sql中日志输出级别 -->
+	<logger name="java.sql" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- 配置ibatis中日志输出级别 -->
+	<logger name="com.ibatis" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- 项目代码日志级别 -->
+	<logger name="com.shanke" level="DEBUG" additivity="true" />
+
+	<!-- 开发环境 -->
+	<springProfile name="dev">
+		<logger name="com.shanke" level="DEBUG" additivity="true" />
+	</springProfile>
+	<!-- 生产环境 -->
+	<springProfile name="pro">
+		<logger name="com.shanke" level="WARN" additivity="true" />
+	</springProfile>
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
