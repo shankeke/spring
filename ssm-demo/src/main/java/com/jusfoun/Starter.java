@@ -14,7 +14,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})
 public class Starter {
+	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(Starter.class, args);
 	}
+	
 }
