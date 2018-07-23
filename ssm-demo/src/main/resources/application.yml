@@ -71,7 +71,7 @@ mapper:
     mappers:
         - tk.mybatis.mapper.common.IdsMapper
         - com.jusfoun.common.mybatis.mapper.MyMapper
-        - com.jusfoun.common.mybatis.mapper.BaseWithAssociateSelectMapper
+        - com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper
     not-empty: false
     identity: MYSQL
 pagehelper:

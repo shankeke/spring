@@ -2,10 +2,10 @@ package com.jusfoun.mapper.ds0;
 
 import java.util.List;
 
-import com.jusfoun.common.mybatis.mapper.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
 import com.jusfoun.entity.SysModule;
 
-public interface SysModuleMapper extends BaseWithAssociateSelectMapper<SysModule> {
+public interface SysModuleMapper extends BaseWithAssociateMapper<SysModule> {
 
 	/**
 	 * 描述 :根据角色ID查询角色拥有的权限列表. <br>

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jusfoun.common.base.service.BaseWithAssociateService;
 import com.jusfoun.common.exception.ServiceException;
-import com.jusfoun.common.mybatis.mapper.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.mybatis.page.IPage;
 
 /**

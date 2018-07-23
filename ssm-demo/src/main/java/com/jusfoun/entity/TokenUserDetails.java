@@ -23,7 +23,7 @@ import org.springframework.util.Assert;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jusfoun.common.mybatis.handler.BlobVsAuthorityCollectionTypeHandler;
+import com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.support.token.Token;
 import com.jusfoun.security.support.token.factory.TokenFactory;

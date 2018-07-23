@@ -142,7 +142,7 @@ public class SysRoleController extends BaseController {
 			@ApiParam(value = "页长", defaultValue = "10") @RequestParam(name = "pageSize", defaultValue = "10", required = false) Integer pageSize //
 	) {
 		try {
-			IPage<SysRole> page = new IPage<>(pageable, pageNum, pageSize, "id ASC");
+			IPage<SysRole> page = new IPage<SysRole>(pageable, pageNum, pageSize, "id ASC");
 			page = sysRoleService.selectPageWithAssociate(Maps.newHashMap(), page);
 			return BaseResponse.success(page);
 		} catch (ServiceException e) {

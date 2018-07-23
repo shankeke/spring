@@ -57,7 +57,7 @@ public class SysLogController extends BaseController {
 			@ApiParam(value = "操作类型：0-查询所有，1-查询登录日志", defaultValue = "0") @RequestParam(defaultValue = "0") Integer type //
 	) {
 
-		IPage<SysLog> page = new IPage<>(pageable, pageNum, pageSize, "create_time desc");
+		IPage<SysLog> page = new IPage<SysLog>(pageable, pageNum, pageSize, "create_time desc");
 		try {
 			Example example = new Example(SysLog.class);
 			// example.setOrderByClause("create_time desc");

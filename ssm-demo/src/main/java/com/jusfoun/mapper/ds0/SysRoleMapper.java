@@ -2,10 +2,10 @@ package com.jusfoun.mapper.ds0;
 
 import java.util.List;
 
-import com.jusfoun.common.mybatis.mapper.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
 import com.jusfoun.entity.SysRole;
 
-public interface SysRoleMapper extends BaseWithAssociateSelectMapper<SysRole> {
+public interface SysRoleMapper extends BaseWithAssociateMapper<SysRole> {
 
 	/**
 	 * 描述 :根据用户ID查询用户角色列表. <br>

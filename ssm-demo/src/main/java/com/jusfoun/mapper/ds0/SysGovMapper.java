@@ -2,11 +2,11 @@ package com.jusfoun.mapper.ds0;
 
 import java.util.List;
 
-import com.jusfoun.common.mybatis.mapper.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.entity.SysUser;
 
-public interface SysGovMapper extends BaseWithAssociateSelectMapper<SysGov> {
+public interface SysGovMapper extends BaseWithAssociateMapper<SysGov> {
 	/**
 	 * 描述 :根据ID 查询名称. <br>
 	 *

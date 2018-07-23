@@ -18,8 +18,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.jusfoun.common.mybatis.handler.BlobVsAuthorityCollectionTypeHandler;
-import com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler;
+import com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler;
+import com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.RawGrantedAuthority;

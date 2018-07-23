@@ -15,25 +15,25 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月7日 上午10:26:34
  */
 @ApiModel
-public class IPage<T> extends IPageBase {
+public class IPage<T> extends IPageable {
 	private static final long serialVersionUID = -4026620219669217389L;
 
 	/**
 	 * 总条数
 	 */
-	@ApiModelProperty("总条数")
+	@ApiModelProperty(value = "数据总条数")
 	private int totalCount;
 
 	/**
 	 * 总页数
 	 */
-	@ApiModelProperty("总页数")
+	@ApiModelProperty("数据总页数")
 	private int totalPage;
 
 	/**
 	 * 当前页数据
 	 */
-	@ApiModelProperty("当前页数据")
+	@ApiModelProperty("当前页数据集合")
 	private List<T> list;
 
 	/**

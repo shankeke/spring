@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.mybatis.handler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
 
 /**
  * 描述 : 项目执行阶段枚举类. <br>

@@ -1,6 +1,6 @@
 package com.jusfoun.web.runner;
 
-import com.jusfoun.common.mybatis.handler.enumtype.StringValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.StringValueEnum;
 
 /**
  * 描述:客户端类型. <br>

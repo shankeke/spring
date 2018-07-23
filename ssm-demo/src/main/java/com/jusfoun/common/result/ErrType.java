@@ -1,6 +1,6 @@
 package com.jusfoun.common.result;
 
-import com.jusfoun.common.mybatis.handler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
 
 /**
  * 描述 : 业务异常枚举类. <br>
