@@ -23,7 +23,7 @@ public interface SysGovService extends BaseEntityWithAssociateService<SysGov> {
 	 *            ID
 	 * @return 名称
 	 */
-	String selectNameByPrimaryKey(Integer id);
+	String selectNameByPrimaryKey(Long id);
 
 	/**
 	 * 描述 : 根据父节点ID查询子节点列表. <br>
@@ -34,6 +34,6 @@ public interface SysGovService extends BaseEntityWithAssociateService<SysGov> {
 	 *            父节点ID
 	 * @return 子节点集合
 	 */
-	List<SysUser> selectByParentId(Integer parentId);
+	List<SysUser> selectByParentId(Long parentId);
 
 }

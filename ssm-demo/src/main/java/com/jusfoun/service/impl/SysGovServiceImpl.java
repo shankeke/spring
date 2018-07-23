@@ -24,12 +24,12 @@ public class SysGovServiceImpl extends BaseEntityWithAssociateServiceImpl<SysGov
 	private SysGovMapper sysGovMapper;
 
 	@Override
-	public String selectNameByPrimaryKey(Integer id) {
+	public String selectNameByPrimaryKey(Long id) {
 		return sysGovMapper.selectNameByPrimaryKey(id);
 	}
 
 	@Override
-	public List<SysUser> selectByParentId(Integer parentId) {
+	public List<SysUser> selectByParentId(Long parentId) {
 		return sysGovMapper.selectByParentId(parentId);
 	}
 }
