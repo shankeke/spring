@@ -5,12 +5,15 @@ import java.util.List;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
+
 /**
  * 描述 : 批量插入，需要指定每条数据的主键值<br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月22日 上午10:43:18
  */
+@RegisterMapper
 public interface InsertListWithPrimaryKeyMapper<T> {
 
 	/**

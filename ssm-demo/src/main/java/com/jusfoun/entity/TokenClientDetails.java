@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.ibatis.type.JdbcType;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler;
@@ -71,8 +72,8 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 	 */
 	@ApiModelProperty("资源ID")
 	@XmlElementWrapper(name = "resourceIds")
-	@XmlElement(name = "resourceIds")
-	@ColumnType(column = "resource_ids", typeHandler = VarcharVsStringArrayTypeHandler.class)
+	@XmlElement(name = "resourceId")
+	@ColumnType(column = "resource_ids", jdbcType = JdbcType.VARCHAR, typeHandler = VarcharVsStringArrayTypeHandler.class)
 	private String[] resourceIds;
 
 	/**
@@ -80,7 +81,8 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 	 */
 	@ApiModelProperty("作用范围")
 	@XmlElementWrapper(name = "scopes")
-	@ColumnType(column = "scopes", typeHandler = VarcharVsStringArrayTypeHandler.class)
+	@XmlElement(name = "scope")
+	@ColumnType(column = "scopes", jdbcType = JdbcType.VARCHAR, typeHandler = VarcharVsStringArrayTypeHandler.class)
 	private String[] scopes;
 
 	/**
@@ -88,8 +90,8 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 	 */
 	@ApiModelProperty("授权方式")
 	@XmlElementWrapper(name = "grantTypes")
-	@XmlElement(name = "grantTypes")
-	@ColumnType(column = "grant_types", typeHandler = VarcharVsStringArrayTypeHandler.class)
+	@XmlElement(name = "grantType")
+	@ColumnType(column = "grant_types", jdbcType = JdbcType.VARCHAR, typeHandler = VarcharVsStringArrayTypeHandler.class)
 	private String[] grantTypes;
 
 	/**
@@ -111,7 +113,7 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 	 */
 	@ApiModelProperty("权限集合")
 	@XmlTransient
-	@ColumnType(column = "authorities", typeHandler = BlobVsAuthorityCollectionTypeHandler.class)
+	@ColumnType(column = "authorities", jdbcType = JdbcType.BLOB, typeHandler = BlobVsAuthorityCollectionTypeHandler.class)
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public TokenClientDetails() {

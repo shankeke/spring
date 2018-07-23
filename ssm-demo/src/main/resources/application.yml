@@ -68,12 +68,14 @@ security:
     tokenIssuer: tjhx.9cfcf.com
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
 mapper:
-    mappers:
-        - tk.mybatis.mapper.common.IdsMapper
-        - com.jusfoun.common.mybatis.mapper.MyMapper
-        - com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper
+#    mappers:
+#        - com.jusfoun.common.mybatis.mapper.MyMapper
+#        - com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper
     not-empty: false
     identity: MYSQL
+    style: camelhumpanduppercase
+    enable-method-annotation: true
+    
 pagehelper:
     helperDialect: mysql
     reasonable: true

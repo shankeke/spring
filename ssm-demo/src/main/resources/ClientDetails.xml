@@ -4,7 +4,7 @@
 		<clientId>app_client</clientId>
 		<clientSecret>123456</clientSecret>
 		<resourceIds>
-			<resourceIds>app_client</resourceIds>
+			<resourceId>app_client</resourceId>
 		</resourceIds>
 		<scopes>
 			<scope>read</scope>
@@ -12,8 +12,8 @@
 			<scope>trust</scope>
 		</scopes>
 		<grantTypes>
-			<grantTypes>password</grantTypes>
-			<grantTypes>refresh_token</grantTypes>
+			<grantType>password</grantType>
+			<grantType>refresh_token</grantType>
 		</grantTypes>
 		<accessTokenValidity>864000</accessTokenValidity>
 		<refreshTokenValidity>864000</refreshTokenValidity>
@@ -22,7 +22,7 @@
 		<clientId>web_client</clientId>
 		<clientSecret>123456</clientSecret>
 		<resourceIds>
-			<resourceIds>web_client</resourceIds>
+			<resourceId>web_client</resourceId>
 		</resourceIds>
 		<scopes>
 			<scope>read</scope>
@@ -30,8 +30,8 @@
 			<scope>trust</scope>
 		</scopes>
 		<grantTypes>
-			<grantTypes>password</grantTypes>
-			<grantTypes>refresh_token</grantTypes>
+			<grantType>password</grantType>
+			<grantType>refresh_token</grantType>
 		</grantTypes>
 		<accessTokenValidity>7200</accessTokenValidity>
 		<refreshTokenValidity>7200</refreshTokenValidity>
@@ -40,7 +40,7 @@
 		<clientId>bigdata_client</clientId>
 		<clientSecret>123456</clientSecret>
 		<resourceIds>
-			<resourceIds>bigdata_client</resourceIds>
+			<resourceId>bigdata_client</resourceId>
 		</resourceIds>
 		<scopes>
 			<scope>read</scope>
@@ -48,8 +48,8 @@
 			<scope>trust</scope>
 		</scopes>
 		<grantTypes>
-			<grantTypes>password</grantTypes>
-			<grantTypes>refresh_token</grantTypes>
+			<grantType>password</grantType>
+			<grantType>refresh_token</grantType>
 		</grantTypes>
 		<accessTokenValidity>14400</accessTokenValidity>
 		<refreshTokenValidity>14400</refreshTokenValidity>

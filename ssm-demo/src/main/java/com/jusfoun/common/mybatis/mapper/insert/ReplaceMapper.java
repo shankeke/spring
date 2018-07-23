@@ -2,12 +2,15 @@ package com.jusfoun.common.mybatis.mapper.insert;
 
 import org.apache.ibatis.annotations.InsertProvider;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
+
 /**
  * 描述 : 覆盖插入一条数据. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 上午9:24:14
  */
+@RegisterMapper
 public interface ReplaceMapper<T> {
 
 	/**

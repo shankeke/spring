@@ -4,12 +4,15 @@ import com.jusfoun.common.mybatis.mapper.delete.DeleteByPrimaryKeysMapper;
 import com.jusfoun.common.mybatis.mapper.delete.DeleteListByPrimaryKeyMapper;
 import com.jusfoun.common.mybatis.mapper.delete.DeleteListMapper;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
+
 /**
  * 描述 :批量删除基础接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月21日 下午7:05:13
  */
+@RegisterMapper
 public interface BaseDeleteListMapper<T> extends//
 		DeleteListMapper<T>, //
 		DeleteListByPrimaryKeyMapper<T>, //

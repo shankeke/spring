@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.DeleteProvider;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
+
 /**
  * 描述 : 根据主键字段进行批量删除. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月21日 上午11:44:11
  */
+@RegisterMapper
 public interface DeleteListByPrimaryKeyMapper<T> {
 
 	/**

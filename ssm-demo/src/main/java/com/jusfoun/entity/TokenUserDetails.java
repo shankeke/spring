@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.apache.ibatis.type.JdbcType;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -90,7 +91,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	 * 权限集合
 	 */
 	@ApiModelProperty("权限集合")
-	@ColumnType(column = "authorities", typeHandler = BlobVsAuthorityCollectionTypeHandler.class)
+	@ColumnType(column = "authorities", jdbcType = JdbcType.BLOB, typeHandler = BlobVsAuthorityCollectionTypeHandler.class)
 	private Collection<? extends GrantedAuthority> authorities;
 
 	/**

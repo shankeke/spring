@@ -6,6 +6,7 @@ import com.jusfoun.common.mybatis.mapper.base.BaseUpdateListMapper;
 import com.jusfoun.common.mybatis.mapper.insert.InsertListWithPrimaryKeyMapper;
 import com.jusfoun.common.mybatis.mapper.select.SelectByPrimaryKeysMapper;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
@@ -15,6 +16,7 @@ import tk.mybatis.mapper.common.MySqlMapper;
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:17
  */
+@RegisterMapper
 public interface MyMapper<T> extends //
 		Mapper<T>, //
 		MySqlMapper<T>, //

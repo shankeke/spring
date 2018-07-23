@@ -5,12 +5,15 @@ import java.util.List;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.UpdateProvider;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
+
 /**
  * 描述 : 根据主键批量修改，需要指定每条数据的主键值，并且只修改非空字段<br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月22日 上午10:43:18
  */
+@RegisterMapper
 public interface UpdateListByPrimaryKeySelectiveMapper<T> {
 
 	/**

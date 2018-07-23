@@ -3,12 +3,15 @@ package com.jusfoun.common.mybatis.mapper.base;
 import java.util.List;
 import java.util.Map;
 
+import tk.mybatis.mapper.annotation.RegisterMapper;
+
 /**
  * 描述:定义一些涉及到根据自定义特殊条件查询或者返回自定义ResultMap结果集的接口，继承该接口类记得在xml文件中定义对应的动态sql映射。 <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 上午11:15:38
  */
+@RegisterMapper
 public interface BaseWithAssociateSelectMapper<T> {
 
 	/**

@@ -60,16 +60,16 @@ public class StartupRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// log.info(">> ### 服务启动执行,系统初始化选项执行开始 ### <<");
-		// log.info("--> 清理系统缓存.... ");
-		// cacheService.clear();
+		log.info(">> ### 服务启动执行,系统初始化选项执行开始 ### <<");
+		log.info("--> 清理系统缓存.... ");
+		cacheService.clear();
 		// log.info("--> 初始化系统权限列表.... ");
 		// initSysModules();// 初始化企业信息
-		// log.info("--> 初始化客户端权限信息.... ");
-		// initClients();// 初始化企业信息
-		// log.info("--> 初始化系统管理员信息.... ");
-		// initAdmin();// 初始化系统管理员信息
-		// log.info(">> ### 服务启动执行,系统初始化选项执行结束 ### <<");
+		log.info("--> 初始化客户端权限信息.... ");
+		initClients();// 初始化企业信息
+		log.info("--> 初始化系统管理员信息.... ");
+		initAdmin();// 初始化系统管理员信息
+		log.info(">> ### 服务启动执行,系统初始化选项执行结束 ### <<");
 	}
 
 	/**
@@ -133,6 +133,7 @@ public class StartupRunner implements CommandLineRunner {
 			for (TokenClientDetails t : list) {
 				t.setClientSecret(passwordEncoder.encode(t.getClientSecret()));
 				t.setAuthorities(sysModuleService.selectAuthorities(t.getClientId()));
+				// tokenClientService.replaceAndCache(t);
 				tokenClientService.replaceAndCache(t);
 			}
 		}
