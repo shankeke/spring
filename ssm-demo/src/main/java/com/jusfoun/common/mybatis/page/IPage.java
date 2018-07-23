@@ -1,11 +1,7 @@
-package com.jusfoun.common.mybatis;
+package com.jusfoun.common.mybatis.page;
 
-import java.io.Serializable;
 import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
-
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,36 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月7日 上午10:26:34
  */
 @ApiModel
-public class IPage<T> implements Serializable {
+public class IPage<T> extends IPageBase {
 	private static final long serialVersionUID = -4026620219669217389L;
-
-	/**
-	 * 默认页码
-	 */
-	public static final int DEFAULT_PAGENUM = 1;
-
-	/**
-	 * 默认页长
-	 */
-	public static final int DEFAULT_PAGESIZE = 10;
-
-	/**
-	 * 是否分页，默认分页
-	 */
-	@ApiModelProperty("是否分页，默认true")
-	private boolean pageable = true;
-
-	/**
-	 * 页码
-	 */
-	@ApiModelProperty("页码")
-	private int pageNum;
-
-	/**
-	 * 页长
-	 */
-	@ApiModelProperty("页长")
-	private int pageSize;
 
 	/**
 	 * 总条数
@@ -132,8 +100,8 @@ public class IPage<T> implements Serializable {
 			pageNum = DEFAULT_PAGENUM;
 		}
 
-		this.pageSize = pageSize;
-		this.pageNum = pageNum;
+		setPageSize(pageSize);
+		setPageNum(pageNum);
 		this.orderByClause = orderByClause;
 	}
 
@@ -184,9 +152,9 @@ public class IPage<T> implements Serializable {
 		this.totalCount = totalCount;
 		this.totalPage = getTotalPage(pageSize, totalCount);
 		if (pageNum > this.totalPage) {
-			this.pageNum = this.totalPage;
+			setPageNum(this.totalPage);
 		} else {
-			this.pageNum = pageNum;
+			setPageNum(pageNum);
 		}
 		getNextPage(pageNum, totalPage);
 		getPrevPage(pageNum, totalPage);
@@ -358,6 +326,38 @@ public class IPage<T> implements Serializable {
 		return totalPage;
 	}
 
+	public int getTotalPage() {
+		return getTotalPage(getPageSize(), totalCount);
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	/**
+	 * 描述:是否有下一页. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年1月17日 上午10:22:26
+	 * @return 有下一页-true，没有下一页（即当前页是最后一页）-false
+	 */
+	@ApiModelProperty("是否有下一页")
+	public boolean isNextPage() {
+		return getNextPage(getPageNum(), getTotalPage());
+	}
+
+	/**
+	 * 描述:是否有上一页. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年1月17日 上午10:22:26
+	 * @return 有上一页-true，没有上一页（即当前页是第一页）-false
+	 */
+	@ApiModelProperty("是否有上一页")
+	public boolean isPrevPage() {
+		return getPrevPage(getPageNum(), getTotalPage());
+	}
+
 	public String getOrderByClause() {
 		return orderByClause;
 	}
@@ -374,98 +374,11 @@ public class IPage<T> implements Serializable {
 		this.totalCount = totalCount;
 	}
 
-	public int getTotalPage() {
-		return getTotalPage(pageSize, totalCount);
-	}
-
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-
-	public int getPageNum() {
-		return pageNum;
-	}
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
 	public List<T> getList() {
 		return list;
 	}
 
 	public void setList(List<T> list) {
 		this.list = list;
-	}
-
-	/**
-	 * 描述:是否有下一页. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年1月17日 上午10:22:26
-	 * @return 有下一页-true，没有下一页（即当前页是最后一页）-false
-	 */
-	@ApiModelProperty("是否有下一页")
-	public boolean isNextPage() {
-		return getNextPage(pageNum, getTotalPage());
-	}
-
-	/**
-	 * 描述:是否有上一页. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年1月17日 上午10:22:26
-	 * @return 有上一页-true，没有上一页（即当前页是第一页）-false
-	 */
-	@ApiModelProperty("是否有上一页")
-	public boolean isPrevPage() {
-		return getPrevPage(pageNum, getTotalPage());
-	}
-
-	public boolean isPageable() {
-		return pageable;
-	}
-
-	public void setPageable(boolean pageable) {
-		this.pageable = pageable;
-	}
-
-	/**
-	 * 描述: 根据一个json对象获取分页信息. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年1月17日 上午10:27:02
-	 * @param json
-	 *            json对象
-	 * @return 分页信息
-	 */
-	public static <T> IPage<T> getPage(JSONObject json) {
-		Integer pageNum = json.getInteger("pageNum");
-		Integer pageSize = json.getInteger("pageSize");
-		if (null == json || (null == pageNum && null == pageSize)) {
-			return new IPage<T>(DEFAULT_PAGENUM, Integer.MAX_VALUE);
-		}
-		return new IPage<T>(pageNum, pageSize);
-	}
-
-	/**
-	 * 描述: 根据一个page对象获取生成一个mybatis的分页边界对象. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年1月17日 上午10:24:40
-	 * @param page
-	 *            分页信息
-	 * @return mybatis分页边界对象
-	 */
-	public static RowBounds getRowBounds(IPage<?> page) {
-		return new RowBounds((page.getPageNum() - 1) * page.getPageSize(), page.getPageSize());
 	}
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jusfoun.common.exception.ServiceException;
-import com.jusfoun.common.mybatis.IPage;
+import com.jusfoun.common.mybatis.page.IPage;
 
 /**
  * 描述 :一些涉及到关联数据的查询接口. <br>

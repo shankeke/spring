@@ -24,7 +24,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		t.setRealName("王五");
 		t.setPassword("123456");
 		t.setStatus(UsingStatus.Enable.getValue());
-		t.setGender((byte) 2);
+		t.setGender(2);
 		t.setMobile("13460398985");
 		t.setEmail("156@163.com");
 		t.setGovId(3L);

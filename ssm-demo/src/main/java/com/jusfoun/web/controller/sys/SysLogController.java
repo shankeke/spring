@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jusfoun.common.annotation.Logable;
 import com.jusfoun.common.base.BaseController;
 import com.jusfoun.common.exception.ControllerException;
-import com.jusfoun.common.mybatis.IPage;
+import com.jusfoun.common.mybatis.page.IPage;
 import com.jusfoun.common.result.BaseResponse;
 import com.jusfoun.common.result.ErrType;
 import com.jusfoun.entity.SysLog;
