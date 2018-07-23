@@ -14,7 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Sets;
-import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
+import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.exception.ServiceException;
@@ -25,13 +25,14 @@ import com.jusfoun.security.RawGrantedAuthority;
 import com.jusfoun.service.SysModuleService;
 
 /**
- * 描述 : <文件描述>. <br>
+ * 描述:系统权限业务接口实现. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月12日 下午5:50:49
  */
-@Service("sysModuleService")
-public class SysModuleServiceImpl extends BaseWithAssociateServiceImpl<SysModule> implements SysModuleService {
+@Service
+public class SysModuleServiceImpl extends BaseEntityWithAssociateServiceImpl<SysModule> implements SysModuleService {
+
 	@Autowired
 	private SysModuleMapper sysModuleMapper;
 
@@ -47,6 +48,11 @@ public class SysModuleServiceImpl extends BaseWithAssociateServiceImpl<SysModule
 		Date date = new Date();
 		root.setCreateDate(root.getCreateDate() == null ? date : root.getCreateDate());
 		root.setUpdateDate(root.getUpdateDate() == null ? date : root.getUpdateDate());
+
+		root.setUpdaterName(StringUtils.isEmpty(root.getUpdaterName()) ? "admin" : root.getUpdaterName());
+		root.setCreatorName(StringUtils.isEmpty(root.getCreatorName()) ? "admin" : root.getCreatorName());
+
+		root.setRemark(StringUtils.isEmpty(root.getRemark()) ? root.getName() : root.getRemark());
 		root.setStatus(root.getStatus() == null ? UsingStatus.Enable.getValue() : root.getStatus());
 		saveSysModulesByLoop(root);
 	}
@@ -73,6 +79,9 @@ public class SysModuleServiceImpl extends BaseWithAssociateServiceImpl<SysModule
 				item.setUpdaterId(item.getUpdaterId() == null ? root.getUpdaterId() : item.getUpdaterId());
 				item.setCreateDate(item.getCreateDate() == null ? root.getCreateDate() : item.getCreateDate());
 				item.setUpdateDate(item.getUpdateDate() == null ? root.getUpdateDate() : item.getUpdateDate());
+				item.setUpdaterName(StringUtils.isEmpty(item.getUpdaterName()) ? root.getUpdaterName() : item.getUpdaterName());
+				item.setCreatorName(StringUtils.isEmpty(item.getCreatorName()) ? root.getCreatorName() : item.getCreatorName());
+				item.setRemark(StringUtils.isEmpty(item.getRemark()) ? root.getName() : item.getRemark());
 				item.setStatus(item.getStatus() == null ? root.getStatus() : item.getStatus());
 				// 递归调用
 				saveSysModulesByLoop(item);

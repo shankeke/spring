@@ -32,11 +32,11 @@
 	</sql>
 	<sql id="Base_Where_Clause">
 		<where>
-			<if test="id           != null "><![CDATA[and id = #{id,jdbcType=BIGINT}]]></if>
-			<if test="clientId     != null "><![CDATA[and client_id = #{clientId,jdbcType=VARCHAR}]]></if>
-			<if test="username     != null "><![CDATA[and username = #{username,jdbcType=VARCHAR}]]></if>
-			<if test="accessToken  != null "><![CDATA[and access_token = #{accessToken,jdbcType=VARCHAR}]]></if>
-			<if test="refreshToken != null "><![CDATA[and refresh_token = #{refreshToken,jdbcType=VARCHAR}]]></if>
+			<if test="id       != null "><![CDATA[and id = #{id,jdbcType=BIGINT}]]></if>
+			<if test="clientId != null and clientId != ''"><![CDATA[and client_id = #{clientId,jdbcType=VARCHAR}]]></if>
+			<if test="username != null and username != ''"><![CDATA[and username = #{username,jdbcType=VARCHAR}]]></if>
+			<if test="accessToken != null and accessToken != ''"><![CDATA[and access_token = #{accessToken,jdbcType=VARCHAR}]]></if>
+			<if test="refreshToken != null and refreshToken != ''"><![CDATA[and refresh_token = #{refreshToken,jdbcType=VARCHAR}]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">

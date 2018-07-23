@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
+import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.mapper.ds0.SysGovMapper;
@@ -18,9 +17,8 @@ import com.jusfoun.service.SysGovService;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:04:49
  */
-@Service("sysGovService")
-@Transactional
-public class SysGovServiceImpl extends BaseWithAssociateServiceImpl<SysGov> implements SysGovService {
+@Service
+public class SysGovServiceImpl extends BaseEntityWithAssociateServiceImpl<SysGov> implements SysGovService {
 
 	@Autowired
 	private SysGovMapper sysGovMapper;

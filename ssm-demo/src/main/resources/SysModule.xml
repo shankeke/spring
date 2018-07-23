@@ -11,11 +11,6 @@
 			<url>/hxleader/manage</url>
 			<type>1</type>
 			<clientId>web_client</clientId>
-			<!-- <sysModules> <sysModule> <name>养殖基地监测</name> <url>/hxleader/breedBaseMonitoring</url> 
-				<type>3</type> </sysModule> <sysModule> <name>当年溯源码使用情况</name> <url>/hxleader/breedBaseMonitoring</url> 
-				<type>3</type> </sysModule> <sysModule> <name>当年产品销售分布</name> <url>/hxleader/yearSaleAmount</url> 
-				<type>3</type> </sysModule> <sysModule> <name>当年投入品采购及使用走势</name> <url>/root</url> 
-				<type>3</type> </sysModule> </sysModules> -->
 		</sysModule>
 		<sysModule>
 			<name>生产计划管理</name>

@@ -199,7 +199,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	// GET请求的忽略接口
 	private static final String[] ignoreGetResources = new String[]{ //
 			"/hxtraceabilitycode/showCode", // 二维码请求
-			"/swagger-resources/**",//
+			"/swagger-resources/**", //
 			"/v2/**",//
 	};
 
@@ -225,7 +225,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			"/app/hxbreedingbase/baseTraceVideoList", //
 			"/app/hxiotequipment/appList", //
 			"/app/hxbreedingbase/bindList", //
-			"/swagger-resources/**",//
+			"/swagger-resources/**", //
 			"/test/**"//
 	};
 }

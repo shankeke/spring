@@ -82,8 +82,8 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
 server:
-#  context-path: /aobo
-#  display-name: /AoBo
+  context-path: /aobo
+  display-name: /AoBo
   compression:
     enabled: true
     mime-types:

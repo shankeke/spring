@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.service.BaseWithAssociateService;
+import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.entity.SysUser;
 
@@ -10,7 +10,7 @@ import com.jusfoun.entity.SysUser;
  * @author yjw@jusfoun.com
  * @date 2017年10月12日 下午5:51:27
  */
-public interface SysUserService extends BaseWithAssociateService<SysUser> {
+public interface SysUserService extends BaseEntityWithAssociateService<SysUser> {
 	/**
 	 * 描述 : 根据用户名名称查询用户. <br>
 	 *

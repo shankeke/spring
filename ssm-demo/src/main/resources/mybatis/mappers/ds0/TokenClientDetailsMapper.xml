@@ -15,6 +15,7 @@
 		<result column="access_token_validity" property="accessTokenValidity" jdbcType="INTEGER" />
 		<result column="refresh_token_validity" property="refreshTokenValidity" jdbcType="INTEGER" />
 	</resultMap>
+
 	<sql id="Base_Table_Name">
 		token_client_details
 	</sql>

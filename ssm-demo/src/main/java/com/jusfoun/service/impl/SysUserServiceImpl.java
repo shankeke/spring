@@ -9,7 +9,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
+import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.result.ErrType;
@@ -22,13 +22,13 @@ import com.jusfoun.mapper.ds0.SysUserMapper;
 import com.jusfoun.service.SysUserService;
 
 /**
- * 描述 :系统用户信息管理. <br>
+ * 描述 :系统用户信息管理业务接口实现. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月24日 下午7:00:05
  */
-@Service("sysUserService")
-public class SysUserServiceImpl extends BaseWithAssociateServiceImpl<SysUser> implements SysUserService {
+@Service
+public class SysUserServiceImpl extends BaseEntityWithAssociateServiceImpl<SysUser> implements SysUserService {
 
 	@Autowired
 	private SysUserMapper sysUserMapper;

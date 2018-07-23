@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.service.BaseService;
+import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
 import com.jusfoun.entity.SysLog;
 
 /**
@@ -9,5 +9,5 @@ import com.jusfoun.entity.SysLog;
  * @author yjw@jusfoun.com
  * @date 2017年10月10日 下午2:53:19
  */
-public interface SysLogService extends BaseService<SysLog> {
+public interface SysLogService extends BaseEntityWithAssociateService<SysLog> {
 }

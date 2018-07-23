@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.service.BaseWithAssociateService;
+import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.entity.SysRole;
 
@@ -10,7 +10,7 @@ import com.jusfoun.entity.SysRole;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午4:29:06
  */
-public interface SysRoleService extends BaseWithAssociateService<SysRole> {
+public interface SysRoleService extends BaseEntityWithAssociateService<SysRole> {
 
 	/**
 	 * 描述 : 保存角色和角色的权限关系. <br>

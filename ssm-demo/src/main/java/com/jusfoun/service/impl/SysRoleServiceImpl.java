@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
+import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.exception.ServiceException;
@@ -22,8 +22,14 @@ import com.jusfoun.mapper.ds0.SysRoleMapper;
 import com.jusfoun.mapper.ds0.SysRoleModuleMapper;
 import com.jusfoun.service.SysRoleService;
 
-@Service("sysRoleService")
-public class SysRoleServiceImpl extends BaseWithAssociateServiceImpl<SysRole> implements SysRoleService {
+/**
+ * 描述:系统角色业务接口实现. <br>
+ * 
+ * @author yjw@jusfoun.com
+ * @date 2018年7月23日 下午5:22:38
+ */
+@Service
+public class SysRoleServiceImpl extends BaseEntityWithAssociateServiceImpl<SysRole> implements SysRoleService {
 
 	@Autowired
 	private SysRoleMapper sysRoleMapper;

@@ -6,6 +6,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,6 +29,15 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:09:48
  */
 @ApiModel
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "root")
+@XmlType(name = "SysModule", propOrder = { //
+		"name", //
+		"url", //
+		"type", //
+		"clientId", //
+		"sysModules" //
+})
 @JsonIgnoreProperties(value = {"handler"})
 @Table(name = "sys_module")
 public class SysModule extends BaseEntity<SysModule> {
@@ -31,6 +47,7 @@ public class SysModule extends BaseEntity<SysModule> {
 	 * 权限名称
 	 */
 	@ApiModelProperty("权限名称")
+	@XmlElement(name = "name")
 	private String name;
 
 	/**
@@ -38,12 +55,14 @@ public class SysModule extends BaseEntity<SysModule> {
 	 */
 	@ApiModelProperty("父节点ID")
 	@Column(name = "parent_id")
+	@XmlTransient
 	private Long parentId;
 
 	/**
 	 * 类型
 	 */
 	@ApiModelProperty("类型")
+	@XmlElement(name = "type")
 	private Integer type;
 
 	/**
@@ -52,12 +71,14 @@ public class SysModule extends BaseEntity<SysModule> {
 	@ApiModelProperty("客户端ID")
 	@Column(name = "client_id")
 	@JsonIgnore
+	@XmlElement(name = "clientId")
 	private String clientId;
 
 	/**
 	 * 链接
 	 */
 	@ApiModelProperty("链接")
+	@XmlElement(name = "url")
 	private String url;
 
 	/**
@@ -66,6 +87,8 @@ public class SysModule extends BaseEntity<SysModule> {
 	@ApiModelProperty("子节点")
 	@Transient
 	@JsonInclude(Include.NON_NULL)
+	@XmlElementWrapper(name = "sysModules")
+	@XmlElement(name = "sysModule")
 	private List<SysModule> sysModules;
 
 	public SysModule() {

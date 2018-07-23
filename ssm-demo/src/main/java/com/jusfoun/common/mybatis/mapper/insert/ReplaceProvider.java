@@ -5,7 +5,6 @@ import java.util.Set;
 import org.apache.ibatis.mapping.MappedStatement;
 
 import com.jusfoun.common.mybatis.mapper.MySqlHelper;
-import com.jusfoun.entity.TokenClientDetails;
 
 import tk.mybatis.mapper.MapperException;
 import tk.mybatis.mapper.entity.EntityColumn;
@@ -88,10 +87,6 @@ public class ReplaceProvider extends MapperTemplate {
 			}
 		}
 		sql.append("</trim>");
-
-		if (entityClass.isAssignableFrom(TokenClientDetails.class)) {
-			System.out.println(sql.toString());
-		}
 		return sql.toString();
 	}
 

@@ -2,7 +2,7 @@ package com.jusfoun.service;
 
 import java.util.List;
 
-import com.jusfoun.common.base.service.BaseWithAssociateService;
+import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.entity.SysUser;
 
@@ -12,7 +12,7 @@ import com.jusfoun.entity.SysUser;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:03:40
  */
-public interface SysGovService extends BaseWithAssociateService<SysGov> {
+public interface SysGovService extends BaseEntityWithAssociateService<SysGov> {
 
 	/**
 	 * 描述 :根据ID 查询名称. <br>

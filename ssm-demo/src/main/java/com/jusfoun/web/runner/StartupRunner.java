@@ -51,25 +51,25 @@ public class StartupRunner implements CommandLineRunner {
 
 	@Value("${system.sysModule.init-file}")
 	private String sysModulesFile;// 初始化权限配置文件路径
-	@Value("${system.enterprise.init-file}")
-	private String enterpriseFile;// 初始化企业信息配置文件路径
 	@Value("${system.clientDetails.init-file}")
 	private String clientDetailsFile;// 初始化企业信息配置文件路径
 	@Value("${system.user.init-password}")
 	private String initPassword;// 系统管理员初始化密码
+
+	private String adminName = "admin";
 
 	@Override
 	public void run(String... args) throws Exception {
 		log.info(">> ### 服务启动执行,系统初始化选项执行开始 ### <<");
 		log.info("--> 清理系统缓存.... ");
 		cacheService.clear();
-		// log.info("--> 初始化系统权限列表.... ");
-		// initSysModules();// 初始化企业信息
+		log.info("--> 初始化系统权限列表.... ");
+		initSysModules();// 初始化企业信息
 		log.info("--> 初始化客户端权限信息.... ");
 		initClients();// 初始化企业信息
 		log.info("--> 初始化系统管理员信息.... ");
 		initAdmin();// 初始化系统管理员信息
-		log.info(">> ### 服务启动执行,系统初始化选项执行结束 ### <<");
+		log.info(">> ### 服务启动执行，系统初始化选项执行结束 ### <<");
 	}
 
 	/**
@@ -84,6 +84,18 @@ public class StartupRunner implements CommandLineRunner {
 		if (count == 0) {
 			URL url = ResourceUtils.getURL(sysModulesFile);
 			SysModule root = JaxbUtil.xml2java(url, SysModule.class);
+
+			SysUser admin = sysUserService.selectByUsername(adminName);
+			if (admin != null) {
+				root.setCreatorId(admin.getId());
+				root.setUpdaterId(admin.getId());
+				root.setCreatorName(admin.getRealName());
+				root.setUpdaterName(admin.getRealName());
+				Date now = new Date();
+				root.setCreateDate(now);
+				root.setUpdateDate(now);
+				root.setStatus(UsingStatus.Enable.getValue());
+			}
 			sysModuleService.initSysModules(root);
 		}
 	}
@@ -95,7 +107,7 @@ public class StartupRunner implements CommandLineRunner {
 	 * @date 2017年12月6日 下午5:12:49
 	 */
 	private void initAdmin() {
-		SysUser t = sysUserService.selectByUsername("admin");
+		SysUser t = sysUserService.selectByUsername(adminName);
 		if (t != null) {
 			return;
 		}
@@ -111,7 +123,9 @@ public class StartupRunner implements CommandLineRunner {
 		t.setStatus(UsingStatus.Enable.getValue());
 		t.setGender(0);
 		t.setIsAdmin(true);
-		t.setGovName("");
+		t.setGovName("信息中心");
+		t.setEmail("admin@qq.com");
+		t.setMobile("13888888888");
 		sysUserService.insert(t);
 	}
 
@@ -133,7 +147,6 @@ public class StartupRunner implements CommandLineRunner {
 			for (TokenClientDetails t : list) {
 				t.setClientSecret(passwordEncoder.encode(t.getClientSecret()));
 				t.setAuthorities(sysModuleService.selectAuthorities(t.getClientId()));
-				// tokenClientService.replaceAndCache(t);
 				tokenClientService.replaceAndCache(t);
 			}
 		}
