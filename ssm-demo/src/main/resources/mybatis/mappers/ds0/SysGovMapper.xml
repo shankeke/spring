@@ -41,18 +41,18 @@
 	</sql>
 	<sql id="Base_Where_Clause">
 		<where>
-			<if test="s.id         != null"><![CDATA[and id = #{s.id ,jdbcType=BIGINT}]]></if>
-			<if test="s.parentId   != null"><![CDATA[and parent_id = #{s.parentId ,jdbcType=BIGINT}]]></if>
-			<if test="s.fullName   != null and s.fullName   != ''"><![CDATA[and full_name like CONCAT('%',#{s.fullName ,jdbcType=VARCHAR},'%') ]]></if>
-			<if test="s.shortName  != null and s.shortName  != ''"><![CDATA[and full_name like CONCAT('%',#{s.shortName ,jdbcType=VARCHAR},'%')]]></if>
-			<if test="s.address    != null and s.address    != ''"><![CDATA[and address like CONCAT('%',#{s.address ,jdbcType=VARCHAR},'%')]]></if>
-			<if test="s.contacts   != null and s.contacts   != ''"><![CDATA[and contacts = #{s.contacts ,jdbcType=VARCHAR}]]></if>
-			<if test="s.tel        != null and s.tel        != ''"><![CDATA[and tel = #{s.tel ,jdbcType=VARCHAR}]]></if>
-			<if test="s.email      != null and s.email      != ''"><![CDATA[and email = #{s.email ,jdbcType=VARCHAR}]]></if>
-			<if test="s.weburl     != null and s.weburl     != ''"><![CDATA[and weburl = #{s.weburl ,jdbcType=VARCHAR}]]></if>
-			<if test="s.area       != null and s.area       != ''"><![CDATA[and area = #{s.area ,jdbcType=VARCHAR}]]></if>
-			<if test="s.status     != null"><![CDATA[and status = #{s.status ,jdbcType=BIT}]]></if>
-			<if test="s.remark     != null and s.remark     != ''"><![CDATA[and remark like CONCAT('%',#{s.remark ,jdbcType=VARCHAR},'%') ]]></if>
+			<if test="id         != null"><![CDATA[and id = #{id ,jdbcType=BIGINT}]]></if>
+			<if test="parentId   != null"><![CDATA[and parent_id = #{parentId ,jdbcType=BIGINT}]]></if>
+			<if test="fullName   != null and fullName   != ''"><![CDATA[and full_name like CONCAT('%',#{fullName ,jdbcType=VARCHAR},'%') ]]></if>
+			<if test="shortName  != null and shortName  != ''"><![CDATA[and full_name like CONCAT('%',#{shortName ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="address    != null and address    != ''"><![CDATA[and address like CONCAT('%',#{address ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="contacts   != null and contacts   != ''"><![CDATA[and contacts = #{contacts ,jdbcType=VARCHAR}]]></if>
+			<if test="tel        != null and tel        != ''"><![CDATA[and tel = #{tel ,jdbcType=VARCHAR}]]></if>
+			<if test="email      != null and email      != ''"><![CDATA[and email = #{email ,jdbcType=VARCHAR}]]></if>
+			<if test="weburl     != null and weburl     != ''"><![CDATA[and weburl = #{weburl ,jdbcType=VARCHAR}]]></if>
+			<if test="area       != null and area       != ''"><![CDATA[and area = #{area ,jdbcType=VARCHAR}]]></if>
+			<if test="status     != null"><![CDATA[and status = #{status ,jdbcType=BIT}]]></if>
+			<if test="remark     != null and remark     != ''"><![CDATA[and remark like CONCAT('%',#{remark ,jdbcType=VARCHAR},'%') ]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">

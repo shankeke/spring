@@ -23,7 +23,7 @@ public abstract class BaseWithAssociateServiceImpl<T> extends BaseServiceImpl<T>
 	protected BaseWithAssociateSelectMapper<T> baseWithAssociateSelectMapper;
 
 	@Override
-	public Integer selectCountWithAssociate(Map<String, Object> params) throws ServiceException {
+	public int selectCountWithAssociate(Map<String, Object> params) throws ServiceException {
 		return baseWithAssociateSelectMapper.selectCountWithAssociate(params);
 	}
 

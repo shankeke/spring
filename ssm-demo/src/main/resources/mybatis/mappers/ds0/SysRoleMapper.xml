@@ -28,11 +28,11 @@
 	</sql>
 	<sql id="Base_Where_Clause">
 		<where>
-			<if test="s.id       != null"><![CDATA[and id = #{s.id ,jdbcType=BIGINT }]]></if>
-			<if test="s.parentId != null"><![CDATA[and parent_id = #{s.parentId ,jdbcType=BIGINT }]]></if>
-			<if test="s.name   != null and s.name   != ''"><![CDATA[and name like CONCAT('%',#{s.name ,jdbcType=VARCHAR},'%')]]></if>
-			<if test="s.status   != null"><![CDATA[and status = #{s.status ,jdbcType=TINYINT }]]></if>
-			<if test="s.remark != null and s.remark != ''"><![CDATA[and remark = #{s.remark ,jdbcType=VARCHAR }]]></if>
+			<if test="id       != null"><![CDATA[and id = #{id ,jdbcType=BIGINT }]]></if>
+			<if test="parentId != null"><![CDATA[and parent_id = #{parentId ,jdbcType=BIGINT }]]></if>
+			<if test="name   != null and name   != ''"><![CDATA[and name like CONCAT('%',#{name ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="status   != null"><![CDATA[and status = #{status ,jdbcType=TINYINT }]]></if>
+			<if test="remark != null and remark != ''"><![CDATA[and remark = #{remark ,jdbcType=VARCHAR }]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">

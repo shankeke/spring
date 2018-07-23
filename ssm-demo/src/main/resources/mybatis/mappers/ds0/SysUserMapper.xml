@@ -52,17 +52,17 @@
 	</sql>
 	<sql id="Base_Where_Clause">
 		<where>
-			<if test="s.id        != null "><![CDATA[and id = #{s.id ,jdbcType=BIGINT }]]></if>
-			<if test="s.username  != null and s.username  != ''"><![CDATA[and username like CONCAT('%',#{s.username ,jdbcType=VARCHAR},'%')]]></if>
-			<if test="s.password  != null and s.password  != ''"><![CDATA[and password = #{s.password ,jdbcType=VARCHAR }]]></if>
-			<if test="s.govId     != null "><![CDATA[and gov_id = #{s.govId ,jdbcType=BIGINT } ]]></if>
-			<if test="s.gender    != null "><![CDATA[and gender = #{s.gender ,jdbcType=INTEGER } ]]></if>
-			<if test="s.tel       != null and s.tel       != ''"><![CDATA[and tel = #{s.tel ,jdbcType=VARCHAR }]]></if>
-			<if test="s.mobile    != null and s.mobile    != ''"><![CDATA[and mobile = #{s.mobile ,jdbcType=VARCHAR }]]></if>
-			<if test="s.email     != null and s.email     != ''"><![CDATA[and email = #{s.email ,jdbcType=VARCHAR }]]></if>
-			<if test="s.realName  != null and s.realName  != ''"><![CDATA[and real_name = #{s.realName ,jdbcType=VARCHAR }]]></if>
-			<if test="s.status    != null"><![CDATA[and status = #{s.status ,jdbcType=BIT}]]></if>
-			<if test="s.remark    != null and s.remark     != ''"><![CDATA[and remark like CONCAT('%',#{s.remark ,jdbcType=VARCHAR},'%') ]]></if>
+			<if test="id        != null "><![CDATA[and id = #{id ,jdbcType=BIGINT }]]></if>
+			<if test="username  != null and username  != ''"><![CDATA[and username like CONCAT('%',#{username ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="password  != null and password  != ''"><![CDATA[and password = #{password ,jdbcType=VARCHAR }]]></if>
+			<if test="govId     != null "><![CDATA[and gov_id = #{govId ,jdbcType=BIGINT } ]]></if>
+			<if test="gender    != null "><![CDATA[and gender = #{gender ,jdbcType=INTEGER } ]]></if>
+			<if test="tel       != null and tel       != ''"><![CDATA[and tel = #{tel ,jdbcType=VARCHAR }]]></if>
+			<if test="mobile    != null and mobile    != ''"><![CDATA[and mobile = #{mobile ,jdbcType=VARCHAR }]]></if>
+			<if test="email     != null and email     != ''"><![CDATA[and email = #{email ,jdbcType=VARCHAR }]]></if>
+			<if test="realName  != null and realName  != ''"><![CDATA[and real_name = #{realName ,jdbcType=VARCHAR }]]></if>
+			<if test="status    != null"><![CDATA[and status = #{status ,jdbcType=BIT}]]></if>
+			<if test="remark    != null and remark     != ''"><![CDATA[and remark like CONCAT('%',#{remark ,jdbcType=VARCHAR},'%') ]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">

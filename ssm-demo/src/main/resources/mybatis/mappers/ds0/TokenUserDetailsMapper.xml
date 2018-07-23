@@ -8,7 +8,8 @@
 		<result column="client_id" property="clientId" jdbcType="VARCHAR" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="realname" property="realname" jdbcType="VARCHAR" />
-		<result column="authorities" property="authorities" typeHandler="com.jusfoun.common.mybatis.handler.BlobVsAuthorityCollectionTypeHandler" />
+		<result column="authorities" property="authorities"
+			typeHandler="com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler" />
 		<result column="enabled" property="enabled" jdbcType="BIT" />
 		<result column="authenticated" property="authenticated" jdbcType="BIT" />
 		<result column="account_non_locked" property="accountNonLocked" jdbcType="BIT" />
@@ -23,7 +24,6 @@
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 
-
 	<sql id="Base_Table_Name">
 		token_user_details
 	</sql>
@@ -32,11 +32,11 @@
 	</sql>
 	<sql id="Base_Where_Clause">
 		<where>
-			<if test="s.id           != null "><![CDATA[and id = #{s.id,jdbcType=BIGINT}]]></if>
-			<if test="s.clientId     != null "><![CDATA[and client_id = #{s.clientId,jdbcType=VARCHAR}]]></if>
-			<if test="s.username     != null "><![CDATA[and username = #{s.username,jdbcType=VARCHAR}]]></if>
-			<if test="s.accessToken  != null "><![CDATA[and access_token = #{s.accessToken,jdbcType=VARCHAR}]]></if>
-			<if test="s.refreshToken != null "><![CDATA[and refresh_token = #{s.refreshToken,jdbcType=VARCHAR}]]></if>
+			<if test="id           != null "><![CDATA[and id = #{id,jdbcType=BIGINT}]]></if>
+			<if test="clientId     != null "><![CDATA[and client_id = #{clientId,jdbcType=VARCHAR}]]></if>
+			<if test="username     != null "><![CDATA[and username = #{username,jdbcType=VARCHAR}]]></if>
+			<if test="accessToken  != null "><![CDATA[and access_token = #{accessToken,jdbcType=VARCHAR}]]></if>
+			<if test="refreshToken != null "><![CDATA[and refresh_token = #{refreshToken,jdbcType=VARCHAR}]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">

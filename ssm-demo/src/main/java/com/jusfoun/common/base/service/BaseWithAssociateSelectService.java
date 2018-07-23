@@ -24,15 +24,15 @@ public interface BaseWithAssociateSelectService<T> {
 	 * @return 符合条件的数据总条数
 	 * @throws ServiceException
 	 */
-	Integer selectCountWithAssociate(Map<String, Object> params) throws ServiceException;
+	int selectCountWithAssociate(Map<String, Object> params) throws ServiceException;
 
 	/**
 	 * 描述: 根据条件查询所有数据，附加关联字段. <br>
-	 * 
+	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月22日 下午3:02:49
 	 * @param params
-	 *            擦护心条件
+	 *            查询条件
 	 * @return 查询结果集
 	 * @throws ServiceException
 	 */

@@ -4,10 +4,14 @@
 	<resultMap id="BaseResultMap" type="com.jusfoun.entity.TokenClientDetails">
 		<result column="client_id" property="clientId" jdbcType="VARCHAR" />
 		<result column="client_secret" property="clientSecret" jdbcType="VARCHAR" />
-		<result column="resource_ids" property="resourceIds" typeHandler="com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler" />
-		<result column="scopes" property="scopes" typeHandler="com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler" />
-		<result column="grant_types" property="grantTypes" typeHandler="com.jusfoun.common.mybatis.handler.VarcharVsStringArrayTypeHandler" />
-		<result column="authorities" property="authorities" typeHandler="com.jusfoun.common.mybatis.handler.BlobVsAuthorityCollectionTypeHandler" />
+		<result column="resource_ids" property="resourceIds"
+			typeHandler="com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler" />
+		<result column="scopes" property="scopes"
+			typeHandler="com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler" />
+		<result column="grant_types" property="grantTypes"
+			typeHandler="com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler" />
+		<result column="authorities" property="authorities"
+			typeHandler="com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler" />
 		<result column="access_token_validity" property="accessTokenValidity" jdbcType="INTEGER" />
 		<result column="refresh_token_validity" property="refreshTokenValidity" jdbcType="INTEGER" />
 	</resultMap>
@@ -19,8 +23,8 @@
 	</sql>
 	<sql id="Base_Where_Clause">
 		<where>
-			<if test="s.clientId != null"><![CDATA[and client_id = #{s.clientId,jdbcType=VARCHAR}]]></if>
-			<if test="s.clientSecret != null"><![CDATA[and client_secret = #{s.clientSecret,jdbcType=VARCHAR}]]></if>
+			<if test="clientId != null"><![CDATA[and client_id = #{clientId,jdbcType=VARCHAR}]]></if>
+			<if test="clientSecret != null"><![CDATA[and client_secret = #{clientSecret,jdbcType=VARCHAR}]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">
