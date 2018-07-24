@@ -191,9 +191,10 @@ public class EntityUtils {
 				if (!key.equals("class")) {
 					// 得到property对应的getter方法
 					Method getter = property.getReadMethod();
-					Object value = getter.invoke(obj);
-
-					map.put(key, value);
+					if (getter != null) {
+						Object value = getter.invoke(obj);
+						map.put(key, value);
+					}
 				}
 			}
 		} catch (Exception e) {

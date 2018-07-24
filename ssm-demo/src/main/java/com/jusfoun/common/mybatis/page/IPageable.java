@@ -31,19 +31,19 @@ public class IPageable implements Serializable {
 	 * 是否分页，默认分页
 	 */
 	@ApiModelProperty(value = "是否分页：分页-true，不分页-false，默认true", allowableValues = "true,false")
-	private boolean pageable = true;
+	private Boolean pageable = true;
 
 	/**
 	 * 页码
 	 */
 	@ApiModelProperty(value = "页码，默认1")
-	private int pageNum;
+	private Integer pageNum;
 
 	/**
 	 * 页长
 	 */
 	@ApiModelProperty(value = "页长，默认10")
-	private int pageSize;
+	private Integer pageSize;
 
 	public IPageable() {
 		this(DEFAULT_PAGENUM, DEFAULT_PAGESIZE);
@@ -59,27 +59,27 @@ public class IPageable implements Serializable {
 		this.pageSize = pageSize;
 	}
 
-	public boolean isPageable() {
+	public Boolean isPageable() {
 		return pageable;
 	}
 
-	public void setPageable(boolean pageable) {
+	public void setPageable(Boolean pageable) {
 		this.pageable = pageable;
 	}
 
-	public int getPageNum() {
+	public Integer getPageNum() {
 		return pageNum <= 0 ? DEFAULT_PAGENUM : pageNum;
 	}
 
-	public void setPageNum(int pageNum) {
+	public void setPageNum(Integer pageNum) {
 		this.pageNum = pageNum;
 	}
 
-	public int getPageSize() {
+	public Integer getPageSize() {
 		return pageSize <= 0 ? DEFAULT_PAGESIZE : pageSize;
 	}
 
-	public void setPageSize(int pageSize) {
+	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
 

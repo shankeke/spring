@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.beust.jcommander.internal.Maps;
 import com.jusfoun.common.annotation.Logable;
-import com.jusfoun.common.base.BaseController;
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.mybatis.page.IPage;
@@ -32,7 +31,7 @@ import io.swagger.annotations.ApiParam;
 @Api(description = "系统角色管理", value = "系统角色管理接口类")
 @RestController
 @RequestMapping("/sysrole")
-public class SysRoleController extends BaseController {
+public class SysRoleController   {
 
 	@Autowired
 	private SysRoleService sysRoleService;

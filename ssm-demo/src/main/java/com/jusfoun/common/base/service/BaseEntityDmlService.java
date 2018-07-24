@@ -34,6 +34,5 @@ public interface BaseEntityDmlService<T extends BaseEntity<T>> {
 	 * @throws ServiceException
 	 */
 	int updateBase(T t) throws ServiceException;
-	 
 
 }

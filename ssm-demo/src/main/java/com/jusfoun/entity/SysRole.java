@@ -50,11 +50,11 @@ public class SysRole extends BaseEntity<SysRole> {
 	}
 
 	public SysRole(Long id) {
-		this.id = id;
+		super.setId(id);
 	}
 
 	public SysRole(Long id, Long parentId, String name) {
-		this.id = id;
+		super.setId(id);
 		this.parentId = parentId;
 		this.name = name;
 	}

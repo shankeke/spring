@@ -16,6 +16,6 @@ public class WxSignClientTest extends BaseClient<JSONObject> {
 	@Test
 	public void sign() {
 		t.put("url", "http://tjhx.9cfcf.com/aobo/app/index.html");
-		excute("/wx/sign", t);
+		rest("/wx/sign", t);
 	}
 }

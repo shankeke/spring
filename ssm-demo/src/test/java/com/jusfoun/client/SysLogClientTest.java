@@ -15,7 +15,7 @@ public class SysLogClientTest extends BaseClient<SysLog> {
 		PageVo pageVo = new PageVo(1, 20);
 		pageVo.put("username", "admin");
 		pageVo.put("type", 1);
-		excute("/syslog/list", pageVo);
+		rest("/syslog/list", pageVo);
 	}
 
 }

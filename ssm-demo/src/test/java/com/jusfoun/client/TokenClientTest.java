@@ -21,16 +21,17 @@ public class TokenClientTest extends BaseClient<JSONObject> {
 
 	@Test
 	public void refreshToken() {
-		excute(WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT, t, "Bearer " + refresh_token);
+		// rest(WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT, t, "Bearer " +
+		// refresh_token);
 	}
 
 	@Test
 	public void revokeToken() {
-		excute(WebSecurityConfig.TOKEN_REVOKE_ENTRY_POINT, t);
+		rest(WebSecurityConfig.TOKEN_REVOKE_ENTRY_POINT, t);
 	}
 
 	@Test
 	public void user() {
-		excute("/auth/user", null);
+		rest("/auth/user", null);
 	}
 }

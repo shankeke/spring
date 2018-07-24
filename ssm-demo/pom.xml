@@ -53,13 +53,17 @@
 		<swagger2.version>2.6.1</swagger2.version>
 
 		<!-- MyBatis Generator -->
+		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+		<jdbc.url>jdbc:mysql://localhost:3306/dbhx_tianjin?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;autoReconnectForPools=true&amp;failOverReadOnly=false&amp;allowMultiQueries=true</jdbc.url>
+		<jdbc.username>root</jdbc.username>
+		<jdbc.password>root</jdbc.password>
 		<!-- Java接口和实体类 -->
 		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
-		<targetMapperPackage>com.jusfoun.generator.mapper</targetMapperPackage>
-		<targetModelPackage>com.jusfoun.generator.entity</targetModelPackage>
+		<targetMapperPackage>com.jusfoun.mapper.ds1</targetMapperPackage>
+		<targetModelPackage>com.jusfoun.entity</targetModelPackage>
 		<!-- XML生成路径 -->
 		<targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
-		<targetXMLPackage>mybatis/mappers/generator/ds0</targetXMLPackage>
+		<targetXMLPackage>/mybatis/mappers/ds1</targetXMLPackage>
 	</properties>
 
 	<dependencyManagement>
@@ -277,15 +281,9 @@
 					<exclude>public/*</exclude>
 					<exclude>static/*</exclude>
 					<exclude>templates/*</exclude>
-					<exclude>banner.txt</exclude>
-					<exclude>Enterprise.xml</exclude>
-					<exclude>SysModule.xml</exclude>
-					<exclude>ClientDetails.xml</exclude>
-					<exclude>logback-spring.xml</exclude>
-					<exclude>application.yml</exclude>
-					<exclude>application-dev.yml</exclude>
-					<exclude>application-prod.yml</exclude>
-					<exclude>application-test.yml</exclude>
+					<exclude>/*.txt</exclude>
+					<exclude>/*.xml</exclude>
+					<exclude>/*.yml</exclude>
 				</excludes>
 			</resource>
 			<resource>
@@ -298,7 +296,6 @@
 					<include>static/*</include>
 					<include>templates/*</include>
 					<include>banner.txt</include>
-					<include>Enterprise.xml</include>
 					<include>SysModule.xml</include>
 					<include>ClientDetails.xml</include>
 					<include>logback-spring.xml</include>

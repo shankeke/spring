@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jusfoun.common.annotation.Logable;
-import com.jusfoun.common.base.BaseController;
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.result.BaseResponse;
 import com.jusfoun.common.result.ErrType;
@@ -38,7 +37,7 @@ import io.swagger.annotations.ApiParam;
 @Api(description = "文件上传接口", value = "文件上传接口类")
 @Controller
 @RequestMapping("/file")
-public class FileUploadController extends BaseController {
+public class FileUploadController {
 
 	@Autowired
 	private FileConfig fileConfig;

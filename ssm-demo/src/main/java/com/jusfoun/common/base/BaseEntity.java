@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
 public abstract class BaseEntity<T> implements Serializable {
 	private static final long serialVersionUID = 1957941391153967331L;
 
-	@ApiModelProperty("ID")
+	@ApiModelProperty("主键")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;

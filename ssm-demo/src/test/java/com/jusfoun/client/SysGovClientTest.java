@@ -21,31 +21,31 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 		t.setParentId(2L);
 		t.setFullName("散打部");
 		t.setRemark("主要负责河蟹销售");
-		excute("/sysgov/save", t);
+		rest("/sysgov/save", t);
 	}
 
 	@Override
 	public void update() {
 		t.setId(1L);
-		excute("/sysgov/update", t);
+		rest("/sysgov/update", t);
 	}
 
 	@Override
 	public void delete() {
 		t.setId(1L);
-		excute("/sysgov/delete", t);
+		rest("/sysgov/delete", t);
 	}
 
 	@Override
 	public void list() {
 		t.setParentId(0L);
-		excute("/sysgov/list", t);
+		rest("/sysgov/list", t);
 	}
 
 	@Override
 	public void info() {
 		t.setId(1L);
-		excute("/sysgov/info", t);
+		rest("/sysgov/info", t);
 	}
 
 }

@@ -14,7 +14,7 @@ public class SysModuleClientTest extends BaseClient<SysModule> {
 	public void list() {
 		// for (int i = 0; i < 10000; i++) {
 		t.setParentId(1L);
-		excute("/sysmodule/list", t);
+		rest("/sysmodule/list", t);
 		// }
 	}
 }

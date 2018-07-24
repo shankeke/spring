@@ -27,7 +27,7 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 			list.add(t1);
 		}
 		t.setSysModules(list);
-		excute("/sysrole/save", t);
+		rest("/sysrole/save", t);
 	}
 
 	@Override
@@ -41,25 +41,25 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 			list.add(t1);
 		}
 		t.setSysModules(list);
-		excute("/sysrole/update", t);
+		rest("/sysrole/update", t);
 	}
 
 	@Override
 	public void delete() {
 		t.setId(1L);
-		excute("/sysrole/delete", t);
+		rest("/sysrole/delete", t);
 	}
 
 	@Override
 	public void list() {
 		PageVo pageVo = new PageVo(1, 10);
-		excute("/sysrole/list", pageVo);
+		rest("/sysrole/list", pageVo);
 	}
 
 	@Override
 	public void info() {
 		t.setId(11L);
-		excute("/sysrole/info", t);
+		rest("/sysrole/info", t);
 	}
 
 }

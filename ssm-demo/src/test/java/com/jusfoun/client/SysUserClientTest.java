@@ -29,39 +29,39 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		t.setEmail("156@163.com");
 		t.setGovId(3L);
 		t.setRemark("他是王五，不是李四");
-		excute("/sysuser/save", t);
+		rest("/sysuser/save", t);
 	}
 
 	@Override
 	public void update() {
 		t.setId(3L);
 		t.setStatus(UsingStatus.Disable.getValue());
-		excute("/sysuser/update", t);
+		rest("/sysuser/update", t);
 	}
 
 	@Override
 	public void delete() {
 		t.setId(3L);
-		excute("/sysuser/delete", t);
+		rest("/sysuser/delete", t);
 	}
 
 	@Override
 	public void list() {
 		PageVo pageVo = new PageVo(1, 50);
 		// pageVo.put("govId", 3);
-		excute("/sysuser/list", pageVo);
+		rest("/sysuser/list", pageVo);
 	}
 
 	@Override
 	public void info() {
 		t.setId(2L);
-		excute("/sysuser/info", t);
+		rest("/sysuser/info", t);
 	}
 
 	@Test
 	public void resetPass() {
 		t.setId(2L);
-		excute("/sysuser/resetPass", t);
+		rest("/sysuser/resetPass", t);
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		JSONObject params = new JSONObject();
 		params.put("oldPassword", "admin");
 		params.put("password", "admin");
-		excute("/sysuser/modifyPass", params);
+		rest("/sysuser/modifyPass", params);
 	}
 
 	@Test
@@ -82,7 +82,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		list.add(new SysRole(5L));
 		t.setId(2L);
 		t.setSysRoles(list);
-		excute("/sysuser/modifyRoles", t);
+		rest("/sysuser/modifyRoles", t);
 	}
 
 }
