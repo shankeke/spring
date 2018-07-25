@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseServiceImpl;
+import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.util.list.IListUtil;
@@ -21,7 +21,7 @@ import com.jusfoun.service.TAreaService;
  * @date 2018年7月24日 上午11:05:19
  */
 @Service
-public class TAreaServiceImpl extends BaseServiceImpl<TArea> implements TAreaService {
+public class TAreaServiceImpl extends BaseWithAssociateServiceImpl<TArea> implements TAreaService {
 
 	@Autowired
 	private TAreaMapper tAreaMapper;

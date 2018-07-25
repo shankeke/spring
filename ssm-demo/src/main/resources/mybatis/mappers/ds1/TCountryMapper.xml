@@ -8,4 +8,44 @@
 		<result column="sh_name" jdbcType="VARCHAR" property="shName" />
 		<result column="en_name" jdbcType="VARCHAR" property="enName" />
 	</resultMap>
+
+	<sql id="Base_Table_Name">
+		t_country
+	</sql>
+	<sql id="Base_Column_List">
+		*
+	</sql>
+
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="id     != null "><![CDATA[and id = #{id ,jdbcType=BIGINT }]]></if>
+			<if test="zhName != null and zhName  != ''"><![CDATA[and zh_name like CONCAT('%',#{zhName ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="shName != null and shName  != ''"><![CDATA[and sh_name like CONCAT('%',#{shName ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="enName != null and enName  != ''"><![CDATA[and en_name like CONCAT('%',#{enName ,jdbcType=VARCHAR},'%')]]></if>
+		</where>
+	</sql>
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</select>
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
 </mapper>

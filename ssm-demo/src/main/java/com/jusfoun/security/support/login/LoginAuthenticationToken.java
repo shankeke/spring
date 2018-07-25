@@ -22,8 +22,7 @@ public class LoginAuthenticationToken extends UsernamePasswordAuthenticationToke
 		this.clientDetails = clientDetails;
 	}
 
-	public LoginAuthenticationToken(Object principal, Object credentials,
-			Collection<? extends GrantedAuthority> authorities, ClientDetails clientDetails) {
+	public LoginAuthenticationToken(Object principal, Object credentials, Collection<? extends GrantedAuthority> authorities, ClientDetails clientDetails) {
 		super(principal, credentials, authorities);
 		this.clientDetails = clientDetails;
 	}

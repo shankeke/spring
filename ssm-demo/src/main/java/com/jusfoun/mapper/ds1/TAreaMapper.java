@@ -2,11 +2,11 @@ package com.jusfoun.mapper.ds1;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.jusfoun.common.mybatis.mapper.MyMapper;
+import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
 import com.jusfoun.entity.TArea;
 
 @Mapper
-public interface TAreaMapper extends MyMapper<TArea> {
+public interface TAreaMapper extends BaseWithAssociateMapper<TArea> {
 
 	/**
 	 * 描述: 根据ID查询地区及所有子孙节点. <br>

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseServiceImpl;
+import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.TCountry;
@@ -21,7 +21,7 @@ import com.jusfoun.service.TCountryService;
  * @date 2018年7月24日 下午12:47:08
  */
 @Service
-public class TCountryServiceImpl extends BaseServiceImpl<TCountry> implements TCountryService {
+public class TCountryServiceImpl extends BaseWithAssociateServiceImpl<TCountry> implements TCountryService {
 
 	@Override
 	public TCountryTotalVo selectCounties() throws ServiceException {

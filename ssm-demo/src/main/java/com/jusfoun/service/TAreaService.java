@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.service.BaseService;
+import com.jusfoun.common.base.service.BaseWithAssociateService;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.entity.TArea;
 
@@ -10,7 +10,7 @@ import com.jusfoun.entity.TArea;
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 上午11:04:56
  */
-public interface TAreaService extends BaseService<TArea> {
+public interface TAreaService extends BaseWithAssociateService<TArea> {
 
 	/**
 	 * 描述: 查询地区信息树图，并可根据地区名称检索. <br>
