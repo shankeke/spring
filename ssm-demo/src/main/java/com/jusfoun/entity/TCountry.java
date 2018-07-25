@@ -3,6 +3,9 @@ package com.jusfoun.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.mybatis.page.IPageable;
@@ -50,6 +53,14 @@ public class TCountry extends IPageable {
 	@Column(name = "en_name")
 	private String enName;
 
+	
+	@Transient
+	public String getAlpha() {
+		if (StringUtils.isNotBlank(enName)) {
+			return enName.substring(0, 1).toUpperCase();
+		}
+		return "其他";
+	}
 	/**
 	 * 获取主键
 	 *

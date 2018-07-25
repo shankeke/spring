@@ -1,9 +1,17 @@
 package com.jusfoun.service.impl;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.jusfoun.common.base.service.impl.BaseServiceImpl;
+import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.TCountry;
+import com.jusfoun.entity.vo.TCountryTotalVo;
+import com.jusfoun.entity.vo.TCountryVo;
 import com.jusfoun.service.TCountryService;
 
 /**
@@ -14,4 +22,19 @@ import com.jusfoun.service.TCountryService;
  */
 @Service
 public class TCountryServiceImpl extends BaseServiceImpl<TCountry> implements TCountryService {
+
+	@Override
+	public TCountryTotalVo selectCounties() throws ServiceException {
+		List<TCountry> list = selectAll();
+		TCountryTotalVo total = new TCountryTotalVo();
+		if (IListUtil.hasData(list)) {
+			Map<String, List<TCountry>> alphaGroup = list.stream().collect(Collectors.groupingBy(TCountry::getAlpha));
+			List<TCountryVo> tCountryVos = total.getList();
+			alphaGroup.forEach((k, v) -> {
+				tCountryVos.add(new TCountryVo(k, v));
+			});
+		}
+		return total;
+	}
+
 }

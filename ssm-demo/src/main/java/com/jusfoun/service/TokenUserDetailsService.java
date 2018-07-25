@@ -5,6 +5,12 @@ import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.security.support.token.RefreshToken;
 
+/**
+ * 描述: 系统用户鉴权信息业务处理. <br>
+ * 
+ * @author yjw@jusfoun.com
+ * @date 2018年7月24日 下午5:54:20
+ */
 public interface TokenUserDetailsService extends BaseWithAssociateService<TokenUserDetails> {
 
 	/**

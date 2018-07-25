@@ -2,6 +2,8 @@ package com.jusfoun.common.mybatis.page;
 
 import java.io.Serializable;
 
+import javax.persistence.Transient;
+
 import org.apache.ibatis.session.RowBounds;
 
 import io.swagger.annotations.ApiModel;
@@ -31,18 +33,21 @@ public class IPageable implements Serializable {
 	 * 是否分页，默认分页
 	 */
 	@ApiModelProperty(value = "是否分页：分页-true，不分页-false，默认true", allowableValues = "true,false")
+	@Transient
 	private Boolean pageable = true;
 
 	/**
 	 * 页码
 	 */
 	@ApiModelProperty(value = "页码，默认1")
+	@Transient
 	private Integer pageNum;
 
 	/**
 	 * 页长
 	 */
 	@ApiModelProperty(value = "页长，默认10")
+	@Transient
 	private Integer pageSize;
 
 	public IPageable() {

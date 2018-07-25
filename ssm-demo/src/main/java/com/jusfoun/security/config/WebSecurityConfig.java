@@ -199,33 +199,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// GET请求的忽略接口
 	private static final String[] ignoreGetResources = new String[]{ //
-			"/hxtraceabilitycode/showCode", // 二维码请求
+			"/qcode/showCode", // 二维码请求
+			"/country/export", //
 			"/swagger-resources/**", //
 			"/v2/**",//
 	};
 
 	// POST请求的忽略接口
 	private static final String[] ignorePostResources = new String[]{ //
-			"/app/hxenterprise/info", //
-			"/app/hxiotequipment/baseTraceIot", //
-			"/app/hxproductplan/historyList", //
-			"/app/hxproductplan/historyInfo", //
-			"/app/hxbreedingbase/info", //
-			"/app/hxbreedingbase/appBaseTrace", //
-			"/app/hxbreedingbase/baseTraceVideoAndPic", //
-			"/app/hxtraceinfobycode/video", //
-			"/app/hxtraceinfobycode/record", //
-			"/app/hxtraceinfobycode/inspect", //
-			"/app/hxtraceinfobycode/logistics", //
-			"/app/hxtraceinfobycode/recordinfo", //
-			"/app/hxtraceinfobycode/singleVideo", //
-			"/app/hxtraceinfobycode/productTrace", //
-			"/app/HxPicturesVideos/views", //
-			"/app/hxproductplan/breedingSituation", //
-			"/app/hxenterprise/getEnterprisePhone", //
-			"/app/hxbreedingbase/baseTraceVideoList", //
-			"/app/hxiotequipment/appList", //
-			"/app/hxbreedingbase/bindList", //
+			"/country/export", //
 			"/swagger-resources/**", //
 			"/test/**"//
 	};

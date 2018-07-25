@@ -35,7 +35,6 @@ import com.jusfoun.entity.SysLog;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.security.config.WebSecurityConfig;
 import com.jusfoun.security.util.SecurityUtils;
-import com.jusfoun.service.IpService;
 import com.jusfoun.service.SysLogService;
 import com.jusfoun.service.SysUserService;
 
@@ -60,8 +59,8 @@ public class LogableAspect extends AbstractAspect {
 	private SysLogService sysLogService;
 	@Autowired
 	private SysUserService sysUserService;
-	@Autowired
-	private IpService ipService;
+	// @Autowired
+	// private IpService ipService;
 
 	/**
 	 * 描述 : 默认拦截controller层和OAuth2授权鉴权的接口. <br>
@@ -132,7 +131,7 @@ public class LogableAspect extends AbstractAspect {
 					sysLog.setRequestUri(servletPath);
 					sysLog.setModulePath(l.fullPath());
 					sysLog.setModuleName(l.desc());
-					sysLog.setAreaName(ipService.getAreaByIP(remoteHost));
+					// sysLog.setAreaName(ipService.getAreaByIP(remoteHost));
 					sysLog.setCreateDate(new Date());
 					sysLog.setResultType(result);
 

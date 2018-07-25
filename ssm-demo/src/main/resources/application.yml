@@ -67,6 +67,7 @@ security:
     refreshTokenExpIn: 72000
     tokenIssuer: tjhx.9cfcf.com
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+   
 mapper:
 #    mappers:
 #        - com.jusfoun.common.mybatis.mapper.MyMapper
@@ -105,3 +106,7 @@ server:
 logging:
   session:
     timeout: 60
+    
+templates:
+  dir: /templets/
+  countries: countries.ftl
