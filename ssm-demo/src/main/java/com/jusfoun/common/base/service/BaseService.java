@@ -2,9 +2,9 @@ package com.jusfoun.common.base.service;
 
 import java.util.List;
 
+import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyMapper;
-import com.jusfoun.common.mybatis.page.IPage;
 
 /**
  * 描述 : 通用业务层接口，实现了常用的方法，子接口继承改接口省去常用方法开发工作量. <br>

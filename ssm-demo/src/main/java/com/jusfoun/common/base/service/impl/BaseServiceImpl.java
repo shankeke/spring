@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
+import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.mybatis.mapper.MyMapper;
-import com.jusfoun.common.mybatis.page.IPage;
 
 /**
  * 描述 : 业务层实现基类. <br>

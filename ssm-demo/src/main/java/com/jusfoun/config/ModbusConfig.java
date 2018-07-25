@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
  * @date 2017年10月19日 下午5:35:42
  */
 @Configuration
-@ConfigurationProperties(prefix = ModbusConfig.MODBUS_PREFIX)
+@ConfigurationProperties(prefix = ModbusConfig.PREFIX)
 public class ModbusConfig {
-	public static final String MODBUS_PREFIX = "system.modbus";
+	public static final String PREFIX = "system.modbus";
 
 	private String ip;// IP地址
 	private int port;// 端口

@@ -1,4 +1,4 @@
-package com.jusfoun.common.mybatis.page;
+package com.jusfoun.common.base.page;
 
 import java.io.Serializable;
 

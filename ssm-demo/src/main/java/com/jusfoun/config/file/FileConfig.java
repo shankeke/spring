@@ -20,9 +20,9 @@ import com.jusfoun.common.util.list.IListUtil;
  * @date 2017年9月16日 下午1:40:24
  */
 @Configuration
-@ConfigurationProperties(prefix = FileConfig.FILE_PREFIX)
+@ConfigurationProperties(prefix = FileConfig.PREFIX)
 public class FileConfig {
-	public static final String FILE_PREFIX = "system.file.upload";
+	public static final String PREFIX = "system.file.upload";
 
 	private String root;// 文件目录
 	private String rootDir;// 根文件夹

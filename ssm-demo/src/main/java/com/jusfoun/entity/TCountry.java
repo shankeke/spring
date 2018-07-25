@@ -8,7 +8,7 @@ import javax.persistence.Transient;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jusfoun.common.mybatis.page.IPageable;
+import com.jusfoun.common.base.page.IPageable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

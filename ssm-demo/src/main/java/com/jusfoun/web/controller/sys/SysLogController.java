@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.exception.ControllerException;
-import com.jusfoun.common.mybatis.page.IPage;
 import com.jusfoun.common.result.BaseResponse;
 import com.jusfoun.common.result.ErrType;
 import com.jusfoun.entity.SysLog;

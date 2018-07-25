@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.beust.jcommander.internal.Maps;
 import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.enums.YesNoType;
 import com.jusfoun.common.exception.ControllerException;
-import com.jusfoun.common.mybatis.page.IPage;
 import com.jusfoun.common.result.BaseResponse;
 import com.jusfoun.common.result.ErrType;
 import com.jusfoun.entity.SysUser;

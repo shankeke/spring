@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
  * @date 2017年10月19日 下午5:35:42
  */
 @Configuration
-@ConfigurationProperties(prefix = PriceConfig.PRICE_PREFIX)
+@ConfigurationProperties(prefix = PriceConfig.PREFIX)
 public class PriceConfig {
-	public static final String PRICE_PREFIX = "system.price";
+	public static final String PREFIX = "system.price";
 
 	private static final String DEFAULT_DATE_FORMAT_PATTERN = "yyyyMMdd";
 

@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
  * @date 2018年6月15日 上午9:22:09
  */
 @Configuration
-@ConfigurationProperties(prefix = TemplatesConfig.TEMPLETS_PREFIX)
+@ConfigurationProperties(prefix = TemplatesConfig.PREFIX)
 public class TemplatesConfig {
-	public static final String TEMPLETS_PREFIX = "templates";
+	public static final String PREFIX = "templates";
 
 	/**
 	 * 模板存放路径

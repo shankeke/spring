@@ -67,6 +67,29 @@ security:
     refreshTokenExpIn: 72000
     tokenIssuer: tjhx.9cfcf.com
     tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+   custom:
+    ignoredStaticResources: 
+      - /
+      - /files/**
+      - /static/**
+      - /app/static/**
+      - /bigData/static/**
+      - /test/**
+      - /**/*.html
+      - /**/*.js
+      - /**/*.css
+      - /**/*.ico
+      - /webjars/**
+      - /swagger-ui.html**
+    ignoredGetResources: 
+      - /qcode/showCode
+      - /country/export
+      - /swagger-resources/**
+      - /v2/**
+    ignoredPostResources:
+      - /country/export
+      - /swagger-resources/**
+      - /test/**
    
 mapper:
 #    mappers:

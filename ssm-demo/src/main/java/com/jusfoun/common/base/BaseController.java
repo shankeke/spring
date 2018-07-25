@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.jusfoun.common.base.page.IPage;
+import com.jusfoun.common.base.page.IPageable;
 import com.jusfoun.common.base.service.BaseService;
-import com.jusfoun.common.mybatis.page.IPage;
-import com.jusfoun.common.mybatis.page.IPageable;
 import com.jusfoun.common.result.BaseResponse;
 
 import io.swagger.annotations.Api;

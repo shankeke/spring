@@ -24,6 +24,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jusfoun.config.SecurityCustomConfig;
 import com.jusfoun.security.ClientDetailsService;
 import com.jusfoun.security.support.auth.RawBasicAuthenticationEntryPoint;
 import com.jusfoun.security.support.auth.SkipPathRequestMatcher;
@@ -59,6 +60,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public static final String TOKEN_REFRESH_ENTRY_POINT = "/auth/refreshToken";// 刷新token接口
 	public static final String TOKEN_REVOKE_ENTRY_POINT = "/auth/revokeToken";// 注销token接口
 	public static final String TOKEN_AUTH_ENTRY_POINT = "/**";// 需要鉴权的路径
+
+	@Autowired
+	private SecurityCustomConfig securityCustomConfig;
 
 	@Autowired
 	private JwtSettings jwtSettings;
@@ -123,8 +127,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected TokenAuthenticationProcessingFilter buildTokenAuthenticationProcessingFilter() {
 		List<String> skipPaths = new ArrayList<String>();
 		skipPaths.addAll(Arrays.asList(tokenSkipPaths));
-		skipPaths.addAll(Arrays.asList(ignoreGetResources));
-		skipPaths.addAll(Arrays.asList(ignorePostResources));
+		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredGetResources()));
+		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredPostResources()));
 		SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(skipPaths, TOKEN_AUTH_ENTRY_POINT);
 		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher, failureHandler(), bearerHeaderTokenExtractor, tokenFactory());
 		filter.setAuthenticationManager(authenticationManager);
@@ -133,7 +137,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers(ignoreStaticResources);
+		web.ignoring().antMatchers(securityCustomConfig.getIgnoredStaticResources());
 	}
 
 	@Bean
@@ -157,9 +161,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()//
 				.authorizeRequests()//
 				.antMatchers(HttpMethod.POST, TOKEN_ENTRY_POINT).fullyAuthenticated() //
-				.antMatchers(HttpMethod.GET, ignoreGetResources).permitAll()//
+				.antMatchers(HttpMethod.GET, securityCustomConfig.getIgnoredGetResources()).permitAll()//
 				.antMatchers(HttpMethod.POST, TOKEN_REFRESH_ENTRY_POINT).permitAll()//
-				.antMatchers(HttpMethod.POST, ignorePostResources).permitAll()//
+				.antMatchers(HttpMethod.POST, securityCustomConfig.getIgnoredPostResources()).permitAll()//
 				.antMatchers(HttpMethod.POST, "/**").permitAll()//
 				.antMatchers(TOKEN_AUTH_ENTRY_POINT).authenticated() //
 				.and()//
@@ -178,37 +182,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String[] tokenSkipPaths = new String[]{ //
 			TOKEN_REFRESH_ENTRY_POINT, //
 			TOKEN_ENTRY_POINT//
-	};
-
-	// 忽略前端相关资源路径
-	private static final String[] ignoreStaticResources = new String[]{ //
-			"/", //
-			"/#/**", //
-			"/files/**", //
-			"/static/**", //
-			"/app/static/**", //
-			"/bigData/static/**", //
-			"/test/**", //
-			"/**/*.html", //
-			"/**/*.js", //
-			"/**/*.css", //
-			"/**/*.ico", //
-			"/webjars/**", //
-			"/swagger-ui.html**"//
-	};
-
-	// GET请求的忽略接口
-	private static final String[] ignoreGetResources = new String[]{ //
-			"/qcode/showCode", // 二维码请求
-			"/country/export", //
-			"/swagger-resources/**", //
-			"/v2/**",//
-	};
-
-	// POST请求的忽略接口
-	private static final String[] ignorePostResources = new String[]{ //
-			"/country/export", //
-			"/swagger-resources/**", //
-			"/test/**"//
 	};
 }
