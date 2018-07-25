@@ -1,6 +1,5 @@
 package com.jusfoun.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,6 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jusfoun.common.base.Idable;
 import com.jusfoun.common.base.Treeable;
 import com.jusfoun.common.base.page.IPageable;
 
@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 @JsonIgnoreProperties(value = {"handler"})
 @Table(name = "t_area")
-public class TArea extends IPageable implements Treeable<TArea>, Serializable {
+public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	private static final long serialVersionUID = -3980406855769490927L;
 
 	/**

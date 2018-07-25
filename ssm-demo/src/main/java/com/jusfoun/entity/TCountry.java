@@ -8,6 +8,7 @@ import javax.persistence.Transient;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jusfoun.common.base.Idable;
 import com.jusfoun.common.base.page.IPageable;
 
 import io.swagger.annotations.ApiModel;
@@ -22,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 @JsonIgnoreProperties(value = {"handler"})
 @Table(name = "t_country")
-public class TCountry extends IPageable {
+public class TCountry extends IPageable implements Idable<Long>{
 	private static final long serialVersionUID = -2326084818533423613L;
 
 	/**

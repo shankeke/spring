@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2018年7月12日 下午2:08:27
  */
 @Api
-public abstract class BaseController<T extends IPageable, PK extends Serializable> {
+public abstract class BaseController<T extends IPageable & Idable<PK>, PK extends Serializable> {
 
 	@Autowired
 	private BaseService<T> baseService;

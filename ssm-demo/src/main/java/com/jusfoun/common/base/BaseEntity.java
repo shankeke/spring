@@ -1,6 +1,5 @@
 package com.jusfoun.common.base;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel
 @JsonIgnoreProperties(value = {"handler"})
-public abstract class BaseEntity<T> extends IPageable implements Serializable {
+public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 	private static final long serialVersionUID = 1957941391153967331L;
 
 	@ApiModelProperty("主键")
@@ -69,32 +68,12 @@ public abstract class BaseEntity<T> extends IPageable implements Serializable {
 	@Column(name = "remark")
 	protected String remark;
 
-	/**
-	 * 描述:判断ID是否为空. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月12日 下午2:39:50
-	 * @return ID是否为空
-	 */
-	public boolean idIsNull() {
-		return id == null;
-	}
-
-	/**
-	 * 描述:判断ID是否不为空. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月12日 下午2:39:50
-	 * @return ID是否不为空
-	 */
-	public boolean idIsNotNull() {
-		return !idIsNull();
-	}
-
+	@Override
 	public Long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(Long id) {
 		this.id = id;
 	}
