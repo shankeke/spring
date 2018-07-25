@@ -23,7 +23,7 @@ public interface BaseService<T> extends MyMapper<T> {
 	 *            保存数据
 	 * @return 保存条数
 	 */
-	int insertListSelective(List<T> recordList)throws ServiceException;
+	int insertListSelective(List<T> recordList) throws ServiceException;
 
 	/**
 	 * 描述 : 根据条件分页查询. <br>
@@ -126,4 +126,5 @@ public interface BaseService<T> extends MyMapper<T> {
 	 * @throws ServiceException
 	 */
 	int deleteByPrimaryKeys(Object... keys) throws ServiceException;
+ 
 }

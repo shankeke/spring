@@ -109,7 +109,7 @@ public interface Treeable<T extends Treeable<T>> {
 	 * @date 2018年7月24日 下午1:45:03
 	 * @return 匹配
 	 */
-	String[] getMatchFeilds();
+	String[] matchFeilds();
 
 	/**
 	 * 描述: 是否匹配检索字段. <br>
@@ -123,7 +123,7 @@ public interface Treeable<T extends Treeable<T>> {
 	default boolean isMatch(T t, String regex) {
 		boolean b = true;
 		Pattern p = Pattern.compile(regex);
-		String[] matchFeilds = t.getMatchFeilds();
+		String[] matchFeilds = t.matchFeilds();
 		if (matchFeilds != null && matchFeilds.length > 0) {
 			for (String s : matchFeilds) {
 				b &= p.matcher(s).find();

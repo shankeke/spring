@@ -51,7 +51,7 @@ public abstract class BaseController<T extends IPageable, PK extends Serializabl
 	@ApiOperation(value = "查询数据列表", notes = "查询数据列表", hidden = false)
 	@RequestMapping(value = "baseList", method = {RequestMethod.POST, RequestMethod.GET})
 	public BaseResponse<IPage<T>> baseList(@RequestBody T t) {
-		IPage<T> page = baseService.selectPage(t, new IPage<T>(t.isPageable(), t.getPageNum(), t.getPageSize()));
+		IPage<T> page = baseService.selectPage(t, new IPage<T>(t));
 		return BaseResponse.success(page);
 	}
 

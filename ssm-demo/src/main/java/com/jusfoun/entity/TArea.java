@@ -110,7 +110,7 @@ public class TArea extends IPageable implements Treeable<TArea>, Serializable {
 	}
 
 	@Override
-	public String[] getMatchFeilds() {
+	public String[] matchFeilds() {
 		return new String[]{areaName, shortName};
 	}
 

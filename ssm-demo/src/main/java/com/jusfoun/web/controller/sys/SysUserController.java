@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.beust.jcommander.internal.Maps;
 import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.base.BaseController;
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.enums.YesNoType;
@@ -35,7 +36,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "系统用户管理接口类", description = "系统用户管理接口类")
 @RestController
 @RequestMapping("/sysuser")
-public class SysUserController {
+public class SysUserController extends BaseController<SysUser, Long> {
 
 	@Autowired
 	private SysUserService sysUserService;

@@ -60,6 +60,7 @@ public abstract class IPageable implements Serializable {
 	@ApiModelProperty(value = "排序条件，多个条件用“,”分开，如：id asc,name desc（字段名称取数据库中字段名而非实体属性名）", hidden = true)
 	@JsonIgnore
 	@JSONField(serialize = false)
+	@Transient
 	private String orderByClause;
 
 	/**

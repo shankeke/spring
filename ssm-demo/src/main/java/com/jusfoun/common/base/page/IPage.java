@@ -40,6 +40,10 @@ public class IPage<T> extends IPageable {
 		super(DEFAULT_PAGENUM, DEFAULT_PAGESIZE);
 	}
 
+	public IPage(IPageable pageable) {
+		super(true, pageable.getPageNum(), pageable.getPageSize(), pageable.getOrderByClause());
+	}
+
 	/**
 	 * 描述： 空参构造函数,默认会根据默认页码和默认页长构造IPage对象。<br/>
 	 * 

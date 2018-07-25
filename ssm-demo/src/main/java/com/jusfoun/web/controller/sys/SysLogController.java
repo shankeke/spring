@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.base.BaseController;
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.result.BaseResponse;
@@ -31,7 +32,8 @@ import tk.mybatis.mapper.entity.Example.Criteria;
 @Api(description = "操作日志管理", value = "操作日志管理接口类")
 @RestController
 @RequestMapping("/syslog")
-public class SysLogController {
+public class SysLogController extends BaseController<SysLog, Long> {
+
 	@Autowired
 	private SysLogService sysLogService;
 

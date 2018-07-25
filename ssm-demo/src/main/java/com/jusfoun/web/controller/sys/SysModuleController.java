@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.base.BaseController;
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.result.BaseResponse;
@@ -29,7 +30,7 @@ import io.swagger.annotations.ApiParam;
 @Api(description = "权限维护管理", value = "权限维护管理接口类")
 @RestController
 @RequestMapping(value = {"/sysmodule/", "/app/sysmodule/"})
-public class SysModuleController  {
+public class SysModuleController extends BaseController<SysModule, Long> {
 	@Autowired
 	private SysModuleService sysModuleService;
 
