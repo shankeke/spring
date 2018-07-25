@@ -31,10 +31,10 @@ public class PriceConfig {
 			}
 			String format = dateTime.toString(DEFAULT_DATE_FORMAT_PATTERN);
 			switch (type) {
-			case PM:
-				return String.format(marketUrl, format, pmHour);
-			default:
-				return String.format(marketUrl, format, amHour);
+				case PM :
+					return String.format(marketUrl, format, pmHour);
+				default :
+					return String.format(marketUrl, format, amHour);
 			}
 		}
 		return marketUrl;
@@ -47,10 +47,10 @@ public class PriceConfig {
 			}
 			String format = dateTime.toString(DEFAULT_DATE_FORMAT_PATTERN);
 			switch (type) {
-			case PM:
-				return String.format(eCommerceUrl, format, pmHour);
-			default:
-				return String.format(eCommerceUrl, format, amHour);
+				case PM :
+					return String.format(eCommerceUrl, format, pmHour);
+				default :
+					return String.format(eCommerceUrl, format, amHour);
 			}
 		}
 		return eCommerceUrl;
@@ -63,10 +63,10 @@ public class PriceConfig {
 			}
 			String format = dateTime.plusDays(1).toString(DEFAULT_DATE_FORMAT_PATTERN);
 			switch (type) {
-			case PM:
-				return String.format(forecastUrl, format, pmHour);
-			default:
-				return String.format(forecastUrl, format, amHour);
+				case PM :
+					return String.format(forecastUrl, format, pmHour);
+				default :
+					return String.format(forecastUrl, format, amHour);
 			}
 		}
 		return forecastUrl;
