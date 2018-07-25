@@ -93,6 +93,11 @@ public class SysGov extends BaseEntity<SysGov> {
 	@Transient
 	private List<SysGov> sysGovs;
 
+	@Override
+	public String initOrderByClause() {
+		return "full_name ASC";
+	}
+
 	public String getParentName() {
 		return parentName;
 	}

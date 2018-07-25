@@ -53,7 +53,6 @@ public class TCountry extends IPageable {
 	@Column(name = "en_name")
 	private String enName;
 
-	
 	@Transient
 	public String getAlpha() {
 		if (StringUtils.isNotBlank(enName)) {
@@ -61,6 +60,12 @@ public class TCountry extends IPageable {
 		}
 		return "其他";
 	}
+
+	@Override
+	public String initOrderByClause() {
+		return "en_name asc";
+	}
+
 	/**
 	 * 获取主键
 	 *

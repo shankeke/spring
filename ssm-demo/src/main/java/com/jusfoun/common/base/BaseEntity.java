@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jusfoun.common.base.page.IPageable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel
 @JsonIgnoreProperties(value = {"handler"})
-public abstract class BaseEntity<T> implements Serializable {
+public abstract class BaseEntity<T> extends IPageable implements Serializable {
 	private static final long serialVersionUID = 1957941391153967331L;
 
 	@ApiModelProperty("主键")
@@ -160,6 +161,11 @@ public abstract class BaseEntity<T> implements Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	@Override
+	public String initOrderByClause() {
+		return null;
 	}
 
 }

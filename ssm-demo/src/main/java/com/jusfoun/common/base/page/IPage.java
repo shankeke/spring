@@ -2,9 +2,6 @@ package com.jusfoun.common.base.page;
 
 import java.util.List;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -37,18 +34,10 @@ public class IPage<T> extends IPageable {
 	private List<T> list;
 
 	/**
-	 * 排序条件，多个条件用“,”分开，如：id asc,name desc（字段名称取数据库中字段名而非实体属性名）
-	 */
-	@ApiModelProperty(value = "排序条件，多个条件用“,”分开，如：id asc,name desc（字段名称取数据库中字段名而非实体属性名）", hidden = true)
-	@JsonIgnore
-	@JSONField(serialize = false)
-	private String orderByClause;
-
-	/**
 	 * 描述： 空参构造函数,默认会根据默认页码和默认页长构造IPage对象。<br/>
 	 */
 	public IPage() {
-		this(DEFAULT_PAGENUM, DEFAULT_PAGESIZE);
+		super(DEFAULT_PAGENUM, DEFAULT_PAGESIZE);
 	}
 
 	/**
@@ -58,7 +47,7 @@ public class IPage<T> extends IPageable {
 	 *            排序
 	 */
 	public IPage(String orderByClause) {
-		this(DEFAULT_PAGENUM, DEFAULT_PAGESIZE, orderByClause);
+		super(DEFAULT_PAGENUM, DEFAULT_PAGESIZE, orderByClause);
 	}
 
 	/**
@@ -72,7 +61,7 @@ public class IPage<T> extends IPageable {
 	 *            排序
 	 */
 	public IPage(int pageNum, int pageSize, String orderByClause) {
-		this(true, pageNum, pageSize, orderByClause);
+		super(true, pageNum, pageSize, orderByClause);
 	}
 
 	/**
@@ -88,21 +77,7 @@ public class IPage<T> extends IPageable {
 	 *            排序
 	 */
 	public IPage(boolean pageable, int pageNum, int pageSize, String orderByClause) {
-		if (pageable) {
-			if (pageSize <= 0) {
-				pageSize = DEFAULT_PAGESIZE;
-			}
-		} else {
-			pageSize = Integer.MAX_VALUE;
-		}
-
-		if (pageNum < 0) {
-			pageNum = DEFAULT_PAGENUM;
-		}
-
-		setPageSize(pageSize);
-		setPageNum(pageNum);
-		this.orderByClause = orderByClause;
+		super(pageable, pageNum, pageSize, orderByClause);
 	}
 
 	/**
@@ -116,7 +91,7 @@ public class IPage<T> extends IPageable {
 	 *            页长
 	 */
 	public IPage(boolean pageable, int pageNum, int pageSize) {
-		this(pageable, pageNum, pageSize, null);
+		super(pageable, pageNum, pageSize, null);
 	}
 
 	/**
@@ -128,7 +103,7 @@ public class IPage<T> extends IPageable {
 	 *            页长
 	 */
 	public IPage(int pageNum, int pageSize) {
-		this(true, pageNum, pageSize);
+		super(true, pageNum, pageSize);
 	}
 
 	/**
@@ -148,7 +123,7 @@ public class IPage<T> extends IPageable {
 	 *            排序
 	 */
 	public IPage(boolean pageable, int pageNum, int pageSize, int totalCount, List<T> list, String orderByClause) {
-		this(pageable, pageNum, pageSize, orderByClause);
+		super(pageable, pageNum, pageSize, orderByClause);
 		this.totalCount = totalCount;
 		this.totalPage = getTotalPage(pageSize, totalCount);
 		if (pageNum > this.totalPage) {
@@ -358,14 +333,6 @@ public class IPage<T> extends IPageable {
 		return getPrevPage(getPageNum(), getTotalPage());
 	}
 
-	public String getOrderByClause() {
-		return orderByClause;
-	}
-
-	public void setOrderByClause(String orderByClause) {
-		this.orderByClause = orderByClause;
-	}
-
 	public int getTotalCount() {
 		return totalCount;
 	}
@@ -381,4 +348,10 @@ public class IPage<T> extends IPageable {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
+
+	@Override
+	public String initOrderByClause() {
+		return null;
+	}
+
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.pagehelper.PageHelper;
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.base.service.BaseService;
+import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyMapper;
 
 /**
@@ -39,9 +40,9 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public int insertList(List<T> recordList) {
 		return myMapper.insertList(recordList);
 	}
-	
+
 	@Override
-	public int insertListSelective(List<T> recordList) {
+	public int insertListSelective(List<T> recordList) throws ServiceException {
 		int i = 0;
 		for (T t : recordList) {
 			i += insertSelective(t);

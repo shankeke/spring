@@ -150,6 +150,11 @@ public class SysUser extends BaseEntity<SysUser> {
 		return roleNames;
 	}
 
+	@Override
+	public String initOrderByClause() {
+		return "username ASC";
+	}
+
 	public void setRoleNames(Set<String> roleNames) {
 		this.roleNames = roleNames;
 	}

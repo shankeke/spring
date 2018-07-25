@@ -100,6 +100,11 @@ public class SysLog extends BaseEntity<SysLog> {
 	@Column(name = "result_type")
 	private Boolean resultType;
 
+	@Override
+	public String initOrderByClause() {
+		return "create_date DESC";
+	}
+
 	public String getRealName() {
 		return realName;
 	}

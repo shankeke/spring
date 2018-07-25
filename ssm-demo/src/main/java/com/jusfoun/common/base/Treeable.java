@@ -2,6 +2,7 @@ package com.jusfoun.common.base;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import com.jusfoun.common.util.list.IListUtil;
 
@@ -121,10 +122,11 @@ public interface Treeable<T extends Treeable<T>> {
 	 */
 	default boolean isMatch(T t, String regex) {
 		boolean b = true;
+		Pattern p = Pattern.compile(regex);
 		String[] matchFeilds = t.getMatchFeilds();
 		if (matchFeilds != null && matchFeilds.length > 0) {
 			for (String s : matchFeilds) {
-				b &= s.contains(regex);
+				b &= p.matcher(s).find();
 			}
 		}
 		return b;

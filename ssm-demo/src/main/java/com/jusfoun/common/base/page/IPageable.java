@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Transient;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
+
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,7 +20,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月7日 上午10:26:34
  */
 @ApiModel
-public class IPageable implements Serializable {
+public abstract class IPageable implements Serializable {
 	private static final long serialVersionUID = -4026620219669217389L;
 
 	/**
@@ -50,18 +54,100 @@ public class IPageable implements Serializable {
 	@Transient
 	private Integer pageSize;
 
+	/**
+	 * 排序条件，多个条件用“,”分开，如：id asc,name desc（字段名称取数据库中字段名而非实体属性名）
+	 */
+	@ApiModelProperty(value = "排序条件，多个条件用“,”分开，如：id asc,name desc（字段名称取数据库中字段名而非实体属性名）", hidden = true)
+	@JsonIgnore
+	@JSONField(serialize = false)
+	private String orderByClause;
+
+	/**
+	 * 描述： 空参构造函数，默认会根据默认页码和默认页长构造分页对象。<br/>
+	 */
 	public IPageable() {
 		this(DEFAULT_PAGENUM, DEFAULT_PAGESIZE);
 	}
 
+	/**
+	 * 描述： 构造函数，根据页码和页长构造分页对象。<br/>
+	 * 
+	 * @param pageNum
+	 *            页码
+	 * @param pageSize
+	 *            页长
+	 */
 	public IPageable(int pageNum, int pageSize) {
 		this(true, pageNum, pageSize);
 	}
 
+	/**
+	 * 描述： 构造函数,根据页码和页长构造分页对象。<br/>
+	 * 
+	 * @param pageable
+	 *            是否分页，默认true
+	 * @param pageNum
+	 *            页码
+	 * @param pageSize
+	 *            页长
+	 */
 	public IPageable(boolean pageable, int pageNum, int pageSize) {
-		this.pageable = pageable;
-		this.pageNum = pageNum;
-		this.pageSize = pageSize;
+		this(pageable, pageNum, pageSize, null);
+	}
+
+	/**
+	 * 描述： 构造函数,根据页码和页长构造分页对象。<br/>
+	 * 
+	 * @param pageable
+	 *            是否分页，默认true
+	 * @param pageNum
+	 *            页码
+	 * @param pageSize
+	 *            页长
+	 * @param orderByClause
+	 *            排序
+	 */
+	public IPageable(boolean pageable, int pageNum, int pageSize, String orderByClause) {
+		if (pageable) {
+			if (pageSize <= 0) {
+				pageSize = DEFAULT_PAGESIZE;
+			} else {
+				this.pageSize = pageSize;
+			}
+		} else {
+			pageSize = Integer.MAX_VALUE;
+		}
+
+		if (pageNum < 0) {
+			pageNum = DEFAULT_PAGENUM;
+		} else {
+			this.pageNum = pageNum;
+		}
+		this.orderByClause = orderByClause;
+	}
+
+	/**
+	 * 描述：构造函数， 根据排序信息构造分页对象。<br/>
+	 * 
+	 * @param orderByClause
+	 *            排序
+	 */
+	public IPageable(String orderByClause) {
+		this(DEFAULT_PAGENUM, DEFAULT_PAGESIZE, orderByClause);
+	}
+
+	/**
+	 * 描述： 构造函数，根据页码和页长构造分页对象。<br/>
+	 * 
+	 * @param pageNum
+	 *            页码
+	 * @param pageSize
+	 *            页长
+	 * @param orderByClause
+	 *            排序
+	 */
+	public IPageable(int pageNum, int pageSize, String orderByClause) {
+		this(true, pageNum, pageSize, orderByClause);
 	}
 
 	public Boolean isPageable() {
@@ -87,6 +173,26 @@ public class IPageable implements Serializable {
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
+
+	public String getOrderByClause() {
+		if (StringUtils.isEmpty(orderByClause)) {
+			orderByClause = initOrderByClause();
+		}
+		return orderByClause;
+	}
+
+	public void setOrderByClause(String orderByClause) {
+		this.orderByClause = orderByClause;
+	}
+
+	/**
+	 * 描述: 获取默认的排序字段信息，继承该类需要实现该方法. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月25日 下午2:14:18
+	 * @return 默认的排序字段信息
+	 */
+	public abstract String initOrderByClause();
 
 	/**
 	 * 描述: 根据一个page对象获取生成一个mybatis的分页边界对象. <br>

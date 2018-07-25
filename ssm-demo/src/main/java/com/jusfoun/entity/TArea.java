@@ -105,6 +105,11 @@ public class TArea extends IPageable implements Treeable<TArea>, Serializable {
 	private boolean leaf;
 
 	@Override
+	public String initOrderByClause() {
+		return "id ASC";
+	}
+
+	@Override
 	public String[] getMatchFeilds() {
 		return new String[]{areaName, shortName};
 	}
