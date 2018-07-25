@@ -131,7 +131,7 @@ public class RawGrantedToken implements Serializable {
 	}
 
 	public RawGrantedToken(TokenUserDetails userDetails) {
-		this(userDetails.getUserId(), userDetails.getUsername(), userDetails.getRealname(), userDetails.getGrantedAuthorities(), userDetails.isEnabled(),
+		this(userDetails.getUserId(), userDetails.getUsername(), userDetails.getRealname(), userDetails.grantedAuthorities(), userDetails.isEnabled(),
 				userDetails.isAuthenticated(), userDetails.isAccountNonLocked(), userDetails.isAccountNonExpired(), userDetails.isCredentialsNonExpired(),
 				userDetails.getExpiresIn(), userDetails.getAccessToken(), userDetails.getRefreshToken(), userDetails.getAccessTokenExpTime(), userDetails.getRefreshTokenExpTime());
 	}

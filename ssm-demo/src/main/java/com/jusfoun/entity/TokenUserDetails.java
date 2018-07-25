@@ -471,9 +471,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 		this.accountNonLocked = accountNonLocked;
 	}
 
-	@Transient
-	@JsonIgnore
-	public String[] getGrantedAuthorities() {
+	public String[] grantedAuthorities() {
 		if (authorities != null && !authorities.isEmpty()) {
 			return authorities.stream().map(t -> t.getAuthority()).toArray(String[]::new);
 		}

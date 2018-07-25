@@ -40,10 +40,6 @@ public class IPage<T> extends IPageable {
 		super(DEFAULT_PAGENUM, DEFAULT_PAGESIZE);
 	}
 
-	public IPage(IPageable pageable) {
-		super(true, pageable.getPageNum(), pageable.getPageSize(), pageable.getOrderByClause());
-	}
-
 	/**
 	 * 描述： 空参构造函数,默认会根据默认页码和默认页长构造IPage对象。<br/>
 	 * 
@@ -52,6 +48,18 @@ public class IPage<T> extends IPageable {
 	 */
 	public IPage(String orderByClause) {
 		super(DEFAULT_PAGENUM, DEFAULT_PAGESIZE, orderByClause);
+	}
+
+	/**
+	 * 描述： 构造函数,根据页码和页长构造IPage对象。<br/>
+	 * 
+	 * @param pageNum
+	 *            页码
+	 * @param pageSize
+	 *            页长
+	 */
+	public IPage(int pageNum, int pageSize) {
+		super(true, pageNum, pageSize);
 	}
 
 	/**
@@ -77,11 +85,9 @@ public class IPage<T> extends IPageable {
 	 *            页码
 	 * @param pageSize
 	 *            页长
-	 * @param orderByClause
-	 *            排序
 	 */
-	public IPage(boolean pageable, int pageNum, int pageSize, String orderByClause) {
-		super(pageable, pageNum, pageSize, orderByClause);
+	public IPage(boolean pageable, int pageNum, int pageSize) {
+		super(pageable, pageNum, pageSize, null);
 	}
 
 	/**
@@ -93,21 +99,15 @@ public class IPage<T> extends IPageable {
 	 *            页码
 	 * @param pageSize
 	 *            页长
+	 * @param orderByClause
+	 *            排序
 	 */
-	public IPage(boolean pageable, int pageNum, int pageSize) {
-		super(pageable, pageNum, pageSize, null);
+	public IPage(boolean pageable, int pageNum, int pageSize, String orderByClause) {
+		super(pageable, pageNum, pageSize, orderByClause);
 	}
 
-	/**
-	 * 描述： 构造函数,根据页码和页长构造IPage对象。<br/>
-	 * 
-	 * @param pageNum
-	 *            页码
-	 * @param pageSize
-	 *            页长
-	 */
-	public IPage(int pageNum, int pageSize) {
-		super(true, pageNum, pageSize);
+	public IPage(IPageable pageable) {
+		super(true, pageable.getPageNum(), pageable.getPageSize(), pageable.getOrderByClause());
 	}
 
 	/**
