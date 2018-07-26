@@ -39,7 +39,7 @@ public interface BaseTreeableController<T extends Treeable<T>, PK extends Serial
 	 *            检索关键字
 	 * @return 树根节点及后代节点
 	 */
-	@ApiOperation(value = "获取树图", notes = "根据根节点主键和关键字查询树根节点及后代节点，如果主根节点主键为空则查询主根及后代节点，如果关键字不为空，则根据关键字查询所有符合的节点并返回树状数据结构", hidden = false)
+	@ApiOperation(value = "获取树数据", notes = "根据根节点主键和关键字查询树根节点及后代节点，如果主根节点主键为空则查询主根及后代节点，如果关键字不为空，则根据关键字查询所有符合的节点并返回树状数据结构", hidden = false)
 	@RequestMapping(value = "getTree", method = {RequestMethod.POST, RequestMethod.GET})
 	default BaseResponse<T> getTree(//
 			@ApiParam(value = "根节点主键") @RequestParam(required = false) PK rootId, //
