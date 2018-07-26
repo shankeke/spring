@@ -18,6 +18,7 @@ import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.util.entry.EntityUtils;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.mapper.ds0.SysModuleMapper;
@@ -70,7 +71,7 @@ public class SysModuleServiceImpl extends BaseEntityWithAssociateServiceImpl<Sys
 			return;
 		sysModuleMapper.insert(root);
 		// 保存子节点
-		List<SysModule> list = root.getSysModules();
+		List<SysModule> list = root.getSubList();
 		if (IListUtil.hasData(list)) {
 			Long pid = root.getId();
 			for (SysModule item : list) {
@@ -122,6 +123,12 @@ public class SysModuleServiceImpl extends BaseEntityWithAssociateServiceImpl<Sys
 			return urls.stream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;
+	}
+
+	@Cacheable(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_sysmodule_byRootId'+#rootId", unless = "#result == null")
+	@Override
+	public SysModule selectTree(Long rootId) throws ServiceException {
+		return sysModuleMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 0L));
 	}
 
 }

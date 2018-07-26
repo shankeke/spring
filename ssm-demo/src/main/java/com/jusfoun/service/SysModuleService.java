@@ -7,6 +7,7 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
+import com.jusfoun.common.base.tree.TreeableService;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.entity.SysModule;
 
@@ -16,7 +17,7 @@ import com.jusfoun.entity.SysModule;
  * @author yjw@jusfoun.com
  * @date 2017年10月12日 下午5:50:25
  */
-public interface SysModuleService extends BaseEntityWithAssociateService<SysModule> {
+public interface SysModuleService extends BaseEntityWithAssociateService<SysModule>, TreeableService<SysModule, Long> {
 
 	/**
 	 * 描述 : 初始化系统权限. <br>
@@ -39,7 +40,7 @@ public interface SysModuleService extends BaseEntityWithAssociateService<SysModu
 	 * @return 权限列表
 	 * @throws ServiceException
 	 */
-	List<SysModule> selectByParentId(Long roleId) throws ServiceException;
+	List<SysModule> selectByParentId(Long parentId) throws ServiceException;
 
 	/**
 	 * 描述 : 查询系统已有的所有权限值. <br>

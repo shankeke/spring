@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.jusfoun.common.base.BaseEntity;
+import com.jusfoun.common.base.tree.Treeable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
 })
 @JsonIgnoreProperties(value = {"handler"})
 @Table(name = "sys_module")
-public class SysModule extends BaseEntity<SysModule> {
+public class SysModule extends BaseEntity<SysModule> implements Treeable<SysModule> {
 	private static final long serialVersionUID = -518969013141251551L;
 
 	/**
@@ -89,7 +90,7 @@ public class SysModule extends BaseEntity<SysModule> {
 	@JsonInclude(Include.NON_NULL)
 	@XmlElementWrapper(name = "sysModules")
 	@XmlElement(name = "sysModule")
-	private List<SysModule> sysModules;
+	private List<SysModule> subList;
 
 	public SysModule() {
 	}
@@ -108,9 +109,41 @@ public class SysModule extends BaseEntity<SysModule> {
 	 * @param sysModule
 	 */
 	public void add(SysModule sysModule) {
-		if (sysModules == null)
-			sysModules = new ArrayList<SysModule>();
-		sysModules.add(sysModule);
+		if (subList == null)
+			subList = new ArrayList<SysModule>();
+		subList.add(sysModule);
+	}
+
+	/**
+	 * 是否是叶子节点
+	 */
+	@ApiModelProperty("是否是叶子节点")
+	@Transient
+	private boolean leaf;
+
+	@Override
+	public List<SysModule> getSubList() {
+		return subList;
+	}
+
+	@Override
+	public void setSubList(List<SysModule> subList) {
+		this.subList = subList;
+	}
+
+	@Override
+	public void setLeaf(boolean leaf) {
+		this.leaf = leaf;
+	}
+
+	@Override
+	public boolean isLeaf() {
+		return leaf;
+	}
+
+	@Override
+	public String[] matchFeilds() {
+		return new String[]{name};
 	}
 
 	public String getName() {
@@ -152,13 +185,4 @@ public class SysModule extends BaseEntity<SysModule> {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-	public List<SysModule> getSysModules() {
-		return sysModules;
-	}
-
-	public void setSysModules(List<SysModule> sysModules) {
-		this.sysModules = sysModules;
-	}
-
 }

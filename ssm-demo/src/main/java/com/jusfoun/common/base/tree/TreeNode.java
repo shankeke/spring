@@ -2,6 +2,8 @@ package com.jusfoun.common.base.tree;
 
 import java.util.List;
 
+import javax.persistence.Transient;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -18,12 +20,14 @@ public abstract class TreeNode<T extends Treeable<T>> implements Treeable<T> {
 	 * 子节点集合
 	 */
 	@ApiModelProperty("子节点集合")
+	@Transient
 	private List<T> subList;
 
 	/**
 	 * 是否是叶子节点
 	 */
 	@ApiModelProperty("是否是叶子节点")
+	@Transient
 	private boolean leaf;
 
 	@Override

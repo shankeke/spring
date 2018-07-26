@@ -2,10 +2,14 @@ package com.jusfoun.mapper.ds0;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import com.jusfoun.common.base.tree.TreeableMapper;
 import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
 import com.jusfoun.entity.SysModule;
 
-public interface SysModuleMapper extends BaseWithAssociateMapper<SysModule> {
+@Mapper
+public interface SysModuleMapper extends BaseWithAssociateMapper<SysModule> ,TreeableMapper<SysModule, Long>{
 
 	/**
 	 * 描述 :根据角色ID查询角色拥有的权限列表. <br>
