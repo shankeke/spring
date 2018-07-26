@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beust.jcommander.internal.Maps;
 import com.jusfoun.common.annotation.Logable;
 import com.jusfoun.common.base.BaseController;
-import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.enums.YesNoType;
 import com.jusfoun.common.exception.ControllerException;
@@ -49,29 +47,19 @@ public class SysUserController extends BaseController<SysUser, Long> {
 	@Value("${system.user.init-password}")
 	private String initPassword;
 
-	/**
-	 * 描述 :用户信息保存. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午11:48:44
-	 * @param sysUser
-	 *            用户信息
-	 * @return 结果
-	 */
-	@ApiOperation(value = "保存系统用户信息", notes = "保存系统用户信息", hidden = false)
 	@Logable(desc = "保存系统用户", fullPath = "系统管理/用户管理/保存系统用户")
-	@RequestMapping(value = "/save", method = {RequestMethod.POST})
-	public BaseResponse<?> save(@ApiParam(value = "可只传非空的字段", required = true) @RequestBody SysUser sysUser) {
-		if (sysUser == null) {
+	@Override
+	public BaseResponse<SysUser> saveBase(SysUser t) {
+		if (t == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
-		if (StringUtils.isEmpty(sysUser.getUsername())) {
+		if (StringUtils.isEmpty(t.getUsername())) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR, "用户名称不能为空");
 		}
 
 		// 检查数据是否已经存在
 		SysUser record = new SysUser();
-		record.setUsername(sysUser.getUsername());
+		record.setUsername(t.getUsername());
 		int count = sysUserService.selectCount(record);
 		if (count > 0) {
 			return BaseResponse.fail(ErrType.SYSUSER_ENTITY_EXIST_ERROR, "系统已存在同名的账户");
@@ -79,14 +67,14 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 		// 保存数据
 		try {
-			sysUser.setPassword(passwordEncoder.encode(StringUtils.defaultIfEmpty(sysUser.getPassword(), initPassword)));
-			if (sysUser.getStatus() == null) {
-				sysUser.setStatus(UsingStatus.NotEnabled.getValue());
+			t.setPassword(passwordEncoder.encode(StringUtils.defaultIfEmpty(t.getPassword(), initPassword)));
+			if (t.getStatus() == null) {
+				t.setStatus(UsingStatus.NotEnabled.getValue());
 			}
-			if (sysUser.getGender() == null) {
-				sysUser.setGender(YesNoType.NO.getValue());
+			if (t.getGender() == null) {
+				t.setGender(YesNoType.NO.getValue());
 			}
-			sysUserService.insertWithCache(sysUser);
+			sysUserService.insertWithCache(t);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ControllerException(ErrType.SYSUSER_SAVE_ERROR);
@@ -94,25 +82,15 @@ public class SysUserController extends BaseController<SysUser, Long> {
 		return BaseResponse.success();
 	}
 
-	/**
-	 * 描述 :用户信息更新. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午11:48:44
-	 * @param sysUser
-	 *            用户信息
-	 * @return 结果
-	 */
-	@ApiOperation(value = "修改系统用户信息", notes = "修改系统用户信息", hidden = false)
 	@Logable(desc = "修改系统用户", fullPath = "系统管理/用户管理/修改系统用户")
-	@RequestMapping(value = "/update", method = {RequestMethod.POST})
-	public BaseResponse<?> update(@ApiParam(required = true) @RequestBody SysUser sysUser) {
-		if (sysUser == null || sysUser.getId() == null) {
+	@Override
+	public BaseResponse<SysUser> updateBase(SysUser t) {
+		if (t == null || t.getId() == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
 		// 更新数据
 		try {
-			sysUserService.updateByPrimaryKeySelectiveWithCache(sysUser);
+			sysUserService.updateByPrimaryKeySelectiveWithCache(t);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ControllerException(ErrType.SYSUSER_UPDATE_ERROR);
@@ -120,19 +98,9 @@ public class SysUserController extends BaseController<SysUser, Long> {
 		return BaseResponse.success();
 	}
 
-	/**
-	 * 描述 :用户信息删除. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午11:48:44
-	 * @param sysUser
-	 *            用户信息
-	 * @return 结果
-	 */
-	@ApiOperation(value = "删除系统用户信息", notes = "删除系统用户信息", hidden = false)
 	@Logable(desc = "删除系统用户", fullPath = "系统管理/用户管理/删除系统用户")
-	@RequestMapping(value = "/delete", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<?> delete(@ApiParam(value = "删除的记录ID", required = true) @RequestParam Long id) {
+	@Override
+	public BaseResponse<?> deleteBase(Long id) {
 		try {
 			sysUserService.deleteWithRoles(id);
 		} catch (Exception e) {
@@ -142,48 +110,9 @@ public class SysUserController extends BaseController<SysUser, Long> {
 		return BaseResponse.success();
 	}
 
-	/**
-	 * 描述 :用户信息列表查询. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午11:48:44
-	 * @param params
-	 *            用户信息
-	 * @return 结果
-	 */
-	@ApiOperation(value = "查询系统用户列表信息", notes = "查询系统用户列表信息", hidden = false)
-	@Logable(desc = "查询系统用户列表", fullPath = "系统管理/用户管理/查询系统用户列表")
-	@RequestMapping(value = "/list", method = {RequestMethod.POST})
-	public BaseResponse<IPage<SysUser>> list(//
-			@ApiParam(value = "是否分页：分页-true，不分页-false，默认true", defaultValue = "true") @RequestParam(name = "pageable", defaultValue = "true") boolean pageable, //
-			@ApiParam(value = "页码", defaultValue = "1") @RequestParam(name = "pageNum", defaultValue = "1") Integer pageNum, //
-			@ApiParam(value = "页长", defaultValue = "10") @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, //
-			@ApiParam(value = "用户名") @RequestParam(required = false) String username, //
-			@ApiParam(value = "操作类型：0-查询所有，1-查询登录日志", defaultValue = "0") @RequestParam(defaultValue = "0") Integer type //
-	) {
-		try {
-			IPage<SysUser> page = new IPage<>(pageable, pageNum, pageSize, "id desc");
-			page = sysUserService.selectPageWithAssociate(Maps.newHashMap(), page);
-			return BaseResponse.success(page);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ControllerException(ErrType.SYSUSER_QUERY_LIST_ERROR);
-		}
-	}
-
-	/**
-	 * 描述 :用户信息详情查询. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午11:48:44
-	 * @param sysUser
-	 *            用户信息
-	 * @return 结果
-	 */
-	@ApiOperation(value = "查询系统用户详情", notes = "查询系统用户详情", hidden = false)
 	@Logable(desc = "查询系统用户详情", fullPath = "系统管理/用户管理/查询系统用户详情")
-	@RequestMapping(value = "/info", method = {RequestMethod.POST})
-	public BaseResponse<SysUser> info(@ApiParam(value = "查询的记录ID", required = true) @RequestParam Long id) {
+	@Override
+	public BaseResponse<SysUser> infoBase(Long id) {
 		try {
 			SysUser sysUser = sysUserService.selectPKWithCache(id);
 			sysUser.setPassword(null);
@@ -194,20 +123,10 @@ public class SysUserController extends BaseController<SysUser, Long> {
 		}
 	}
 
-	/**
-	 * 描述 :用户面密码重置. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午11:48:44
-	 * @param sysUser
-	 *            用户信息
-	 * @return 结果
-	 */
 	@ApiOperation(value = "重置用户密码", notes = "重置用户密码", hidden = false)
 	@Logable(desc = "重置用户密码", fullPath = "系统管理/用户管理/重置用户密码")
-	@RequestMapping(value = "/resetPass", method = {RequestMethod.POST})
+	@RequestMapping(value = "/resetPass", method = {RequestMethod.POST, RequestMethod.GET})
 	public BaseResponse<?> resetPass(@ApiParam(value = "重置密码的记录ID", required = true) @RequestParam Long id) {
-
 		try {
 			SysUser sysUser = new SysUser();
 			sysUser.setId(id);
@@ -220,13 +139,6 @@ public class SysUserController extends BaseController<SysUser, Long> {
 		return BaseResponse.success();
 	}
 
-	/**
-	 * 描述 : 修改密码. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月26日 下午6:47:51
-	 * @return 处理结果
-	 */
 	@ApiOperation(value = "修改用户密码", notes = "修改用户密码", hidden = false)
 	@Logable(desc = "修改用户密码", fullPath = "系统管理/用户管理/修改用户密码")
 	@RequestMapping(value = "/modifyPass", method = {RequestMethod.POST})
@@ -250,13 +162,6 @@ public class SysUserController extends BaseController<SysUser, Long> {
 		return BaseResponse.success();
 	}
 
-	/**
-	 * 描述 : 设置角色 <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月26日 下午6:47:51
-	 * @return 处理结果
-	 */
 	@ApiOperation(value = "修改用户角色", notes = "修改用户角色", hidden = false)
 	@Logable(desc = "修改用户角色", fullPath = "系统管理/用户管理/修改用户角色")
 	@RequestMapping(value = "/modifyRoles", method = {RequestMethod.POST})
