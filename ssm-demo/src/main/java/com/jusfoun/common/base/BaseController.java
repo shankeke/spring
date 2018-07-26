@@ -28,36 +28,36 @@ public abstract class BaseController<T extends IPageable & Idable<PK>, PK extend
 	private BaseService<T> baseService;
 
 	@ApiOperation(value = "保存数据", notes = "保存数据", hidden = false)
-	@RequestMapping(value = "baseSave", method = {RequestMethod.POST})
-	public BaseResponse<T> baseSave(@RequestBody T t) {
+	@RequestMapping(value = "saveBase", method = {RequestMethod.POST})
+	public BaseResponse<T> saveBase(@RequestBody T t) {
 		baseService.insert(t);
 		return BaseResponse.success(t);
 	}
 
 	@ApiOperation(value = "修改数据", notes = "修改数据", hidden = false)
-	@RequestMapping(value = "baseUpdate", method = {RequestMethod.POST})
-	public BaseResponse<T> baseUpdate(@RequestBody T t) {
+	@RequestMapping(value = "updateBase", method = {RequestMethod.POST})
+	public BaseResponse<T> updateBase(@RequestBody T t) {
 		baseService.updateByPrimaryKeySelective(t);
 		return BaseResponse.success(t);
 	}
 
 	@ApiOperation(value = "删除数据", notes = "删除数据", hidden = false)
-	@RequestMapping(value = "baseDelete", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<?> baseDelete(PK id) {
+	@RequestMapping(value = "deleteBase", method = {RequestMethod.POST, RequestMethod.GET})
+	public BaseResponse<?> deleteBase(PK id) {
 		baseService.deleteByPrimaryKey(id);
 		return BaseResponse.success();
 	}
 
 	@ApiOperation(value = "查询数据列表", notes = "查询数据列表", hidden = false)
-	@RequestMapping(value = "baseList", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<IPage<T>> baseList(@RequestBody T t) {
+	@RequestMapping(value = "listBase", method = {RequestMethod.POST, RequestMethod.GET})
+	public BaseResponse<IPage<T>> listBase(@RequestBody T t) {
 		IPage<T> page = baseService.selectPage(t, new IPage<T>(t));
 		return BaseResponse.success(page);
 	}
 
 	@ApiOperation(value = "查询数据详情", notes = "查询数据详情", hidden = false)
-	@RequestMapping(value = "baseInfo", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<T> baseInfo(PK id) {
+	@RequestMapping(value = "infoBase", method = {RequestMethod.POST, RequestMethod.GET})
+	public BaseResponse<T> infoBase(PK id) {
 		T t = baseService.selectByPrimaryKey(id);
 		return BaseResponse.success(t);
 	}

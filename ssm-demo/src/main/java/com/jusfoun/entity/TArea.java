@@ -9,8 +9,8 @@ import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.base.Idable;
-import com.jusfoun.common.base.Treeable;
 import com.jusfoun.common.base.page.IPageable;
+import com.jusfoun.common.base.tree.Treeable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

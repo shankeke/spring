@@ -42,7 +42,6 @@ public class TCountryTotalVo implements Serializable {
 					.sorted(Comparator.comparing(TCountryVo::getAlpha))//
 					.collect(Collectors.toList());
 		}
-
 		return list;
 	}
 
@@ -52,7 +51,9 @@ public class TCountryTotalVo implements Serializable {
 
 	public int getRowCount() {
 		if (IListUtil.hasData(list)) {
-			rowCount = list.stream().mapToInt(t -> t.getRowCount()).sum();
+			rowCount = list.stream()//
+					.mapToInt(t -> t.getRowCount())//
+					.sum();
 		}
 		return rowCount;
 	}

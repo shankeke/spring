@@ -83,31 +83,7 @@ public class SysGovController extends BaseController<SysGov, Long> {
 		return BaseResponse.success();
 	}
 
-	/**
-	 * 描述 : 更新组织结构. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午10:09:02
-	 * @param sysGov
-	 *            组织机构
-	 * @return
-	 */
-	@ApiOperation(value = "修改组织机构信息", notes = "修改组织机构信息", hidden = false)
-	@Logable(desc = "修改机构信息", fullPath = "系统管理/组织机构/修改机构信息")
-	// @PreAuthorize("hasPermission('user', '/sysgov/update')")
-	@RequestMapping(value = "/update", method = {RequestMethod.POST})
-	public BaseResponse<?> update(@ApiParam(value = "组织信息，可只传修改的字段，必传ID", required = true) @RequestBody SysGov sysGov) {
-		if (sysGov == null || sysGov.getId() == null) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
-		}
-		try {
-			sysGovService.updateByPrimaryKeySelective(sysGov);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ControllerException(ErrType.SYSGOV_UPDATE_ERROR);
-		}
-		return BaseResponse.success();
-	}
+	 
 
 	/**
 	 * 描述 : 删除组织结构. <br>
@@ -180,25 +156,5 @@ public class SysGovController extends BaseController<SysGov, Long> {
 		return BaseResponse.success(list);
 	}
 
-	/**
-	 * 描述 : 查询组织结构详情. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午10:09:02
-	 * @param sysGov
-	 *            组织机构
-	 * @return
-	 */
-	@ApiOperation(value = "查询组织机构详情", notes = "查询组织机构详情", hidden = false)
-	@Logable(desc = "查询机构详情", fullPath = "系统管理/组织机构/查询机构详情")
-	// @PreAuthorize("hasPermission('user', '/sysgov/info')")
-	@RequestMapping(value = "/info", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<SysGov> info(@ApiParam(value = "查询的记录ID", required = true) @RequestParam Long id) {
-		try {
-			return BaseResponse.success(sysGovService.selectByPrimaryKey(id));
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ControllerException(ErrType.SYSGOV_QUERY_INFO_ERROR);
-		}
-	}
+ 
 }

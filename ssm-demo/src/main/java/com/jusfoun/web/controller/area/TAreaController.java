@@ -31,9 +31,12 @@ public class TAreaController extends BaseController<TArea, Long> {
 	 *            地区名称，根据名称检索
 	 * @return 地区树图根节点
 	 */
-	@RequestMapping(value = "getAreaTree", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<TArea> getAreaTree(@ApiParam(value = "检索地区名称") @RequestParam(required = false) String areaName) {
-		TArea root = tAreaService.selectAreaTree(areaName);
+	@RequestMapping(value = "getTree", method = {RequestMethod.POST, RequestMethod.GET})
+	public BaseResponse<TArea> getTree(//
+			@ApiParam(value = "根节点主键") @RequestParam(required = false, defaultValue = "0") Long parentId, //
+			@ApiParam(value = "检索地区名称") @RequestParam(required = false) String keyword//
+	) {
+		TArea root = tAreaService.selectTree(parentId, keyword);
 		return BaseResponse.success(root);
 	}
 }
