@@ -56,7 +56,6 @@ public interface Treeable<T extends Treeable<T>> {
 		} else {
 			return search(rootList, regex);
 		}
-
 	}
 
 	/**
@@ -112,7 +111,7 @@ public interface Treeable<T extends Treeable<T>> {
 	String[] matchFeilds();
 
 	/**
-	 * 描述: 是否匹配检索字段. <br>
+	 * 描述: 检查对象是否否匹配检索字段，这里是默认实现，如果不能满足自己的需求可以在子类中重写该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:45:03

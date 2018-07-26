@@ -38,6 +38,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@Autowired
 	private SysUserService sysUserService;
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
