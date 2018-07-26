@@ -66,7 +66,7 @@ public abstract class BaseController<T extends IPageable & Idable<PK>, PK extend
 	}
 
 	@ApiOperation(value = "删除数据对象集合", notes = "删除数据对象集合", hidden = false)
-	@RequestMapping(value = "deleteList", method = {RequestMethod.POST})
+	@RequestMapping(value = "deleteList", method = {RequestMethod.POST, RequestMethod.GET})
 	public BaseResponse<?> deleteBase(@ApiParam(value = "主键值集合", required = true) @RequestParam List<PK> ids) {
 		baseService.deleteByPrimaryKeys(ids);
 		return BaseResponse.success();
