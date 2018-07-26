@@ -45,6 +45,7 @@ public class Swagger2Config {
 						+ "8、Excel导出：引用Freemaker模板技术，实现模板化导出功能，可实现复杂的数据结构导出功能，代码量更少，开发更简单，结构更优化，如：横向纵向合并单元格，数据分SHEET等。\n"//
 						+ "9、数据源：支持多数据源，源源之间无缝切换，对开发人员透明化，无需关心当前具体使用的数据源实例，数据业务低耦合。\n"//
 						+ "10、报文标准：接口报文使用标准模板封装，借助Jackson序列化和反序列化技特性定制报文字段，利用泛型实现，灵活度更高，代码更规范，开发更简单，配合SWAGGER技术，完美展示接口文档。\n"//
+						+ "11、Jaxb支持：完善的jaxb序列化和反序列化工具，支持复杂的Xml报文与Java Bean转化功能。\n"//
 						+ "更多相关示例请关注：https://github.com/760374564/spring/tree/master/ssm-demo")//
 				.termsOfServiceUrl("https://github.com/760374564/")//
 				.version("1.0")//

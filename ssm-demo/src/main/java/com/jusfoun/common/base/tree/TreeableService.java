@@ -17,7 +17,7 @@ import com.jusfoun.common.util.list.IListUtil;
 public interface TreeableService<T extends Treeable<T>, PK extends Serializable> extends TreeableMapper<T, PK> {
 
 	/**
-	 * 描述: 树图数据查询，可根据根节点主键和关键字检索. <br>
+	 * 描述: 树数据查询，可根据根节点主键和关键字检索. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月26日 上午11:46:51
