@@ -8,6 +8,7 @@ import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.base.BaseEntity;
+import com.jusfoun.common.base.tree.Treeable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -20,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 @JsonIgnoreProperties(value = {"handler"})
 @Table(name = "sys_gov")
-public class SysGov extends BaseEntity<SysGov> {
+public class SysGov extends BaseEntity<SysGov> implements Treeable<SysGov> {
 	private static final long serialVersionUID = 1135482541484948992L;
 
 	/**
@@ -91,11 +92,43 @@ public class SysGov extends BaseEntity<SysGov> {
 	 */
 	@ApiModelProperty("子节点集合")
 	@Transient
-	private List<SysGov> sysGovs;
+	private List<SysGov> subList;
+
+	/**
+	 * 是否是叶子节点
+	 */
+	@ApiModelProperty("是否是叶子节点")
+	@Transient
+	private boolean leaf;
 
 	@Override
 	public String initOrderByClause() {
 		return "full_name ASC";
+	}
+
+	@Override
+	public List<SysGov> getSubList() {
+		return subList;
+	}
+
+	@Override
+	public void setSubList(List<SysGov> subList) {
+		this.subList = subList;
+	}
+
+	@Override
+	public String[] matchFeilds() {
+		return new String[]{fullName, shortName};
+	}
+
+	@Override
+	public void setLeaf(boolean leaf) {
+		this.leaf = leaf;
+	}
+
+	@Override
+	public boolean isLeaf() {
+		return leaf;
 	}
 
 	public String getParentName() {
@@ -104,14 +137,6 @@ public class SysGov extends BaseEntity<SysGov> {
 
 	public void setParentName(String parentName) {
 		this.parentName = parentName;
-	}
-
-	public List<SysGov> getSysGovs() {
-		return sysGovs;
-	}
-
-	public void setSysGovs(List<SysGov> sysGovs) {
-		this.sysGovs = sysGovs;
 	}
 
 	/**

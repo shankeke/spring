@@ -15,7 +15,7 @@
 		<result column="flag" jdbcType="VARCHAR" property="flag" />
 	</resultMap>
 
-	<resultMap id="BaseWithSubListResultMap" type="com.jusfoun.entity.TArea" extends="BaseResultMap">
+	<resultMap id="BaseTreeResultMap" type="com.jusfoun.entity.TArea" extends="BaseResultMap">
 		<association property="subList" column="id" fetchType="eager" select="selectByParentId" />
 	</resultMap>
 
@@ -62,7 +62,7 @@
 		<include refid="Base_Select_Sql" />
 	</select>
 
-	<select id="selectByParentId" parameterType="Long" resultMap="BaseWithSubListResultMap">
+	<select id="selectByParentId" parameterType="Long" resultMap="BaseTreeResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from
@@ -72,7 +72,7 @@
 		</where>
 	</select>
 
-	<select id="selectTreeRoot" parameterType="Long" resultMap="BaseWithSubListResultMap">
+	<select id="selectTree" parameterType="Long" resultMap="BaseTreeResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from

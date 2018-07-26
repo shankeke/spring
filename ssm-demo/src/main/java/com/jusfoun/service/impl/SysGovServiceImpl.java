@@ -1,13 +1,12 @@
 package com.jusfoun.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
+import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.util.entry.EntityUtils;
 import com.jusfoun.entity.SysGov;
-import com.jusfoun.entity.SysUser;
 import com.jusfoun.mapper.ds0.SysGovMapper;
 import com.jusfoun.service.SysGovService;
 
@@ -24,12 +23,12 @@ public class SysGovServiceImpl extends BaseEntityWithAssociateServiceImpl<SysGov
 	private SysGovMapper sysGovMapper;
 
 	@Override
-	public String selectNameByPrimaryKey(Long id) {
+	public String selectNameByPrimaryKey(Long id) throws ServiceException {
 		return sysGovMapper.selectNameByPrimaryKey(id);
 	}
 
 	@Override
-	public List<SysUser> selectByParentId(Long parentId) {
-		return sysGovMapper.selectByParentId(parentId);
+	public SysGov selectTree(Long rootId) throws ServiceException {
+		return sysGovMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 0L));
 	}
 }

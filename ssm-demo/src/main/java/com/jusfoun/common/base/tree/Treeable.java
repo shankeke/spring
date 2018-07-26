@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import com.jusfoun.common.util.list.IListUtil;
 
 /**
- * 描述:树状结构数据检所处理接口. <br>
+ * 描述:树状结构数据查询检索处理接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午2:24:03

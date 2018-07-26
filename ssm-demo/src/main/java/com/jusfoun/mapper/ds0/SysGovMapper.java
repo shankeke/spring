@@ -1,12 +1,13 @@
 package com.jusfoun.mapper.ds0;
 
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 
+import com.jusfoun.common.base.tree.TreeableMapper;
 import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
 import com.jusfoun.entity.SysGov;
-import com.jusfoun.entity.SysUser;
 
-public interface SysGovMapper extends BaseWithAssociateMapper<SysGov> {
+@Mapper
+public interface SysGovMapper extends BaseWithAssociateMapper<SysGov>, TreeableMapper<SysGov, Long> {
 	/**
 	 * 描述 :根据ID 查询名称. <br>
 	 *
@@ -18,14 +19,4 @@ public interface SysGovMapper extends BaseWithAssociateMapper<SysGov> {
 	 */
 	String selectNameByPrimaryKey(Long id);
 
-	/**
-	 * 描述 : 根据父节点ID查询子节点列表. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月23日 上午10:54:28
-	 * @param parentId
-	 *            父节点ID
-	 * @return 子节点集合
-	 */
-	List<SysUser> selectByParentId(Long parentId);
 }

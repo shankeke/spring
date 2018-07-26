@@ -27,6 +27,6 @@ public class TAreaServiceImpl extends BaseWithAssociateServiceImpl<TArea> implem
 	@Cacheable(value = CacheConsts.CACHE_TEMP, key = "'area_cache_' + #id", unless = "#result == null")
 	@Override
 	public TArea selectTree(Long rootId) throws ServiceException {
-		return tAreaMapper.selectTreeRoot(EntityUtils.getDefaultIfNull(rootId, 0L));
+		return tAreaMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 0L));
 	}
 }
