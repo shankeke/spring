@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.jusfoun.common.jackson.fieldFilter.FilterFieldsJsonReturnHandler;
+import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonReturnHandler;
 import com.jusfoun.config.file.FileConfig;
 import com.jusfoun.web.filter.gzip.GzipSupportFilter;
 import com.jusfoun.web.interceptor.FileTypeInterceptor;

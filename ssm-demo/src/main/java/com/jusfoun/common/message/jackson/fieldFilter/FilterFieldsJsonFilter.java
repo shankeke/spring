@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.fieldFilter;
+package com.jusfoun.common.message.jackson.fieldFilter;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.PropertyFilter;
 import com.fasterxml.jackson.databind.ser.PropertyWriter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
-import com.jusfoun.common.jackson.utils.ProxyTargetUtils;
+import com.jusfoun.common.message.utils.ProxyTargetUtils;
 
 /**
  * 描述 :jackson 中， 我们可以通过 ObjectMapper.setFilterProvider 来进行过滤规则的设置， jackson

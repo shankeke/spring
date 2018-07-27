@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.fieldFilter;
+package com.jusfoun.common.message.jackson.fieldFilter;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.jusfoun.common.jackson.annotation.Json;
+import com.jusfoun.common.message.annotation.Json;
 
 /**
  * 描述 : jackson序列化处理器. <br>

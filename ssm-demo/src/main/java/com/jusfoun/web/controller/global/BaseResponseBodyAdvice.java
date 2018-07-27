@@ -10,7 +10,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.jusfoun.common.jackson.annotation.JsonBody;
+import com.jusfoun.common.message.annotation.JsonBody;
 import com.jusfoun.common.result.BaseResponse;
 
 /**

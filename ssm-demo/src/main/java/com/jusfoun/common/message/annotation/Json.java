@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.annotation;
+package com.jusfoun.common.message.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Repeatable;

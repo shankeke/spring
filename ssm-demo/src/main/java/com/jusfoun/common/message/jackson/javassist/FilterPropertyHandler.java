@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.javassist;
+package com.jusfoun.common.message.jackson.javassist;
 
 import java.lang.reflect.Method;
 

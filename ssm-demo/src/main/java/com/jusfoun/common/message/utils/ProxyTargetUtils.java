@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.utils;
+package com.jusfoun.common.message.utils;
 
 import java.lang.reflect.Field;
 

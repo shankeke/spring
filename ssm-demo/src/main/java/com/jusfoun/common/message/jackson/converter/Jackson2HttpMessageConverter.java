@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.converter;
+package com.jusfoun.common.message.jackson.converter;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.jusfoun.common.jackson.javassist.ThreadJacksonMixInHolder;
+import com.jusfoun.common.message.jackson.javassist.ThreadJacksonMixInHolder;
 
 public class Jackson2HttpMessageConverter extends MappingJackson2HttpMessageConverter {
 	private ObjectMapper objectMapper = new ObjectMapper();

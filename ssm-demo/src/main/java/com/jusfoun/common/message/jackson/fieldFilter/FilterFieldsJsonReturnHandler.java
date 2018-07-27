@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.fieldFilter;
+package com.jusfoun.common.message.jackson.fieldFilter;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.jusfoun.common.jackson.annotation.JsonBody;
+import com.jusfoun.common.message.annotation.JsonBody;
 
 /**
  * 描述 :json返回结果处理器. <br>

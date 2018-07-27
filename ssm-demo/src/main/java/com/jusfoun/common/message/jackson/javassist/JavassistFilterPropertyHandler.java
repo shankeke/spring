@@ -1,4 +1,4 @@
-package com.jusfoun.common.jackson.javassist;
+package com.jusfoun.common.message.jackson.javassist;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jusfoun.common.jackson.annotation.JsonBody;
-import com.jusfoun.common.jackson.annotation.Json;
+import com.jusfoun.common.message.annotation.Json;
+import com.jusfoun.common.message.annotation.JsonBody;
 
 import javassist.CannotCompileException;
 import javassist.ClassPool;
