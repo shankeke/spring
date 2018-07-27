@@ -4,14 +4,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
 import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;
 import com.jusfoun.entity.vo.TCountryVo;
+import com.jusfoun.mapper.ds1.TCountryMapper;
 import com.jusfoun.service.TCountryService;
 
 /**
@@ -21,7 +25,25 @@ import com.jusfoun.service.TCountryService;
  * @date 2018年7月24日 下午12:47:08
  */
 @Service
-public class TCountryServiceImpl extends BaseWithAssociateServiceImpl<TCountry> implements TCountryService {
+public class TCountryServiceImpl implements TCountryService {
+
+	@Autowired
+	private TCountryMapper tCountryMapper;
+
+	@Override
+	public BaseWithAssociateSelectMapper<TCountry> getBaseWithAssociateSelectMapper() {
+		return tCountryMapper;
+	}
+
+	@Override
+	public MyIdableMapper<TCountry> getMyIdableMapper() {
+		return tCountryMapper;
+	}
+
+	@Override
+	public MyBaseMapper<TCountry> getMyBaseMapper() {
+		return tCountryMapper;
+	}
 
 	@Override
 	public TCountryTotalVo selectCounties() throws ServiceException {

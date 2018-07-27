@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.service.BaseWithAssociateService;
+import com.jusfoun.common.base.service.BaseIdableWithAssociateService;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.security.support.token.RefreshToken;
@@ -11,7 +11,7 @@ import com.jusfoun.security.support.token.RefreshToken;
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午5:54:20
  */
-public interface TokenUserDetailsService extends BaseWithAssociateService<TokenUserDetails> {
+public interface TokenUserDetailsService extends BaseIdableWithAssociateService<TokenUserDetails> {
 
 	/**
 	 * 描述 : 保存并缓存. <br>

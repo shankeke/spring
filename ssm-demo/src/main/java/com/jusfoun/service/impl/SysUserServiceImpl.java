@@ -9,9 +9,11 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.result.ErrType;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.SysRole;
@@ -28,12 +30,27 @@ import com.jusfoun.service.SysUserService;
  * @date 2017年11月24日 下午7:00:05
  */
 @Service
-public class SysUserServiceImpl extends BaseEntityWithAssociateServiceImpl<SysUser> implements SysUserService {
+public class SysUserServiceImpl implements SysUserService {
 
 	@Autowired
 	private SysUserMapper sysUserMapper;
 	@Autowired
 	private SysRoleUserMapper sysRoleUserMapper;
+
+	@Override
+	public BaseWithAssociateSelectMapper<SysUser> getBaseWithAssociateSelectMapper() {
+		return sysUserMapper;
+	}
+
+	@Override
+	public MyIdableMapper<SysUser> getMyIdableMapper() {
+		return sysUserMapper;
+	}
+
+	@Override
+	public MyBaseMapper<SysUser> getMyBaseMapper() {
+		return sysUserMapper;
+	}
 
 	@Override
 	public int insertWithCache(SysUser sysUser) {

@@ -3,7 +3,7 @@ package com.jusfoun.common.base;
 import java.io.Serializable;
 
 /**
- * 描述: ID属性模型. <br>
+ * 描述: ID定义接口，一般声明改实体类有主键属性才需要继承改接口，无强制作用，只是便于识别该实体是否含有主键，具体需要在实现类里指定主键属性. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午12:52:54

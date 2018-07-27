@@ -14,10 +14,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Sets;
-import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.util.entry.EntityUtils;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.SysModule;
@@ -32,10 +34,25 @@ import com.jusfoun.service.SysModuleService;
  * @date 2017年10月12日 下午5:50:49
  */
 @Service
-public class SysModuleServiceImpl extends BaseEntityWithAssociateServiceImpl<SysModule> implements SysModuleService {
+public class SysModuleServiceImpl implements SysModuleService {
 
 	@Autowired
 	private SysModuleMapper sysModuleMapper;
+
+	@Override
+	public BaseWithAssociateSelectMapper<SysModule> getBaseWithAssociateSelectMapper() {
+		return sysModuleMapper;
+	}
+
+	@Override
+	public MyIdableMapper<SysModule> getMyIdableMapper() {
+		return sysModuleMapper;
+	}
+
+	@Override
+	public MyBaseMapper<SysModule> getMyBaseMapper() {
+		return sysModuleMapper;
+	}
 
 	// 清理所有的关于安全的缓存
 	@CacheEvict(value = CacheConsts.CACHE_SECURITY, allEntries = true)

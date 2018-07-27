@@ -3,11 +3,11 @@ package com.jusfoun.mapper.ds0;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.jusfoun.common.base.tree.TreeableMapper;
-import com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper;
+import com.jusfoun.common.mybatis.mapper.BaseIdableWithAssociateMapper;
 import com.jusfoun.entity.SysGov;
 
 @Mapper
-public interface SysGovMapper extends BaseWithAssociateMapper<SysGov>, TreeableMapper<SysGov, Long> {
+public interface SysGovMapper extends BaseIdableWithAssociateMapper<SysGov>, TreeableMapper<SysGov, Long> {
 	/**
 	 * 描述 :根据ID 查询名称. <br>
 	 *

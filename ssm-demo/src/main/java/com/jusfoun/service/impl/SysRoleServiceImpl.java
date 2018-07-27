@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.result.ErrType;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.SysModule;
@@ -29,12 +31,27 @@ import com.jusfoun.service.SysRoleService;
  * @date 2018年7月23日 下午5:22:38
  */
 @Service
-public class SysRoleServiceImpl extends BaseEntityWithAssociateServiceImpl<SysRole> implements SysRoleService {
+public class SysRoleServiceImpl implements SysRoleService {
 
 	@Autowired
 	private SysRoleMapper sysRoleMapper;
 	@Autowired
 	private SysRoleModuleMapper sysRoleModuleMapper;
+
+	@Override
+	public BaseWithAssociateSelectMapper<SysRole> getBaseWithAssociateSelectMapper() {
+		return sysRoleMapper;
+	}
+
+	@Override
+	public MyIdableMapper<SysRole> getMyIdableMapper() {
+		return sysRoleMapper;
+	}
+
+	@Override
+	public MyBaseMapper<SysRole> getMyBaseMapper() {
+		return sysRoleMapper;
+	}
 
 	@Override
 	public void saveWithAssociate(SysRole sysRole) throws ServiceException {

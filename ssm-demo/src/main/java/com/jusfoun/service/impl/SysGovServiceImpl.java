@@ -3,8 +3,10 @@ package com.jusfoun.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
 import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.util.entry.EntityUtils;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.mapper.ds0.SysGovMapper;
@@ -17,10 +19,25 @@ import com.jusfoun.service.SysGovService;
  * @date 2017年9月23日 上午10:04:49
  */
 @Service
-public class SysGovServiceImpl extends BaseEntityWithAssociateServiceImpl<SysGov> implements SysGovService {
+public class SysGovServiceImpl implements SysGovService {
 
 	@Autowired
 	private SysGovMapper sysGovMapper;
+
+	@Override
+	public BaseWithAssociateSelectMapper<SysGov> getBaseWithAssociateSelectMapper() {
+		return sysGovMapper;
+	}
+
+	@Override
+	public MyIdableMapper<SysGov> getMyIdableMapper() {
+		return sysGovMapper;
+	}
+
+	@Override
+	public MyBaseMapper<SysGov> getMyBaseMapper() {
+		return sysGovMapper;
+	}
 
 	@Override
 	public String selectNameByPrimaryKey(Long id) throws ServiceException {

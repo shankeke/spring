@@ -1,14 +1,18 @@
 package com.jusfoun.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseWithAssociateServiceImpl;
 import com.jusfoun.common.cache.CacheConsts;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.util.entry.EntityUtils;
 import com.jusfoun.entity.TokenUserDetails;
+import com.jusfoun.mapper.ds0.TokenUserDetailsMapper;
 import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.security.support.token.RefreshToken;
 import com.jusfoun.service.TokenUserDetailsService;
@@ -20,7 +24,25 @@ import com.jusfoun.service.TokenUserDetailsService;
  * @date 2017年11月9日 上午11:37:10
  */
 @Service
-public class TokenUserDetailsServiceImpl extends BaseWithAssociateServiceImpl<TokenUserDetails> implements TokenUserDetailsService {
+public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
+
+	@Autowired
+	private TokenUserDetailsMapper tokenUserDetailsMapper;
+
+	@Override
+	public BaseWithAssociateSelectMapper<TokenUserDetails> getBaseWithAssociateSelectMapper() {
+		return tokenUserDetailsMapper;
+	}
+
+	@Override
+	public MyIdableMapper<TokenUserDetails> getMyIdableMapper() {
+		return tokenUserDetailsMapper;
+	}
+
+	@Override
+	public MyBaseMapper<TokenUserDetails> getMyBaseMapper() {
+		return tokenUserDetailsMapper;
+	}
 
 	@CachePut(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_token_' + #record.clientId + '_' + #record.username", unless = "#result == null")
 	@Override

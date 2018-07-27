@@ -1,9 +1,13 @@
 package com.jusfoun.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.impl.BaseEntityWithAssociateServiceImpl;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
+import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
+import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
 import com.jusfoun.entity.SysLog;
+import com.jusfoun.mapper.ds0.SysLogMapper;
 import com.jusfoun.service.SysLogService;
 
 /**
@@ -13,5 +17,23 @@ import com.jusfoun.service.SysLogService;
  * @date 2017年10月10日 下午2:54:20
  */
 @Service
-public class SysLogServiceImpl extends BaseEntityWithAssociateServiceImpl<SysLog> implements SysLogService {
+public class SysLogServiceImpl implements SysLogService {
+
+	@Autowired
+	private SysLogMapper sysLogMapper;
+
+	@Override
+	public MyIdableMapper<SysLog> getMyIdableMapper() {
+		return sysLogMapper;
+	}
+
+	@Override
+	public MyBaseMapper<SysLog> getMyBaseMapper() {
+		return sysLogMapper;
+	}
+
+	@Override
+	public BaseWithAssociateSelectMapper<SysLog> getBaseWithAssociateSelectMapper() {
+		return sysLogMapper;
+	}
 }

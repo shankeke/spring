@@ -1,4 +1,4 @@
-package com.jusfoun.common.base.service.impl;
+package com.jusfoun.common.base.service;
 
 import java.util.Collection;
 
@@ -7,7 +7,6 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.base.service.CacheService;
 import com.jusfoun.common.exception.ServiceException;
 
 /**

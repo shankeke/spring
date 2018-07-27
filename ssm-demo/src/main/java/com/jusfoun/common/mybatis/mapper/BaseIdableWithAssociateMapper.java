@@ -11,6 +11,6 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年9月16日 上午11:15:38
  */
 @RegisterMapper
-public interface BaseWithAssociateMapper<T> extends MyBaseMapper<T>, BaseWithAssociateSelectMapper<T> {
+public interface BaseIdableWithAssociateMapper<T> extends MyBaseMapper<T>, MyIdableMapper<T>, BaseWithAssociateSelectMapper<T> {
 	// FIXME 特别注意，这里继承了BaseWithAssociateSelectMapper<T>接口，改接口下的方法需要在xml文件中手动实现
 }
