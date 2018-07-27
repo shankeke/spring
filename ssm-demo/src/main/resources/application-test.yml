@@ -2,7 +2,7 @@ spring:
   datasource:
     ds0:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/dbhx_tianjin?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
+      url: jdbc:mysql://localhost:3306/ssm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
       username: root
       password: root
       maxActive: 80     #最大活动连接
@@ -18,7 +18,7 @@ spring:
       numTestsPerEvictionRun: 3 #在每次空闲连接回收器线程(如果有)运行时检查的连接数量
     ds1:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/dbhx_tianjin?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
+      url: jdbc:mysql://localhost:3306/ssm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
       username: root
       password: root
       maxActive: 80     #最大活动连接
