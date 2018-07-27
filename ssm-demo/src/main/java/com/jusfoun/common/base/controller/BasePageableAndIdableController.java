@@ -13,5 +13,4 @@ import com.jusfoun.common.base.page.IPageable;
  */
 public interface BasePageableAndIdableController<T extends IPageable & Idable<PK>, PK extends Serializable>
 		extends BasePageableController<T>, BaseIdableController<T, PK> {
-
 }
