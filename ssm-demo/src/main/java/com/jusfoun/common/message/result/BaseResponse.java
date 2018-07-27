@@ -1,4 +1,4 @@
-package com.jusfoun.common.result;
+package com.jusfoun.common.message.result;
 
 import java.io.Serializable;
 

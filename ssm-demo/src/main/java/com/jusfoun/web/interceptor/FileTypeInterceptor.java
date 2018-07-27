@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.jusfoun.common.exception.CoreException;
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.ErrType;
 
 /**
  * 描述 : 文件类型限制拦截器. <br>

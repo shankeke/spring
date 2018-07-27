@@ -11,8 +11,8 @@ import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.log.Logable;
-import com.jusfoun.common.result.BaseResponse;
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.entity.SysRole;
 import com.jusfoun.service.SysRoleService;
 

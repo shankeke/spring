@@ -20,8 +20,8 @@ import org.springframework.security.web.authentication.rememberme.RememberMeAuth
 import org.springframework.security.web.authentication.session.SessionAuthenticationException;
 import org.springframework.security.web.authentication.www.NonceExpiredException;
 
-import com.jusfoun.common.result.BaseResponse;
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
 
 /**
  * @author yjw@jusfoun.com

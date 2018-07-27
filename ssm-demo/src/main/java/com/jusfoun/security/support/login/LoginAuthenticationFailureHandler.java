@@ -12,7 +12,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.security.exceptions.AuthenticationExceptionHandler;
 
 /**

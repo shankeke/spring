@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.base.page.IPageable;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

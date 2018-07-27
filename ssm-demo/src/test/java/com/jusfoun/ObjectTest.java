@@ -2,7 +2,7 @@ package com.jusfoun;
 
 import org.junit.Test;
 
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysUser;
 

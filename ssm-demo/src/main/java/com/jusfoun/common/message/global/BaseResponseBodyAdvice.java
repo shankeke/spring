@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.jusfoun.common.message.annotation.JsonBody;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 
 /**
  * 描述 :自定义的返回报文包装. <br>

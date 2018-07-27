@@ -19,8 +19,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jusfoun.common.exception.CoreException;
 import com.jusfoun.common.message.annotation.JsonBody;
 import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonSerializer;
-import com.jusfoun.common.result.BaseResponse;
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
 
 /**
  * 描述 :处理包装同时使用@ResponseBody和@JsonBody注解的方法以满足json字段过滤等需求. <br>

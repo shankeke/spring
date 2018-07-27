@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.message.annotation.Json;
 import com.jusfoun.common.message.annotation.JsonBody;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

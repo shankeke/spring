@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jusfoun.common.base.service.BaseService;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

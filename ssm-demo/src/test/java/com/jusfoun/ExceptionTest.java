@@ -5,7 +5,7 @@ import org.junit.Test;
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.exception.CoreException;
 import com.jusfoun.common.exception.ServiceException;
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.ErrType;
 
 public class ExceptionTest {
 

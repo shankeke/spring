@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.log.Logable;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.config.WebSecurityConfig;
 import com.jusfoun.security.support.token.extractor.BearerHeaderTokenExtractor;

@@ -19,8 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.log.Logable;
-import com.jusfoun.common.result.BaseResponse;
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.util.io.IOUtil;
 import com.jusfoun.config.file.FileConfig;
 

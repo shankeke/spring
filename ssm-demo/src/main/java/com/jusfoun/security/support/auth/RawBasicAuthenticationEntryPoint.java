@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.security.exceptions.AuthenticationExceptionHandler;
 
 /**

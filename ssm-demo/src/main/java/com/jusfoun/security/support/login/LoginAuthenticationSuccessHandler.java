@@ -14,7 +14,7 @@ import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jusfoun.common.result.BaseResponse;
+import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.RawGrantedToken;

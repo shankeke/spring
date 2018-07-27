@@ -1,6 +1,6 @@
 package com.jusfoun.common.exception;
 
-import com.jusfoun.common.result.ErrType;
+import com.jusfoun.common.message.result.ErrType;
 
 /**
  * 描述 :Service 层异常. <br>
