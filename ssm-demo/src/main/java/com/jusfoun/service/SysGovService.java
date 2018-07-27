@@ -1,7 +1,7 @@
 package com.jusfoun.service;
 
 import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
-import com.jusfoun.common.base.tree.TreeableService;
+import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.entity.SysGov;
 
 /**
@@ -10,7 +10,7 @@ import com.jusfoun.entity.SysGov;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:03:40
  */
-public interface SysGovService extends BaseEntityWithAssociateService<SysGov>, TreeableService<SysGov, Long> {
+public interface SysGovService extends BaseEntityWithAssociateService<SysGov>, TreeableAndIdableService<SysGov, Long> {
 
 	/**
 	 * 描述 :根据ID 查询名称. <br>

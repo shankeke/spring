@@ -11,21 +11,10 @@ import com.jusfoun.common.base.tree.TreeNode;
  */
 public class Node extends TreeNode<Node> {
 
-	private Integer id;
-
 	private String name;
 
-	public Node(Integer id, String name) {
-		this.id = id;
+	public Node(String name) {
 		this.name = name;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -33,10 +22,6 @@ public class Node extends TreeNode<Node> {
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Node(String name) {
 		this.name = name;
 	}
 

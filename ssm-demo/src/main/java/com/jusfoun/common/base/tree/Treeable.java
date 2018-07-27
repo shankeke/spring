@@ -34,9 +34,12 @@ public interface Treeable<T extends Treeable<T>> {
 				if (IListUtil.hasData(subList)) {
 					// 回调继续检索下一层数据
 					subList = search(subList, regex);
+					// 非叶子节点，更新到属性中
 					if (IListUtil.hasData(subList)) {
 						node.setSubList(subList);
-					} else {
+					}
+					// 叶子节点如果匹配数据则设置叶子属性，否则删除该节点
+					else {
 						if (isMatch(node, regex)) {
 							node.setLeaf(true);
 						} else {
@@ -57,25 +60,6 @@ public interface Treeable<T extends Treeable<T>> {
 			return search(rootList, regex);
 		}
 	}
-
-	/**
-	 * 描述:获取子集 <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月24日 下午1:50:07
-	 * @return 获取子集
-	 */
-	List<T> getSubList();
-
-	/**
-	 * 描述:设置子集 <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月24日 下午1:50:07
-	 * @param subList
-	 *            子集
-	 */
-	void setSubList(List<T> subList);
 
 	/**
 	 * 描述:是否遍历结束. <br>
@@ -102,15 +86,6 @@ public interface Treeable<T extends Treeable<T>> {
 	}
 
 	/**
-	 * 描述:获取匹配的字段值集合. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月24日 下午1:45:03
-	 * @return 匹配
-	 */
-	String[] matchFeilds();
-
-	/**
 	 * 描述: 检查对象是否否匹配检索字段，这里是默认实现，如果不能满足自己的需求可以在子类中重写该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
@@ -132,6 +107,25 @@ public interface Treeable<T extends Treeable<T>> {
 	}
 
 	/**
+	 * 描述:获取子集 <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月24日 下午1:50:07
+	 * @return 获取子集
+	 */
+	List<T> getSubList();
+
+	/**
+	 * 描述:设置子集 <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月24日 下午1:50:07
+	 * @param subList
+	 *            子集
+	 */
+	void setSubList(List<T> subList);
+
+	/**
 	 * 描述: 设置是否是叶子节点. <br>
 	 * 
 	 * @author yjw@jusfoun.com
@@ -147,4 +141,13 @@ public interface Treeable<T extends Treeable<T>> {
 	 * @return 是否是叶子节点
 	 */
 	boolean isLeaf();
+
+	/**
+	 * 描述:获取匹配的字段值集合. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月24日 下午1:45:03
+	 * @return 匹配
+	 */
+	String[] matchFeilds();
 }

@@ -7,7 +7,7 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
-import com.jusfoun.common.base.tree.TreeableService;
+import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.entity.SysModule;
 
@@ -17,7 +17,7 @@ import com.jusfoun.entity.SysModule;
  * @author yjw@jusfoun.com
  * @date 2017年10月12日 下午5:50:25
  */
-public interface SysModuleService extends BaseEntityWithAssociateService<SysModule>, TreeableService<SysModule, Long> {
+public interface SysModuleService extends BaseEntityWithAssociateService<SysModule>, TreeableAndIdableService<SysModule, Long> {
 
 	/**
 	 * 描述 : 初始化系统权限. <br>

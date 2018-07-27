@@ -1,7 +1,7 @@
 package com.jusfoun.service;
 
 import com.jusfoun.common.base.service.BaseWithAssociateService;
-import com.jusfoun.common.base.tree.TreeableService;
+import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.entity.TArea;
 
 /**
@@ -10,5 +10,5 @@ import com.jusfoun.entity.TArea;
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 上午11:04:56
  */
-public interface TAreaService extends BaseWithAssociateService<TArea>, TreeableService<TArea, Long> {
+public interface TAreaService extends BaseWithAssociateService<TArea>, TreeableAndIdableService<TArea, Long> {
 }

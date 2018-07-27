@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.base.BaseController;
-import com.jusfoun.common.base.tree.BaseTreeableController;
-import com.jusfoun.common.base.tree.TreeableService;
+import com.jusfoun.common.base.tree.BaseTreeableAndIdableController;
+import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.service.SysModuleService;
 
@@ -21,14 +21,15 @@ import io.swagger.annotations.Api;
 @Api(description = "权限维护管理", value = "权限维护管理接口类")
 @RestController
 @RequestMapping(value = {"/sysmodule/"})
-public class SysModuleController extends BaseController<SysModule, Long> implements BaseTreeableController<SysModule, Long> {
+public class SysModuleController extends BaseController<SysModule, Long> implements BaseTreeableAndIdableController<SysModule, Long> {
 
 	@Autowired
 	private SysModuleService sysModuleService;
 
 	@Override
-	public TreeableService<SysModule, Long> getTreeableService() {
+	public TreeableAndIdableService<SysModule, Long> getTreeableIdableService() {
 		return sysModuleService;
 	}
 
+ 
 }
