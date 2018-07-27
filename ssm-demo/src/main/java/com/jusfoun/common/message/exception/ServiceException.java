@@ -1,4 +1,4 @@
-package com.jusfoun.common.exception;
+package com.jusfoun.common.message.exception;
 
 import com.jusfoun.common.message.result.ErrType;
 

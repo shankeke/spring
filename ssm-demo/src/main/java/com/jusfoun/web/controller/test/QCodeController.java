@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jusfoun.common.exception.ControllerException;
+import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.utils.zxing.Colors;
 import com.jusfoun.common.utils.zxing.ZXingUtil;

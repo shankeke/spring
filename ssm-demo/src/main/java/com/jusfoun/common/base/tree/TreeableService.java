@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.list.IListUtil;
 
 /**

@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.jusfoun.common.exception.CoreException;
+import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.result.ErrType;
 
 /**

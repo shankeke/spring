@@ -3,7 +3,7 @@ package com.jusfoun.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;

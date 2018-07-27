@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.jusfoun.common.exception.CoreException;
+import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.security.exceptions.AuthenticationExceptionHandler;

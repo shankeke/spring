@@ -7,7 +7,7 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 
 /**
  * 描述 : 缓存管理. <br>

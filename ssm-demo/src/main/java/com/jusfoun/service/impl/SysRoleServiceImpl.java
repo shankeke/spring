@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.enums.UsingStatus;
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;

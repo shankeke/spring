@@ -1,7 +1,7 @@
 package com.jusfoun.service;
 
 import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.entity.SysRole;
 
 /**

@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 
 /**
  * 描述 :IP地址服务. <br>

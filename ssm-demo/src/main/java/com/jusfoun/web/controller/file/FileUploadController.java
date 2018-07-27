@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.log.Logable;
+import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.utils.io.IOUtil;

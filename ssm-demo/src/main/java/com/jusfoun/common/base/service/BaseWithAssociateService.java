@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jusfoun.common.base.page.IPage;
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
 
 /**

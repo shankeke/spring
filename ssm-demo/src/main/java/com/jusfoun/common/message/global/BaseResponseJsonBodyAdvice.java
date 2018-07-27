@@ -16,8 +16,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.jusfoun.common.exception.CoreException;
 import com.jusfoun.common.message.annotation.JsonBody;
+import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonSerializer;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;

@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.security.exceptions.UnAuthorizedException;
 import com.jusfoun.security.support.permission.annotation.Authentication;

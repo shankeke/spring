@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
 import com.jusfoun.common.base.page.IPage;
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 
 /**

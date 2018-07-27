@@ -1,7 +1,7 @@
 package com.jusfoun.common.base.service;
 
 import com.jusfoun.common.base.entity.BaseEntity;
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 
 /**
  * 描述 : 继承BaseEntity的实体业务操作通用方法接口实现. <br>

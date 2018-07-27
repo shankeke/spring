@@ -3,7 +3,7 @@ package com.jusfoun.common.base.tree;
 import java.io.Serializable;
 
 import com.jusfoun.common.base.entity.Idable;
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 
 /**
  * 描述:树状数据结构的数据模型业务处理接口定义. <br>

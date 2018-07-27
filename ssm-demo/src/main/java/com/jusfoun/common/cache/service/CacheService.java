@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.springframework.cache.Cache;
 
-import com.jusfoun.common.exception.ServiceException;
+import com.jusfoun.common.message.exception.ServiceException;
 
 /**
  * 描述 : 缓存管理. <br>
