@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.beust.jcommander.internal.Lists;
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.entity.TCountry;
 
 import io.swagger.annotations.ApiModel;

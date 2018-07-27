@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.exception.ControllerException;
 import com.jusfoun.common.message.result.ErrType;
-import com.jusfoun.common.util.zxing.Colors;
-import com.jusfoun.common.util.zxing.ZXingUtil;
+import com.jusfoun.common.utils.zxing.Colors;
+import com.jusfoun.common.utils.zxing.ZXingUtil;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiParam;
 public class QCodeController {
 
 	@ApiOperation(value = "生成二维码", notes = "生成二维码", hidden = false)
-	@RequestMapping(value = "/showCode", method = {RequestMethod.GET})
+	@RequestMapping(value = "/showCode", method = { RequestMethod.GET })
 	public void showCode(//
 			HttpServletResponse response, //
 			@ApiParam(value = "内容", required = true) @RequestParam String content, //
@@ -32,7 +32,8 @@ public class QCodeController {
 	) {
 		try {
 			// ZXingUtil.write(content, 300, 300, response.getOutputStream());
-			ZXingUtil.writeImgToStream(content, width, height, format, ZXingUtil.DEF_CHARACTER_SET, Colors.random().getRGB(), Colors.random().getRGB(), response.getOutputStream());
+			ZXingUtil.writeImgToStream(content, width, height, format, ZXingUtil.DEF_CHARACTER_SET,
+					Colors.random().getRGB(), Colors.random().getRGB(), response.getOutputStream());
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ControllerException(ErrType.ERROR);

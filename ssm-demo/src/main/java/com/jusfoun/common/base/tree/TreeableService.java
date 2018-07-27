@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import com.jusfoun.common.exception.ServiceException;
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 
 /**
  * 描述:树状数据结构的数据模型业务处理接口定义. <br>

@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 
 /**
  * 描述 :Spring security用户Context中信息获取工具类. <br>

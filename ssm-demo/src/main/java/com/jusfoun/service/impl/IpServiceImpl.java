@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.exception.ServiceException;
-import com.jusfoun.common.util.net.IpUtil;
+import com.jusfoun.common.utils.net.IpUtil;
 import com.jusfoun.service.IpService;
 
 /**

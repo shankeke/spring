@@ -17,7 +17,7 @@ import com.google.common.collect.Maps;
 import com.jusfoun.common.base.controller.BasePageableAndIdableController;
 import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.base.service.BaseService;
-import com.jusfoun.common.util.freemarker.TemplateUtil;
+import com.jusfoun.common.utils.freemarker.TemplateUtil;
 import com.jusfoun.config.TemplatesConfig;
 import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;

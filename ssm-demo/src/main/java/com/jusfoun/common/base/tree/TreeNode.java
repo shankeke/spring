@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.Transient;
 
 import com.google.common.collect.Lists;
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

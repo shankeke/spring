@@ -11,7 +11,7 @@ import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;
 import com.jusfoun.entity.vo.TCountryVo;

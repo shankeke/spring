@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
-import com.jusfoun.common.util.encrypt.DES;
+import com.jusfoun.common.utils.encrypt.DES;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.exceptions.ClientException;
 import com.jusfoun.security.exceptions.TokenCreateException;

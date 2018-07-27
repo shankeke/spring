@@ -16,7 +16,7 @@ import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysRole;
 import com.jusfoun.entity.SysRoleModule;

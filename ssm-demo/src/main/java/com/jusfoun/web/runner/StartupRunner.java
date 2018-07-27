@@ -17,8 +17,8 @@ import org.springframework.util.ResourceUtils;
 
 import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.enums.UsingStatus;
-import com.jusfoun.common.util.jaxb.JaxbUtil;
-import com.jusfoun.common.util.list.IListUtil;
+import com.jusfoun.common.utils.jaxb.JaxbUtil;
+import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.entity.TokenClientDetails;
