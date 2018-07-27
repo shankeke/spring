@@ -21,8 +21,8 @@ public class TokenClientTest extends BaseClient<JSONObject> {
 
 	@Test
 	public void refreshToken() {
-		// rest(WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT, t, "Bearer " +
-		// refresh_token);
+		headers.add("Authorization", "Bearer " + refresh_token);
+		rest(WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT, t);
 	}
 
 	@Test
