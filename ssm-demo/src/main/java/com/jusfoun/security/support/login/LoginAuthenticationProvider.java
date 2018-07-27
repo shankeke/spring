@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.Assert;
 
-import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.log.Logable;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.ClientDetailsService;

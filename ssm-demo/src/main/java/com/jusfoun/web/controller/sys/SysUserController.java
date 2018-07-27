@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jusfoun.common.annotation.Logable;
 import com.jusfoun.common.base.controller.BasePageableAndIdableController;
 import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.enums.YesNoType;
 import com.jusfoun.common.exception.ControllerException;
+import com.jusfoun.common.log.Logable;
 import com.jusfoun.common.result.BaseResponse;
 import com.jusfoun.common.result.ErrType;
 import com.jusfoun.entity.SysUser;

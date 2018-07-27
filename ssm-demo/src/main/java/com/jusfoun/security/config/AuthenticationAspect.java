@@ -21,7 +21,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.util.list.IListUtil;
-import com.jusfoun.config.aop.AbstractAspect;
 import com.jusfoun.security.exceptions.UnAuthorizedException;
 import com.jusfoun.security.support.permission.annotation.Authentication;
 import com.jusfoun.security.util.SecurityUtils;
@@ -35,7 +34,7 @@ import com.jusfoun.service.SysModuleService;
  */
 @Aspect
 @Component
-public class AuthenticationAspect extends AbstractAspect {
+public class AuthenticationAspect {
 	protected static Logger logger = LoggerFactory.getLogger(AuthenticationAspect.class);
 
 	@Autowired
@@ -76,7 +75,8 @@ public class AuthenticationAspect extends AbstractAspect {
 			authority = auth.value();
 		} else {
 			// 从请求上下文中拿到当前request对象
-			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+					.getRequest();
 			if (request != null) {
 				// 如果注解中没有配置权限值，则默认是请求路径
 				if (StringUtils.isEmpty(authority)) {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.log.Logable;
 import com.jusfoun.config.file.FileConfig;
 import com.jusfoun.web.controller.file.plupload.Plupload;
 import com.jusfoun.web.controller.file.plupload.PluploadService;

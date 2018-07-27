@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.jusfoun.common.annotation.Logable;
+import com.jusfoun.common.log.Logable;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
