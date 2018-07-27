@@ -30,7 +30,7 @@ public interface BaseTreeableAndIdableController<T extends Treeable<T> & Idable<
 	TreeableAndIdableService<T, PK> getTreeableIdableService();
 
 	/**
-	 * 描述: 获取树图. <br>
+	 * 描述: 获取树数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 上午10:58:38

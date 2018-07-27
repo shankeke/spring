@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.annotation.Logable;
-import com.jusfoun.common.base.BaseController;
+import com.jusfoun.common.base.controller.BasePageableAndIdableController;
+import com.jusfoun.common.base.service.BaseIdableService;
+import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.enums.YesNoType;
 import com.jusfoun.common.exception.ControllerException;
@@ -34,13 +36,23 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "系统用户管理接口类", description = "系统用户管理接口类")
 @RestController
 @RequestMapping("/sysuser")
-public class SysUserController extends BaseController<SysUser, Long> {
+public class SysUserController implements BasePageableAndIdableController<SysUser, Long> {
 
 	@Autowired
 	private SysUserService sysUserService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+
+	@Override
+	public BaseIdableService<SysUser> getBaseIdableService() {
+		return sysUserService;
+	}
+
+	@Override
+	public BaseService<SysUser> getBaseService() {
+		return sysUserService;
+	}
 
 	/**
 	 * 系统用户初始化密码
@@ -50,7 +62,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@Logable(desc = "保存系统用户", fullPath = "系统管理/用户管理/保存系统用户")
 	@Override
-	public BaseResponse<SysUser> saveBase(SysUser t) {
+	public BaseResponse<SysUser> save(SysUser t) {
 		if (t == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
@@ -85,7 +97,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@Logable(desc = "修改系统用户", fullPath = "系统管理/用户管理/修改系统用户")
 	@Override
-	public BaseResponse<SysUser> updateBase(SysUser t) {
+	public BaseResponse<SysUser> updateById(SysUser t) {
 		if (t == null || t.getId() == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
@@ -101,7 +113,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@Logable(desc = "删除系统用户", fullPath = "系统管理/用户管理/删除系统用户")
 	@Override
-	public BaseResponse<?> deleteBase(Long id) {
+	public BaseResponse<?> deleteById(Long id) {
 		try {
 			sysUserService.deleteWithRoles(id);
 		} catch (Exception e) {
@@ -113,7 +125,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@Logable(desc = "查询系统用户详情", fullPath = "系统管理/用户管理/查询系统用户详情")
 	@Override
-	public BaseResponse<SysUser> infoBase(Long id) {
+	public BaseResponse<SysUser> infoById(Long id) {
 		try {
 			SysUser sysUser = sysUserService.selectPKWithCache(id);
 			sysUser.setPassword(null);
@@ -126,7 +138,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@ApiOperation(value = "重置用户密码", notes = "重置用户密码", hidden = false)
 	@Logable(desc = "重置用户密码", fullPath = "系统管理/用户管理/重置用户密码")
-	@RequestMapping(value = "/resetPass", method = {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value = "/resetPass", method = { RequestMethod.POST, RequestMethod.GET })
 	public BaseResponse<?> resetPass(@ApiParam(value = "重置密码的记录ID", required = true) @RequestParam Long id) {
 		try {
 			SysUser sysUser = new SysUser();
@@ -142,7 +154,7 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@ApiOperation(value = "修改用户密码", notes = "修改用户密码", hidden = false)
 	@Logable(desc = "修改用户密码", fullPath = "系统管理/用户管理/修改用户密码")
-	@RequestMapping(value = "/modifyPass", method = {RequestMethod.POST})
+	@RequestMapping(value = "/modifyPass", method = { RequestMethod.POST })
 	public BaseResponse<?> modifyPass(//
 			@ApiParam(value = "原密码", required = true) @RequestParam String oldPassword, //
 			@ApiParam(value = "新密码", required = true) @RequestParam String password //
@@ -165,8 +177,9 @@ public class SysUserController extends BaseController<SysUser, Long> {
 
 	@ApiOperation(value = "修改用户角色", notes = "修改用户角色", hidden = false)
 	@Logable(desc = "修改用户角色", fullPath = "系统管理/用户管理/修改用户角色")
-	@RequestMapping(value = "/modifyRoles", method = {RequestMethod.POST})
-	public BaseResponse<?> modifyRoles(@ApiParam(value = "用户信息，包含用户的角色信息", required = true) @RequestBody SysUser sysUser) {
+	@RequestMapping(value = "/modifyRoles", method = { RequestMethod.POST })
+	public BaseResponse<?> modifyRoles(
+			@ApiParam(value = "用户信息，包含用户的角色信息", required = true) @RequestBody SysUser sysUser) {
 		if (sysUser == null || sysUser.getId() == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}

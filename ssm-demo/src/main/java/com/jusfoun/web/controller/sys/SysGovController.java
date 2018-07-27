@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jusfoun.common.base.BaseController;
+import com.jusfoun.common.base.controller.BasePageableAndIdableController;
+import com.jusfoun.common.base.service.BaseIdableService;
+import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.base.tree.BaseTreeableAndIdableController;
 import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.entity.SysGov;
@@ -21,10 +23,21 @@ import io.swagger.annotations.Api;
 @Api(description = "组织机构管理", value = "组织机构管理接口类")
 @RestController
 @RequestMapping("/sysgov")
-public class SysGovController extends BaseController<SysGov, Long> implements BaseTreeableAndIdableController<SysGov, Long> {
+public class SysGovController
+		implements BasePageableAndIdableController<SysGov, Long>, BaseTreeableAndIdableController<SysGov, Long> {
 
 	@Autowired
 	private SysGovService sysGovService;
+
+	@Override
+	public BaseService<SysGov> getBaseService() {
+		return sysGovService;
+	}
+
+	@Override
+	public BaseIdableService<SysGov> getBaseIdableService() {
+		return sysGovService;
+	}
 
 	@Override
 	public TreeableAndIdableService<SysGov, Long> getTreeableIdableService() {

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.common.collect.Maps;
-import com.jusfoun.common.base.BaseController;
+import com.jusfoun.common.base.controller.BasePageableAndIdableController;
+import com.jusfoun.common.base.service.BaseIdableService;
+import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.util.freemarker.TemplateUtil;
 import com.jusfoun.config.TemplatesConfig;
 import com.jusfoun.entity.TCountry;
@@ -34,15 +36,25 @@ import io.swagger.annotations.ApiOperation;
 @Api(description = "国家信息管理", value = "国家信息管理接口类")
 @RestController
 @RequestMapping("/country")
-public class TCountryController extends BaseController<TCountry, Long> {
+public class TCountryController implements BasePageableAndIdableController<TCountry, Long> {
 
 	@Autowired
 	private TCountryService tCountryService;
 	@Autowired
 	private TemplatesConfig templatesConfig;
 
+	@Override
+	public BaseIdableService<TCountry> getBaseIdableService() {
+		return tCountryService;
+	}
+
+	@Override
+	public BaseService<TCountry> getBaseService() {
+		return tCountryService;
+	}
+
 	@ApiOperation(value = "导出国家信息表", notes = "导出国家信息表，并根据首字母分组", hidden = false)
-	@RequestMapping(value = "/export", method = {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value = "/export", method = { RequestMethod.POST, RequestMethod.GET })
 	public void export(HttpServletResponse response) throws FileNotFoundException, IOException, TemplateException {
 		// 汇总
 		Map<String, Object> data = Maps.newHashMap();
@@ -50,9 +62,10 @@ public class TCountryController extends BaseController<TCountry, Long> {
 		data.put("total", counties == null ? new TCountryTotalVo() : counties);
 
 		response.setHeader("Content-Type", "application/octet-stream");
-		response.setHeader("Content-Disposition",
-				"attachment;filename=" + URLEncoder.encode(String.format("国家信息表-%s.%s", DateTime.now().toString("yyyyMMddHHmmss"), "xls"), "UTF-8"));
+		response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder
+				.encode(String.format("国家信息表-%s.%s", DateTime.now().toString("yyyyMMddHHmmss"), "xls"), "UTF-8"));
 		response.setBufferSize(4096);
-		TemplateUtil.process(templatesConfig.getDir(), templatesConfig.getCountries(), response.getOutputStream(), data);
+		TemplateUtil.process(templatesConfig.getDir(), templatesConfig.getCountries(), response.getOutputStream(),
+				data);
 	}
 }
