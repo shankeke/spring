@@ -1,4 +1,4 @@
-package com.jusfoun.common.annotation;
+package com.jusfoun.common.base.entity.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

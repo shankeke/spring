@@ -1,4 +1,4 @@
-package com.jusfoun.common.base.service;
+package com.jusfoun.common.cache.service;
 
 import java.util.Collection;
 

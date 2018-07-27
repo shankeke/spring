@@ -25,8 +25,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.jusfoun.common.base.service.CacheService;
 import com.jusfoun.common.cache.CacheConsts;
+import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.log.Logable.LevelType;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.common.util.net.IpUtil;

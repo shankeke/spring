@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
-import com.jusfoun.common.base.service.CacheService;
+import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.util.jaxb.JaxbUtil;
 import com.jusfoun.common.util.list.IListUtil;
