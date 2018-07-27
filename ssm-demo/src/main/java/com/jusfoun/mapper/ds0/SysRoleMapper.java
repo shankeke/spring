@@ -2,7 +2,7 @@ package com.jusfoun.mapper.ds0;
 
 import java.util.List;
 
-import com.jusfoun.common.mybatis.mapper.BaseIdableWithAssociateMapper;
+import com.jusfoun.common.mybatis.mapper.extend.BaseIdableWithAssociateMapper;
 import com.jusfoun.entity.SysRole;
 
 public interface SysRoleMapper extends BaseIdableWithAssociateMapper<SysRole> {

@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.jusfoun.common.base.tree.TreeableMapper;
-import com.jusfoun.common.mybatis.mapper.BaseIdableWithAssociateMapper;
+import com.jusfoun.common.mybatis.mapper.extend.BaseIdableWithAssociateMapper;
 import com.jusfoun.entity.SysModule;
 
 @Mapper

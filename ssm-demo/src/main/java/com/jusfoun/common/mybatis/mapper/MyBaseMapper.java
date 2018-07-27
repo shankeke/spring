@@ -20,29 +20,28 @@ import tk.mybatis.mapper.common.example.UpdateByExampleSelectiveMapper;
 import tk.mybatis.mapper.common.special.InsertListMapper;
 
 /**
- * 描述 : 被继承的<code>Mapper</code>，一般业务Mapper继承它. <br>
+ * 描述:基本增删改查操作接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:17
  */
 @RegisterMapper
-public interface MyBaseMapper<T>
-		extends //
-			InsertMapper<T>, //
-			InsertSelectiveMapper<T>, //
-			InsertListMapper<T>, //
-			UpdateByExampleMapper<T>, //
-			UpdateByExampleSelectiveMapper<T>, //
-			DeleteMapper<T>, //
-			DeleteListMapper<T>, //
-			DeleteByExampleMapper<T>, //
-			SelectOneMapper<T>, //
-			SelectMapper<T>, //
-			SelectAllMapper<T>, //
-			SelectOneByExampleMapper<T>, //
-			SelectByExampleMapper<T>, //
-			RowBoundsMapper<T>, //
-			SelectCountMapper<T>, //
-			SelectCountByExampleMapper<T> //
+public interface MyBaseMapper<T> extends //
+		InsertMapper<T>, //
+		InsertSelectiveMapper<T>, //
+		InsertListMapper<T>, //
+		UpdateByExampleMapper<T>, //
+		UpdateByExampleSelectiveMapper<T>, //
+		DeleteMapper<T>, //
+		DeleteListMapper<T>, //
+		DeleteByExampleMapper<T>, //
+		SelectOneMapper<T>, //
+		SelectOneByExampleMapper<T>, //
+		SelectMapper<T>, //
+		SelectAllMapper<T>, //
+		SelectByExampleMapper<T>, //
+		RowBoundsMapper<T>, //
+		SelectCountMapper<T>, //
+		SelectCountByExampleMapper<T> //
 {
 }

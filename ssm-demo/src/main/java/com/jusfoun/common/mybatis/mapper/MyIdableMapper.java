@@ -19,29 +19,27 @@ import tk.mybatis.mapper.common.base.update.UpdateByPrimaryKeySelectiveMapper;
 import tk.mybatis.mapper.common.special.InsertUseGeneratedKeysMapper;
 
 /**
- * 描述 : 被继承的<code>Mapper</code>，一般业务Mapper继承它. <br>
+ * 描述:存在主键的实体根据主键参数进行增删改查操作接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:17
  */
 @RegisterMapper
-public interface MyIdableMapper<T>
-		extends //
-			InsertListWithPrimaryKeyMapper<T>, //
-			InsertUseGeneratedKeysMapper<T>, //
-			ReplaceMapper<T>, //
-			ReplaceListWithPrimaryKeyMapper<T>, //
-			UpdateByPrimaryKeyMapper<T>, //
-			UpdateByPrimaryKeySelectiveMapper<T>, //
-			UpdateListByPrimaryKeyMapper<T>, //
-			UpdateListByPrimaryKeySelectiveMapper<T>, //
-			DeleteByPrimaryKeyMapper<T>, //
-			DeleteListByPrimaryKeyMapper<T>, //
-			DeleteByPrimaryKeysMapper<T>, //
-			SelectByPrimaryKeyMapper<T>, //
-			SelectByPrimaryKeysMapper<T>, //
-			ExistsWithPrimaryKeyMapper<T>, //
-			IdsMapper<T>//
+public interface MyIdableMapper<T> extends //
+		InsertListWithPrimaryKeyMapper<T>, //
+		InsertUseGeneratedKeysMapper<T>, //
+		ReplaceMapper<T>, //
+		ReplaceListWithPrimaryKeyMapper<T>, //
+		UpdateByPrimaryKeyMapper<T>, //
+		UpdateByPrimaryKeySelectiveMapper<T>, //
+		UpdateListByPrimaryKeyMapper<T>, //
+		UpdateListByPrimaryKeySelectiveMapper<T>, //
+		DeleteByPrimaryKeyMapper<T>, //
+		DeleteByPrimaryKeysMapper<T>, //
+		DeleteListByPrimaryKeyMapper<T>, //
+		SelectByPrimaryKeyMapper<T>, //
+		SelectByPrimaryKeysMapper<T>, //
+		IdsMapper<T>, //
+		ExistsWithPrimaryKeyMapper<T>//
 {
-	// FIXME 特别注意，该接口不能被mybatis mapper扫描器扫描到，否则会出错
 }

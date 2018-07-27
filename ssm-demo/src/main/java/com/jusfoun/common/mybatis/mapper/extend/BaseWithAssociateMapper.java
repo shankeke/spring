@@ -1,6 +1,6 @@
-package com.jusfoun.common.mybatis.mapper;
+package com.jusfoun.common.mybatis.mapper.extend;
 
-import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
@@ -12,5 +12,4 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  */
 @RegisterMapper
 public interface BaseWithAssociateMapper<T> extends MyBaseMapper<T>, BaseWithAssociateSelectMapper<T> {
-	// FIXME 特别注意，这里继承了BaseWithAssociateSelectMapper<T>接口，改接口下的方法需要在xml文件中手动实现
 }

@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import com.jusfoun.common.util.list.IListUtil;
 
 /**
- * 描述:树状结构数据查询检索处理接口. <br>
+ * 描述:树结构数据检索查询接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午2:24:03
@@ -15,7 +15,7 @@ import com.jusfoun.common.util.list.IListUtil;
 public interface Treeable<T extends Treeable<T>> {
 
 	/**
-	 * 描述:检索字段. <br>
+	 * 描述:根据关键字在树结构数据中查询需要的数据，最后保留数据的树状结构，根节点不变，将不符合的叶子都删除，最后符合的节点都变成叶子节点. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:50:07
@@ -86,7 +86,7 @@ public interface Treeable<T extends Treeable<T>> {
 	}
 
 	/**
-	 * 描述: 检查对象是否否匹配检索字段，这里是默认实现，如果不能满足自己的需求可以在子类中重写该方法. <br>
+	 * 描述: 检查对象是否否匹配，这里是默认实现，如果不能满足自己的需求可以在子类中重写该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:45:03

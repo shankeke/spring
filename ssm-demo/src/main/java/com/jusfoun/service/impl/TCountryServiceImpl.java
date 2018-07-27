@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.jusfoun.common.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.base.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
 import com.jusfoun.common.util.list.IListUtil;
 import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;

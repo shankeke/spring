@@ -15,15 +15,6 @@ import tk.mybatis.mapper.mapperhelper.SqlHelper;
  */
 public class MySqlHelper extends SqlHelper {
 
-	/**
-	 * REPLACE INTO tableName - 动态表名
-	 *
-	 * @param entityClass
-	 *            实体类
-	 * @param defaultTableName
-	 *            表名称
-	 * @return
-	 */
 	public static String replaceIntoTable(Class<?> entityClass, String defaultTableName) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("REPLACE INTO ");
