@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.Transient;
 
+import com.google.common.collect.Lists;
+import com.jusfoun.common.util.list.IListUtil;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -32,6 +35,9 @@ public abstract class TreeNode<T extends Treeable<T>> implements Treeable<T> {
 
 	@Override
 	public List<T> getSubList() {
+		if (!IListUtil.hasData(subList)) {
+			subList = Lists.newArrayList();
+		}
 		return subList;
 	}
 

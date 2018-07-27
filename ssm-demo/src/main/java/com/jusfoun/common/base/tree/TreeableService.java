@@ -35,6 +35,8 @@ public interface TreeableService<T extends Treeable<T>, PK extends Serializable>
 			List<T> searchList = root.search(root.getSubList(), keyword);
 			if (IListUtil.hasData(searchList) || root.isMatch(root, keyword)) {
 				root.setSubList(searchList);
+			} else {
+				root = null;
 			}
 		}
 		return root;

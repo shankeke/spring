@@ -1,33 +1,22 @@
 package com.jusfoun.tree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.annotation.JSONField;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.jusfoun.common.base.tree.TreeNode;
 
-public class Node {
+/**
+ * 描述:定义一个树数据类. <br>
+ * 
+ * @author yjw@jusfoun.com
+ * @date 2018年7月27日 上午9:34:11
+ */
+public class Node extends TreeNode<Node> {
+
+	private Integer id;
 
 	private String name;
 
-	@JSONField(serialize = false)
-	private Integer id;
-
-	@JSONField(serialize = false)
-	private Integer pid;
-
-	@JSONField(serialize = false)
-	private boolean isLast = false;
-
-	@JsonInclude(value = Include.NON_EMPTY)
-	public List<Node> subs = new ArrayList<Node>();
-
-	public Node(Integer id, Integer pid, String name) {
-		super();
+	public Node(Integer id, String name) {
 		this.id = id;
-		this.pid = pid;
 		this.name = name;
 	}
 
@@ -39,14 +28,6 @@ public class Node {
 		this.id = id;
 	}
 
-	public Integer getPid() {
-		return pid;
-	}
-
-	public void setPid(Integer pid) {
-		this.pid = pid;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -55,24 +36,18 @@ public class Node {
 		this.name = name;
 	}
 
-	public List<Node> getSubs() {
-		return subs;
+	public Node(String name) {
+		this.name = name;
 	}
 
-	public void setSubs(List<Node> subs) {
-		this.subs = subs;
-	}
-
-	public boolean isLast() {
-		return isLast;
-	}
-
-	public void setLast(boolean isLast) {
-		this.isLast = isLast;
+	@Override
+	public String[] matchFeilds() {
+		return new String[]{name};
 	}
 
 	@Override
 	public String toString() {
 		return JSON.toJSONString(this);
 	}
+
 }
