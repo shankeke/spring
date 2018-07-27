@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.jusfoun.common.base.Idable;
+import com.jusfoun.common.base.entity.Idable;
 import com.jusfoun.common.result.BaseResponse;
 
 import io.swagger.annotations.ApiOperation;

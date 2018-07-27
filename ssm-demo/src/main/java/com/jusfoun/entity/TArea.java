@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jusfoun.common.base.Idable;
+import com.jusfoun.common.base.entity.Idable;
 import com.jusfoun.common.base.page.IPageable;
 import com.jusfoun.common.base.tree.Treeable;
 

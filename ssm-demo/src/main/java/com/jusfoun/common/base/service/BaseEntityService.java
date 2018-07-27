@@ -1,6 +1,6 @@
 package com.jusfoun.common.base.service;
 
-import com.jusfoun.common.base.BaseEntity;
+import com.jusfoun.common.base.entity.BaseEntity;
 import com.jusfoun.common.exception.ServiceException;
 
 /**
