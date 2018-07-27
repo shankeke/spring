@@ -1,4 +1,4 @@
-package com.jusfoun.web.controller.global;
+package com.jusfoun.common.message.global;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

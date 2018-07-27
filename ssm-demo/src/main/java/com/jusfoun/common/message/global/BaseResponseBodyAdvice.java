@@ -1,4 +1,4 @@
-package com.jusfoun.web.controller.global;
+package com.jusfoun.common.message.global;
 
 import java.lang.reflect.Type;
 
