@@ -1,6 +1,6 @@
-package com.jusfoun.common.base.service;
+package com.jusfoun.common.base.entity.extend;
 
-import com.jusfoun.common.base.entity.BaseEntity;
+import com.jusfoun.common.base.service.BaseWithAssociateService;
 
 /**
  * 描述 : 继承BaseEntity的实体业务操作通用方法接口实现. <br>

@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jusfoun.common.base.entity.BaseEntity;
+import com.jusfoun.common.base.entity.extend.BaseEntity;
 import com.jusfoun.common.base.tree.Treeable;
 
 import io.swagger.annotations.ApiModel;

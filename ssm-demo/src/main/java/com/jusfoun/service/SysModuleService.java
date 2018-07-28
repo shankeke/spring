@@ -6,7 +6,7 @@ import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.jusfoun.common.base.service.BaseEntityWithAssociateService;
+import com.jusfoun.common.base.entity.extend.BaseEntityWithAssociateService;
 import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.entity.SysModule;
