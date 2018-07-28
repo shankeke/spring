@@ -1,4 +1,4 @@
-package com.jusfoun.common.base.entity;
+package com.jusfoun.common.base.id;
 
 import java.io.Serializable;
 

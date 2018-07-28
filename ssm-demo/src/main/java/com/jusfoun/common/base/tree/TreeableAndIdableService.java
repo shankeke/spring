@@ -2,7 +2,7 @@ package com.jusfoun.common.base.tree;
 
 import java.io.Serializable;
 
-import com.jusfoun.common.base.entity.Idable;
+import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.message.exception.ServiceException;
 
 /**

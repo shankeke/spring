@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.entity.extend.BaseEntityWithAssociateService;
+import com.jusfoun.common.base.extend.entity.BaseEntityWithAssociateService;
 import com.jusfoun.common.base.tree.TreeableAndIdableService;
 import com.jusfoun.entity.SysGov;
 

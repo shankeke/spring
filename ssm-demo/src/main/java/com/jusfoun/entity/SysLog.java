@@ -3,7 +3,7 @@ package com.jusfoun.entity;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
-import com.jusfoun.common.base.entity.extend.BaseEntity;
+import com.jusfoun.common.base.extend.entity.BaseEntity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

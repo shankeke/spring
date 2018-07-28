@@ -1,4 +1,4 @@
-package com.jusfoun.common.base.entity.extend;
+package com.jusfoun.common.base.extend.entity;
 
 import com.jusfoun.common.base.service.BaseWithAssociateService;
 

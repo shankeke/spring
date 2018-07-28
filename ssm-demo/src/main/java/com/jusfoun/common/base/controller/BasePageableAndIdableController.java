@@ -2,7 +2,7 @@ package com.jusfoun.common.base.controller;
 
 import java.io.Serializable;
 
-import com.jusfoun.common.base.entity.Idable;
+import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.base.page.IPageable;
 
 /**

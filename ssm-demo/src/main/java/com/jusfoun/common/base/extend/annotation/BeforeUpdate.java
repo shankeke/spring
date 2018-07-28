@@ -1,4 +1,4 @@
-package com.jusfoun.common.base.entity.annotation;
+package com.jusfoun.common.base.extend.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface BeforeInsert {
+public @interface BeforeUpdate {
 }

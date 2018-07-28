@@ -1,4 +1,4 @@
-package com.jusfoun.common.base.entity.extend;
+package com.jusfoun.common.base.extend.entity;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jusfoun.common.base.entity.Idable;
+import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.base.page.IPageable;
 
 import io.swagger.annotations.ApiModel;
