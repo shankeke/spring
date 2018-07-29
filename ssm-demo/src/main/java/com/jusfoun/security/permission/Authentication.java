@@ -1,4 +1,4 @@
-package com.jusfoun.security.support.permission.annotation;
+package com.jusfoun.security.permission;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

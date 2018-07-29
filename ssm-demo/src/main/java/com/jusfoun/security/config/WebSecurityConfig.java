@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -69,8 +69,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private ObjectMapper objectMapper;
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	@Autowired
 	private UserDetailsService userDetailsService;
 	@Autowired
 	private ClientDetailsService clientDetailsService;
@@ -88,17 +86,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private RawBasicAuthenticationEntryPoint basicAuthenticationEntryPoint;
 
 	@Bean
-	public LoginAuthenticationProvider loginAuthenticationProvider() {
-		return new LoginAuthenticationProvider(userDetailsService, passwordEncoder, clientDetailsService);
+	protected BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
-	public AuthenticationSuccessHandler successHandler() {
+	public LoginAuthenticationProvider loginAuthenticationProvider() {
+		return new LoginAuthenticationProvider(userDetailsService, passwordEncoder(), clientDetailsService);
+	}
+
+	@Bean
+	public AuthenticationSuccessHandler authenticationSuccessHandler() {
 		return new LoginAuthenticationSuccessHandler(objectMapper, tokenFactory(), tokenUserDetailsService);
 	}
 
 	@Bean
-	public AuthenticationFailureHandler failureHandler() {
+	public AuthenticationFailureHandler authenticationFailureHandler() {
 		return new LoginAuthenticationFailureHandler(objectMapper);
 	}
 
@@ -119,7 +122,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	protected LoginProcessingFilter buildLoginProcessingFilter() {
-		LoginProcessingFilter filter = new LoginProcessingFilter(TOKEN_ENTRY_POINT, successHandler(), failureHandler(), objectMapper, basicHeaderTokenExtractor);
+		LoginProcessingFilter filter = new LoginProcessingFilter(TOKEN_ENTRY_POINT, authenticationSuccessHandler(),
+				authenticationFailureHandler(), objectMapper, basicHeaderTokenExtractor);
 		filter.setAuthenticationManager(authenticationManager);
 		return filter;
 	}
@@ -130,7 +134,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredGetResources()));
 		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredPostResources()));
 		SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(skipPaths, TOKEN_AUTH_ENTRY_POINT);
-		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher, failureHandler(), bearerHeaderTokenExtractor, tokenFactory());
+		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher,
+				authenticationFailureHandler(), bearerHeaderTokenExtractor, tokenFactory());
 		filter.setAuthenticationManager(authenticationManager);
 		return filter;
 	}
@@ -169,7 +174,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()//
 				.addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)//
 				.addFilterBefore(buildLoginProcessingFilter(), UsernamePasswordAuthenticationFilter.class)//
-				.addFilterBefore(buildTokenAuthenticationProcessingFilter(), UsernamePasswordAuthenticationFilter.class);
+				.addFilterBefore(buildTokenAuthenticationProcessingFilter(),
+						UsernamePasswordAuthenticationFilter.class);
 	}
 
 	public SimpleCorsFilter corsFilter() {
@@ -179,7 +185,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	// 登录过滤器需要跳过的资源
-	private static final String[] tokenSkipPaths = new String[]{ //
+	private static final String[] tokenSkipPaths = new String[] { //
 			TOKEN_REFRESH_ENTRY_POINT, //
 			TOKEN_ENTRY_POINT//
 	};

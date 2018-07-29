@@ -1,4 +1,4 @@
-package com.jusfoun.security.support.permission.evaluator;
+package com.jusfoun.security.permission.evaluator;
 
 import java.io.Serializable;
 import java.util.Collection;

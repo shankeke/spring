@@ -1,4 +1,4 @@
-package com.jusfoun.security.config;
+package com.jusfoun.security.permission;
 
 import java.lang.reflect.Method;
 import java.util.Collection;
@@ -22,7 +22,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.security.exceptions.UnAuthorizedException;
-import com.jusfoun.security.support.permission.annotation.Authentication;
 import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysModuleService;
 
