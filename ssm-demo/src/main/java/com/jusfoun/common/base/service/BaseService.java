@@ -7,6 +7,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
+import com.jusfoun.common.base.extend.annotation.PreInsert;
+import com.jusfoun.common.base.extend.annotation.PreUpdate;
+import com.jusfoun.common.base.extend.annotation.Preprocess;
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
@@ -22,18 +25,21 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 
 	MyBaseMapper<T> getMyBaseMapper();
 
+	@Preprocess
 	@Override
-	default int insert(T record) {
+	default int insert(@PreInsert T record) {
 		return getMyBaseMapper().insert(record);
 	}
 
+	@Preprocess
 	@Override
-	default int insertSelective(T record) {
+	default int insertSelective(@PreInsert T record) {
 		return getMyBaseMapper().insertSelective(record);
 	}
 
+	@Preprocess
 	@Override
-	default int insertList(List<T> recordList) {
+	default int insertList(@PreInsert List<T> recordList) {
 		return getMyBaseMapper().insertList(recordList);
 	}
 
@@ -47,7 +53,8 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	 * @return 插入结果
 	 * @throws ServiceException
 	 */
-	default int insertListSelective(List<T> recordList) throws ServiceException {
+	@Preprocess
+	default int insertListSelective(@PreInsert List<T> recordList) throws ServiceException {
 		int i = 0;
 		for (T t : recordList) {
 			i += insertSelective(t);
@@ -55,13 +62,15 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 		return i;
 	}
 
+	@Preprocess
 	@Override
-	default int updateByExample(T record, Object example) {
+	default int updateByExample(@PreUpdate T record, Object example) {
 		return getMyBaseMapper().updateByExampleSelective(record, example);
 	}
 
+	@Preprocess
 	@Override
-	default int updateByExampleSelective(T record, Object example) {
+	default int updateByExampleSelective(@PreUpdate T record, Object example) {
 		return getMyBaseMapper().updateByExampleSelective(record, example);
 	}
 

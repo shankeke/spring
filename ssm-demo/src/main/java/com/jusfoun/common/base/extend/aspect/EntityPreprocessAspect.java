@@ -1,19 +1,22 @@
 package com.jusfoun.common.base.extend.aspect;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.jusfoun.common.base.extend.adapter.EntityPreprocessAdapter;
 import com.jusfoun.common.base.extend.annotation.PreInsert;
 import com.jusfoun.common.base.extend.annotation.PreUpdate;
-import com.jusfoun.common.base.extend.annotation.Preprocess;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysUserService;
@@ -24,6 +27,8 @@ import com.jusfoun.service.SysUserService;
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午11:31:24
  */
+@Aspect
+@Component
 public class EntityPreprocessAspect {
 
 	private static final Logger log = LoggerFactory.getLogger(EntityPreprocessAspect.class);
@@ -40,8 +45,7 @@ public class EntityPreprocessAspect {
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月2日 下午8:04:36
 	 */
-	// @Pointcut("@annotation(com.jusfoun.common.base.extend.annotation.Preprocess)")
-	@Pointcut("(execution(* com.jusfoun.service..*(..)) || execution(* com.jusfoun.common.base.service..*(..))) && @annotation(com.jusfoun.common.base.extend.annotation.Preprocess)")
+	@Pointcut("@annotation(com.jusfoun.common.base.extend.annotation.Preprocess)")
 	public void joinPointExpression() {
 	}
 
@@ -62,58 +66,32 @@ public class EntityPreprocessAspect {
 			realName = "admin";
 		}
 
-		Object[] args = null;
 		try {
 			// 方法
 			MethodSignature methodSignature = (MethodSignature) pjd.getSignature();
 			Method method = methodSignature.getMethod();
+			Object[] args = pjd.getArgs();
 
-			/*
-			 * Parameter[] parameters = method.getParameters(); for (int j = 0;
-			 * j < parameters.length; j++) { Parameter parameter =
-			 * parameters[j]; Annotation[] annotations =
-			 * parameter.getDeclaredAnnotations(); for (int k = 0; k <
-			 * annotations.length; k++) { Annotation annotation =
-			 * annotations[k]; } }
-			 */
-
-			Preprocess preprocess = method.getAnnotation(Preprocess.class);
-			args = pjd.getArgs();
-
-			int index = 0;
-			int length = args.length;
-			Object entity = null;
-			if (args != null && length > 0) {
-				// 插入预处理
-				PreInsert[] inserts = preprocess.inserts();
-				if (inserts != null && inserts.length > 0) {
-					for (PreInsert preInsert : inserts) {
-						index = preInsert.index();
-						if (length >= (index + 1)) {
-							entity = args[index];
-							entity = preprocessAdapter.preprocess(preInsert, userId, realName, entity);
-							args[preInsert.index()] = entity;
-						}
+			Parameter[] parameters = method.getParameters();
+			Annotation annotation = null;
+			Parameter parameter = null;
+			if (parameters != null && parameters.length > 0) {
+				for (int i = 0; i < parameters.length; i++) {
+					parameter = parameters[i];
+					annotation = parameter.getAnnotation(PreInsert.class);
+					if (annotation != null) {
+						preprocessAdapter.preprocess(annotation, userId, realName, args[i]);
 					}
-				}
-
-				// 更新预处理
-				PreUpdate[] updates = preprocess.updates();
-				if (inserts != null && inserts.length > 0) {
-					for (PreUpdate preUpdate : updates) {
-						index = preUpdate.index();
-						if (length >= (index + 1)) {
-							entity = args[preUpdate.index()];
-							entity = preprocessAdapter.preprocess(preUpdate, userId, realName, entity);
-							args[preUpdate.index()] = entity;
-						}
+					annotation = parameter.getAnnotation(PreUpdate.class);
+					if (annotation != null) {
+						preprocessAdapter.preprocess(annotation, userId, realName, args[i]);
 					}
 				}
 			}
+			return pjd.proceed(args);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
-		return pjd.proceed(args);
 	}
 }

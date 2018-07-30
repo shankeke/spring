@@ -166,6 +166,7 @@ public class LogableAspect {
 					}
 				}
 			} catch (Exception e) {
+				e.printStackTrace();
 				// 这里异常不用处理
 				return o;
 			}

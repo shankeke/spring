@@ -1,9 +1,6 @@
 package com.jusfoun.common.base.extend.preprocessor;
 
-import java.awt.List;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.Date;
 
 import com.jusfoun.common.base.extend.annotation.PreInsert;
@@ -15,7 +12,7 @@ import com.jusfoun.common.base.extend.entity.BaseEntity;
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:34:03
  */
-public class BaseEntityInsertPreprocessor implements BaseEntityPreprocessor {
+public class BaseEntityInsertPreprocessor extends AbstractBaseEntityPreprocessor {
 
 	@Override
 	public Object process(Long userId, String realName, Object obj) {
@@ -30,14 +27,7 @@ public class BaseEntityInsertPreprocessor implements BaseEntityPreprocessor {
 	}
 
 	@Override
-	public boolean supports(Annotation annotation, Object obj) {
-		Class<? extends Object> clazz = obj.getClass();
-		if (clazz.isAssignableFrom(List.class)) {
-			Type type = clazz.getGenericSuperclass();
-			Type[] typeArguments = ((ParameterizedType) type).getActualTypeArguments();
-			clazz = typeArguments[0].getClass();
-		}
-		return annotation.getClass().isAssignableFrom(PreInsert.class) && clazz.isAssignableFrom(BaseEntity.class);
+	public Class<? extends Annotation> annotationClass() {
+		return PreInsert.class;
 	}
-
 }

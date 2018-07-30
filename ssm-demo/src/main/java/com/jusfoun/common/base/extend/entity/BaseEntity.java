@@ -3,8 +3,6 @@ package com.jusfoun.common.base.extend.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,13 +22,13 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月7日 上午10:35:16
  */
 @ApiModel
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(value = { "handler" })
 public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 	private static final long serialVersionUID = 1957941391153967331L;
 
 	@ApiModelProperty("主键")
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 
 	@ApiModelProperty("状态")

@@ -26,15 +26,15 @@ public interface BaseEntityPreprocessor {
 	Object process(Long userId, String realName, Object obj);
 
 	/**
-	 * 描述:是否是支持的注解. <br>
+	 * 描述:是否支持. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 上午10:59:34
 	 * @param annotation
 	 *            注解对象
-	 * @param obj
-	 *            实体参数
+	 * @param clazz
+	 *            实体类型
 	 * @return 是否支持
 	 */
-	boolean supports(Annotation annotation, Object obj);
+	boolean supports(Annotation annotation, Class<?> clazz);
 }

@@ -1,5 +1,10 @@
 package com.jusfoun.client;
 
+import java.util.List;
+
+import org.junit.Test;
+
+import com.google.common.collect.Lists;
 import com.jusfoun.entity.SysGov;
 
 /**
@@ -27,7 +32,17 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 	@Override
 	public void update() {
 		t.setId(1L);
-		rest("/sysgov/update", t);
+		t.setAddress("河北省保定市");
+		rest("/sysgov/updateById", t);
+	}
+
+	@Test
+	public void updateListById() {
+		List<SysGov> list = Lists.newArrayList();
+		t.setId(1L);
+		t.setAddress("河北省保定市");
+		list.add(t);
+		rest("/sysgov/updateListById", list);
 	}
 
 	@Override

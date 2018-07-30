@@ -25,7 +25,7 @@ public interface BaseController<T> {
 	@ApiOperation(value = "保存数据", notes = "保存数据", hidden = false)
 	@RequestMapping(value = "save", method = { RequestMethod.POST })
 	default BaseResponse<T> save(@ApiParam(value = "数据对象", required = true) @RequestBody T t) {
-		getBaseService().insert(t);
+		getBaseService().insertSelective(t);
 		return BaseResponse.success(t);
 	}
 

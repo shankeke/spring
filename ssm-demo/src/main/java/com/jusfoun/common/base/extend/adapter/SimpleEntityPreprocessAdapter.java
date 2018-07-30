@@ -2,10 +2,12 @@ package com.jusfoun.common.base.extend.adapter;
 
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.beust.jcommander.internal.Lists;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityInsertPreprocessor;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityPreprocessor;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityUpdatePreprocessor;
@@ -30,14 +32,6 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 		this.preprocessors = preprocessors;
 	}
 
-	public List<BaseEntityPreprocessor> getPreprocessors() {
-		return preprocessors;
-	}
-
-	public void setPreprocessors(List<BaseEntityPreprocessor> preprocessors) {
-		this.preprocessors = preprocessors;
-	}
-
 	/**
 	 * 描述:预处理方法. <br>
 	 * 
@@ -48,18 +42,38 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	 * @param realName
 	 *            用户姓名
 	 * @param obj
-	 *            实体对象
-	 * @return 预处理之后的对象
+	 *            参数对象
 	 */
 	@Override
-	public Object preprocess(Annotation annotation, Long userId, String realName, Object obj) {
+	public void preprocess(Annotation annotation, Long userId, String realName, Object obj) {
 		if (IListUtil.hasData(preprocessors)) {
-			for (BaseEntityPreprocessor preprocessor : preprocessors) {
-				if (preprocessor.supports(annotation, obj)) {
-					return preprocessor.process(userId, realName, obj);
+			Class<? extends Object> clazz = obj.getClass();
+			if (Iterable.class.isAssignableFrom(clazz)) {
+				Iterable<?> ite = (Iterable<?>) obj;
+				Iterator<?> iterator = ite.iterator();
+				while (iterator.hasNext()) {
+					Object next = iterator.next();
+					for (BaseEntityPreprocessor preprocessor : preprocessors) {
+						if (preprocessor.supports(annotation, next.getClass())) {
+							preprocessor.process(userId, realName, next);
+						}
+					}
+				}
+			} else {
+				for (BaseEntityPreprocessor processor : preprocessors) {
+					if (processor.supports(annotation, clazz)) {
+						processor.process(userId, realName, obj);
+					}
 				}
 			}
 		}
-		return obj;
+	}
+
+	@Override
+	public void add(BaseEntityPreprocessor preprocessor) {
+		if (IListUtil.hasNoData(preprocessors)) {
+			preprocessors = Lists.newArrayList();
+		}
+		preprocessors.add(preprocessor);
 	}
 }

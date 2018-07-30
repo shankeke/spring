@@ -2,6 +2,8 @@ package com.jusfoun.common.base.extend.adapter;
 
 import java.lang.annotation.Annotation;
 
+import com.jusfoun.common.base.extend.preprocessor.BaseEntityPreprocessor;
+
 /**
  * 描述:继承<code>BaseEntity</code>实体对象预处理器适配器接口. <br>
  * 
@@ -22,9 +24,16 @@ public interface EntityPreprocessAdapter {
 	 * @param realName
 	 *            用户姓名
 	 * @param obj
-	 *            实体对象
-	 * @return 预处理之后的对象
+	 *            实体对象或集合对象
 	 */
-	Object preprocess(Annotation annotation, Long userId, String realName, Object obj);
+	void preprocess(Annotation annotation, Long userId, String realName, Object obj);
+
+	/**
+	 * 描述 :添加预处理器. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月30日 下午7:33:05
+	 */
+	void add(BaseEntityPreprocessor preprocessor);
 
 }
