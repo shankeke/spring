@@ -9,5 +9,6 @@ import java.lang.annotation.Target;
 @Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+//@Inherited
 public @interface Preprocess {
 }
