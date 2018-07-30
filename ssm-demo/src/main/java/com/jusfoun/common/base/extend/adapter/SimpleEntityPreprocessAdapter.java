@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.beust.jcommander.internal.Lists;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityInsertPreprocessor;
-import com.jusfoun.common.base.extend.preprocessor.BaseEntityPreprocessor;
+import com.jusfoun.common.base.extend.preprocessor.EntityPreprocessor;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityUpdatePreprocessor;
 import com.jusfoun.common.utils.list.IListUtil;
 
@@ -22,13 +22,16 @@ import com.jusfoun.common.utils.list.IListUtil;
 @Component
 public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 
-	private List<BaseEntityPreprocessor> preprocessors;
+	/**
+	 * 可用的预处理器集合
+	 */
+	private List<EntityPreprocessor> preprocessors;
 
 	public SimpleEntityPreprocessAdapter() {
 		this(Arrays.asList(new BaseEntityInsertPreprocessor(), new BaseEntityUpdatePreprocessor()));
 	}
 
-	public SimpleEntityPreprocessAdapter(List<BaseEntityPreprocessor> preprocessors) {
+	public SimpleEntityPreprocessAdapter(List<EntityPreprocessor> preprocessors) {
 		this.preprocessors = preprocessors;
 	}
 
@@ -53,14 +56,14 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 				Iterator<?> iterator = ite.iterator();
 				while (iterator.hasNext()) {
 					Object next = iterator.next();
-					for (BaseEntityPreprocessor preprocessor : preprocessors) {
+					for (EntityPreprocessor preprocessor : preprocessors) {
 						if (preprocessor.supports(annotation, next.getClass())) {
 							preprocessor.process(userId, realName, next);
 						}
 					}
 				}
 			} else {
-				for (BaseEntityPreprocessor processor : preprocessors) {
+				for (EntityPreprocessor processor : preprocessors) {
 					if (processor.supports(annotation, clazz)) {
 						processor.process(userId, realName, obj);
 					}
@@ -70,7 +73,7 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	}
 
 	@Override
-	public void add(BaseEntityPreprocessor preprocessor) {
+	public void add(EntityPreprocessor preprocessor) {
 		if (IListUtil.hasNoData(preprocessors)) {
 			preprocessors = Lists.newArrayList();
 		}

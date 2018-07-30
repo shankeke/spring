@@ -8,7 +8,7 @@ import java.lang.annotation.Annotation;
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:14:40
  */
-public interface BaseEntityPreprocessor {
+public interface EntityPreprocessor {
 
 	/**
 	 * 描述:预处理方法. <br>

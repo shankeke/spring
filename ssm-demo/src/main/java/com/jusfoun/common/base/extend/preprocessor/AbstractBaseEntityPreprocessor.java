@@ -10,7 +10,7 @@ import com.jusfoun.common.base.extend.entity.BaseEntity;
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:31:09
  */
-public abstract class AbstractBaseEntityPreprocessor implements BaseEntityPreprocessor {
+public abstract class AbstractBaseEntityPreprocessor implements EntityPreprocessor {
 
 	@Override
 	public boolean supports(Annotation annotation, Class<?> clazz) {
