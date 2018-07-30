@@ -2,7 +2,7 @@ package com.jusfoun.wx;
 
 import org.junit.Test;
 
-import com.jusfoun.common.util.net.HttpUtils;
+import com.jusfoun.common.utils.net.HttpUtils;
 
 public class WxSignTest {
 

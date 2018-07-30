@@ -17,7 +17,7 @@ import java.util.Set;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import com.jusfoun.common.util.date.DateUtil;
+import com.jusfoun.common.utils.date.DateUtil;
 
 public class DateTest {
 

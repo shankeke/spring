@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 
-import com.jusfoun.common.util.date.DateUtil;
+import com.jusfoun.common.utils.date.DateUtil;
 
 public class Test {
 

@@ -25,6 +25,9 @@ public class IListUtil {
 	public static boolean hasData(Collection<?> list) {
 		return list != null && !list.isEmpty() && list.size() > 0;
 	}
+	public static boolean hasNoData(Collection<?> list) {
+		return !hasData(list);
+	}
 
 	/**
 	 * 描述 :字符串转化为指定类型的集合>. <br>

@@ -120,8 +120,7 @@ public class LogableAspect {
 		} finally {
 			try {
 				if (l != null && l.enable()) {
-					HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
-							.getRequestAttributes()).getRequest();
+					HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 					// 设置结果
 					SysLog sysLog = new SysLog();
 					String remoteHost = IpUtil.getIpAddr(request);
@@ -215,33 +214,33 @@ public class LogableAspect {
 	// 根据指定级别输出对应的日志信息
 	private void log(LevelType level, String message) {
 		switch (level) {
-		case TRACE:
-			if (log.isTraceEnabled()) {
-				log.trace(message);
-			}
-			break;
-		case DEBUG:
-			if (log.isDebugEnabled()) {
-				log.debug(message);
-			}
-			break;
-		case INFO:
-			if (log.isInfoEnabled()) {
-				log.info(message);
-			}
-			break;
-		case WARN:
-			if (log.isWarnEnabled()) {
-				log.warn(message);
-			}
-			break;
-		case ERROR:
-			if (log.isErrorEnabled()) {
-				log.error(message);
-			}
-			break;
-		default:
-			break;
+			case TRACE :
+				if (log.isTraceEnabled()) {
+					log.trace(message);
+				}
+				break;
+			case DEBUG :
+				if (log.isDebugEnabled()) {
+					log.debug(message);
+				}
+				break;
+			case INFO :
+				if (log.isInfoEnabled()) {
+					log.info(message);
+				}
+				break;
+			case WARN :
+				if (log.isWarnEnabled()) {
+					log.warn(message);
+				}
+				break;
+			case ERROR :
+				if (log.isErrorEnabled()) {
+					log.error(message);
+				}
+				break;
+			default :
+				break;
 		}
 	}
 

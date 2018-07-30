@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.jusfoun.common.util.net.HttpUtils;
+import com.jusfoun.common.utils.net.HttpUtils;
 
 /**
  * 描述 : HttpUtils工具类测试. <br>

@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
-import com.jusfoun.common.util.zxing.Colors;
-import com.jusfoun.common.util.zxing.Position;
-import com.jusfoun.common.util.zxing.ZXingUtil;
+import com.jusfoun.common.utils.zxing.Colors;
+import com.jusfoun.common.utils.zxing.Position;
+import com.jusfoun.common.utils.zxing.ZXingUtil;
 
 public class ZxingUtilTest extends ZXingUtil {
 //	String content = "天津奥博七里生态农业科技有限公司";
