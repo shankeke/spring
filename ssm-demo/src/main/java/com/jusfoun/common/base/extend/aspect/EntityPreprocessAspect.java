@@ -19,14 +19,14 @@ import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysUserService;
 
 /**
- * 描述:继承<code>BaseEntity</code>实体对象预处理切面. <br>
+ * 描述:实体对象预处理切面. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午11:31:24
  */
-public class BaseEntityPreprocessAspect {
+public class EntityPreprocessAspect {
 
-	private static final Logger log = LoggerFactory.getLogger(BaseEntityPreprocessAspect.class);
+	private static final Logger log = LoggerFactory.getLogger(EntityPreprocessAspect.class);
 
 	@Autowired
 	private EntityPreprocessAdapter preprocessAdapter;
@@ -40,13 +40,13 @@ public class BaseEntityPreprocessAspect {
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月2日 下午8:04:36
 	 */
-	@Pointcut("@annotation(com.jusfoun.common.base.extend.annotation.Preprocess)")
+	// @Pointcut("@annotation(com.jusfoun.common.base.extend.annotation.Preprocess)")
+	@Pointcut("(execution(* com.jusfoun.service..*(..)) || execution(* com.jusfoun.common.base.service..*(..))) && @annotation(com.jusfoun.common.base.extend.annotation.Preprocess)")
 	public void joinPointExpression() {
 	}
 
 	@Around(value = "joinPointExpression()")
 	public Object aroundMethod(ProceedingJoinPoint pjd) throws Throwable {
-
 		// 获取当前系统登录用户信息
 		Long userId = null;
 		String realName = null;
@@ -67,6 +67,16 @@ public class BaseEntityPreprocessAspect {
 			// 方法
 			MethodSignature methodSignature = (MethodSignature) pjd.getSignature();
 			Method method = methodSignature.getMethod();
+
+			/*
+			 * Parameter[] parameters = method.getParameters(); for (int j = 0;
+			 * j < parameters.length; j++) { Parameter parameter =
+			 * parameters[j]; Annotation[] annotations =
+			 * parameter.getDeclaredAnnotations(); for (int k = 0; k <
+			 * annotations.length; k++) { Annotation annotation =
+			 * annotations[k]; } }
+			 */
+
 			Preprocess preprocess = method.getAnnotation(Preprocess.class);
 			args = pjd.getArgs();
 
