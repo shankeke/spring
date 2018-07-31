@@ -3,7 +3,7 @@ package com.jusfoun.common.cache;
 import java.io.Serializable;
 
 /**
- * 描述 :缓存请求包装类. <br>
+ * 描述:缓存请求包装类. <br>
  * <p>
  *
  * Copyright (c) 2016 优识云创(YSYC)
@@ -33,8 +33,7 @@ public class CacheVo implements Serializable {
 		this.paramValue = paramValue;
 	}
 
-	public CacheVo(String cacheName, String alias, String paramKey,
-			String paramValue) {
+	public CacheVo(String cacheName, String alias, String paramKey, String paramValue) {
 		this.cacheName = cacheName;
 		this.alias = alias;
 		this.paramKey = paramKey;
@@ -78,12 +77,9 @@ public class CacheVo implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((alias == null) ? 0 : alias.hashCode());
-		result = prime * result
-				+ ((cacheName == null) ? 0 : cacheName.hashCode());
-		result = prime * result
-				+ ((paramKey == null) ? 0 : paramKey.hashCode());
-		result = prime * result
-				+ ((paramValue == null) ? 0 : paramValue.hashCode());
+		result = prime * result + ((cacheName == null) ? 0 : cacheName.hashCode());
+		result = prime * result + ((paramKey == null) ? 0 : paramKey.hashCode());
+		result = prime * result + ((paramValue == null) ? 0 : paramValue.hashCode());
 		return result;
 	}
 
@@ -121,7 +117,6 @@ public class CacheVo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CacheVo [cacheName=" + cacheName + ", alias=" + alias
-				+ ", paramKey=" + paramKey + ", paramValue=" + paramValue + "]";
+		return "CacheVo [cacheName=" + cacheName + ", alias=" + alias + ", paramKey=" + paramKey + ", paramValue=" + paramValue + "]";
 	}
 }
