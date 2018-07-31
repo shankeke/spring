@@ -50,7 +50,7 @@ public @interface Logable {
 	String path() default "";
 
 	/**
-	 * 描述:日志内容 <br>
+	 * 描述:日志内容（支持spel表达式）<br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:41:53
