@@ -11,9 +11,9 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import com.jusfoun.common.utils.zxing.Colors;
 import com.jusfoun.common.utils.zxing.Position;
-import com.jusfoun.common.utils.zxing.ZXingUtil;
+import com.jusfoun.common.utils.zxing.ZXingUtils;
 
-public class ZxingUtilTest extends ZXingUtil {
+public class ZxingUtilTest extends ZXingUtils {
 //	String content = "天津奥博七里生态农业科技有限公司";
 	String content = "http://wwww.baidu.com?version=1.0&name=zhangsan";
 

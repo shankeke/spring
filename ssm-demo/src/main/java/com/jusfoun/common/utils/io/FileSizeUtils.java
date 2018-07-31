@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:33:24
  */
-public class FileSizeUtil {
+public class FileSizeUtils {
 	/**
 	 * 取得文件大小
 	 *

@@ -21,7 +21,7 @@ import com.jusfoun.common.log.Logable;
 import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
-import com.jusfoun.common.utils.io.IOUtil;
+import com.jusfoun.common.utils.io.IoUtils;
 import com.jusfoun.config.file.FileConfig;
 
 import io.swagger.annotations.Api;
@@ -108,7 +108,7 @@ public class FileUploadController {
 		String relativeDir = fileConfig.getRelativeDir();
 		File subDir = new File(fileConfig.getRoot(), relativeDir);
 		// 创建子目录
-		IOUtil.makdirs(subDir);
+		IoUtils.makdirs(subDir);
 		// 文件保存
 		// IOUtil.copy(file.getInputStream(), new FileOutputStream(new
 		// File(subDir, fileName)));
@@ -143,7 +143,7 @@ public class FileUploadController {
 			if (file.exists()) {
 				response.setContentType("application/force-download");// 设置强制下载不打开
 				response.addHeader("Content-Disposition", "attachment;fileName=" + file.getName());// 设置文件名
-				IOUtil.write(file, response.getOutputStream());
+				IoUtils.write(file, response.getOutputStream());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:33:06
  */
-public class DateUtil {
-	private static final Logger log = LoggerFactory.getLogger(DateUtil.class);
+public class DateUtils {
+	private static final Logger log = LoggerFactory.getLogger(DateUtils.class);
 
 	/*
 	 * public static final String PATTERN_YYYYMM_1 = "yyyy-MM"; public static
@@ -953,7 +953,7 @@ public class DateUtil {
 		Date todayDate = null;
 		Date hundredBeforeDate = null;
 		try {
-			todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, today);
+			todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -961,7 +961,7 @@ public class DateUtil {
 		calendar.setTime(todayDate);
 		calendar.add(Calendar.YEAR, -100);
 		hundredBeforeDate = calendar.getTime();
-		String hundredBeforeDateStr = DateUtil.format(DateUtil.DATE_SDF_DATE, hundredBeforeDate);
+		String hundredBeforeDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, hundredBeforeDate);
 		return hundredBeforeDateStr;
 
 	}
@@ -978,7 +978,7 @@ public class DateUtil {
 		Date todayDate = null;
 		Date HundredAfterDate = null;
 		try {
-			todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, today);
+			todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -986,7 +986,7 @@ public class DateUtil {
 		calendar.setTime(todayDate);
 		calendar.add(Calendar.YEAR, 100);
 		HundredAfterDate = calendar.getTime();
-		String HundredAfterDateStr = DateUtil.format(DateUtil.DATE_SDF_DATE, HundredAfterDate);
+		String HundredAfterDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, HundredAfterDate);
 		return HundredAfterDateStr;
 
 	}

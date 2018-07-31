@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.utils.zxing.Colors;
-import com.jusfoun.common.utils.zxing.ZXingUtil;
+import com.jusfoun.common.utils.zxing.ZXingUtils;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,7 +32,7 @@ public class QCodeController {
 	) {
 		try {
 			// ZXingUtil.write(content, 300, 300, response.getOutputStream());
-			ZXingUtil.writeImgToStream(content, width, height, format, ZXingUtil.DEF_CHARACTER_SET,
+			ZXingUtils.writeImgToStream(content, width, height, format, ZXingUtils.DEF_CHARACTER_SET,
 					Colors.random().getRGB(), Colors.random().getRGB(), response.getOutputStream());
 		} catch (Exception e) {
 			e.printStackTrace();

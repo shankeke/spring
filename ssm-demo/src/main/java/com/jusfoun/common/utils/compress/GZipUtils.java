@@ -10,7 +10,7 @@ import java.util.zip.GZIPOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jusfoun.common.utils.io.IOUtil;
+import com.jusfoun.common.utils.io.IoUtils;
 
 /**
  * 描述 : Gzip文件格式处理. <br>
@@ -18,8 +18,8 @@ import com.jusfoun.common.utils.io.IOUtil;
  * @author yjw@jusfoun.com
  * @date 2017年11月16日 下午3:29:07
  */
-public class GZipUtil {
-	private static final Logger log = LoggerFactory.getLogger(GZipUtil.class);
+public class GZipUtils {
+	private static final Logger log = LoggerFactory.getLogger(GZipUtils.class);
 
 	/**
 	 * 描述 :压缩. <br>
@@ -35,7 +35,7 @@ public class GZipUtil {
 			if (log.isDebugEnabled()) {
 				log.debug("Creating the GZIP file [" + outFileName + "] from [" + filename + "]");
 			}
-			IOUtil.copy(new FileInputStream(filename), new GZIPOutputStream(new FileOutputStream(outFileName)));
+			IoUtils.copy(new FileInputStream(filename), new GZIPOutputStream(new FileOutputStream(outFileName)));
 		} catch (FileNotFoundException e) {
 			if (log.isErrorEnabled()) {
 				log.error("File not found : " + filename);
@@ -71,7 +71,7 @@ public class GZipUtil {
 			if (log.isDebugEnabled()) {
 				log.debug("Ungzip file [" + outFileName + "] to [" + gzipFileName + "]");
 			}
-			IOUtil.copy(new GZIPInputStream(new FileInputStream(gzipFileName)), new FileOutputStream(outFileName));
+			IoUtils.copy(new GZIPInputStream(new FileInputStream(gzipFileName)), new FileOutputStream(outFileName));
 		} catch (FileNotFoundException e) {
 			if (log.isErrorEnabled()) {
 				log.error("File not found. " + gzipFileName);

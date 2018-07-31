@@ -17,7 +17,7 @@ import java.io.PrintWriter;
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:33:55
  */
-public class IOUtil {
+public class IoUtils {
 	/**
 	 * 从输入流写到输出流
 	 *

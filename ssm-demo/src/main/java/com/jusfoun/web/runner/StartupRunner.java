@@ -18,7 +18,7 @@ import org.springframework.util.ResourceUtils;
 import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.utils.ICollections;
-import com.jusfoun.common.utils.jaxb.JaxbUtil;
+import com.jusfoun.common.utils.JaxbUtils;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.entity.TokenClientDetails;
@@ -83,7 +83,7 @@ public class StartupRunner implements CommandLineRunner {
 		int count = sysModuleService.selectCount(null);
 		if (count == 0) {
 			URL url = ResourceUtils.getURL(sysModulesFile);
-			SysModule root = JaxbUtil.xml2java(url, SysModule.class);
+			SysModule root = JaxbUtils.xml2java(url, SysModule.class);
 
 			SysUser admin = sysUserService.selectByUsername(adminName);
 			if (admin != null) {
@@ -138,7 +138,7 @@ public class StartupRunner implements CommandLineRunner {
 	 */
 	private void initClients() throws FileNotFoundException {
 		URL url = ResourceUtils.getURL(clientDetailsFile);
-		ClientDetailsRoot root = JaxbUtil.xml2java(url, ClientDetailsRoot.class);
+		ClientDetailsRoot root = JaxbUtils.xml2java(url, ClientDetailsRoot.class);
 		if (root == null) {
 			return;
 		}

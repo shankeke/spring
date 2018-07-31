@@ -22,7 +22,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.xmlbeans.impl.piccolo.io.FileFormatException;
 
-import com.jusfoun.common.utils.date.DateUtil;
+import com.jusfoun.common.utils.date.DateUtils;
 
 /**
  * 描述 :Excel文件读入为java对象 . <br>
@@ -297,9 +297,9 @@ public abstract class ExcelParser {
 		} else if (Boolean.class.isAssignableFrom(fieldClass) || boolean.class.isAssignableFrom(fieldClass)) {
 			m.invoke(t, Boolean.valueOf(fieldValue));
 		} else if (char.class.isAssignableFrom(fieldClass)) {
-			m.invoke(t, DateUtil.parse(format, fieldValue));
+			m.invoke(t, DateUtils.parse(format, fieldValue));
 		} else if (Date.class.isAssignableFrom(fieldClass)) {
-			m.invoke(t, DateUtil.parse(format, fieldValue));
+			m.invoke(t, DateUtils.parse(format, fieldValue));
 		} else {
 			m.invoke(t, fieldValue);
 		}

@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import com.jusfoun.common.utils.ICollections;
-import com.jusfoun.common.utils.date.DateUtil;
+import com.jusfoun.common.utils.date.DateUtils;
 
 /**
  * 描述 : 上传文件配置和文件处理的公共类，主要用于文件上传路径处理，文件的删除等操作. <br>
@@ -124,7 +124,7 @@ public class FileConfig {
 	 * @return 文件夹路径
 	 */
 	public String getRelativeDir(Date date) {
-		String format = DateUtil.format(DateUtil.DATE_SDF_DATE_PATH, date);
+		String format = DateUtils.format(DateUtils.DATE_SDF_DATE_PATH, date);
 		String pathSeparator = "/";
 		if (!format.startsWith(pathSeparator)) {
 			format = pathSeparator + format;

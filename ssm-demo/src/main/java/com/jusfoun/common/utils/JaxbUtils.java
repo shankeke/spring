@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.jaxb;
+package com.jusfoun.common.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,9 +36,9 @@ import org.xml.sax.XMLReader;
  * @author yjw@jusfoun.com
  * @date 2017年9月11日 上午10:34:08
  */
-public class JaxbUtil {
+public class JaxbUtils {
 
-	private final static Logger logger = LoggerFactory.getLogger(JaxbUtil.class);
+	private final static Logger logger = LoggerFactory.getLogger(JaxbUtils.class);
 
 	private static final String DEFAULT_ENCODING = "UTF-8";
 
@@ -61,8 +61,8 @@ public class JaxbUtil {
 	 * @return
 	 * @throws JAXBException
 	 */
-	private static <T> Marshaller createMarshaller(Class<T> clazz, boolean format, boolean fragment, String encoding,
-			String schema_location, String no_namespace_schema_location) throws JAXBException {
+	private static <T> Marshaller createMarshaller(Class<T> clazz, boolean format, boolean fragment, String encoding, String schema_location, String no_namespace_schema_location)
+			throws JAXBException {
 		try {
 			JAXBContext jc = JAXBContext.newInstance(clazz);
 			Marshaller ms = jc.createMarshaller();
@@ -118,11 +118,10 @@ public class JaxbUtil {
 	 *            xsi:noNamespaceSchemaLocation attribute value to place in the
 	 *            marshalled XML output.
 	 */
-	public static <T> void java2xml(OutputStream out, T t, Class<T> clazz, boolean format, boolean fragment,
-			String encoding, String schema_location, String no_namespace_schema_location) {
+	public static <T> void java2xml(OutputStream out, T t, Class<T> clazz, boolean format, boolean fragment, String encoding, String schema_location,
+			String no_namespace_schema_location) {
 		try {
-			Marshaller ms = createMarshaller(clazz, format, fragment, encoding, schema_location,
-					no_namespace_schema_location);
+			Marshaller ms = createMarshaller(clazz, format, fragment, encoding, schema_location, no_namespace_schema_location);
 			ms.marshal(t, out);
 		} catch (PropertyException e) {
 			e.printStackTrace();
@@ -159,8 +158,7 @@ public class JaxbUtil {
 	 * @param fragment
 	 *            是否省略头信息，true-是，false-否
 	 */
-	public static <T> void java2xml(OutputStream out, T t, Class<T> clazz, boolean format, boolean fragment,
-			String schema_location, String no_namespace_schema_location) {
+	public static <T> void java2xml(OutputStream out, T t, Class<T> clazz, boolean format, boolean fragment, String schema_location, String no_namespace_schema_location) {
 		java2xml(out, t, clazz, format, fragment, DEFAULT_ENCODING, schema_location, no_namespace_schema_location);
 	}
 
@@ -238,11 +236,10 @@ public class JaxbUtil {
 	 * @param fragment
 	 *            是否省略头信息，true-是，false-否
 	 */
-	public static <T> void java2xml(Writer writer, T t, Class<T> clazz, boolean format, boolean fragment,
-			String encoding, String schema_location, String no_namespace_schema_location) {
+	public static <T> void java2xml(Writer writer, T t, Class<T> clazz, boolean format, boolean fragment, String encoding, String schema_location,
+			String no_namespace_schema_location) {
 		try {
-			Marshaller ms = createMarshaller(clazz, format, fragment, encoding, schema_location,
-					no_namespace_schema_location);
+			Marshaller ms = createMarshaller(clazz, format, fragment, encoding, schema_location, no_namespace_schema_location);
 			ms.marshal(t, writer);
 		} catch (PropertyException e) {
 			e.printStackTrace();
@@ -279,8 +276,7 @@ public class JaxbUtil {
 	 * @param fragment
 	 *            是否省略头信息，true-是，false-否
 	 */
-	public static <T> void java2xml(Writer writer, T t, Class<T> clazz, boolean format, boolean fragment,
-			String encoding) {
+	public static <T> void java2xml(Writer writer, T t, Class<T> clazz, boolean format, boolean fragment, String encoding) {
 		java2xml(writer, t, clazz, format, fragment, encoding, null, null);
 	}
 
@@ -363,8 +359,7 @@ public class JaxbUtil {
 	 *            是否省略头信息，true-是，false-否
 	 * @return 返回转化xml字符串
 	 */
-	public static <T> String java2xml(T t, Class<T> clazz, boolean format, boolean fragment, String encoding,
-			String schema_location, String no_namespace_schema_location) {
+	public static <T> String java2xml(T t, Class<T> clazz, boolean format, boolean fragment, String encoding, String schema_location, String no_namespace_schema_location) {
 		StringWriter stringWriter = new StringWriter();
 		java2xml(stringWriter, t, clazz, format, fragment, encoding, schema_location, no_namespace_schema_location);
 		return stringWriter.toString();
@@ -475,8 +470,8 @@ public class JaxbUtil {
 	 * @param fragment
 	 *            是否省略头信息，true-是，false-否
 	 */
-	public static <T> void java2xml(File file, T t, Class<T> clazz, boolean format, boolean fragment, String encoding,
-			String schema_location, String no_namespace_schema_location) {
+	public static <T> void java2xml(File file, T t, Class<T> clazz, boolean format, boolean fragment, String encoding, String schema_location,
+			String no_namespace_schema_location) {
 		FileOutputStream out = null;
 		try {
 			out = new FileOutputStream(file);
@@ -633,11 +628,10 @@ public class JaxbUtil {
 	 * @param fragment
 	 *            是否省略头信息，true-是，false-否
 	 */
-	public static <T> void java2xml(Node node, T t, Class<T> clazz, boolean format, boolean fragment, String encoding,
-			String schema_location, String no_namespace_schema_location) {
+	public static <T> void java2xml(Node node, T t, Class<T> clazz, boolean format, boolean fragment, String encoding, String schema_location,
+			String no_namespace_schema_location) {
 		try {
-			Marshaller ms = createMarshaller(clazz, format, fragment, encoding, schema_location,
-					no_namespace_schema_location);
+			Marshaller ms = createMarshaller(clazz, format, fragment, encoding, schema_location, no_namespace_schema_location);
 			ms.marshal(t, node);
 		} catch (PropertyException e) {
 			e.printStackTrace();

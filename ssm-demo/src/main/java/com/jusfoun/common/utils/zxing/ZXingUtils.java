@@ -38,7 +38,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午7:23:16
  */
-public class ZXingUtil {
+public class ZXingUtils {
 	// 二维码颜色
 	// public static final int RGB_BLACK = 0xFF000000;// 黑色
 	// public static final int RGB_WHITE = 0xFFFFFFFF;// 白色

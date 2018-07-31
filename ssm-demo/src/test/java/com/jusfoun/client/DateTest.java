@@ -17,7 +17,7 @@ import java.util.Set;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import com.jusfoun.common.utils.date.DateUtil;
+import com.jusfoun.common.utils.date.DateUtils;
 
 public class DateTest {
 
@@ -115,7 +115,7 @@ public class DateTest {
 
 	@Test
 	public void timeStamp() {
-		String format = DateUtil.format(DateUtil.timeStamp, new Date());
+		String format = DateUtils.format(DateUtils.timeStamp, new Date());
 		for (int i = 0; i < 10; i++) {
 			System.out.println("=========================");
 			System.out.println(format);
@@ -147,7 +147,7 @@ public class DateTest {
 			calendar.setTime(new Date());
 			calendar.add(calendar.DATE, -1);
 			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtil.format(DateUtil.DATE_SDF_DATE, yesterdayDate);
+			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
 			System.out.println(yesterdayDateStr);
 
 
@@ -281,7 +281,7 @@ public class DateTest {
 		Calendar c = Calendar.getInstance();
 		Date date = null;
 		try {
-			date = DateUtil.parse(DateUtil.DATE_SDF_DATE, specifiedDay);
+			date = DateUtils.parse(DateUtils.DATE_SDF_DATE, specifiedDay);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -289,7 +289,7 @@ public class DateTest {
 		int day = c.get(Calendar.DATE);
 		c.set(Calendar.DATE, day + 1);
 
-		String dayAfter = DateUtil.format(DateUtil.DATE_SDF_DATE, c.getTime());
+		String dayAfter = DateUtils.format(DateUtils.DATE_SDF_DATE, c.getTime());
 
 		return dayAfter;
 	}
@@ -306,7 +306,7 @@ public class DateTest {
 		Date todayDate = null;
 		Date yesterdayDate = null;
 			try {
-				todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, today);
+				todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -314,7 +314,7 @@ public class DateTest {
 			calendar.setTime(todayDate);
 			calendar.add(Calendar.DATE, -1);
 			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtil.format(DateUtil.DATE_SDF_DATE, yesterdayDate);
+			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
 			return yesterdayDateStr;
 
 	}
@@ -331,7 +331,7 @@ public class DateTest {
 		Date todayDate = null;
 		Date yesterdayDate = null;
 			try {
-				todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, today);
+				todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -339,7 +339,7 @@ public class DateTest {
 			calendar.setTime(todayDate);
 			calendar.add(Calendar.YEAR, -100);
 			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtil.format(DateUtil.DATE_SDF_DATE, yesterdayDate);
+			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
 			return yesterdayDateStr;
 
 	}
@@ -348,7 +348,7 @@ public class DateTest {
 		Date todayDate = null;
 		Date yesterdayDate = null;
 			try {
-				todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, today);
+				todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -356,7 +356,7 @@ public class DateTest {
 			calendar.setTime(todayDate);
 			calendar.add(Calendar.YEAR, 100);
 			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtil.format(DateUtil.DATE_SDF_DATE, yesterdayDate);
+			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
 			return yesterdayDateStr;
 
 	}
