@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.freemarker;
+package com.jusfoun.common.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,7 +23,7 @@ import freemarker.template.TemplateNotFoundException;
  * @author yjw@jusfoun.com
  * @date 2018年3月7日 上午10:13:15
  */
-public class TemplateUtil {
+public class FreemarkerUtil {
 
 	private static final String DEFAUT_CHARSET = "UTF-8";
 
@@ -53,7 +53,7 @@ public class TemplateUtil {
 		cfg.setNumberFormat(DEFAUT_NUMBER_FORMAT);
 		// 设置模板文件位置
 		// cfg.setDirectoryForTemplateLoading(templateDirFile);
-		cfg.setClassForTemplateLoading(TemplateUtil.class, templateDir);
+		cfg.setClassForTemplateLoading(FreemarkerUtil.class, templateDir);
 		cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_22));
 		// 加载模板
 		Template template = cfg.getTemplate(templateName, DEFAUT_CHARSET);

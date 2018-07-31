@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.entry;
+package com.jusfoun.common.utils;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;

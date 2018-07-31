@@ -28,7 +28,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.log.Logable.LevelType;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.common.utils.net.IpUtil;
 import com.jusfoun.entity.SysLog;
 import com.jusfoun.entity.SysUser;
@@ -203,7 +203,7 @@ public class LogableAspect {
 		if (queue.size() >= LOG_QUEUE_INIT_CAPACITY || clear) {
 			List<SysLog> list = new ArrayList<SysLog>();
 			queue.drainTo(list);// 将队列数据全部放入集合中
-			if (IListUtil.hasData(list)) {
+			if (ICollections.hasData(list)) {
 				sysLogService.insertList(list);
 				cacheService.evict(CacheConsts.CACHE_PERSISTENT, LOG_CACHE_KEY);// 清理缓存
 			}

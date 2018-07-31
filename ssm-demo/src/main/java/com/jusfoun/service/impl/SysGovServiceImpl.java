@@ -7,7 +7,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.utils.entry.EntityUtils;
+import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.mapper.ds0.SysGovMapper;
 import com.jusfoun.service.SysGovService;

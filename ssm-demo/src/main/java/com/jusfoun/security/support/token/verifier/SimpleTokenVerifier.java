@@ -2,7 +2,7 @@ package com.jusfoun.security.support.token.verifier;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.jusfoun.common.utils.regex.RegexUtil;
+import com.jusfoun.common.utils.RegexUtil;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 
 /**

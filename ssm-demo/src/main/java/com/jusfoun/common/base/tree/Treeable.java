@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 
 /**
  * 描述:树结构数据检索查询接口. <br>
@@ -30,12 +30,12 @@ public interface Treeable<T extends Treeable<T>> {
 		while (ite.hasNext()) {
 			node = ite.next();
 			subList = node.getSubList();
-			if (isMatch(node, regex) || IListUtil.hasData(subList)) {
-				if (IListUtil.hasData(subList)) {
+			if (isMatch(node, regex) || ICollections.hasData(subList)) {
+				if (ICollections.hasData(subList)) {
 					// 回调继续检索下一层数据
 					subList = search(subList, regex);
 					// 非叶子节点，更新到属性中
-					if (IListUtil.hasData(subList)) {
+					if (ICollections.hasData(subList)) {
 						node.setSubList(subList);
 					}
 					// 叶子节点如果匹配数据则设置叶子属性，否则删除该节点
@@ -72,10 +72,10 @@ public interface Treeable<T extends Treeable<T>> {
 	 */
 	default boolean isEnd(List<T> subList, boolean b) {
 		List<T> subs = null;
-		if (IListUtil.hasData(subList)) {
+		if (ICollections.hasData(subList)) {
 			for (T node : subList) {
 				subs = node.getSubList();
-				if (IListUtil.hasData(subs)) {
+				if (ICollections.hasData(subs)) {
 					b = isEnd(subs, b);
 				} else {
 					b = b && node.isLeaf();

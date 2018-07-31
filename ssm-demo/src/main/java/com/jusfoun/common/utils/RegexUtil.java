@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.regex;
+package com.jusfoun.common.utils;
 
 import java.util.regex.Pattern;
 

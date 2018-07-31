@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 
 /**
  * 描述 :Spring security用户Context中信息获取工具类. <br>
@@ -49,7 +49,7 @@ public final class SecurityUtils {
 	 */
 	public static Collection<String> getCurrentUserAuthorities() {
 		Collection<? extends GrantedAuthority> currentUserGrantedAuthorities = getCurrentUserGrantedAuthorities();
-		if (IListUtil.hasData(currentUserGrantedAuthorities)) {
+		if (ICollections.hasData(currentUserGrantedAuthorities)) {
 			return currentUserGrantedAuthorities.stream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		}
 		return null;

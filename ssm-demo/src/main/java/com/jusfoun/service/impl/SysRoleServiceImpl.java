@@ -16,7 +16,7 @@ import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysRole;
 import com.jusfoun.entity.SysRoleModule;
@@ -67,7 +67,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 
 			// 保存关系
 			Set<SysModule> sysModules = sysRole.getSysModules();
-			if (IListUtil.hasData(sysModules)) {
+			if (ICollections.hasData(sysModules)) {
 				Long roleId = sysRole.getId();
 				List<SysRoleModule> list = new ArrayList<SysRoleModule>();
 				SysRoleModule record = null;
@@ -103,7 +103,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 			sysRoleModuleMapper.delete(record);
 
 			Set<SysModule> sysModules = sysRole.getSysModules();
-			if (IListUtil.hasData(sysModules)) {
+			if (ICollections.hasData(sysModules)) {
 				// 保存新关系
 				List<SysRoleModule> list = new ArrayList<SysRoleModule>();
 				for (SysModule t : sysModules) {

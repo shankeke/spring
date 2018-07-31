@@ -17,8 +17,8 @@ import org.springframework.util.ResourceUtils;
 
 import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.enums.UsingStatus;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.common.utils.jaxb.JaxbUtil;
-import com.jusfoun.common.utils.list.IListUtil;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.entity.TokenClientDetails;
@@ -143,7 +143,7 @@ public class StartupRunner implements CommandLineRunner {
 			return;
 		}
 		List<TokenClientDetails> list = root.getList();
-		if (IListUtil.hasData(list)) {
+		if (ICollections.hasData(list)) {
 			for (TokenClientDetails t : list) {
 				t.setClientSecret(passwordEncoder.encode(t.getClientSecret()));
 				t.setAuthorities(sysModuleService.selectAuthorities(t.getClientId()));

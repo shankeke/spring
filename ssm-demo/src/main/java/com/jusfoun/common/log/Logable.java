@@ -50,15 +50,6 @@ public @interface Logable {
 	String fullPath() default "";
 
 	/**
-	 * 描述:参数列表，可以使用. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月18日 上午9:41:06
-	 * @return 访问地址
-	 */
-	String[] params() default {};
-
-	/**
 	 * 描述:方法功能说明. <br>
 	 * 
 	 * @author yjw@jusfoun.com

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 import com.beust.jcommander.internal.Lists;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityInsertPreprocessor;
 import com.jusfoun.common.base.extend.preprocessor.EntityPreprocessor;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityUpdatePreprocessor;
-import com.jusfoun.common.utils.list.IListUtil;
 
 /**
  * 描述:实体预处理适配器. <br>
@@ -49,7 +49,7 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	 */
 	@Override
 	public void preprocess(Annotation annotation, Long userId, String realName, Object obj) {
-		if (IListUtil.hasData(preprocessors)) {
+		if (ICollections.hasData(preprocessors)) {
 			Class<? extends Object> clazz = obj.getClass();
 			if (Iterable.class.isAssignableFrom(clazz)) {
 				Iterable<?> ite = (Iterable<?>) obj;
@@ -74,7 +74,7 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 
 	@Override
 	public void add(EntityPreprocessor preprocessor) {
-		if (IListUtil.hasNoData(preprocessors)) {
+		if (ICollections.hasNoData(preprocessors)) {
 			preprocessors = Lists.newArrayList();
 		}
 		preprocessors.add(preprocessor);

@@ -10,7 +10,7 @@ import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.utils.entry.EntityUtils;
+import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.mapper.ds0.TokenUserDetailsMapper;
 import com.jusfoun.security.support.token.AccessToken;

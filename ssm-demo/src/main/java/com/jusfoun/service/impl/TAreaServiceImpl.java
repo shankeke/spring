@@ -9,7 +9,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.utils.entry.EntityUtils;
+import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.TArea;
 import com.jusfoun.mapper.ds1.TAreaMapper;
 import com.jusfoun.service.TAreaService;

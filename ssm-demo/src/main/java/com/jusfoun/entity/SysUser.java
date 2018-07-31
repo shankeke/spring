@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.jusfoun.common.base.extend.entity.BaseEntity;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -121,14 +121,14 @@ public class SysUser extends BaseEntity<SysUser> {
 	}
 
 	public Set<GrantedAuthority> getAuthorities() {
-		if (IListUtil.hasData(authorities)) {
+		if (ICollections.hasData(authorities)) {
 			return authorities;
 		}
 		Set<GrantedAuthority> userAuthotities = new HashSet<GrantedAuthority>();
 		sysRoles = getSysRoles();
-		if (IListUtil.hasData(sysRoles)) {
+		if (ICollections.hasData(sysRoles)) {
 			for (SysRole role : sysRoles) {
-				if (IListUtil.hasData(role.getSysModules())) {
+				if (ICollections.hasData(role.getSysModules())) {
 					userAuthotities.addAll(role.getSysModules().stream().map(authority -> new SimpleGrantedAuthority(authority.getUrl())).collect(Collectors.toSet()));
 				}
 			}
@@ -144,7 +144,7 @@ public class SysUser extends BaseEntity<SysUser> {
 	 * @return
 	 */
 	public Set<String> getRoleNames() {
-		if (IListUtil.hasData(getSysRoles())) {
+		if (ICollections.hasData(getSysRoles())) {
 			return getSysRoles().stream().map(t -> t.getName()).collect(Collectors.toSet());
 		}
 		return roleNames;

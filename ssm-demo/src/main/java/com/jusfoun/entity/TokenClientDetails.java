@@ -21,7 +21,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler;
 import com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.RawGrantedAuthority;
 
@@ -203,13 +203,13 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 
 	@Override
 	public Collection<? extends GrantedAuthority> retainAuthorities(Collection<? extends GrantedAuthority> authorities) {
-		if (!IListUtil.hasData(authorities) || !IListUtil.hasData(this.authorities)) {
+		if (!ICollections.hasData(authorities) || !ICollections.hasData(this.authorities)) {
 			return null;
 		}
 		Set<String> collect = this.authorities.stream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		Set<String> collect1 = authorities.stream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		collect.retainAll(collect1);
-		if (IListUtil.hasData(collect)) {
+		if (ICollections.hasData(collect)) {
 			return collect.stream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;

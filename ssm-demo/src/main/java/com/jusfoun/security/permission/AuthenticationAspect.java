@@ -20,7 +20,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.jusfoun.common.message.exception.ServiceException;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.security.exceptions.UnAuthorizedException;
 import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysModuleService;
@@ -90,7 +90,7 @@ public class AuthenticationAspect {
 			// 获取当前用户的权限列表
 			Collection<String> grantedAuthorities = SecurityUtils.getCurrentUserAuthorities();
 			// 判断用户是否有该权限，如果没有该权限则抛出没有权限的异常，交给异常处理类处理
-			if (!IListUtil.hasData(grantedAuthorities) || !grantedAuthorities.contains(authority)) {
+			if (!ICollections.hasData(grantedAuthorities) || !grantedAuthorities.contains(authority)) {
 				throw new UnAuthorizedException("未授权的请求", authority);
 			}
 		}

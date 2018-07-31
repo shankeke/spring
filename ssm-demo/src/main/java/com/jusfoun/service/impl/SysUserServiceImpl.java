@@ -15,7 +15,7 @@ import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.SysRole;
 import com.jusfoun.entity.SysRoleUser;
 import com.jusfoun.entity.SysUser;
@@ -89,7 +89,7 @@ public class SysUserServiceImpl implements SysUserService {
 		sysRoleUserMapper.delete(record);
 
 		Set<SysRole> sysRoles = sysUser.getSysRoles();
-		if (IListUtil.hasData(sysRoles)) {
+		if (ICollections.hasData(sysRoles)) {
 			List<SysRoleUser> list = new ArrayList<SysRoleUser>();
 			for (SysRole sysRole : sysRoles) {
 				record = new SysRoleUser();

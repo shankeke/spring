@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.beust.jcommander.internal.Lists;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.ICollections;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +35,7 @@ public class TCountryTotalVo implements Serializable {
 	}
 
 	public List<TCountryVo> getList() {
-		if (!IListUtil.hasData(list)) {
+		if (!ICollections.hasData(list)) {
 			list = Lists.newArrayList();
 		} else {
 			list = list.stream()//
@@ -50,7 +50,7 @@ public class TCountryTotalVo implements Serializable {
 	}
 
 	public int getRowCount() {
-		if (IListUtil.hasData(list)) {
+		if (ICollections.hasData(list)) {
 			rowCount = list.stream()//
 					.mapToInt(t -> t.getRowCount())//
 					.sum();

@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.list;
+package com.jusfoun.common.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,8 @@ import org.apache.commons.lang3.StringUtils;
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 上午11:32:23
  */
-public class IListUtil {
+public class ICollections {
+
 	/**
 	 * 描述 : 判断集合中是否有数据. <br>
 	 *
@@ -22,11 +23,12 @@ public class IListUtil {
 	 *            判断的集合
 	 * @return 集合为空返回false，否则返回true
 	 */
-	public static boolean hasData(Collection<?> list) {
-		return list != null && !list.isEmpty() && list.size() > 0;
+	public static boolean hasData(Collection<?> collection) {
+		return collection != null && !collection.isEmpty() && collection.size() > 0;
 	}
-	public static boolean hasNoData(Collection<?> list) {
-		return !hasData(list);
+
+	public static boolean hasNoData(Collection<?> collection) {
+		return !hasData(collection);
 	}
 
 	/**

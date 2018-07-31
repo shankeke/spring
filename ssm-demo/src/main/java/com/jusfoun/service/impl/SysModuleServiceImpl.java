@@ -20,8 +20,8 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
-import com.jusfoun.common.utils.entry.EntityUtils;
-import com.jusfoun.common.utils.list.IListUtil;
+import com.jusfoun.common.utils.EntityUtils;
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.mapper.ds0.SysModuleMapper;
 import com.jusfoun.security.RawGrantedAuthority;
@@ -89,7 +89,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 		sysModuleMapper.insert(root);
 		// 保存子节点
 		List<SysModule> list = root.getSubList();
-		if (IListUtil.hasData(list)) {
+		if (ICollections.hasData(list)) {
 			Long pid = root.getId();
 			for (SysModule item : list) {
 				item.setParentId(pid);
@@ -126,7 +126,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 		} else {
 			list = selectAll();
 		}
-		if (IListUtil.hasData(list)) {
+		if (ICollections.hasData(list)) {
 			return list.stream().map(t -> t.getUrl()).collect(Collectors.toSet());
 		}
 		return Sets.newHashSet();
@@ -136,7 +136,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 	@Override
 	public Collection<? extends GrantedAuthority> selectAuthorities(String clientId) throws ServiceException {
 		Set<String> urls = selectUrlByClientId(clientId);
-		if (IListUtil.hasData(urls)) {
+		if (ICollections.hasData(urls)) {
 			return urls.stream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;

@@ -17,7 +17,7 @@ import com.google.common.collect.Maps;
 import com.jusfoun.common.base.controller.BasePageableAndIdableController;
 import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.base.service.BaseService;
-import com.jusfoun.common.utils.freemarker.TemplateUtil;
+import com.jusfoun.common.utils.FreemarkerUtil;
 import com.jusfoun.config.TemplatesConfig;
 import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;
@@ -65,7 +65,7 @@ public class TCountryController implements BasePageableAndIdableController<TCoun
 		response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder
 				.encode(String.format("国家信息表-%s.%s", DateTime.now().toString("yyyyMMddHHmmss"), "xls"), "UTF-8"));
 		response.setBufferSize(4096);
-		TemplateUtil.process(templatesConfig.getDir(), templatesConfig.getCountries(), response.getOutputStream(),
+		FreemarkerUtil.process(templatesConfig.getDir(), templatesConfig.getCountries(), response.getOutputStream(),
 				data);
 	}
 }

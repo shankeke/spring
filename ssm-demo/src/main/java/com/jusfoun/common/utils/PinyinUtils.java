@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.pinyin;
+package com.jusfoun.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -9,14 +9,22 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
+/**
+ * 描述:汉语拼音处理工具. <br>
+ * 
+ * @author yjw@jusfoun.com
+ * @date 2018年7月31日 上午9:57:17
+ */
 public class PinyinUtils {
 
 	/**
-	 * 获得汉语拼音首字母
-	 *
+	 * 描述:获得汉语拼音首字母. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月31日 上午9:57:42
 	 * @param chines
 	 *            汉字
-	 * @return
+	 * @return 首字母
 	 */
 	public static String getAlphaFirst(String chines) {
 		String alpha = getAlpha(chines);
@@ -27,11 +35,13 @@ public class PinyinUtils {
 	}
 
 	/**
-	 * 获得汉语拼音首字母
-	 *
+	 * 描述:获得汉语拼音首字母. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月31日 上午9:58:21
 	 * @param chines
 	 *            汉字
-	 * @return
+	 * @return 汉语拼音首字母
 	 */
 	public static String getAlpha(String chines) {
 		String pinyinName = "";
@@ -54,11 +64,13 @@ public class PinyinUtils {
 	}
 
 	/**
-	 * 将字符串中的中文转化为拼音,英文字符不变
-	 *
+	 * 描述:将字符串中的中文转化为拼音，英文字符不变. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月31日 上午9:59:14
 	 * @param inputString
 	 *            汉字
-	 * @return
+	 * @return 拼音
 	 */
 	public static String getPingYin(String inputString) {
 		HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
@@ -86,11 +98,13 @@ public class PinyinUtils {
 	}
 
 	/**
-	 * 汉字转换位汉语拼音首字母，英文字符不变
-	 *
+	 * 描述:汉字转换位汉语拼音首字母，英文字符不变. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月31日 上午9:59:53
 	 * @param chines
 	 *            汉字
-	 * @return 拼音
+	 * @return 汉字转换位汉语拼音首字母
 	 */
 	public static String converterToFirstSpell(String chines) {
 		String pinyinName = "";
@@ -111,5 +125,4 @@ public class PinyinUtils {
 		}
 		return pinyinName;
 	}
-
 }

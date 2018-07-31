@@ -10,8 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.common.utils.date.DateUtil;
-import com.jusfoun.common.utils.list.IListUtil;
 
 /**
  * 描述 : 上传文件配置和文件处理的公共类，主要用于文件上传路径处理，文件的删除等操作. <br>
@@ -111,7 +111,7 @@ public class FileConfig {
 	 * @return 单个文件相对路径的集合
 	 */
 	public List<String> getFileRelativePaths(String filePaths) {
-		return IListUtil.strToStringList(filePaths, separator);
+		return ICollections.strToStringList(filePaths, separator);
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class FileConfig {
 	 * @date 2017年9月16日 下午1:21:20
 	 */
 	public void deleteFiles(List<String> relativePaths) {
-		if (IListUtil.hasData(relativePaths)) {
+		if (ICollections.hasData(relativePaths)) {
 			for (String relativePath : relativePaths) {
 				deleteFile(relativePath);
 			}
