@@ -9,7 +9,8 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @date 2017年9月12日 下午4:18:34
  */
 public enum YesNoType implements IntegerValueEnum {
-	NO(0, "否", false), YES(1, "是", true);
+	NO(0, "否", false), //
+	YES(1, "是", true); //
 
 	private final Integer value;// 数字值
 	private final String label;// 类型名称
@@ -33,15 +34,6 @@ public enum YesNoType implements IntegerValueEnum {
 		return result;
 	}
 
-	/**
-	 * 描述 :根据数字值得到是否类型>. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月12日 下午4:19:30
-	 * @param value
-	 *            状态值
-	 * @return 类型
-	 */
 	public static YesNoType valueOf(Integer value) {
 		switch (value) {
 			case 1 :
@@ -51,15 +43,6 @@ public enum YesNoType implements IntegerValueEnum {
 		}
 	}
 
-	/**
-	 * 描述 :根据数字值得到是否类型>. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月12日 下午4:19:30
-	 * @param value
-	 *            状态值
-	 * @return 类型
-	 */
 	public static YesNoType valueOf(boolean result) {
 		return result ? YesNoType.YES : YesNoType.NO;
 	}

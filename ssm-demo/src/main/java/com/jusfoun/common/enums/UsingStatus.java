@@ -9,9 +9,9 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @date 2017年9月7日 上午10:30:48
  */
 public enum UsingStatus implements IntegerValueEnum {
-	NotEnabled(0, "未启用"), //
-	Enable(1, "启用"), //
-	Disable(-1, "停用"); //
+	NOT_ENABLED(0, "未启用"), //
+	ENABLE(1, "启用"), //
+	DISABLE(-1, "停用"); //
 
 	private final String label;// 类型名称
 	private final Integer value;// 类型值

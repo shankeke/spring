@@ -23,7 +23,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		t.setUsername("wangwu");
 		t.setRealName("王五");
 		t.setPassword("123456");
-		t.setStatus(UsingStatus.Enable.getValue());
+		t.setStatus(UsingStatus.ENABLE.getValue());
 		t.setGender(2);
 		t.setMobile("13460398985");
 		t.setEmail("156@163.com");
@@ -35,7 +35,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 	@Override
 	public void update() {
 		t.setId(3L);
-		t.setStatus(UsingStatus.Disable.getValue());
+		t.setStatus(UsingStatus.DISABLE.getValue());
 		rest("/sysuser/update", t);
 	}
 

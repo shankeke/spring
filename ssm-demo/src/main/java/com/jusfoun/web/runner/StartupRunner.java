@@ -94,7 +94,7 @@ public class StartupRunner implements CommandLineRunner {
 				Date now = new Date();
 				root.setCreateDate(now);
 				root.setUpdateDate(now);
-				root.setStatus(UsingStatus.Enable.getValue());
+				root.setStatus(UsingStatus.ENABLE.getValue());
 			}
 			sysModuleService.initSysModules(root);
 		}
@@ -120,7 +120,7 @@ public class StartupRunner implements CommandLineRunner {
 		t.setCreatorId(1L);
 		t.setUpdaterId(1L);
 		t.setGovId(1L);
-		t.setStatus(UsingStatus.Enable.getValue());
+		t.setStatus(UsingStatus.ENABLE.getValue());
 		t.setGender(0);
 		t.setIsAdmin(true);
 		t.setGovName("信息中心");

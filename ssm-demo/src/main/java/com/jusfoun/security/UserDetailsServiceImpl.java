@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private SysUserService sysUserService;
-	
+
 	@Autowired
 	private SysModuleService sysModuleService;
 
@@ -50,12 +50,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		// 账户失效
-		if (UsingStatus.Disable.valEqualsTo(sysUser.getStatus())) {
+		if (UsingStatus.DISABLE.valEqualsTo(sysUser.getStatus())) {
 			throw new DisabledException("Disabled account: " + username);
 		}
 
 		// 账户锁定
-		if (UsingStatus.NotEnabled.valEqualsTo(sysUser.getStatus())) {
+		if (UsingStatus.NOT_ENABLED.valEqualsTo(sysUser.getStatus())) {
 			throw new LockedException("Locked account: " + username);
 		}
 

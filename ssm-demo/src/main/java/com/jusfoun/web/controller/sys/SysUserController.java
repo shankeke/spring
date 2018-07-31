@@ -82,7 +82,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 		try {
 			t.setPassword(passwordEncoder.encode(StringUtils.defaultIfEmpty(t.getPassword(), initPassword)));
 			if (t.getStatus() == null) {
-				t.setStatus(UsingStatus.NotEnabled.getValue());
+				t.setStatus(UsingStatus.NOT_ENABLED.getValue());
 			}
 			if (t.getGender() == null) {
 				t.setGender(YesNoType.NO.getValue());

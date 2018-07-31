@@ -71,7 +71,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 		root.setCreatorName(StringUtils.isEmpty(root.getCreatorName()) ? "admin" : root.getCreatorName());
 
 		root.setRemark(StringUtils.isEmpty(root.getRemark()) ? root.getName() : root.getRemark());
-		root.setStatus(root.getStatus() == null ? UsingStatus.Enable.getValue() : root.getStatus());
+		root.setStatus(root.getStatus() == null ? UsingStatus.ENABLE.getValue() : root.getStatus());
 		saveSysModulesByLoop(root);
 	}
 

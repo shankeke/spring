@@ -59,7 +59,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 			throw new ServiceException(ErrType.SYSROLE_ENTITY_NULL);
 		}
 		try {
-			sysRole.setStatus(UsingStatus.Enable.getValue());
+			sysRole.setStatus(UsingStatus.ENABLE.getValue());
 			Date createTime = new Date();
 			sysRole.setCreateDate(createTime);
 			sysRole.setUpdateDate(createTime);
