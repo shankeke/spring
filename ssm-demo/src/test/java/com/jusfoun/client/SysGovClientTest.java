@@ -23,8 +23,9 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 		 */
 		/* t.setParentId(1); t.setFullName("生产部"); t.setRemark("主要负责河蟹生产"); */
 		/* t.setParentId(1); t.setFullName("加工部"); t.setRemark("主要负责河蟹加工"); */
-		t.setParentId(2L);
-		t.setFullName("散打部");
+		t.setParentId(0L);
+		t.setFullName("柔道散打部");
+		t.setShortName("散打部");
 		t.setRemark("主要负责河蟹销售");
 		rest("/sysgov/save", t);
 	}

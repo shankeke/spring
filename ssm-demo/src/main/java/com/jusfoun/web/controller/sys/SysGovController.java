@@ -1,6 +1,7 @@
 package com.jusfoun.web.controller.sys;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +10,8 @@ import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.base.tree.BaseTreeableAndIdableController;
 import com.jusfoun.common.base.tree.TreeableAndIdableService;
+import com.jusfoun.common.log.Logable;
+import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.service.SysGovService;
 
@@ -23,8 +26,7 @@ import io.swagger.annotations.Api;
 @Api(description = "组织机构管理", value = "组织机构管理接口类")
 @RestController
 @RequestMapping("/sysgov")
-public class SysGovController
-		implements BasePageableAndIdableController<SysGov, Long>, BaseTreeableAndIdableController<SysGov, Long> {
+public class SysGovController implements BasePageableAndIdableController<SysGov, Long>, BaseTreeableAndIdableController<SysGov, Long> {
 
 	@Autowired
 	private SysGovService sysGovService;
@@ -42,6 +44,18 @@ public class SysGovController
 	@Override
 	public TreeableAndIdableService<SysGov, Long> getTreeableIdableService() {
 		return sysGovService;
+	}
+
+	@Logable(value = "保存组织架构信息", path = "/系统管理/组织架构管理/保存组织架构", message = "'保存组织架构信息，机构名称' + #t.fullName+ '（' + #t.shortName + '）'")
+	@Override
+	public BaseResponse<SysGov> save(@RequestBody SysGov t) {
+		return BasePageableAndIdableController.super.save(t);
+	}
+
+	@Logable(value = "修改组织架构信息", path = "/系统管理/组织架构管理/修改组织架构", message = "'修改组织架构信息，机构名称' + #t.fullName+ '（' + #t.shortName + '）'")
+	@Override
+	public BaseResponse<SysGov> updateById(@RequestBody SysGov t) {
+		return BasePageableAndIdableController.super.updateById(t);
 	}
 
 }
