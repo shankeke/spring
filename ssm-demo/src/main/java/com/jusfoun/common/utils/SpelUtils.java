@@ -2,6 +2,7 @@ package com.jusfoun.common.utils;
 
 import java.lang.reflect.Method;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -28,7 +29,10 @@ public class SpelUtils {
 	 *            参数列表
 	 * @return 解析后的结果
 	 */
-	public static String parseKey(String key, Method method, Object[] args) {
+	public static String parse(String key, Method method, Object[] args) {
+		if (StringUtils.isEmpty(key)) {
+			return null;
+		}
 		// 获取被拦截方法参数名列表(使用Spring支持类库)
 		LocalVariableTableParameterNameDiscoverer u = new LocalVariableTableParameterNameDiscoverer();
 		String[] paraNameArr = u.getParameterNames(method);

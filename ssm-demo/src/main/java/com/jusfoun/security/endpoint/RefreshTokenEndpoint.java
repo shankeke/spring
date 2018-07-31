@@ -53,7 +53,7 @@ public class RefreshTokenEndpoint {
 	private ClientDetailsService clientDetailsService;
 
 	@ApiOperation(value = "刷新令牌", notes = "根据刷新令牌获取新的令牌信息", hidden = false)
-	@Logable(fullPath = "系统管理/用户管理/刷新令牌", desc = "刷新令牌")
+	@Logable(path = "系统管理/用户管理/刷新令牌", value = "刷新令牌")
 	@RequestMapping(value = WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT, method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public BaseResponse<RawGrantedToken> refreshToken(//
 			@RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //

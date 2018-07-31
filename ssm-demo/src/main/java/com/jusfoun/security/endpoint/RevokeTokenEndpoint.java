@@ -35,7 +35,7 @@ public class RevokeTokenEndpoint {
 	private TokenFactory tokenFactory;
 
 	@ApiOperation(value = "销毁令牌", notes = "根据令牌信息删除认证信息", hidden = false)
-	@Logable(fullPath = "系统管理/用户管理/销毁令牌", desc = "销毁令牌")
+	@Logable(path = "系统管理/用户管理/销毁令牌", value = "销毁令牌")
 	@RequestMapping(value = {WebSecurityConfig.TOKEN_REVOKE_ENTRY_POINT}, method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public BaseResponse<?> refreshToken(//
 			@RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //

@@ -32,13 +32,13 @@ public @interface Logable {
 	boolean enable() default true;
 
 	/**
-	 * 描述: 日志级别，默认DEBUG. <br>
+	 * 描述:功能名称<br>
 	 * 
 	 * @author yjw@jusfoun.com
-	 * @date 2018年7月18日 上午9:40:26
-	 * @return 日志级别
+	 * @date 2018年7月18日 上午9:41:53
+	 * @return 功能名称
 	 */
-	LevelType level() default LevelType.TRACE;
+	String value() default "";
 
 	/**
 	 * 描述: 自定义访问地址，如：【/sysuser/save】对应【系统管理>用户管理>用户添加】. <br>
@@ -47,16 +47,25 @@ public @interface Logable {
 	 * @date 2018年7月18日 上午9:41:06
 	 * @return 访问地址
 	 */
-	String fullPath() default "";
+	String path() default "";
 
 	/**
-	 * 描述:方法功能说明. <br>
+	 * 描述:日志内容 <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:41:53
-	 * @return 方法说明
+	 * @return 日志内容
 	 */
-	String desc() default "";
+	String message() default "";
+
+	/**
+	 * 描述: 日志级别，默认DEBUG. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月18日 上午9:40:26
+	 * @return 日志级别
+	 */
+	LevelType level() default LevelType.TRACE;
 
 	/**
 	 * 描述: 日志等级. <br>

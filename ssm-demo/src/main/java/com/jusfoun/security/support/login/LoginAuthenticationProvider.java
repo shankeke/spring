@@ -36,7 +36,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 		this.clientDetailsService = clientDetailsService;
 	}
 
-	@Logable(fullPath = "系统管理/用户管理/用户登录", desc = "用户登录")
+	@Logable(path = "系统管理/用户管理/用户登录", value = "用户登录")
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		Assert.notNull(authentication, "No authentication data provided");

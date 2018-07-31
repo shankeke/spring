@@ -30,7 +30,7 @@ public class PluploadController {
 	 * Plupload文件上传处理方法
 	 */
 	@ApiOperation(value = "文件断点续传接口", notes = "文件断点续传接口", hidden = false)
-	@Logable(desc = "Plupload文件上传处理", fullPath = "Plupload文件上传处理")
+	@Logable(value = "Plupload文件上传处理", path = "Plupload文件上传处理")
 	@RequestMapping(value = "/pluploadUpload", method = {RequestMethod.POST})
 	public void upload(Plupload plupload, HttpServletRequest request, HttpServletResponse response) {
 		plupload.setRequest(request);// 手动传入Plupload对象HttpServletRequest属性

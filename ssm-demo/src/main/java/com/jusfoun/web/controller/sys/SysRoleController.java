@@ -42,7 +42,7 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 		return sysRoleService;
 	}
 
-	@Logable(desc = "保存角色", fullPath = "系统管理/角色管理/保存角色")
+	@Logable(value = "保存角色", path = "系统管理/角色管理/保存角色")
 	@Override
 	public BaseResponse<SysRole> save(SysRole t) {
 		if (t == null) {
@@ -69,7 +69,7 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 		}
 	}
 
-	@Logable(desc = "修改角色", fullPath = "系统管理/角色管理/修改角色")
+	@Logable(value = "修改角色", path = "系统管理/角色管理/修改角色")
 	@Override
 	public BaseResponse<SysRole> updateById(SysRole t) {
 		if (t == null || t.getId() == null) {
@@ -84,7 +84,7 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 		}
 	}
 
-	@Logable(desc = "删除角色", fullPath = "系统管理/角色管理/删除角色")
+	@Logable(value = "删除角色", path = "系统管理/角色管理/删除角色")
 	@Override
 	public BaseResponse<?> deleteById(Long id) {
 		try {
@@ -96,7 +96,7 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 		}
 	}
 
-	@Logable(desc = "查询角色详情", fullPath = "系统管理/角色管理/查询角色详情")
+	@Logable(value = "查询角色详情", path = "系统管理/角色管理/查询角色详情")
 	@Override
 	public BaseResponse<SysRole> infoById(Long id) {
 		try {

@@ -52,7 +52,7 @@ public class FileUploadController {
 	 * @return 文件上传结果
 	 */
 	@ApiOperation(value = "单个文件上传", notes = "单个文件上传", hidden = false)
-	@Logable(desc = "单个文件上传", fullPath = "单个文件上传")
+	@Logable(value = "单个文件上传", path = "单个文件上传")
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	@ResponseBody
 	public BaseResponse<FileItem> upload(@ApiParam(required = true) @RequestParam MultipartFile file) {
@@ -70,7 +70,7 @@ public class FileUploadController {
 	// 处理文件上传
 	// 多文件上传
 	@ApiOperation(value = "多个文件上传", notes = "多个文件上传", hidden = false)
-	@Logable(desc = "多个文件上传", fullPath = "多个文件上传")
+	@Logable(value = "多个文件上传", path = "多个文件上传")
 	@RequestMapping(value = "/uploadBatch", method = RequestMethod.POST)
 	public BaseResponse<List<FileItem>> uploadBatch(@ApiParam(required = true) @RequestParam List<MultipartFile> file, HttpServletRequest request) {
 		// List<MultipartFile> files = ((MultipartHttpServletRequest)
@@ -135,7 +135,7 @@ public class FileUploadController {
 	 * @return null
 	 */
 	@ApiOperation(value = "文件下载", notes = "文件下载", hidden = false)
-	@Logable(desc = "文件下载", fullPath = "文件下载")
+	@Logable(value = "文件下载", path = "文件下载")
 	@RequestMapping(value = "/download", method = {RequestMethod.POST, RequestMethod.GET})
 	public void download(@ApiParam(required = true) @RequestParam String filePath, HttpServletResponse response) {
 		try {

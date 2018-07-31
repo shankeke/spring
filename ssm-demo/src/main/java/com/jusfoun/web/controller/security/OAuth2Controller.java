@@ -36,7 +36,7 @@ public class OAuth2Controller {
 	 * @return
 	 */
 	@ApiOperation(value = "获取登录用户信息", notes = "获取登录用户信息", hidden = false)
-	@Logable(desc = "获取登录用户信息", fullPath = "获取登录用户信息")
+	@Logable(value = "获取登录用户信息", path = "获取登录用户信息")
 	@RequestMapping(value = {"/user"}, method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	public Principal user(Principal user) {

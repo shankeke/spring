@@ -29,6 +29,7 @@ import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.log.Logable.LevelType;
 import com.jusfoun.common.utils.ICollections;
+import com.jusfoun.common.utils.SpelUtils;
 import com.jusfoun.common.utils.net.IpUtil;
 import com.jusfoun.entity.SysLog;
 import com.jusfoun.entity.SysUser;
@@ -94,7 +95,10 @@ public class LogableAspect {
 			}
 
 			if (logable) {
-				message = "Method " + methodSignature + " begins with args: " + Arrays.asList(args);
+				message = SpelUtils.parse(l.message(), method, args);
+				if (StringUtils.isEmpty(message)) {
+					message = "Method " + methodSignature + " begins with args: " + Arrays.asList(args);
+				}
 				log(level, message);
 			}
 
@@ -114,7 +118,7 @@ public class LogableAspect {
 
 			/**
 			 * 这里异常原封不动抛出去交给异常处理器处理，spring
-			 * security的由框架自己处理，Controller中的异常由GlobalExceptionHandler统一处理
+			 * security框架自己处理，Controller中的异常由GlobalExceptionHandler统一处理
 			 */
 			throw e;
 		} finally {
@@ -130,8 +134,8 @@ public class LogableAspect {
 					sysLog.setRequestUrl(request.getRequestURL().toString());
 					String servletPath = request.getServletPath();
 					sysLog.setRequestUri(servletPath);
-					sysLog.setModulePath(l.fullPath());
-					sysLog.setModuleName(l.desc());
+					sysLog.setModulePath(l.path());
+					sysLog.setModuleName(l.value());
 					// sysLog.setAreaName(ipService.getAreaByIP(remoteHost));
 					sysLog.setCreateDate(new Date());
 					sysLog.setResultType(result);
