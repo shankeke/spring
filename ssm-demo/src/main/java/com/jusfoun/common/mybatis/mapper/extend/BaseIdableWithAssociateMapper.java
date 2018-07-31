@@ -13,5 +13,9 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  */
 @RegisterMapper
 public interface BaseIdableWithAssociateMapper<T>
-		extends MyBaseMapper<T>, MyIdableMapper<T>, BaseWithAssociateSelectMapper<T> {
+		extends //
+			MyBaseMapper<T>, //
+			MyIdableMapper<T>, //
+			BaseWithAssociateSelectMapper<T> //
+{
 }

@@ -22,14 +22,14 @@ import io.swagger.annotations.ApiParam;
 public interface BasePageableController<T extends IPageable> extends BaseController<T> {
 
 	@ApiOperation(value = "查询数据对象列表", notes = "查询数据对象列表，返回对象集合", hidden = false)
-	@RequestMapping(value = "list", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "list", method = {RequestMethod.POST, RequestMethod.GET})
 	default BaseResponse<List<T>> list(@ApiParam(value = "查询参数", required = true) @RequestBody T t) {
 		List<T> list = getBaseService().selectByPage(t, new IPage<T>(t));
 		return BaseResponse.success(list);
 	}
 
 	@ApiOperation(value = "查询数据对象列表", notes = "查询数据对象列表，返回分页对象", hidden = false)
-	@RequestMapping(value = "listPage", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "listPage", method = {RequestMethod.POST, RequestMethod.GET})
 	default BaseResponse<IPage<T>> listPage(@ApiParam(value = "查询参数", required = true) @RequestBody T t) {
 		IPage<T> page = getBaseService().selectPage(t, new IPage<T>(t));
 		return BaseResponse.success(page);

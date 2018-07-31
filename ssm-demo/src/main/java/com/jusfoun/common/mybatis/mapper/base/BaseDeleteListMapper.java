@@ -13,10 +13,11 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年12月21日 下午7:05:13
  */
 @RegisterMapper
-public interface BaseDeleteListMapper<T> extends//
-		DeleteListMapper<T>, //
-		DeleteListByPrimaryKeyMapper<T>, //
-		DeleteByPrimaryKeysMapper<T>//
+public interface BaseDeleteListMapper<T>
+		extends//
+			DeleteListMapper<T>, //
+			DeleteListByPrimaryKeyMapper<T>, //
+			DeleteByPrimaryKeysMapper<T>//
 {
 
 }

@@ -12,5 +12,8 @@ import com.jusfoun.common.base.page.IPageable;
  * @date 2018年7月27日 下午11:36:50
  */
 public interface BasePageableAndIdableController<T extends IPageable & Idable<PK>, PK extends Serializable>
-		extends BasePageableController<T>, BaseIdableController<T, PK> {
+		extends //
+			BasePageableController<T>, //
+			BaseIdableController<T, PK> //
+{
 }

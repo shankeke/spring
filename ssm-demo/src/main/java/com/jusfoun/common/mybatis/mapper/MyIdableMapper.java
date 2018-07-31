@@ -25,21 +25,22 @@ import tk.mybatis.mapper.common.special.InsertUseGeneratedKeysMapper;
  * @date 2017年9月7日 上午10:26:17
  */
 @RegisterMapper
-public interface MyIdableMapper<T> extends //
-		InsertListWithPrimaryKeyMapper<T>, //
-		InsertUseGeneratedKeysMapper<T>, //
-		ReplaceMapper<T>, //
-		ReplaceListWithPrimaryKeyMapper<T>, //
-		UpdateByPrimaryKeyMapper<T>, //
-		UpdateByPrimaryKeySelectiveMapper<T>, //
-		UpdateListByPrimaryKeyMapper<T>, //
-		UpdateListByPrimaryKeySelectiveMapper<T>, //
-		DeleteByPrimaryKeyMapper<T>, //
-		DeleteByPrimaryKeysMapper<T>, //
-		DeleteListByPrimaryKeyMapper<T>, //
-		SelectByPrimaryKeyMapper<T>, //
-		SelectByPrimaryKeysMapper<T>, //
-		IdsMapper<T>, //
-		ExistsWithPrimaryKeyMapper<T>//
+public interface MyIdableMapper<T>
+		extends //
+			InsertListWithPrimaryKeyMapper<T>, //
+			InsertUseGeneratedKeysMapper<T>, //
+			ReplaceMapper<T>, //
+			ReplaceListWithPrimaryKeyMapper<T>, //
+			UpdateByPrimaryKeyMapper<T>, //
+			UpdateByPrimaryKeySelectiveMapper<T>, //
+			UpdateListByPrimaryKeyMapper<T>, //
+			UpdateListByPrimaryKeySelectiveMapper<T>, //
+			DeleteByPrimaryKeyMapper<T>, //
+			DeleteByPrimaryKeysMapper<T>, //
+			DeleteListByPrimaryKeyMapper<T>, //
+			SelectByPrimaryKeyMapper<T>, //
+			SelectByPrimaryKeysMapper<T>, //
+			IdsMapper<T>, //
+			ExistsWithPrimaryKeyMapper<T>//
 {
 }

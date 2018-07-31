@@ -11,5 +11,9 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年9月16日 上午11:15:38
  */
 @RegisterMapper
-public interface BaseWithAssociateMapper<T> extends MyBaseMapper<T>, BaseWithAssociateSelectMapper<T> {
+public interface BaseWithAssociateMapper<T>
+		extends //
+			MyBaseMapper<T>, //
+			BaseWithAssociateSelectMapper<T> //
+{
 }

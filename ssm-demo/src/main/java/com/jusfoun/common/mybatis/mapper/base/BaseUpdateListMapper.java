@@ -12,9 +12,10 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年12月21日 下午7:05:13
  */
 @RegisterMapper
-public interface BaseUpdateListMapper<T> extends//
-		UpdateListByPrimaryKeyMapper<T>, //
-		UpdateListByPrimaryKeySelectiveMapper<T>//
+public interface BaseUpdateListMapper<T>
+		extends//
+			UpdateListByPrimaryKeyMapper<T>, //
+			UpdateListByPrimaryKeySelectiveMapper<T>//
 {
-	
+
 }

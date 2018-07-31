@@ -13,10 +13,11 @@ import tk.mybatis.mapper.common.IdsMapper;
  * @date 2017年12月22日 下午2:57:48
  */
 @RegisterMapper
-public interface BaseByPrimaryKeysMapper<T> extends//
-		IdsMapper<T>, //
-		DeleteByPrimaryKeysMapper<T>, //
-		SelectByPrimaryKeysMapper<T> //
+public interface BaseByPrimaryKeysMapper<T>
+		extends//
+			IdsMapper<T>, //
+			DeleteByPrimaryKeysMapper<T>, //
+			SelectByPrimaryKeysMapper<T> //
 {
 
 }

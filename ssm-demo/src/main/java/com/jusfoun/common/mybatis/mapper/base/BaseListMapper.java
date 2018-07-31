@@ -13,12 +13,13 @@ import tk.mybatis.mapper.common.MySqlMapper;
  * @date 2017年12月21日 下午7:13:30
  */
 @RegisterMapper
-public interface BaseListMapper<T> extends //
-		MySqlMapper<T>, //
-		InsertListWithPrimaryKeyMapper<T>, //
-		ReplaceListWithPrimaryKeyMapper<T>, //
-		BaseDeleteListMapper<T>, //
-		BaseUpdateListMapper<T> //
+public interface BaseListMapper<T>
+		extends //
+			MySqlMapper<T>, //
+			InsertListWithPrimaryKeyMapper<T>, //
+			ReplaceListWithPrimaryKeyMapper<T>, //
+			BaseDeleteListMapper<T>, //
+			BaseUpdateListMapper<T> //
 {
 
 }

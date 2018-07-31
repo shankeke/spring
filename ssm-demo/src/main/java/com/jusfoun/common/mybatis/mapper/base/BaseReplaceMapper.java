@@ -13,9 +13,10 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年12月21日 下午7:08:40
  */
 @RegisterMapper
-public interface BaseReplaceMapper<T> extends//
-		ReplaceMapper<T>, //
-		ReplaceListWithPrimaryKeyMapper<T>//
+public interface BaseReplaceMapper<T>
+		extends//
+			ReplaceMapper<T>, //
+			ReplaceListWithPrimaryKeyMapper<T>//
 {
 
 }

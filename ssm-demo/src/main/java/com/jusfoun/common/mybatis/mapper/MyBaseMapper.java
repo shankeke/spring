@@ -26,22 +26,23 @@ import tk.mybatis.mapper.common.special.InsertListMapper;
  * @date 2017年9月7日 上午10:26:17
  */
 @RegisterMapper
-public interface MyBaseMapper<T> extends //
-		InsertMapper<T>, //
-		InsertSelectiveMapper<T>, //
-		InsertListMapper<T>, //
-		UpdateByExampleMapper<T>, //
-		UpdateByExampleSelectiveMapper<T>, //
-		DeleteMapper<T>, //
-		DeleteListMapper<T>, //
-		DeleteByExampleMapper<T>, //
-		SelectOneMapper<T>, //
-		SelectOneByExampleMapper<T>, //
-		SelectMapper<T>, //
-		SelectAllMapper<T>, //
-		SelectByExampleMapper<T>, //
-		RowBoundsMapper<T>, //
-		SelectCountMapper<T>, //
-		SelectCountByExampleMapper<T> //
+public interface MyBaseMapper<T>
+		extends //
+			InsertMapper<T>, //
+			InsertSelectiveMapper<T>, //
+			InsertListMapper<T>, //
+			UpdateByExampleMapper<T>, //
+			UpdateByExampleSelectiveMapper<T>, //
+			DeleteMapper<T>, //
+			DeleteListMapper<T>, //
+			DeleteByExampleMapper<T>, //
+			SelectOneMapper<T>, //
+			SelectOneByExampleMapper<T>, //
+			SelectMapper<T>, //
+			SelectAllMapper<T>, //
+			SelectByExampleMapper<T>, //
+			RowBoundsMapper<T>, //
+			SelectCountMapper<T>, //
+			SelectCountByExampleMapper<T> //
 {
 }
