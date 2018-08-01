@@ -9,4 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2017年9月12日 上午10:55:07
  */
 @Transactional
-public interface BaseIdableWithAssociateService<T> extends BaseWithAssociateService<T>, BaseIdableService<T> { }
+public interface BaseIdableWithAssociateService<T> extends BaseWithAssociateService<T>, BaseIdableService<T> {
+}
