@@ -1,8 +1,10 @@
 package com.jusfoun.security.support.token.parser;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.jusfoun.security.ClientDetails;
+import com.jusfoun.security.exceptions.ClientException;
 import com.jusfoun.security.exceptions.TokenCreateException;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 import com.jusfoun.security.support.token.Token;
@@ -32,6 +34,12 @@ public abstract class AbstractTokenParser implements TokenParser {
 
 	@Override
 	public Token createToken(ClientDetails clientDetails, UserDetails userDetails, TokenType type) throws TokenCreateException {
+		if (StringUtils.isEmpty(clientDetails.getClientId())) {
+			throw new ClientException("Invalid clientId: property value 'clientId' is empty !");
+		}
+		if (StringUtils.isEmpty(userDetails.getUsername())) {
+			throw new ClientException("Invalid subject: property value 'subject' is empty !");
+		}
 		return create(clientDetails, userDetails, type);
 	}
 

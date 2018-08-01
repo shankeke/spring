@@ -129,16 +129,16 @@ public class JwtTokenParser extends AbstractTokenParser {
 					return new AccessToken(clientId, subject, token);
 			}
 		}
-		throw new TokenInvalidException("Invalid JWT token: " + token);
+		throw new TokenInvalidException(String.format("Invalid JWT token '%s'", token));
 	}
 
 	public Jws<Claims> parseClaims(String signingKey, String token) {
 		try {
 			return Jwts.parser().setSigningKey(signingKey).parseClaimsJws(token);
-		} catch (UnsupportedJwtException | MalformedJwtException | IllegalArgumentException | SignatureException ex) {
-			throw new BadCredentialsException("Invalid JWT token: " + token, ex);
-		} catch (ExpiredJwtException expiredEx) {
-			throw new TokenExpiredException("Expired JWT Token: " + token, expiredEx);
+		} catch (UnsupportedJwtException | MalformedJwtException | IllegalArgumentException | SignatureException e) {
+			throw new BadCredentialsException(String.format("Invalid JWT token '%s'", token), e);
+		} catch (ExpiredJwtException e) {
+			throw new TokenExpiredException(String.format("Expired JWT token '%s'", token), e);
 		}
 	}
 

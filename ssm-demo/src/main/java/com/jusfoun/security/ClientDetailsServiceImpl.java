@@ -23,11 +23,11 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
 	@Override
 	public ClientDetails loadClientByClientId(String clientId) throws ClientIdNotFoundException {
 		if (StringUtils.isEmpty(clientId)) {
-			throw new ClientIdNotFoundException("ClientId cound not null or empty !");
+			throw new ClientIdNotFoundException("Parameter 'clientId' cound not null or empty !");
 		}
 		TokenClientDetails clientDetails = tokenClientDetailsService.findAndCacheByClientId(clientId);
 		if (clientDetails == null) {
-			throw new ClientIdNotFoundException("ClientId not found !");
+			throw new ClientIdNotFoundException(String.format("Client info not found with client id '%s'!", clientId));
 		}
 		return clientDetails;
 	}

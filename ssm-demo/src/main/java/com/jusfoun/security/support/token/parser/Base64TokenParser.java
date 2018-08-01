@@ -3,12 +3,10 @@ package com.jusfoun.security.support.token.parser;
 import java.util.Base64;
 import java.util.UUID;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
 import com.jusfoun.security.ClientDetails;
-import com.jusfoun.security.exceptions.ClientException;
 import com.jusfoun.security.exceptions.TokenCreateException;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 import com.jusfoun.security.support.token.AccessToken;
@@ -31,20 +29,11 @@ public class Base64TokenParser extends AbstractTokenParser {
 
 	@Override
 	public Token create(ClientDetails clientDetails, UserDetails userDetails, TokenType type) throws TokenCreateException {
-		String clientId = null;
-		String subject = null;
 		try {
+			String clientId = clientDetails.getClientId();
+			String subject = userDetails.getUsername();
 			StringBuffer buff = new StringBuffer();
-			clientId = clientDetails.getClientId();
-			if (StringUtils.isEmpty(clientId)) {
-				throw new ClientException("Invalid clientId: clientId is empty !");
-			}
-			subject = userDetails.getUsername();
-			if (StringUtils.isEmpty(subject)) {
-				throw new ClientException("Invalid subject: subject is empty !");
-			}
 			buff.append(clientId).append(DEFAULT_DELIMITER).append(subject).append(DEFAULT_DELIMITER).append(UUID.randomUUID().toString());
-
 			switch (type) {
 				case REFRESH_TOKEN :
 					return new RefreshToken(clientId, subject, Base64.getEncoder().encodeToString(buff.toString().getBytes()));
@@ -65,11 +54,11 @@ public class Base64TokenParser extends AbstractTokenParser {
 			decrypt = new String(Base64.getDecoder().decode(token.getBytes()));
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new TokenInvalidException("Invalid token: " + token, e);
+			throw new TokenInvalidException(String.format("Invalid token '%s' !", token), e);
 		}
 		String[] split = decrypt.split(DEFAULT_DELIMITER);
 		if (split == null || split.length != 3) {
-			throw new TokenInvalidException("Invalid token: " + token);
+			throw new TokenInvalidException(String.format("Invalid token '%s' !", token));
 		}
 		switch (type) {
 			case REFRESH_TOKEN :

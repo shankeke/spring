@@ -20,7 +20,7 @@ public class SimpleTokenVerifier implements TokenVerifier {
 	@Override
 	public boolean verify(String tokenPayload) throws TokenInvalidException {
 		if (StringUtils.isEmpty(tokenPayload) || !RegexUtil.check(TOKEN_DEF_REGEX, tokenPayload)) {
-			throw new TokenInvalidException("Invalid token:" + tokenPayload);
+			throw new TokenInvalidException(String.format("Invalid token '%s' !", tokenPayload));
 		}
 		return true;
 	}
