@@ -20,7 +20,7 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 import com.jusfoun.security.config.WebSecurityConfig;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 import com.jusfoun.security.support.token.AccessToken;
-import com.jusfoun.security.support.token.extractor.BearerHeaderTokenExtractor;
+import com.jusfoun.security.support.token.extractor.TokenExtractorAdapter;
 import com.jusfoun.security.support.token.factory.TokenFactory;
 
 /**
@@ -34,14 +34,14 @@ public class TokenAuthenticationProcessingFilter extends AbstractAuthenticationP
 	private static final Logger log = LoggerFactory.getLogger(TokenAuthenticationProcessingFilter.class);
 
 	private final AuthenticationFailureHandler failureHandler;
-	private final BearerHeaderTokenExtractor tokenExtractor;
+	private final TokenExtractorAdapter tokenExtractorAdapter;
 	private final TokenFactory tokenFactory;
 
-	public TokenAuthenticationProcessingFilter(RequestMatcher matcher, final AuthenticationFailureHandler failureHandler, final BearerHeaderTokenExtractor tokenExtractor,
+	public TokenAuthenticationProcessingFilter(RequestMatcher matcher, final AuthenticationFailureHandler failureHandler, final TokenExtractorAdapter tokenExtractorAdapter,
 			final TokenFactory tokenFactory) {
 		super(matcher);
 		this.failureHandler = failureHandler;
-		this.tokenExtractor = tokenExtractor;
+		this.tokenExtractorAdapter = tokenExtractorAdapter;
 		this.tokenFactory = tokenFactory;
 	}
 
@@ -51,7 +51,7 @@ public class TokenAuthenticationProcessingFilter extends AbstractAuthenticationP
 		if (log.isDebugEnabled()) {
 			log.debug(String.format("Processing request '%s' with header token '%s' ", request.getServletPath(), tokenPayload));
 		}
-		tokenPayload = tokenExtractor.extract(tokenPayload);
+		tokenPayload = tokenExtractorAdapter.excute(tokenPayload);
 		AccessToken token = null;
 		try {
 			token = tokenFactory.parseAccessToken(tokenPayload);

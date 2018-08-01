@@ -35,18 +35,6 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 		this.preprocessors = preprocessors;
 	}
 
-	/**
-	 * 描述:预处理方法. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月30日 上午10:49:53
-	 * @param userId
-	 *            用户ID
-	 * @param realName
-	 *            用户姓名
-	 * @param obj
-	 *            参数对象
-	 */
 	@Override
 	public void preprocess(Annotation annotation, Long userId, String realName, Object obj) {
 		if (ICollections.hasData(preprocessors)) {

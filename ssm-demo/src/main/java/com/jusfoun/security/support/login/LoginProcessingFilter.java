@@ -24,7 +24,7 @@ import com.jusfoun.entity.TokenClientDetails;
 import com.jusfoun.security.config.WebSecurityConfig;
 import com.jusfoun.security.exceptions.AuthMethodNotSupportedException;
 import com.jusfoun.security.exceptions.ClientException;
-import com.jusfoun.security.support.token.extractor.BasicHeaderTokenExtractor;
+import com.jusfoun.security.support.token.extractor.TokenExtractorAdapter;
 import com.jusfoun.security.util.WebUtil;
 
 /**
@@ -37,23 +37,21 @@ public class LoginProcessingFilter extends AbstractAuthenticationProcessingFilte
 	private static Logger log = LoggerFactory.getLogger(LoginProcessingFilter.class);
 
 	private final ObjectMapper objectMapper;
-	private final BasicHeaderTokenExtractor tokenExtractor;
+	private final TokenExtractorAdapter tokenExtractorAdapter;
 	private final AuthenticationSuccessHandler successHandler;
 	private final AuthenticationFailureHandler failureHandler;
 
-	public LoginProcessingFilter(String defaultProcessUrl, final AuthenticationSuccessHandler successHandler,
-			final AuthenticationFailureHandler failureHandler, final ObjectMapper objectMapper,
-			final BasicHeaderTokenExtractor tokenExtractor) {
+	public LoginProcessingFilter(String defaultProcessUrl, final AuthenticationSuccessHandler successHandler, final AuthenticationFailureHandler failureHandler,
+			final ObjectMapper objectMapper, final TokenExtractorAdapter tokenExtractorAdapter) {
 		super(defaultProcessUrl);
 		this.successHandler = successHandler;
 		this.failureHandler = failureHandler;
 		this.objectMapper = objectMapper;
-		this.tokenExtractor = tokenExtractor;
+		this.tokenExtractorAdapter = tokenExtractorAdapter;
 	}
 
 	@Override
-	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-			throws AuthenticationException, IOException, ServletException {
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
 		if (!HttpMethod.POST.name().equals(request.getMethod()) || !WebUtil.isAjax(request)) {
 			if (log.isDebugEnabled()) {
 				log.debug("Authentication method not supported. Request method: " + request.getMethod());
@@ -65,7 +63,7 @@ public class LoginProcessingFilter extends AbstractAuthenticationProcessingFilte
 		if (StringUtils.isEmpty(tokenPayload)) {
 			throw new ClientException("ClientId and ClientSecret not provided !");
 		}
-		tokenPayload = tokenExtractor.extract(tokenPayload);
+		tokenPayload = tokenExtractorAdapter.excute(tokenPayload);
 
 		// 验证用户信息
 		LoginRequest loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);
@@ -74,20 +72,19 @@ public class LoginProcessingFilter extends AbstractAuthenticationProcessingFilte
 		}
 
 		String[] clientInfo = tokenPayload.split(":");
-		LoginAuthenticationToken token = new LoginAuthenticationToken(loginRequest.getUsername(),
-				loginRequest.getPassword(), new TokenClientDetails(clientInfo[0], tokenPayload.split(":")[1]));
+		LoginAuthenticationToken token = new LoginAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword(),
+				new TokenClientDetails(clientInfo[0], tokenPayload.split(":")[1]));
 		return this.getAuthenticationManager().authenticate(token);
 	}
 
 	@Override
-	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
-			Authentication authResult) throws IOException, ServletException {
+	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult)
+			throws IOException, ServletException {
 		successHandler.onAuthenticationSuccess(request, response, authResult);
 	}
 
 	@Override
-	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException failed) throws IOException, ServletException {
+	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
 		SecurityContextHolder.clearContext();
 		failureHandler.onAuthenticationFailure(request, response, failed);
 	}

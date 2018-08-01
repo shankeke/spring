@@ -2,10 +2,6 @@ package com.jusfoun.security.support.token.extractor;
 
 import java.util.Base64;
 
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.stereotype.Component;
-
 import com.jusfoun.security.exceptions.TokenInvalidException;
 
 /**
@@ -14,29 +10,23 @@ import com.jusfoun.security.exceptions.TokenInvalidException;
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:00:21
  */
-@Component
-public class BasicHeaderTokenExtractor implements TokenExtractor {
-	/**
-	 * 前缀信息
-	 */
-	public static final String HEADER_PREFIX = "Basic ";
+public class BasicHeaderTokenExtractor extends AbstractTokenExtractor {
+
+	public BasicHeaderTokenExtractor() {
+		super("Basic ");
+	}
 
 	@Override
-	public String extract(String header) throws AuthenticationServiceException {
-		if (StringUtils.isBlank(header)) {
-			throw new AuthenticationServiceException("Authorization header cannot be blank !");
-		}
-		if (header.length() < HEADER_PREFIX.length()) {
-			throw new AuthenticationServiceException("Invalid authorization header size.");
+	public String extract(String payload) throws TokenInvalidException {
+		String prefix = getPrefix();
+		if (payload.length() <= prefix.length()) {
+			throw new TokenInvalidException(String.format("Invalid token '%s' that the length is too short, do not match the prefix '%s'! ", payload, prefix));
 		}
 		try {
-			if (header.toLowerCase().startsWith(HEADER_PREFIX.toLowerCase())) {
-				header = header.substring(HEADER_PREFIX.length(), header.length());
-			}
-			return new String(Base64.getDecoder().decode(header));
+			return new String(Base64.getDecoder().decode(payload.substring(prefix.length(), payload.length())));
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new TokenInvalidException("Invalid token: " + header);
+			throw new TokenInvalidException(String.format("Invalid token '%s'!", payload), e);
 		}
 	}
 }
