@@ -45,7 +45,7 @@ public class SimpleTokenExtractAdapter implements TokenExtractAdapter {
 
 	@Override
 	public void add(TokenExtractor tokenExtractor) {
-		if (ICollections.hasNoData(tokenExtractors)) {
+		if (ICollections.hasNoElements(tokenExtractors)) {
 			tokenExtractors = Lists.newArrayList();
 		}
 		tokenExtractors.add(tokenExtractor);
@@ -53,7 +53,7 @@ public class SimpleTokenExtractAdapter implements TokenExtractAdapter {
 
 	@Override
 	public TokenExtractor get(String payload) {
-		if (ICollections.hasData(tokenExtractors)) {
+		if (ICollections.hasElements(tokenExtractors)) {
 			for (TokenExtractor tokenExtractor : tokenExtractors) {
 				if (tokenExtractor.supports(payload)) {
 					return tokenExtractor;

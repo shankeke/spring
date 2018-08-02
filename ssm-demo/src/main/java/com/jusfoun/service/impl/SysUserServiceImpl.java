@@ -89,7 +89,7 @@ public class SysUserServiceImpl implements SysUserService {
 		sysRoleUserMapper.delete(record);
 
 		Set<SysRole> sysRoles = sysUser.getSysRoles();
-		if (ICollections.hasData(sysRoles)) {
+		if (ICollections.hasElements(sysRoles)) {
 			List<SysRoleUser> list = new ArrayList<SysRoleUser>();
 			for (SysRole sysRole : sysRoles) {
 				record = new SysRoleUser();

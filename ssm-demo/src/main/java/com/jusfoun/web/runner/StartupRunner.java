@@ -143,7 +143,7 @@ public class StartupRunner implements CommandLineRunner {
 			return;
 		}
 		List<TokenClientDetails> list = root.getList();
-		if (ICollections.hasData(list)) {
+		if (ICollections.hasElements(list)) {
 			for (TokenClientDetails t : list) {
 				t.setClientSecret(passwordEncoder.encode(t.getClientSecret()));
 				t.setAuthorities(sysModuleService.selectAuthorities(t.getClientId()));

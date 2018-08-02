@@ -49,7 +49,7 @@ public class TCountryServiceImpl implements TCountryService {
 	public TCountryTotalVo selectCounties() throws ServiceException {
 		List<TCountry> list = selectAll();
 		TCountryTotalVo total = new TCountryTotalVo();
-		if (ICollections.hasData(list)) {
+		if (ICollections.hasElements(list)) {
 			Map<String, List<TCountry>> alphaGroup = list.stream().collect(Collectors.groupingBy(TCountry::getAlpha));
 			List<TCountryVo> tCountryVos = total.getList();
 			alphaGroup.forEach((k, v) -> {

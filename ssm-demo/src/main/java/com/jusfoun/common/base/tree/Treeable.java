@@ -30,12 +30,12 @@ public interface Treeable<T extends Treeable<T>> {
 		while (ite.hasNext()) {
 			node = ite.next();
 			subList = node.getSubList();
-			if (isMatch(node, regex) || ICollections.hasData(subList)) {
-				if (ICollections.hasData(subList)) {
+			if (isMatch(node, regex) || ICollections.hasElements(subList)) {
+				if (ICollections.hasElements(subList)) {
 					// 回调继续检索下一层数据
 					subList = search(subList, regex);
 					// 非叶子节点，更新到属性中
-					if (ICollections.hasData(subList)) {
+					if (ICollections.hasElements(subList)) {
 						node.setSubList(subList);
 					}
 					// 叶子节点如果匹配数据则设置叶子属性，否则删除该节点
@@ -72,10 +72,10 @@ public interface Treeable<T extends Treeable<T>> {
 	 */
 	default boolean isEnd(List<T> subList, boolean b) {
 		List<T> subs = null;
-		if (ICollections.hasData(subList)) {
+		if (ICollections.hasElements(subList)) {
 			for (T node : subList) {
 				subs = node.getSubList();
-				if (ICollections.hasData(subs)) {
+				if (ICollections.hasElements(subs)) {
 					b = isEnd(subs, b);
 				} else {
 					b = b && node.isLeaf();

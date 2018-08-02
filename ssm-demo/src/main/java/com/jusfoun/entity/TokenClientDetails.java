@@ -203,13 +203,13 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 
 	@Override
 	public Collection<? extends GrantedAuthority> retainAuthorities(Collection<? extends GrantedAuthority> authorities) {
-		if (!ICollections.hasData(authorities) || !ICollections.hasData(this.authorities)) {
+		if (!ICollections.hasElements(authorities) || !ICollections.hasElements(this.authorities)) {
 			return null;
 		}
 		Set<String> collect = this.authorities.stream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		Set<String> collect1 = authorities.stream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		collect.retainAll(collect1);
-		if (ICollections.hasData(collect)) {
+		if (ICollections.hasElements(collect)) {
 			return collect.stream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;

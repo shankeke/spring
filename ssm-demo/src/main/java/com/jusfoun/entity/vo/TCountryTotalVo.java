@@ -35,7 +35,7 @@ public class TCountryTotalVo implements Serializable {
 	}
 
 	public List<TCountryVo> getList() {
-		if (!ICollections.hasData(list)) {
+		if (!ICollections.hasElements(list)) {
 			list = Lists.newArrayList();
 		} else {
 			list = list.stream()//
@@ -50,7 +50,7 @@ public class TCountryTotalVo implements Serializable {
 	}
 
 	public int getRowCount() {
-		if (ICollections.hasData(list)) {
+		if (ICollections.hasElements(list)) {
 			rowCount = list.stream()//
 					.mapToInt(t -> t.getRowCount())//
 					.sum();

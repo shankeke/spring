@@ -67,7 +67,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 
 			// 保存关系
 			Set<SysModule> sysModules = sysRole.getSysModules();
-			if (ICollections.hasData(sysModules)) {
+			if (ICollections.hasElements(sysModules)) {
 				Long roleId = sysRole.getId();
 				List<SysRoleModule> list = new ArrayList<SysRoleModule>();
 				SysRoleModule record = null;
@@ -103,7 +103,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 			sysRoleModuleMapper.delete(record);
 
 			Set<SysModule> sysModules = sysRole.getSysModules();
-			if (ICollections.hasData(sysModules)) {
+			if (ICollections.hasElements(sysModules)) {
 				// 保存新关系
 				List<SysRoleModule> list = new ArrayList<SysRoleModule>();
 				for (SysModule t : sysModules) {

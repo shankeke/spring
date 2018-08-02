@@ -223,7 +223,7 @@ public class FileConfig {
 	 * @date 2017年9月16日 下午1:21:20
 	 */
 	public void deleteFiles(List<String> relativePaths) {
-		if (ICollections.hasData(relativePaths)) {
+		if (ICollections.hasElements(relativePaths)) {
 			for (String relativePath : relativePaths) {
 				deleteFile(relativePath);
 			}

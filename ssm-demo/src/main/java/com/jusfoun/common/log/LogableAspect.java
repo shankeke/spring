@@ -207,7 +207,7 @@ public class LogableAspect {
 		if (queue.size() >= LOG_QUEUE_INIT_CAPACITY || clear) {
 			List<SysLog> list = new ArrayList<SysLog>();
 			queue.drainTo(list);// 将队列数据全部放入集合中
-			if (ICollections.hasData(list)) {
+			if (ICollections.hasElements(list)) {
 				sysLogService.insertList(list);
 				cacheService.evict(CacheConsts.CACHE_PERSISTENT, LOG_CACHE_KEY);// 清理缓存
 			}

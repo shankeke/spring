@@ -31,7 +31,7 @@ public interface TreeableService<T extends Treeable<T>> {
 		// 如果跟节点存在并且需要根据关键字检索结果
 		if (root != null && StringUtils.isNotEmpty(keyword)) {
 			List<T> searchList = root.search(root.getSubList(), keyword);
-			if (ICollections.hasData(searchList) || root.isMatch(root, keyword)) {
+			if (ICollections.hasElements(searchList) || root.isMatch(root, keyword)) {
 				root.setSubList(searchList);
 			} else {
 				root = null;

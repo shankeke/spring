@@ -35,7 +35,7 @@ public abstract class TreeNode<T extends Treeable<T>> implements Treeable<T> {
 
 	@Override
 	public List<T> getSubList() {
-		if (!ICollections.hasData(subList)) {
+		if (!ICollections.hasElements(subList)) {
 			subList = Lists.newArrayList();
 		}
 		return subList;

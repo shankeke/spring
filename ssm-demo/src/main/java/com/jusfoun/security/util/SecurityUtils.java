@@ -49,7 +49,7 @@ public final class SecurityUtils {
 	 */
 	public static Collection<String> getCurrentUserAuthorities() {
 		Collection<? extends GrantedAuthority> currentUserGrantedAuthorities = getCurrentUserGrantedAuthorities();
-		if (ICollections.hasData(currentUserGrantedAuthorities)) {
+		if (ICollections.hasElements(currentUserGrantedAuthorities)) {
 			return currentUserGrantedAuthorities.stream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		}
 		return null;

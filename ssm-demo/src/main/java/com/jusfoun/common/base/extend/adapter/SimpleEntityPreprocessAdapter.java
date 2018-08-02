@@ -36,35 +36,50 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	}
 
 	@Override
-	public void preprocess(Annotation annotation, Long userId, String realName, Object obj) {
-		if (ICollections.hasData(preprocessors)) {
+	public void preprocess(Long userId, String realName, Annotation annotation, Object obj) {
+		if (ICollections.hasElements(preprocessors)) {
+
+			EntityPreprocessor preprocessor = null;
+
 			Class<? extends Object> clazz = obj.getClass();
 			if (Iterable.class.isAssignableFrom(clazz)) {
-				Iterable<?> ite = (Iterable<?>) obj;
-				Iterator<?> iterator = ite.iterator();
+				Iterator<?> iterator = ((Iterable<?>) obj).iterator();
+				Object next = null;
 				while (iterator.hasNext()) {
-					Object next = iterator.next();
-					for (EntityPreprocessor preprocessor : preprocessors) {
-						if (preprocessor.supports(annotation, next.getClass())) {
-							preprocessor.process(userId, realName, next);
-						}
-					}
+					next = iterator.next();
+					handle(userId, realName, annotation, preprocessor, next);
 				}
 			} else {
-				for (EntityPreprocessor processor : preprocessors) {
-					if (processor.supports(annotation, clazz)) {
-						processor.process(userId, realName, obj);
-					}
-				}
+				handle(userId, realName, annotation, preprocessor, obj);
 			}
+		}
+	}
+
+	private void handle(Long userId, String realName, Annotation annotation, EntityPreprocessor preprocessor, Object obj) {
+		if (preprocessor == null) {
+			preprocessor = get(annotation, obj.getClass());
+		}
+		if (preprocessor != null) {
+			preprocessor.process(userId, realName, obj);
 		}
 	}
 
 	@Override
 	public void add(EntityPreprocessor preprocessor) {
-		if (ICollections.hasNoData(preprocessors)) {
+		if (ICollections.hasNoElements(preprocessors)) {
 			preprocessors = Lists.newArrayList();
 		}
 		preprocessors.add(preprocessor);
 	}
+
+	@Override
+	public EntityPreprocessor get(Annotation annotation, Class<? extends Object> clazz) {
+		for (EntityPreprocessor preprocessor : preprocessors) {
+			if (preprocessor.supports(annotation, clazz)) {
+				return preprocessor;
+			}
+		}
+		return null;
+	}
+
 }

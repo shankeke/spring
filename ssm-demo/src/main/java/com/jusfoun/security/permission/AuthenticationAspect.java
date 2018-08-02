@@ -90,7 +90,7 @@ public class AuthenticationAspect {
 			// 获取当前用户的权限列表
 			Collection<String> grantedAuthorities = SecurityUtils.getCurrentUserAuthorities();
 			// 判断用户是否有该权限，如果没有该权限则抛出没有权限的异常，交给异常处理类处理
-			if (!ICollections.hasData(grantedAuthorities) || !grantedAuthorities.contains(authority)) {
+			if (!ICollections.hasElements(grantedAuthorities) || !grantedAuthorities.contains(authority)) {
 				throw new UnAuthorizedException("未授权的请求", authority);
 			}
 		}

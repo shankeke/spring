@@ -23,12 +23,12 @@ public class ICollections {
 	 *            判断的集合
 	 * @return 集合为空返回false，否则返回true
 	 */
-	public static boolean hasData(Collection<?> collection) {
+	public static boolean hasElements(Collection<?> collection) {
 		return collection != null && !collection.isEmpty() && collection.size() > 0;
 	}
 
-	public static boolean hasNoData(Collection<?> collection) {
-		return !hasData(collection);
+	public static boolean hasNoElements(Collection<?> collection) {
+		return !hasElements(collection);
 	}
 
 	/**

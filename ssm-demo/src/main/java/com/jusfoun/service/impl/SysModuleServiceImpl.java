@@ -89,7 +89,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 		sysModuleMapper.insert(root);
 		// 保存子节点
 		List<SysModule> list = root.getSubList();
-		if (ICollections.hasData(list)) {
+		if (ICollections.hasElements(list)) {
 			Long pid = root.getId();
 			for (SysModule item : list) {
 				item.setParentId(pid);
@@ -126,7 +126,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 		} else {
 			list = selectAll();
 		}
-		if (ICollections.hasData(list)) {
+		if (ICollections.hasElements(list)) {
 			return list.stream().map(t -> t.getUrl()).collect(Collectors.toSet());
 		}
 		return Sets.newHashSet();
@@ -136,7 +136,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 	@Override
 	public Collection<? extends GrantedAuthority> selectAuthorities(String clientId) throws ServiceException {
 		Set<String> urls = selectUrlByClientId(clientId);
-		if (ICollections.hasData(urls)) {
+		if (ICollections.hasElements(urls)) {
 			return urls.stream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;

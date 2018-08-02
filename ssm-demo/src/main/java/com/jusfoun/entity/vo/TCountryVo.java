@@ -40,7 +40,7 @@ public class TCountryVo implements Serializable {
 	}
 
 	public List<TCountry> getList() {
-		if (!ICollections.hasData(list)) {
+		if (!ICollections.hasElements(list)) {
 			list = Lists.newArrayList();
 		} else {
 			list = list.stream()//
@@ -55,7 +55,7 @@ public class TCountryVo implements Serializable {
 	}
 
 	public int getRowCount() {
-		if (ICollections.hasData(list)) {
+		if (ICollections.hasElements(list)) {
 			rowCount = list.size();
 		}
 		return rowCount;
