@@ -35,7 +35,7 @@ import com.jusfoun.security.support.login.LoginAuthenticationFailureHandler;
 import com.jusfoun.security.support.login.LoginAuthenticationProvider;
 import com.jusfoun.security.support.login.LoginAuthenticationSuccessHandler;
 import com.jusfoun.security.support.login.LoginProcessingFilter;
-import com.jusfoun.security.support.token.extractor.TokenExtractorAdapter;
+import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.factory.SimpleTokenFactory;
 import com.jusfoun.security.support.token.factory.TokenFactory;
 import com.jusfoun.security.support.token.parser.JwtTokenParser;
@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	@Autowired
-	private TokenExtractorAdapter tokenExtractorAdapter;
+	private TokenExtractAdapter tokenExtractAdapter;
 	@Autowired
 	private TokenAuthenticationProvider tokenAuthenticationProvider;
 	@Autowired
@@ -120,7 +120,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	protected LoginProcessingFilter buildLoginProcessingFilter() {
 		LoginProcessingFilter filter = new LoginProcessingFilter(TOKEN_ENTRY_POINT, authenticationSuccessHandler(),
-				authenticationFailureHandler(), objectMapper, tokenExtractorAdapter);
+				authenticationFailureHandler(), objectMapper, tokenExtractAdapter);
 		filter.setAuthenticationManager(authenticationManager);
 		return filter;
 	}
@@ -132,7 +132,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredPostResources()));
 		SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(skipPaths, TOKEN_AUTH_ENTRY_POINT);
 		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher,
-				authenticationFailureHandler(), tokenExtractorAdapter, tokenFactory());
+				authenticationFailureHandler(), tokenExtractAdapter, tokenFactory());
 		filter.setAuthenticationManager(authenticationManager);
 		return filter;
 	}

@@ -1,4 +1,4 @@
-package com.jusfoun.security.support.token.extractor;
+package com.jusfoun.security.support.token.extract.extractor;
 
 import com.jusfoun.security.exceptions.TokenInvalidException;
 

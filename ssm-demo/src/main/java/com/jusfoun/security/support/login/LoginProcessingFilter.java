@@ -24,7 +24,7 @@ import com.jusfoun.entity.TokenClientDetails;
 import com.jusfoun.security.config.WebSecurityConfig;
 import com.jusfoun.security.exceptions.AuthMethodNotSupportedException;
 import com.jusfoun.security.exceptions.ClientException;
-import com.jusfoun.security.support.token.extractor.TokenExtractorAdapter;
+import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.util.WebUtil;
 
 /**
@@ -37,17 +37,17 @@ public class LoginProcessingFilter extends AbstractAuthenticationProcessingFilte
 	private static Logger log = LoggerFactory.getLogger(LoginProcessingFilter.class);
 
 	private final ObjectMapper objectMapper;
-	private final TokenExtractorAdapter tokenExtractorAdapter;
+	private final TokenExtractAdapter tokenExtractAdapter;
 	private final AuthenticationSuccessHandler successHandler;
 	private final AuthenticationFailureHandler failureHandler;
 
 	public LoginProcessingFilter(String defaultProcessUrl, final AuthenticationSuccessHandler successHandler, final AuthenticationFailureHandler failureHandler,
-			final ObjectMapper objectMapper, final TokenExtractorAdapter tokenExtractorAdapter) {
+			final ObjectMapper objectMapper, final TokenExtractAdapter tokenExtractAdapter) {
 		super(defaultProcessUrl);
 		this.successHandler = successHandler;
 		this.failureHandler = failureHandler;
 		this.objectMapper = objectMapper;
-		this.tokenExtractorAdapter = tokenExtractorAdapter;
+		this.tokenExtractAdapter = tokenExtractAdapter;
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class LoginProcessingFilter extends AbstractAuthenticationProcessingFilte
 		if (StringUtils.isEmpty(tokenPayload)) {
 			throw new ClientException("ClientId and ClientSecret not provided !");
 		}
-		tokenPayload = tokenExtractorAdapter.excute(tokenPayload);
+		tokenPayload = tokenExtractAdapter.handle(tokenPayload);
 
 		// 验证用户信息
 		LoginRequest loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);

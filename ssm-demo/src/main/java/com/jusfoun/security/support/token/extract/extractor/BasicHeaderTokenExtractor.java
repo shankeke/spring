@@ -1,4 +1,4 @@
-package com.jusfoun.security.support.token.extractor;
+package com.jusfoun.security.support.token.extract.extractor;
 
 import java.util.Base64;
 

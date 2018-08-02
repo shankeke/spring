@@ -11,7 +11,7 @@ import com.jusfoun.common.log.Logable;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.config.WebSecurityConfig;
-import com.jusfoun.security.support.token.extractor.TokenExtractorAdapter;
+import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.factory.TokenFactory;
 import com.jusfoun.service.TokenUserDetailsService;
 
@@ -30,7 +30,7 @@ public class RevokeTokenEndpoint {
 	@Autowired
 	private TokenUserDetailsService tokenUserDetailsService;
 	@Autowired
-	private TokenExtractorAdapter tokenExtractorAdapter;
+	private TokenExtractAdapter tokenExtractAdapter;
 	@Autowired
 	private TokenFactory tokenFactory;
 
@@ -41,7 +41,7 @@ public class RevokeTokenEndpoint {
 			@RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //
 	) {
 		try {
-			TokenUserDetails record = tokenUserDetailsService.findAndCacheByAccessToken(tokenFactory.parseAccessToken(tokenExtractorAdapter.excute(token)));
+			TokenUserDetails record = tokenUserDetailsService.findAndCacheByAccessToken(tokenFactory.parseAccessToken(tokenExtractAdapter.handle(token)));
 			if (record != null)
 				tokenUserDetailsService.deleteWithCacheByUsernameAndClientId(record.getUsername(), record.getClientId());
 			return BaseResponse.success();
