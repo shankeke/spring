@@ -65,7 +65,7 @@ public @interface Logable {
 	 * @date 2018年7月18日 上午9:40:26
 	 * @return 日志级别
 	 */
-	LevelType level() default LevelType.TRACE;
+	LevelType level() default LevelType.DEBUG;
 
 	/**
 	 * 描述: 日志等级. <br>

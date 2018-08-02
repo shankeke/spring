@@ -65,8 +65,10 @@ public final class SecurityUtils {
 	public static String getCurrentUserUsername() {
 		Authentication authentication = getCurrentAuthentication();
 		String currentUserName = null;
-		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-			currentUserName = authentication.getName();
+		if (authentication != null) {
+			if (!(authentication instanceof AnonymousAuthenticationToken)) {
+				currentUserName = authentication.getName();
+			}
 		}
 		return currentUserName;
 	}

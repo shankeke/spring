@@ -53,7 +53,7 @@ public class FileTypeInterceptor extends HandlerInterceptorAdapter {
 				multipartFile = multipartRequest.getFile(formKey);
 				filename = multipartFile.getOriginalFilename();
 				// 判断是否为限制文件类型
-				if (!checkFile(filename)) {
+				if (!checkFileType(filename)) {
 					// 限制文件类型，请求转发到原始请求页面，并携带错误提示信息
 					throw new CoreException(ErrType.FILE_FORMAT_NOT_ALLOW_ERROR, "文件格式错误，仅支持：" + fileSuffix + "格式！");
 				}
@@ -65,7 +65,7 @@ public class FileTypeInterceptor extends HandlerInterceptorAdapter {
 	/**
 	 * 判断是否为允许的上传文件类型,true表示允许
 	 */
-	private boolean checkFile(String fileName) {
+	private boolean checkFileType(String fileName) {
 		// 获取文件后缀
 		String suffix = FilenameUtils.getExtension(fileName);
 		return (fileSuffix == null || fileSuffix.contains(suffix.trim().toLowerCase()));

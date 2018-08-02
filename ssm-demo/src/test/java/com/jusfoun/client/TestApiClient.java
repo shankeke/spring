@@ -9,13 +9,13 @@ public class TestApiClient extends BaseClient<JSONObject> {
 	@Test
 	public void getProducts() {
 		t.put("n", 5);
-		post("/test/getProducts", t);
+		get("/test/getProducts", t);
 	}
 
 	@Test
 	public void getProductList() {
 		t.put("n", 5);
-		post("/test/getProductList", t);
+		get("/test/getProductList", t);
 	}
 
 }

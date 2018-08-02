@@ -9,6 +9,8 @@ import com.jusfoun.common.base.controller.BasePageableAndIdableController;
 import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.base.service.BaseService;
 import com.jusfoun.common.log.Logable;
+import com.jusfoun.common.message.annotation.Json;
+import com.jusfoun.common.message.annotation.JsonBody;
 import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.message.result.BaseResponse;
@@ -96,7 +98,8 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 		}
 	}
 
-	@Logable(value = "查询角色详情", path = "系统管理/角色管理/查询角色详情")
+	@JsonBody(value = {@Json(type = SysRole.class, excludes = {"createId", "creatorName", "createDate", "updateId", "updaterName", "updateDate"})})
+	@Logable(value = "查询角色详情", path = "系统管理/角色管理/查询角色详情", message = "'根据角色ID（' + #id + '）查询角色详情信息'")
 	@Override
 	public BaseResponse<SysRole> infoById(Long id) {
 		try {
