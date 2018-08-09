@@ -11,6 +11,18 @@ spring:
         jdbc-url: jdbc:mysql://localhost:3306/ssm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
         username: root
         password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 20cb49ac2ab948028d1a80225f44b043
+    database: 0
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1s
+
 server:
   port: 8080
 system:
@@ -38,9 +50,3 @@ system:
     slaveId: 1
     start: 3
     readLenth: 40
-  price:
-    marketUrl: http://api.imjuxin.com/sql/dianshang_goods_price_%s_%02d.sql.gz
-    eCommerceUrl: http://api.imjuxin.com/sql/pifa_goods_price_%s_%02d.sql.gz
-    forecastUrl: http://202.106.10.250:5013/predict/fx_price_forecast_%s_%02d.sql.gz
-    amHour: 10
-    pmHour: 18

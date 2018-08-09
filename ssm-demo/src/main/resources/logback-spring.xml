@@ -54,6 +54,9 @@
 	<logger name="springfox" level="ERROR" />
 	<logger name="tk.mybatis" level="ERROR" />
 	<logger name="com.zaxxer.hikari" level="ERROR" />
+	<logger name="io.lettuce" level="ERROR" />
+	<logger name="io.netty" level="ERROR" />
+	<logger name="reactor.core" level="ERROR" />
 
 	<!-- hibernate日志输出 -->
 	<logger name="org.hibernate" level="ERROR" />

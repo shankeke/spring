@@ -5,14 +5,14 @@ spring:
     active:
      - @profileActive@
   cache:
-    type: ehcache
+    type: redis
     cache-names:
     - tempCache
     - customCache
     - persistentCache
     - securityCache
-    ehcache:
-      config: classpath:cache/ehcache/ehcache.xml
+#    ehcache:
+#      config: classpath:cache/ehcache/ehcache.xml
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
