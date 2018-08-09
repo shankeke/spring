@@ -167,6 +167,7 @@
 			<version>${pagehelper-spring-boot.version}</version>
 		</dependency>
 
+		<!-- swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
