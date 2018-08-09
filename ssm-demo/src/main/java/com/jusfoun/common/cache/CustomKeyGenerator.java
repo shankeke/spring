@@ -9,7 +9,8 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.interceptor.KeyGenerator;
 
 /**
@@ -19,7 +20,8 @@ import org.springframework.cache.interceptor.KeyGenerator;
  * @date 2017年10月13日 下午2:19:43
  */
 public class CustomKeyGenerator implements KeyGenerator {
-	private final Logger logger = Logger.getLogger(CustomKeyGenerator.class);
+
+	private static final Logger log = LoggerFactory.getLogger(CustomKeyGenerator.class);
 
 	@Override
 	public Object generate(Object target, Method method, Object... params) {
@@ -44,7 +46,7 @@ public class CustomKeyGenerator implements KeyGenerator {
 			}
 		}
 		int keyGenerator = sb.toString().hashCode();
-		logger.debug(sb.toString() + ":" + keyGenerator);
+		log.debug(sb.toString() + ":" + keyGenerator);
 		return keyGenerator;
 	}
 }

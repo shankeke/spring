@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -47,8 +48,7 @@ public class JacksonConfig {
 		// 设置json为空字段时的序列化方式
 		objectMapper.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
 			@Override
-			public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
-					throws IOException, JsonProcessingException {
+			public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
 				jsonGenerator.writeString("");
 			}
 		});
@@ -59,9 +59,11 @@ public class JacksonConfig {
 		objectMapper.setDateFormat(new SimpleDateFormat(DEFAULT_DATE_FORMAT_PATTERN));
 		// 设置为中国上海时区
 		objectMapper.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-		objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
 		// 空值不序列化
-		// objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		// objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES,
+		// false);
+		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		
 		// 反序列化时，属性不存在的兼容处理
 		objectMapper.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);

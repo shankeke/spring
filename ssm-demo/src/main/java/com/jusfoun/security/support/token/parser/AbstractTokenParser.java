@@ -12,7 +12,7 @@ import com.jusfoun.security.support.token.TokenType;
 import com.jusfoun.security.support.token.verifier.TokenVerifier;
 
 /**
- * 描述 : 令牌解析器抽象，模板模式定义抽象化接口，子类去实现具体的解析逻辑. <br>
+ * 描述 : 抽象令牌解析器，模板模式公共部分逻辑，子类去实现具体的解析逻辑. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月2日 下午11:02:30

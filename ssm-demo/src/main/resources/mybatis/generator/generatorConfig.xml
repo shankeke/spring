@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<!-- <properties resource="init.properties" /> -->
 	<!-- <classPathEntry location="C:\Users\yjw\.m2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar"/> -->
 	<context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
 		<property name="javaFileEncoding" value="UTF-8" />
@@ -32,7 +31,7 @@
 			type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-		<table tableName="t_country" domainObjectName="TCountry" enableCountByExample="false" enableUpdateByExample="false"
+		<table tableName="t_test" domainObjectName="TTest" enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 	</context>
 </generatorConfiguration>

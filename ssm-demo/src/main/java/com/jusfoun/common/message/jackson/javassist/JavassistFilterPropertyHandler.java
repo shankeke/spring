@@ -15,7 +15,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -46,8 +45,6 @@ import javassist.bytecode.annotation.StringMemberValue;
  */
 public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 
-	public static final Logger LOGGER = Logger.getLogger(JavassistFilterPropertyHandler.class);
-
 	private final ObjectMapper objectMapper;
 
 	/**
@@ -60,7 +57,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	 */
 	private static Map<Integer, Class<?>> proxyMixInAnnotationMap = new HashMap<Integer, Class<?>>();
 
-	private static String[] globalIgnoreProperties = new String[] { "hibernateLazyInitializer", "handler" };
+	private static String[] globalIgnoreProperties = new String[]{"hibernateLazyInitializer", "handler"};
 
 	/**
 	 * 如果是标注的SpringMVC中的Controller方法，则应判断是否注解了@ResponseBody
@@ -140,8 +137,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	 * @param pojoAndNamesMap
 	 *            实体类和字段名称集合映射
 	 */
-	private void processJsonFilterAnnotationExcludeFields(Json filter,
-			Map<Class<?>, Collection<String>> pojoAndNamesMap) {
+	private void processJsonFilterAnnotationExcludeFields(Json filter, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
 		String[] includeFields = filter.excludes();
 		Class<?> pojoClass = filter.type();
 		// 根据注解创建代理接口
@@ -160,8 +156,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	 * @param pojoAndNamesMap
 	 *            实体类和字段名称集合映射
 	 */
-	private void processJsonFilterAnnotationIncludeFields(Json filter,
-			Map<Class<?>, Collection<String>> pojoAndNamesMap) {
+	private void processJsonFilterAnnotationIncludeFields(Json filter, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
 		String[] includeFields = filter.includes();
 		Class<?> pojoClass = filter.type();
 
@@ -185,8 +180,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 		if (clazz == null) {
 			throw new NullPointerException("传入的clazz为空对象！");
 		}
-		return Arrays.stream(clazz.getDeclaredFields()).filter(t -> (!Modifier.isStatic(t.getModifiers())))
-				.map(t -> t.getName()).collect(Collectors.toList());
+		return Arrays.stream(clazz.getDeclaredFields()).filter(t -> (!Modifier.isStatic(t.getModifiers()))).map(t -> t.getName()).collect(Collectors.toList());
 	}
 
 	/**
@@ -246,7 +240,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 			Entry<Class<?>, Collection<String>> entry = (Entry<Class<?>, Collection<String>>) iterator.next();
 			Collection<String> nameCollection = entry.getValue();
 			nameCollection = putGlobalIgnoreProperties(nameCollection);// 将全局过滤字段放入集合内
-			String[] names = nameCollection.toArray(new String[] {});
+			String[] names = nameCollection.toArray(new String[]{});
 
 			Class<?> clazz = createMixInAnnotation(names);
 			map.put(entry.getKey(), clazz);
@@ -295,7 +289,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 			memberValue.setValue(name);
 			memberValues.add(memberValue);
 		}
-		arrayMemberValue.setValue(memberValues.toArray(new MemberValue[] {}));
+		arrayMemberValue.setValue(memberValues.toArray(new MemberValue[]{}));
 
 		jsonIgnorePropertiesAnnotation.addMemberValue("value", arrayMemberValue);
 		jsonIgnorePropertiesAnnotation.addMemberValue("ignoreUnknown", ignoreUnknownMemberValue);

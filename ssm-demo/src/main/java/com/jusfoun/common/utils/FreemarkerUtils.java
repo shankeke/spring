@@ -4,11 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
 
-import freemarker.cache.StringTemplateLoader;
 import freemarker.core.ParseException;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -39,25 +37,27 @@ public class FreemarkerUtils {
 	 * @param templateName
 	 *            模板名称
 	 * @return 模板
+	 * @throws freemarker.core.ParseException
 	 * @throws IOException
 	 * @throws TemplateNotFoundException
 	 * @throws MalformedTemplateNameException
 	 * @throws ParseException
 	 */
-	private static Template initTemplate(String templateDir, String templateName) throws IOException, TemplateNotFoundException, MalformedTemplateNameException, ParseException {
+	private static Template initTemplate(String templateDir, String templateName) throws IOException {
 		// 初始化工作
-		Configuration cfg = new Configuration(Configuration.VERSION_2_3_26);
+		Configuration cfg = new Configuration(Configuration.VERSION_2_3_28);
 		// 设置默认编码格式为UTF-8
 		cfg.setDefaultEncoding(DEFAUT_CHARSET);
 		// 全局数字格式
 		cfg.setNumberFormat(DEFAUT_NUMBER_FORMAT);
 		// 设置模板文件位置
-		// cfg.setDirectoryForTemplateLoading(templateDirFile);
+		// cfg.setDirectoryForTemplateLoading(templateDir);
+		// cfg.setClassLoaderForTemplateLoading(FreemarkerUtils.class.getClassLoader(),
+		// templateDir);
 		cfg.setClassForTemplateLoading(FreemarkerUtils.class, templateDir);
-		cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_22));
+		cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_28));
 		// 加载模板
-		Template template = cfg.getTemplate(templateName, DEFAUT_CHARSET);
-		return template;
+		return cfg.getTemplate(templateName, DEFAUT_CHARSET);
 	}
 
 	/**
@@ -130,32 +130,5 @@ public class FreemarkerUtils {
 		Writer out = new OutputStreamWriter(outStream, DEFAUT_CHARSET);
 		template.process(data, out);
 		return outStream.toByteArray();
-	}
-
-	/**
-	 * 描述:自定义模板字符串解析. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月7日 上午10:57:48
-	 * @param templateStr
-	 *            模板目录
-	 * @param data
-	 *            渲染数据
-	 * @return 渲染后数据字符串
-	 * @throws IOException
-	 * @throws TemplateException
-	 */
-	public static String process(String templateStr, Map<String, Object> data) throws IOException, TemplateException {
-		Configuration cfg = new Configuration(Configuration.VERSION_2_3_26);
-		cfg.setNumberFormat(DEFAUT_NUMBER_FORMAT);
-		// 设置装载模板
-		StringTemplateLoader stringLoader = new StringTemplateLoader();
-		stringLoader.putTemplate("myTemplate", templateStr);
-		cfg.setTemplateLoader(stringLoader);
-		// 加载装载的模板
-		Template temp = cfg.getTemplate("myTemplate", DEFAUT_CHARSET);
-		Writer out = new StringWriter();
-		temp.process(data, out);
-		return out.toString();
 	}
 }

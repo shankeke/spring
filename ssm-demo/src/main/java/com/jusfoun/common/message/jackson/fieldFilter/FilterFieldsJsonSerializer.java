@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,9 +43,10 @@ public class FilterFieldsJsonSerializer {
 		objectMapper.setDateFormat(new SimpleDateFormat(DEFAULT_DATE_FORMAT_PATTERN));
 		// 设置为中国上海时区
 		objectMapper.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-		objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
 		// 空值不序列化
-		// objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		// objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES,
+		// false);//属性已弃用
+		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		// 反序列化时，属性不存在的兼容处理
 		objectMapper.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);

@@ -1,4 +1,4 @@
-package com.jusfoun.config.ds;
+package com.jusfoun.config.datasource;
 
 import javax.sql.DataSource;
 
@@ -6,12 +6,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import com.zaxxer.hikari.HikariDataSource;
 
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -26,9 +28,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class Ds1Config {
 
 	@Bean(name = "ds1DataSource")
-	@ConfigurationProperties(prefix = "spring.datasource.ds1")
+	@ConfigurationProperties(prefix = "spring.datasource.hikari.ds1")
 	public DataSource dataSource() {
-		return DataSourceBuilder.create().build();
+		return DataSourceBuilder.create().type(HikariDataSource.class).build();
 	}
 
 	@Bean(name = "ds1SqlSessionFactory")
