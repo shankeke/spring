@@ -8,7 +8,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,6 +18,7 @@ import com.jusfoun.common.cache.service.CacheService;
 import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.common.utils.JaxbUtils;
+import com.jusfoun.config.InitConfig;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.entity.TokenClientDetails;
@@ -48,15 +48,8 @@ public class StartupRunner implements CommandLineRunner {
 	private SysUserService sysUserService;
 	@Autowired
 	private TokenClientDetailsService tokenClientService;
-
-	@Value("${system.sysModule.init-file}")
-	private String sysModulesFile;// 初始化权限配置文件路径
-	@Value("${system.clientDetails.init-file}")
-	private String clientDetailsFile;// 初始化企业信息配置文件路径
-	@Value("${system.user.init-password}")
-	private String initPassword;// 系统管理员初始化密码
-
-	private String adminName = "admin";
+	@Autowired
+	private InitConfig initConfig;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -82,10 +75,10 @@ public class StartupRunner implements CommandLineRunner {
 	private void initSysModules() throws FileNotFoundException {
 		int count = sysModuleService.selectCount(null);
 		if (count == 0) {
-			URL url = ResourceUtils.getURL(sysModulesFile);
+			URL url = ResourceUtils.getURL(initConfig.getSysModulesFile());
 			SysModule root = JaxbUtils.xml2java(url, SysModule.class);
 
-			SysUser admin = sysUserService.selectByUsername(adminName);
+			SysUser admin = sysUserService.selectByUsername(initConfig.getUsername());
 			if (admin != null) {
 				root.setCreatorId(admin.getId());
 				root.setUpdaterId(admin.getId());
@@ -107,14 +100,14 @@ public class StartupRunner implements CommandLineRunner {
 	 * @date 2017年12月6日 下午5:12:49
 	 */
 	private void initAdmin() {
-		SysUser t = sysUserService.selectByUsername(adminName);
+		SysUser t = sysUserService.selectByUsername(initConfig.getUsername());
 		if (t != null) {
 			return;
 		}
 		t = new SysUser();
 		t.setUsername("admin");
 		t.setRealName("系统管理员");
-		t.setPassword(passwordEncoder.encode(initPassword));
+		t.setPassword(passwordEncoder.encode(initConfig.getPassword()));
 		t.setCreateDate(new Date());
 		t.setUpdateDate(new Date());
 		t.setCreatorId(1L);
@@ -137,7 +130,7 @@ public class StartupRunner implements CommandLineRunner {
 	 * @date 2017年12月6日 下午5:13:11
 	 */
 	private void initClients() throws FileNotFoundException {
-		URL url = ResourceUtils.getURL(clientDetailsFile);
+		URL url = ResourceUtils.getURL(initConfig.getClientDetailsFile());
 		ClientDetailsRoot root = JaxbUtils.xml2java(url, ClientDetailsRoot.class);
 		if (root == null) {
 			return;

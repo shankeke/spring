@@ -2,7 +2,6 @@ package com.jusfoun.web.controller.sys;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +18,7 @@ import com.jusfoun.common.log.Logable;
 import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
+import com.jusfoun.config.InitConfig;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysUserService;
@@ -44,6 +44,9 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	@Autowired
+	private InitConfig initConfig;
+
 	@Override
 	public BaseIdableService<SysUser> getBaseIdableService() {
 		return sysUserService;
@@ -53,12 +56,6 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 	public BaseService<SysUser> getBaseService() {
 		return sysUserService;
 	}
-
-	/**
-	 * 系统用户初始化密码
-	 */
-	@Value("${system.user.init-password}")
-	private String initPassword;
 
 	@Logable(value = "保存系统用户", path = "系统管理/用户管理/保存系统用户")
 	@Override
@@ -80,7 +77,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 		// 保存数据
 		try {
-			t.setPassword(passwordEncoder.encode(StringUtils.defaultIfEmpty(t.getPassword(), initPassword)));
+			t.setPassword(passwordEncoder.encode(StringUtils.defaultIfEmpty(t.getPassword(), initConfig.getPassword())));
 			if (t.getStatus() == null) {
 				t.setStatus(UsingStatus.NOT_ENABLED.getValue());
 			}
@@ -143,7 +140,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 		try {
 			SysUser sysUser = new SysUser();
 			sysUser.setId(id);
-			sysUser.setPassword(passwordEncoder.encode(initPassword));
+			sysUser.setPassword(passwordEncoder.encode(initConfig.getPassword()));
 			sysUserService.updateByPrimaryKeySelectiveWithCache(sysUser);
 		} catch (Exception e) {
 			e.printStackTrace();

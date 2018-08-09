@@ -25,14 +25,11 @@ spring:
 server:
   port: 8080
 system:
-  user:
-    init-password: 123456
-  sysModule:
-    init-file: classpath:SysModule.xml
-  enterprise:
-    init-file: classpath:Enterprise.xml
-  clientDetails:
-    init-file: classpath:ClientDetails.xml
+  init:
+    username: admin
+    password: 123456
+    sysModulesFile: classpath:SysModule.xml
+    clientDetailsFile: classpath:ClientDetails.xml
   file:
     upload:
       root: D:/tianjinhexie/upload
