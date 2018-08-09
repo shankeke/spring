@@ -22,7 +22,6 @@ spring:
         max-idle: 8
         max-active: 8
         max-wait: -1
-        
 server:
   port: 8080
 system:

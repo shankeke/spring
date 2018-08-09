@@ -28,11 +28,11 @@ public class RedisConfig {
 
 	@Bean
 	public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory redisConnectionFactory) {
-		RedisTemplate<String, Serializable> template = new RedisTemplate<>();
-		template.setKeySerializer(new StringRedisSerializer());
-		template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-		template.setConnectionFactory(redisConnectionFactory);
-		return template;
+		RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+		redisTemplate.setConnectionFactory(redisConnectionFactory);
+		return redisTemplate;
 	}
 
 	@Bean
