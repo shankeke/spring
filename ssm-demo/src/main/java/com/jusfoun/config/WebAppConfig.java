@@ -1,6 +1,5 @@
 package com.jusfoun.config;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonReturnHandler;
 import com.jusfoun.config.file.FileConfig;
@@ -25,7 +24,7 @@ import com.jusfoun.web.interceptor.FileTypeInterceptor;
  * @date 2017年9月7日 上午10:24:03
  */
 @Configuration
-public class WebAppConfig extends WebMvcConfigurerAdapter {
+public class WebAppConfig extends WebMvcConfigurationSupport {
 
 	@Autowired
 	private FileConfig fileConfig;
@@ -81,13 +80,9 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	 * @return 注册的bean
 	 */
 	@Bean
-	public FilterRegistrationBean gzipSupportFilterRegistrationBean() {
-		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-		GzipSupportFilter gzipSupportFilter = new GzipSupportFilter();
-		registrationBean.setFilter(gzipSupportFilter);
-		List<String> urlPatterns = new ArrayList<String>();
-		urlPatterns.add("/**");
-		registrationBean.setUrlPatterns(urlPatterns);
+	public FilterRegistrationBean<GzipSupportFilter> gzipSupportFilterRegistrationBean() {
+		FilterRegistrationBean<GzipSupportFilter> registrationBean = new FilterRegistrationBean<GzipSupportFilter>(new GzipSupportFilter());
+		registrationBean.addUrlPatterns("/**");
 		return registrationBean;
 	}
 }
