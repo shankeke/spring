@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
  * @date 2017年9月16日 下午1:40:24
  */
 @Configuration
-@ConfigurationProperties(prefix = SystemConstants.PREFIX)
-public class SystemConstants {
-	public static final String PREFIX = "system.constants";
+@ConfigurationProperties(prefix = UrlsConfig.PREFIX)
+public class UrlsConfig {
+	public static final String PREFIX = "system.urls";
 
 	private String baseUrl;
 	private String baseLoginUrl;

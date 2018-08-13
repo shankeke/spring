@@ -36,7 +36,7 @@ system:
       rootDir: /files
       separator: ;
       suffix: jpg,png,jpeg,tiff,flv,mp4
-  constants:
+  urls:
     baseUrl: http://tjhx.9cfcf.com/aobo
     baseLoginUrl: ${system.constants.baseUrl}/app/index.html%s/baseLogin?id=%s
     inputOriginUrl: ${system.constants.baseUrl}/app/index.html%s/inputOrigin?id=%s
