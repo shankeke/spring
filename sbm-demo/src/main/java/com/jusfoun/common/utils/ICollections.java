@@ -1,8 +1,10 @@
 package com.jusfoun.common.utils;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -32,6 +34,29 @@ public class ICollections {
 	}
 
 	/**
+	 * 描述: 将字符串装换成指定类型的数据集合. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年8月16日 下午5:52:45
+	 * @param str
+	 *            需要转化的字符串
+	 * @param separator
+	 *            分隔符
+	 * @param function
+	 *            转化函数
+	 * @return 转化结果
+	 */
+	public static <T> List<T> strToList(String str, String separator, Function<String, T> function) {
+		if (StringUtils.isNotEmpty(str)) {
+			String[] arr = str.split(separator);
+			if (arr.length > 0) {
+				return Arrays.stream(arr).map(t -> function.apply(t)).collect(Collectors.toList());
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * 描述 :字符串转化为指定类型的集合>. <br>
 	 *
 	 * @author yjw@jusfoun.com
@@ -43,19 +68,7 @@ public class ICollections {
 	 * @return Long类型数据集合
 	 */
 	public static List<Long> strToLongList(String str, String separator) {
-		List<Long> longs = null;
-		if (StringUtils.isNotEmpty(str)) {
-			String[] split = str.split(separator);
-			if (split.length > 0) {
-				longs = new ArrayList<Long>();
-				for (String s : split) {
-					if (StringUtils.isNotEmpty(s)) {
-						longs.add(Long.valueOf(s.trim()));
-					}
-				}
-			}
-		}
-		return longs;
+		return strToList(str, separator, Long::valueOf);
 	}
 
 	/**
@@ -70,19 +83,7 @@ public class ICollections {
 	 * @return Integer类型数据集合
 	 */
 	public static List<Integer> strToIntegerList(String str, String separator) {
-		List<Integer> ints = null;
-		if (StringUtils.isNotEmpty(str)) {
-			String[] split = str.split(separator);
-			if (split.length > 0) {
-				ints = new ArrayList<Integer>();
-				for (String s : split) {
-					if (StringUtils.isNotEmpty(s)) {
-						ints.add(Integer.valueOf(s.trim()));
-					}
-				}
-			}
-		}
-		return ints;
+		return strToList(str, separator, Integer::valueOf);
 	}
 
 	/**
@@ -97,18 +98,12 @@ public class ICollections {
 	 * @return String类型数据集合
 	 */
 	public static List<String> strToStringList(String str, String separator) {
-		List<String> strings = null;
-		if (StringUtils.isNotEmpty(str)) {
-			String[] split = str.split(separator);
-			if (split.length > 0) {
-				strings = new ArrayList<String>();
-				for (String s : split) {
-					if (StringUtils.isNotEmpty(s)) {
-						strings.add(s.trim());
-					}
-				}
-			}
-		}
-		return strings;
+		return strToList(str, separator, String::valueOf);
+	}
+
+	public static void main(String[] args) {
+		String str = "1,2,3,4,5";
+		List<Integer> strToList = strToList(str, ",", Integer::valueOf);
+		System.out.println(strToList);
 	}
 }
