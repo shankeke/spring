@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ssm-demo
+    name: sbm-demo
   profiles:
     active:
      - @profileActive@

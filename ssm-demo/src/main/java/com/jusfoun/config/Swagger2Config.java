@@ -48,7 +48,7 @@ public class Swagger2Config {
 						+ "11、树状数据处理：面向常见的应用场景，对于符合树状结构的数据抽象数据模型，抽象查询接口，结构化组合关系，以模式化代码实现树状结构数据的操作、检索等功能。\n"//
 						+ "12、Excel导入导出：使用反射技术，抽象Excel数据模型实现面向Bean对象的数据导入接口。引用Freemaker模板技术，实现模板化导出功能，可实现复杂的数据结构导出功能，代码量更少，开发更简单，结构更优化，如：横向纵向合并单元格，数据分sheet等。\n"//
 						+ "13、Jaxb支持：完善的Jaxb序列化和反序列化工具，支持复杂的Xml报文与Java Bean互转功能。\n"//
-						+ "更多相关示例请关注：https://github.com/760374564/spring/tree/master/ssm-demo")//
+						+ "更多相关示例请关注：https://github.com/760374564/spring/tree/master/sbm-demo")//
 				.termsOfServiceUrl("https://github.com/760374564/")//
 				.version("1.0")//
 				.build();
