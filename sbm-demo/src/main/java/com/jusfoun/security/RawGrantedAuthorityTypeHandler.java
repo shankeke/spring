@@ -1,11 +1,11 @@
-package com.jusfoun.common.mybatis.typehandler.blobtype;
+package com.jusfoun.security;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 
 import com.alibaba.fastjson.JSON;
-import com.jusfoun.security.RawGrantedAuthority;
+import com.jusfoun.common.mybatis.typehandler.blobtype.AbstractBlobTypeHandler;
 
 /**
  * 描述 : Blob转权限集合TypeHandler. <br>
@@ -13,7 +13,7 @@ import com.jusfoun.security.RawGrantedAuthority;
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32
  */
-public class BlobVsAuthorityCollectionTypeHandler
+public class RawGrantedAuthorityTypeHandler
 		extends AbstractBlobTypeHandler<Collection<? extends GrantedAuthority>> {
 
 	@Override

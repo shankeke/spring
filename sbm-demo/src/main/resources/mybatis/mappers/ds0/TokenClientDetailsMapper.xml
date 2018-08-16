@@ -10,8 +10,7 @@
 			typeHandler="com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler" />
 		<result column="grant_types" property="grantTypes"
 			typeHandler="com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler" />
-		<result column="authorities" property="authorities"
-			typeHandler="com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler" />
+		<result column="authorities" property="authorities" typeHandler="com.jusfoun.security.RawGrantedAuthorityTypeHandler" />
 		<result column="access_token_validity" property="accessTokenValidity" jdbcType="INTEGER" />
 		<result column="refresh_token_validity" property="refreshTokenValidity" jdbcType="INTEGER" />
 	</resultMap>

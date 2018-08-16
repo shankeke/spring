@@ -24,8 +24,8 @@ import org.springframework.util.Assert;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler;
 import com.jusfoun.security.ClientDetails;
+import com.jusfoun.security.RawGrantedAuthorityTypeHandler;
 import com.jusfoun.security.support.token.Token;
 import com.jusfoun.security.support.token.factory.TokenFactory;
 
@@ -91,7 +91,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	 * 权限集合
 	 */
 	@ApiModelProperty("权限集合")
-	@ColumnType(column = "authorities", jdbcType = JdbcType.BLOB, typeHandler = BlobVsAuthorityCollectionTypeHandler.class)
+	@ColumnType(column = "authorities", jdbcType = JdbcType.BLOB, typeHandler = RawGrantedAuthorityTypeHandler.class)
 	private Collection<? extends GrantedAuthority> authorities;
 
 	/**

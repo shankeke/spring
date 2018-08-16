@@ -19,11 +19,11 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler;
 import com.jusfoun.common.mybatis.typehandler.varchartype.VarcharVsStringArrayTypeHandler;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.RawGrantedAuthority;
+import com.jusfoun.security.RawGrantedAuthorityTypeHandler;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -113,7 +113,7 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 	 */
 	@ApiModelProperty("权限集合")
 	@XmlTransient
-	@ColumnType(column = "authorities", jdbcType = JdbcType.BLOB, typeHandler = BlobVsAuthorityCollectionTypeHandler.class)
+	@ColumnType(column = "authorities", jdbcType = JdbcType.BLOB, typeHandler = RawGrantedAuthorityTypeHandler.class)
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public TokenClientDetails() {

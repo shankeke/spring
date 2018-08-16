@@ -8,8 +8,7 @@
 		<result column="client_id" property="clientId" jdbcType="VARCHAR" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="realname" property="realname" jdbcType="VARCHAR" />
-		<result column="authorities" property="authorities"
-			typeHandler="com.jusfoun.common.mybatis.typehandler.blobtype.BlobVsAuthorityCollectionTypeHandler" />
+		<result column="authorities" property="authorities" typeHandler="com.jusfoun.security.RawGrantedAuthorityTypeHandler" />
 		<result column="enabled" property="enabled" jdbcType="BIT" />
 		<result column="authenticated" property="authenticated" jdbcType="BIT" />
 		<result column="account_non_locked" property="accountNonLocked" jdbcType="BIT" />
