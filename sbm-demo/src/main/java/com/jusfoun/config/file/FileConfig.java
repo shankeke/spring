@@ -10,8 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import com.jusfoun.common.utils.DateUtils;
 import com.jusfoun.common.utils.ICollections;
-import com.jusfoun.common.utils.date.DateUtils;
 
 /**
  * 描述 : 上传文件配置和文件处理的公共类，主要用于文件上传路径处理，文件的删除等操作. <br>

@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.compress;
+package com.jusfoun.common.utils;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

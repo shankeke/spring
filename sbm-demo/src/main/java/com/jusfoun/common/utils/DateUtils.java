@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.date;
+package com.jusfoun.common.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;

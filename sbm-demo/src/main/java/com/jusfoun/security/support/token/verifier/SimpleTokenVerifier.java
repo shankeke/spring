@@ -2,7 +2,7 @@ package com.jusfoun.security.support.token.verifier;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.jusfoun.common.utils.RegexUtil;
+import com.jusfoun.common.utils.RegexUtils;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 
 /**
@@ -19,7 +19,7 @@ public class SimpleTokenVerifier implements TokenVerifier {
 
 	@Override
 	public boolean verify(String tokenPayload) throws TokenInvalidException {
-		if (StringUtils.isEmpty(tokenPayload) || !RegexUtil.check(TOKEN_DEF_REGEX, tokenPayload)) {
+		if (StringUtils.isEmpty(tokenPayload) || !RegexUtils.check(TOKEN_DEF_REGEX, tokenPayload)) {
 			throw new TokenInvalidException(String.format("Invalid token '%s' !", tokenPayload));
 		}
 		return true;

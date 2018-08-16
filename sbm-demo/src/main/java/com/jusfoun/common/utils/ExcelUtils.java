@@ -1,4 +1,4 @@
-package com.jusfoun.common.utils.excel;
+package com.jusfoun.common.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,15 +22,13 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.xmlbeans.impl.piccolo.io.FileFormatException;
 
-import com.jusfoun.common.utils.date.DateUtils;
-
 /**
  * 描述 :Excel文件读入为java对象 . <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年10月26日 下午4:47:59
  */
-public abstract class ExcelParser {
+public abstract class ExcelUtils {
 
 	private static final String EXTENSION_XLS = "xls";
 	private static final String EXTENSION_XLSX = "xlsx";

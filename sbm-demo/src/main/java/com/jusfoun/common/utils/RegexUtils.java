@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 上午11:36:43
  */
-public class RegexUtil {
+public class RegexUtils {
 	public static final String REGEX_PHONE = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$";// 手机号码
 	public static final String REGEX_EMAIL = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";// 邮箱
 	public static final String REGEX_INTERNETURL = "^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$";// 或[a-zA-z]+://[^\s]*
