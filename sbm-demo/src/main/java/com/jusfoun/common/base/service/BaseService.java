@@ -100,7 +100,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: <方法描述>. <br>
+	 * 描述:查询并排序. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:21:22
