@@ -110,7 +110,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public TokenParser tokenParser() {
 		// return new DesTokenParser(tokenVerifier());
-		return new JwtTokenParser(tokenVerifier(), jwtSettings);
+		return new JwtTokenParser(tokenExtractAdapter, tokenVerifier(), jwtSettings);
 	}
 
 	@Bean
@@ -119,8 +119,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	protected LoginProcessingFilter buildLoginProcessingFilter() {
-		LoginProcessingFilter filter = new LoginProcessingFilter(TOKEN_ENTRY_POINT, authenticationSuccessHandler(),
-				authenticationFailureHandler(), objectMapper, tokenExtractAdapter);
+		LoginProcessingFilter filter = new LoginProcessingFilter(TOKEN_ENTRY_POINT, authenticationSuccessHandler(), authenticationFailureHandler(), objectMapper,
+				tokenExtractAdapter);
 		filter.setAuthenticationManager(authenticationManager);
 		return filter;
 	}
@@ -131,8 +131,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredGetResources()));
 		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredPostResources()));
 		SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(skipPaths, TOKEN_AUTH_ENTRY_POINT);
-		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher,
-				authenticationFailureHandler(), tokenExtractAdapter, tokenFactory());
+		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher, authenticationFailureHandler(), tokenFactory());
 		filter.setAuthenticationManager(authenticationManager);
 		return filter;
 	}
@@ -171,8 +170,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()//
 				.addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)//
 				.addFilterBefore(buildLoginProcessingFilter(), UsernamePasswordAuthenticationFilter.class)//
-				.addFilterBefore(buildTokenAuthenticationProcessingFilter(),
-						UsernamePasswordAuthenticationFilter.class);
+				.addFilterBefore(buildTokenAuthenticationProcessingFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 
 	public SimpleCorsFilter corsFilter() {
@@ -182,7 +180,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	// 登录过滤器需要跳过的资源
-	private static final String[] tokenSkipPaths = new String[] { //
+	private static final String[] tokenSkipPaths = new String[]{ //
 			TOKEN_REFRESH_ENTRY_POINT, //
 			TOKEN_ENTRY_POINT//
 	};

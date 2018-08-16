@@ -9,6 +9,7 @@ import com.jusfoun.security.exceptions.TokenCreateException;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 import com.jusfoun.security.support.token.Token;
 import com.jusfoun.security.support.token.TokenType;
+import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.verifier.TokenVerifier;
 
 /**
@@ -24,11 +25,17 @@ public abstract class AbstractTokenParser implements TokenParser {
 	public static final String DEFAULT_DELIMITER = ":";
 
 	/**
+	 * 令牌有效信息抽取器
+	 */
+	private final TokenExtractAdapter tokenExtractAdapter;
+
+	/**
 	 * 令牌检验器
 	 */
 	private final TokenVerifier tokenVerifier;
 
-	public AbstractTokenParser(TokenVerifier tokenVerifier) {
+	public AbstractTokenParser(TokenExtractAdapter tokenExtractAdapter, TokenVerifier tokenVerifier) {
+		this.tokenExtractAdapter = tokenExtractAdapter;
 		this.tokenVerifier = tokenVerifier;
 	}
 
@@ -61,7 +68,7 @@ public abstract class AbstractTokenParser implements TokenParser {
 	@Override
 	public Token parseToken(String token, TokenType type) throws TokenInvalidException {
 		if (verify(token)) {
-			return parse(token, type);
+			return parse(extract(token), type);
 		}
 		throw new TokenInvalidException(String.format("Invalid Token: %s", token), token);
 	}
@@ -87,4 +94,10 @@ public abstract class AbstractTokenParser implements TokenParser {
 		}
 		return tokenVerifier.verify(token);
 	}
+
+	@Override
+	public String extract(String payload) throws TokenInvalidException {
+		return tokenExtractAdapter.handle(payload);
+	}
+
 }

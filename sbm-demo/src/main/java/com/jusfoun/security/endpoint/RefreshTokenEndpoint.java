@@ -24,7 +24,6 @@ import com.jusfoun.security.exceptions.NoGrantedAnyAuthorityException;
 import com.jusfoun.security.exceptions.TokenExpiredException;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 import com.jusfoun.security.support.token.RefreshToken;
-import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.factory.TokenFactory;
 import com.jusfoun.service.TokenUserDetailsService;
 
@@ -46,8 +45,6 @@ public class RefreshTokenEndpoint {
 	@Autowired
 	private UserDetailsService userDetailsService;
 	@Autowired
-	private TokenExtractAdapter tokenExtractAdapter;
-	@Autowired
 	private TokenUserDetailsService tokenUserDetailsService;
 	@Autowired
 	private ClientDetailsService clientDetailsService;
@@ -59,7 +56,7 @@ public class RefreshTokenEndpoint {
 			@RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //
 	) {
 		// 解析token为RefreshToken对象
-		RefreshToken refreshToken = tokenFactory.parseRefreshToken(tokenExtractAdapter.handle(token));
+		RefreshToken refreshToken = tokenFactory.parseRefreshToken(token);
 		// 查询用户登录记录
 		TokenUserDetails tokenDetails = tokenUserDetailsService.findAndCacheByRefreshToken(refreshToken);
 		if (tokenDetails == null) {

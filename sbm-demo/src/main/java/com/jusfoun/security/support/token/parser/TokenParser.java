@@ -58,4 +58,16 @@ public interface TokenParser {
 	 */
 	boolean verify(String token) throws TokenInvalidException;
 
+	/**
+	 * 描述:令牌有效信息提取器. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年8月16日 下午3:13:05
+	 * @param payload
+	 *            令牌
+	 * @return 有效信息
+	 * @throws TokenInvalidException
+	 */
+	String extract(String payload) throws TokenInvalidException;
+
 }

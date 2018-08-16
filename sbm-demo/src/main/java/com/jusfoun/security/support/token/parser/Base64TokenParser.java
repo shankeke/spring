@@ -13,6 +13,7 @@ import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.security.support.token.RefreshToken;
 import com.jusfoun.security.support.token.Token;
 import com.jusfoun.security.support.token.TokenType;
+import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.verifier.TokenVerifier;
 
 /**
@@ -23,8 +24,8 @@ import com.jusfoun.security.support.token.verifier.TokenVerifier;
  */
 public class Base64TokenParser extends AbstractTokenParser {
 
-	public Base64TokenParser(final TokenVerifier tokenVerifier) {
-		super(tokenVerifier);
+	public Base64TokenParser(final TokenExtractAdapter tokenExtractAdapter, final TokenVerifier tokenVerifier) {
+		super(tokenExtractAdapter, tokenVerifier);
 	}
 
 	@Override

@@ -21,6 +21,7 @@ import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.security.support.token.RefreshToken;
 import com.jusfoun.security.support.token.Token;
 import com.jusfoun.security.support.token.TokenType;
+import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.verifier.TokenVerifier;
 
 import io.jsonwebtoken.Claims;
@@ -41,8 +42,8 @@ import io.jsonwebtoken.UnsupportedJwtException;
 public class JwtTokenParser extends AbstractTokenParser {
 	private final JwtSettings jwtSettings;
 
-	public JwtTokenParser(final TokenVerifier tokenVerifier, final JwtSettings jwtSettings) {
-		super(tokenVerifier);
+	public JwtTokenParser(final TokenExtractAdapter tokenExtractAdapter, final TokenVerifier tokenVerifier, final JwtSettings jwtSettings) {
+		super(tokenExtractAdapter, tokenVerifier);
 		this.jwtSettings = jwtSettings;
 	}
 

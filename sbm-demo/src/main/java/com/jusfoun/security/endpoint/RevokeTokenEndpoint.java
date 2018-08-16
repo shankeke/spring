@@ -11,7 +11,6 @@ import com.jusfoun.common.log.Logable;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.config.WebSecurityConfig;
-import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.factory.TokenFactory;
 import com.jusfoun.service.TokenUserDetailsService;
 
@@ -30,8 +29,6 @@ public class RevokeTokenEndpoint {
 	@Autowired
 	private TokenUserDetailsService tokenUserDetailsService;
 	@Autowired
-	private TokenExtractAdapter tokenExtractAdapter;
-	@Autowired
 	private TokenFactory tokenFactory;
 
 	@ApiOperation(value = "销毁令牌", notes = "根据令牌信息删除认证信息", hidden = false)
@@ -41,7 +38,7 @@ public class RevokeTokenEndpoint {
 			@RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //
 	) {
 		try {
-			TokenUserDetails record = tokenUserDetailsService.findAndCacheByAccessToken(tokenFactory.parseAccessToken(tokenExtractAdapter.handle(token)));
+			TokenUserDetails record = tokenUserDetailsService.findAndCacheByAccessToken(tokenFactory.parseAccessToken(token));
 			if (record != null)
 				tokenUserDetailsService.deleteWithCacheByUsernameAndClientId(record.getUsername(), record.getClientId());
 			return BaseResponse.success();
