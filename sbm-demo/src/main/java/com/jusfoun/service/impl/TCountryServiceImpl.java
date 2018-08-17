@@ -50,7 +50,7 @@ public class TCountryServiceImpl implements TCountryService {
 		List<TCountry> list = selectAll();
 		TCountryTotalVo total = new TCountryTotalVo();
 		if (ICollections.hasElements(list)) {
-			Map<String, List<TCountry>> alphaGroup = list.stream().collect(Collectors.groupingBy(TCountry::getAlpha));
+			Map<String, List<TCountry>> alphaGroup = list.parallelStream().collect(Collectors.groupingBy(TCountry::getAlpha));
 			List<TCountryVo> tCountryVos = total.getList();
 			alphaGroup.forEach((k, v) -> {
 				tCountryVos.add(new TCountryVo(k, v));

@@ -19,8 +19,6 @@ public class BlobVsFloatArrayTypeHandler extends AbstractBlobTypeHandler<Float[]
 
 	@Override
 	public Float[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Float.valueOf(t);
-		}).toArray(Float[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Float::valueOf).toArray(Float[]::new);
 	}
 }

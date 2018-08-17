@@ -19,9 +19,7 @@ public class BlobVsDoubleArrayTypeHandler extends AbstractBlobTypeHandler<Double
 
 	@Override
 	public Double[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Double.valueOf(t);
-		}).toArray(Double[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Double::valueOf).toArray(Double[]::new);
 	}
 
 }

@@ -127,7 +127,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 			list = selectAll();
 		}
 		if (ICollections.hasElements(list)) {
-			return list.stream().map(t -> t.getUrl()).collect(Collectors.toSet());
+			return list.parallelStream().map(t -> t.getUrl()).collect(Collectors.toSet());
 		}
 		return Sets.newHashSet();
 	}
@@ -137,7 +137,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 	public Collection<? extends GrantedAuthority> selectAuthorities(String clientId) throws ServiceException {
 		Set<String> urls = selectUrlByClientId(clientId);
 		if (ICollections.hasElements(urls)) {
-			return urls.stream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
+			return urls.parallelStream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;
 	}

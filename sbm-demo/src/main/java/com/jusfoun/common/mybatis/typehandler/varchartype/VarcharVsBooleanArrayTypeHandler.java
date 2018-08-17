@@ -19,8 +19,6 @@ public class VarcharVsBooleanArrayTypeHandler extends AbstractVarcharTypeHandler
 
 	@Override
 	public Boolean[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Boolean.valueOf(t);
-		}).toArray(Boolean[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Boolean::valueOf).toArray(Boolean[]::new);
 	}
 }

@@ -19,8 +19,6 @@ public class BlobVsIntegerArrayTypeHandler extends AbstractBlobTypeHandler<Integ
 
 	@Override
 	public Integer[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Integer.valueOf(t);
-		}).toArray(Integer[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Integer::valueOf).toArray(Integer[]::new);
 	}
 }

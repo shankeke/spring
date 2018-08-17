@@ -19,8 +19,6 @@ public class BlobVsByteArrayTypeHandler extends AbstractBlobTypeHandler<Byte[]> 
 
 	@Override
 	public Byte[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Byte.valueOf(t);
-		}).toArray(Byte[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Byte::valueOf).toArray(Byte[]::new);
 	}
 }

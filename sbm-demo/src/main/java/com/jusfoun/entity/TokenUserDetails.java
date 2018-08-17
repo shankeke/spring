@@ -222,7 +222,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 		Assert.notNull(sysUser, "Parameter 'sysUser' is null !");
 		// TODO 这里现将role放入token中方便前端处理
 		TokenUserDetails tokenUser = new TokenUserDetails(sysUser.getUsername(), sysUser.getPassword(),
-				sysUser.getAuthorities().stream().map(authority -> new SimpleGrantedAuthority(authority.getAuthority())).collect(Collectors.toSet()));
+				sysUser.getAuthorities().parallelStream().map(authority -> new SimpleGrantedAuthority(authority.getAuthority())).collect(Collectors.toSet()));
 		tokenUser.setUserId(sysUser.getId());
 		tokenUser.setRealname(sysUser.getRealName());
 		tokenUser.setEnabled(true);
@@ -473,7 +473,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 
 	public String[] grantedAuthorities() {
 		if (authorities != null && !authorities.isEmpty()) {
-			return authorities.stream().map(t -> t.getAuthority()).toArray(String[]::new);
+			return authorities.parallelStream().map(t -> t.getAuthority()).toArray(String[]::new);
 		}
 		return null;
 	}

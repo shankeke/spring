@@ -180,7 +180,10 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 		if (clazz == null) {
 			throw new NullPointerException("传入的clazz为空对象！");
 		}
-		return Arrays.stream(clazz.getDeclaredFields()).filter(t -> (!Modifier.isStatic(t.getModifiers()))).map(t -> t.getName()).collect(Collectors.toList());
+		return Arrays.stream(clazz.getDeclaredFields())//
+				.filter(t -> (!Modifier.isStatic(t.getModifiers())))//
+				.map(t -> t.getName())//
+				.collect(Collectors.toList());
 	}
 
 	/**

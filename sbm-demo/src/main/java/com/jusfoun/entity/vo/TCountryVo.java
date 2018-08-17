@@ -43,7 +43,7 @@ public class TCountryVo implements Serializable {
 		if (!ICollections.hasElements(list)) {
 			list = Lists.newArrayList();
 		} else {
-			list = list.stream()//
+			list = list.parallelStream()//
 					.sorted(Comparator.comparing(TCountry::getZhName))//
 					.collect(Collectors.toList());
 		}

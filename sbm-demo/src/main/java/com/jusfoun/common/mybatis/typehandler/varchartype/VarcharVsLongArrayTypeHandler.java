@@ -19,8 +19,6 @@ public class VarcharVsLongArrayTypeHandler extends AbstractVarcharTypeHandler<Lo
 
 	@Override
 	public Long[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Long.valueOf(t);
-		}).toArray(Long[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Long::valueOf).toArray(Long[]::new);
 	}
 }

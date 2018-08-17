@@ -48,62 +48,45 @@ public class ICollections {
 	 */
 	public static <T> List<T> strToList(String str, String separator, Function<String, T> function) {
 		if (StringUtils.isNotEmpty(str)) {
-			String[] arr = str.split(separator);
-			if (arr.length > 0) {
-				return Arrays.stream(arr).map(t -> function.apply(t)).collect(Collectors.toList());
-			}
+			return Arrays//
+					.stream(StringUtils.split(str, separator))//
+					.map(t -> function.apply(t))//
+					.collect(Collectors.toList());
 		}
 		return null;
 	}
 
-	/**
-	 * 描述 :字符串转化为指定类型的集合>. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月16日 上午11:34:01
-	 * @param str
-	 *            处理字符串
-	 * @param separator
-	 *            分隔符
-	 * @return Long类型数据集合
-	 */
-	public static List<Long> strToLongList(String str, String separator) {
-		return strToList(str, separator, Long::valueOf);
+	public static List<Byte> strToByteList(String str, String separator) {
+		return strToList(str, separator, Byte::valueOf);
 	}
 
-	/**
-	 * 描述 : 字符串转化为指定类型的集合. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月16日 上午11:34:47
-	 * @param str
-	 *            字符串
-	 * @param separator
-	 *            分隔符
-	 * @return Integer类型数据集合
-	 */
+	public static List<Short> strToShortList(String str, String separator) {
+		return strToList(str, separator, Short::valueOf);
+	}
+
 	public static List<Integer> strToIntegerList(String str, String separator) {
 		return strToList(str, separator, Integer::valueOf);
 	}
 
-	/**
-	 * 描述 : 字符串转化为指定类型的集合. <br>
-	 *
-	 * @author yjw@jusfoun.com
-	 * @date 2017年9月16日 上午11:34:47
-	 * @param str
-	 *            字符串
-	 * @param separator
-	 *            分隔符
-	 * @return String类型数据集合
-	 */
+	public static List<Long> strToLongList(String str, String separator) {
+		return strToList(str, separator, Long::valueOf);
+	}
+
+	public static List<Float> strToFloatList(String str, String separator) {
+		return strToList(str, separator, Float::valueOf);
+	}
+
+	public static List<Double> strToDoubleList(String str, String separator) {
+		return strToList(str, separator, Double::valueOf);
+	}
+
 	public static List<String> strToStringList(String str, String separator) {
 		return strToList(str, separator, String::valueOf);
 	}
 
-	public static void main(String[] args) {
-		String str = "1,2,3,4,5";
-		List<Integer> strToList = strToList(str, ",", Integer::valueOf);
-		System.out.println(strToList);
-	}
+	/*
+	 * public static void main(String[] args) { String str = "1,2,3,4,5"; String
+	 * separator = ","; List<Integer> strToList = strToList(str, separator,
+	 * Integer::valueOf); System.out.println(strToList); }
+	 */
 }

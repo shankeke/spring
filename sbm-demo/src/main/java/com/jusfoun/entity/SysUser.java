@@ -129,7 +129,7 @@ public class SysUser extends BaseEntity<SysUser> {
 		if (ICollections.hasElements(sysRoles)) {
 			for (SysRole role : sysRoles) {
 				if (ICollections.hasElements(role.getSysModules())) {
-					userAuthotities.addAll(role.getSysModules().stream().map(authority -> new SimpleGrantedAuthority(authority.getUrl())).collect(Collectors.toSet()));
+					userAuthotities.addAll(role.getSysModules().parallelStream().map(authority -> new SimpleGrantedAuthority(authority.getUrl())).collect(Collectors.toSet()));
 				}
 			}
 		}
@@ -145,7 +145,7 @@ public class SysUser extends BaseEntity<SysUser> {
 	 */
 	public Set<String> getRoleNames() {
 		if (ICollections.hasElements(getSysRoles())) {
-			return getSysRoles().stream().map(t -> t.getName()).collect(Collectors.toSet());
+			return getSysRoles().parallelStream().map(t -> t.getName()).collect(Collectors.toSet());
 		}
 		return roleNames;
 	}

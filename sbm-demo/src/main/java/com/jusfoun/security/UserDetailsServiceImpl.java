@@ -61,7 +61,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		// 如果是管理员权限则需要用户拥有所有的权限，这里赋给该账户所有的权限
 		if (sysUser.isAdmin()) {
-			sysUser.setAuthorities(sysModuleService.selectAll().stream().map(t -> new RawGrantedAuthority(t.getUrl())).collect(Collectors.toSet()));
+			sysUser.setAuthorities(sysModuleService.selectAll().parallelStream().map(t -> new RawGrantedAuthority(t.getUrl())).collect(Collectors.toSet()));
 		}
 
 		// 用户没有赋权，用户需要有权限才能登陆服务

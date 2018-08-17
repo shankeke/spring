@@ -19,8 +19,6 @@ public class BlobVsShortArrayTypeHandler extends AbstractBlobTypeHandler<Short[]
 
 	@Override
 	public Short[] translate2Bean(String result) {
-		return Arrays.stream(result.split(DEFAULT_REGEX)).map(t -> {
-			return Short.valueOf(t);
-		}).toArray(Short[]::new);
+		return Arrays.stream(result.split(DEFAULT_REGEX)).map(Short::valueOf).toArray(Short[]::new);
 	}
 }
