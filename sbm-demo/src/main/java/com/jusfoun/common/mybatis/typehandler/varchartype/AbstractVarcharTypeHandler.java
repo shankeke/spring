@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.type.JdbcType;
 
-import com.jusfoun.common.mybatis.typehandler.AbstractTypeHandler;
+import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
 
 /**
  * 描述 : Varchar类型字段转换抽象TypeHandler. <br>
@@ -16,7 +16,7 @@ import com.jusfoun.common.mybatis.typehandler.AbstractTypeHandler;
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32
  */
-public abstract class AbstractVarcharTypeHandler<T> extends AbstractTypeHandler<T> {
+public abstract class AbstractVarcharTypeHandler<T> extends AbstractComplexTypeHandler<T> {
 
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, T t, JdbcType jdbcType) throws SQLException {

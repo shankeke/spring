@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.type.JdbcType;
 
-import com.jusfoun.common.mybatis.typehandler.AbstractTypeHandler;
+import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
 
 /**
  * 描述:Blob数据类型处理器抽象. <br>
@@ -18,7 +18,7 @@ import com.jusfoun.common.mybatis.typehandler.AbstractTypeHandler;
  * @author yjw@jusfoun.com
  * @date 2018年1月17日 下午1:47:50
  */
-public abstract class AbstractBlobTypeHandler<T> extends AbstractTypeHandler<T> {
+public abstract class AbstractBlobTypeHandler<T> extends AbstractComplexTypeHandler<T> {
 
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, T t, JdbcType jdbcType) throws SQLException {
