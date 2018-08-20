@@ -105,6 +105,7 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+    
 server:
   context-path: /aobo
   display-name: /AoBo

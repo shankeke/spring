@@ -28,7 +28,7 @@ system:
   init:
     username: admin
     password: 123456
-    sysModulesFile: classpath:SysModule.xml
+    sysModulesFile: classpath:SysModules.xml
     clientDetailsFile: classpath:ClientDetails.xml
   file:
     upload:
