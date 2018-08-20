@@ -87,6 +87,7 @@
    			<![CDATA[ parent_id = #{_parameter,jdbcType=BIGINT} ]]>
 		</where>
 	</select>
+	
 	<select id="selectTree" parameterType="Long" resultMap="BaseTreeResultMap">
 		select
 		<include refid="Base_Column_List" />

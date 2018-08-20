@@ -1,6 +1,7 @@
 package com.jusfoun.common.base.extend.adapter;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -9,9 +10,9 @@ import org.springframework.stereotype.Component;
 
 import com.beust.jcommander.internal.Lists;
 import com.jusfoun.common.base.extend.preprocessor.BaseEntityInsertPreprocessor;
+import com.jusfoun.common.base.extend.preprocessor.BaseEntityUpdatePreprocessor;
 import com.jusfoun.common.base.extend.preprocessor.EntityPreprocessor;
 import com.jusfoun.common.utils.ICollections;
-import com.jusfoun.common.base.extend.preprocessor.BaseEntityUpdatePreprocessor;
 
 /**
  * 描述:实体预处理适配器. <br>
@@ -38,16 +39,16 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	@Override
 	public void preprocess(Long userId, String realName, Annotation annotation, Object obj) {
 		if (ICollections.hasElements(preprocessors)) {
-
 			EntityPreprocessor preprocessor = null;
-
 			Class<? extends Object> clazz = obj.getClass();
 			if (Iterable.class.isAssignableFrom(clazz)) {
 				Iterator<?> iterator = ((Iterable<?>) obj).iterator();
-				Object next = null;
-				while (iterator.hasNext()) {
-					next = iterator.next();
-					handle(userId, realName, annotation, preprocessor, next);
+				iterator.forEachRemaining(t -> {
+					handle(userId, realName, annotation, preprocessor, t);
+				});
+			} else if (clazz.isArray()) {
+				for (int i = 0; i < Array.getLength(obj); i++) {
+					handle(userId, realName, annotation, preprocessor, Array.get(obj, i));
 				}
 			} else {
 				handle(userId, realName, annotation, preprocessor, obj);
