@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.jusfoun.common.message.annotation.Json;
+import com.jusfoun.common.message.annotation.JsonBody;
 
 /**
  * 描述 : jackson序列化处理器. <br>
@@ -102,7 +102,7 @@ public class FilterFieldsJsonSerializer {
 	 * @param filter
 	 *            过滤的json注解
 	 */
-	public void filter(Json filter) {
+	public void filter(JsonBody filter) {
 		this.filter(filter.type(), filter.includes(), filter.excludes());
 	}
 }

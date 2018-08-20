@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jusfoun.common.message.annotation.Json;
 import com.jusfoun.common.message.annotation.JsonBody;
+import com.jusfoun.common.message.annotation.JsonBodys;
 
 import javassist.CannotCompileException;
 import javassist.ClassPool;
@@ -117,10 +117,10 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	 * @param pojoAndNamesMap
 	 *            实体类和字段集合
 	 */
-	private void processJsonBodyAnnotation(JsonBody jsonBody, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
-		Json[] filters = jsonBody.value();
+	private void processJsonBodyAnnotation(JsonBodys jsonBody, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
+		JsonBody[] filters = jsonBody.value();
 		if (filters != null && filters.length > 0) {
-			for (Json filter : filters) {
+			for (JsonBody filter : filters) {
 				processJsonFilterAnnotationIncludeFields(filter, pojoAndNamesMap);
 				processJsonFilterAnnotationExcludeFields(filter, pojoAndNamesMap);
 			}
@@ -137,7 +137,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	 * @param pojoAndNamesMap
 	 *            实体类和字段名称集合映射
 	 */
-	private void processJsonFilterAnnotationExcludeFields(Json filter, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
+	private void processJsonFilterAnnotationExcludeFields(JsonBody filter, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
 		String[] includeFields = filter.excludes();
 		Class<?> pojoClass = filter.type();
 		// 根据注解创建代理接口
@@ -156,7 +156,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	 * @param pojoAndNamesMap
 	 *            实体类和字段名称集合映射
 	 */
-	private void processJsonFilterAnnotationIncludeFields(Json filter, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
+	private void processJsonFilterAnnotationIncludeFields(JsonBody filter, Map<Class<?>, Collection<String>> pojoAndNamesMap) {
 		String[] includeFields = filter.includes();
 		Class<?> pojoClass = filter.type();
 
@@ -211,11 +211,11 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 
 		Map<Class<?>, Collection<String>> pojoAndNamesMap = new HashMap<Class<?>, Collection<String>>();
 
-		JsonBody classJsonBody = clazzOfMethodIn.getAnnotation(JsonBody.class);
-		Json classJsonFilter = clazzOfMethodIn.getAnnotation(Json.class);
+		JsonBodys classJsonBody = clazzOfMethodIn.getAnnotation(JsonBodys.class);
+		JsonBody classJsonFilter = clazzOfMethodIn.getAnnotation(JsonBody.class);
 
-		JsonBody jsonBody = method.getAnnotation(JsonBody.class);
-		Json jsonFilter = method.getAnnotation(Json.class);
+		JsonBodys jsonBody = method.getAnnotation(JsonBodys.class);
+		JsonBody jsonFilter = method.getAnnotation(JsonBody.class);
 
 		if (jsonFilter != null) {// 方法上的AllowProperty注解
 			processJsonFilterAnnotationIncludeFields(jsonFilter, pojoAndNamesMap);

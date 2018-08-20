@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.jusfoun.common.message.annotation.JsonBody;
+import com.jusfoun.common.message.annotation.JsonBodys;
 import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonSerializer;
 import com.jusfoun.common.message.result.BaseResponse;
@@ -37,7 +37,7 @@ public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
 		Class<?> declaringClass = returnType.getMethod().getDeclaringClass();
 		return MappingJackson2HttpMessageConverter.class.isAssignableFrom(converterType)
 				&& (declaringClass.isAnnotationPresent(RestController.class) || returnType.hasMethodAnnotation(ResponseBody.class))
-				&& returnType.hasMethodAnnotation(JsonBody.class);
+				&& returnType.hasMethodAnnotation(JsonBodys.class);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
 		}
 
 		// 如果没有@JsonBody注解则不需要过滤字段直接返回
-		if (!returnType.hasMethodAnnotation(JsonBody.class)) {
+		if (!returnType.hasMethodAnnotation(JsonBodys.class)) {
 			return body;
 		}
 
@@ -59,8 +59,8 @@ public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
 		FilterFieldsJsonSerializer jsonSerializer = new FilterFieldsJsonSerializer();
 		// 如果是@JsonBody就循环调用
 		Arrays.asList(annos).forEach(a -> {
-			if (a instanceof JsonBody) {
-				JsonBody jsonBody = (JsonBody) a;
+			if (a instanceof JsonBodys) {
+				JsonBodys jsonBody = (JsonBodys) a;
 				Arrays.asList(jsonBody.value()).forEach(json -> {
 					jsonSerializer.filter(json);
 				});

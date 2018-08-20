@@ -22,7 +22,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.jusfoun.common.message.annotation.JsonBody;
+import com.jusfoun.common.message.annotation.JsonBodys;
 
 /**
  * 描述 :json返回结果处理器. <br>
@@ -41,7 +41,7 @@ public class FilterFieldsJsonReturnHandler implements HandlerMethodReturnValueHa
 		Class<?> declaringClass = returnType.getMethod().getDeclaringClass();
 		return (declaringClass.isAnnotationPresent(RestController.class)
 				|| returnType.hasMethodAnnotation(ResponseBody.class))
-				&& returnType.hasMethodAnnotation(JsonBody.class);
+				&& returnType.hasMethodAnnotation(JsonBodys.class);
 	}
 
 	// 有的话就会执行这个方法
@@ -63,8 +63,8 @@ public class FilterFieldsJsonReturnHandler implements HandlerMethodReturnValueHa
 		FilterFieldsJsonSerializer jsonSerializer = new FilterFieldsJsonSerializer();
 		// 如果是JsonBody就循环调用
 		Arrays.asList(annos).forEach(a -> {
-			if (a instanceof JsonBody) {
-				JsonBody body = (JsonBody) a;
+			if (a instanceof JsonBodys) {
+				JsonBodys body = (JsonBodys) a;
 				Arrays.asList(body.value()).forEach(json -> {
 					jsonSerializer.filter(json);
 				});
