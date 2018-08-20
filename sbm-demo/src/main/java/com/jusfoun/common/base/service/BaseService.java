@@ -95,6 +95,11 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	@Override
+	default T selectOneByExample(Object example) {
+		return getMyBaseMapper().selectOneByExample(example);
+	}
+
+	@Override
 	default List<T> select(T record) {
 		return getMyBaseMapper().select(record);
 	}
@@ -135,11 +140,6 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	@Override
-	default T selectOneByExample(Object example) {
-		return getMyBaseMapper().selectOneByExample(example);
-	}
-
-	@Override
 	default List<T> selectByExample(Object example) {
 		return getMyBaseMapper().selectByExample(example);
 	}
@@ -152,6 +152,22 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	@Override
 	default List<T> selectByExampleAndRowBounds(Object example, RowBounds rowBounds) {
 		return getMyBaseMapper().selectByExampleAndRowBounds(example, rowBounds);
+	}
+
+	/**
+	 * 描述: 使用example对象查询分页数据. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年7月27日 下午4:22:55
+	 * @param s
+	 *            查询条件
+	 * @param page
+	 *            分页信息
+	 * @return 查询结果集合
+	 */
+	default List<T> selectByExampleAndPage(Object example, IPage<T> page) {
+		startPage(page);
+		return selectByExample(example);
 	}
 
 	/**
@@ -185,7 +201,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 		int totalCount = selectCount(s);
 		if (totalCount <= 0)
 			return page;
-
+	
 		if (page == null) {// 查询所有
 			page = new IPage<T>();
 			page.setTotalCount(totalCount);
@@ -195,22 +211,6 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 			page.setList(selectByPage(s, page));
 		}
 		return page;
-	}
-
-	/**
-	 * 描述: 使用example对象查询分页数据. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月27日 下午4:22:55
-	 * @param s
-	 *            查询条件
-	 * @param page
-	 *            分页信息
-	 * @return 查询结果集合
-	 */
-	default List<T> selectByExampleAndPage(Object example, IPage<T> page) {
-		startPage(page);
-		return selectByExample(example);
 	}
 
 	/**

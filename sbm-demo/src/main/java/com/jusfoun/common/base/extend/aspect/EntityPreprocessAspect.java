@@ -61,7 +61,7 @@ public class EntityPreprocessAspect {
 				realName = sysUser.getRealName();
 			}
 		} catch (Exception e) {
-			log.error("未获取到当前登录用户信息，使用默认设置");
+			log.error("未获取到当前登录用户信息，使用默认设置", e);
 			userId = 1L;
 			realName = "admin";
 		}
