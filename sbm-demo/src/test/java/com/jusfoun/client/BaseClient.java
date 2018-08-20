@@ -46,7 +46,7 @@ public abstract class BaseClient<T> {
 	protected String access_token;
 	protected String refresh_token;
 
-	protected final String BASE_URL = "http://localhost:8080/aobo%s";
+	protected final String BASE_URL = "http://localhost:8080/sbm-demo%s";
 	protected final String username = "admin";
 	protected final String password = "123456";
 	protected final String clientId = "web_client";
@@ -185,8 +185,8 @@ public abstract class BaseClient<T> {
 					StringBuffer buf = new StringBuffer();
 					buf.append(url).append("?").append(createLinkStringByGet(t));
 					url = buf.toString();
-					request = new HttpEntity<Object>(t, headers);// 这行代码本身没什么用处，只是打印参数方便
-					response = restTemplate.getForEntity(url, Object.class);
+					request = new HttpEntity<Object>(t, headers);
+					response = restTemplate.exchange(url, HttpMethod.GET, request, Object.class);
 					break;
 				case POST :
 					request = new HttpEntity<Object>(createLinkStringByPost(t), headers);
@@ -290,13 +290,24 @@ public abstract class BaseClient<T> {
 	@Test
 	public void save() {
 	}
-
 	@Test
-	public void update() {
+	public void saveList() {
 	}
 
 	@Test
-	public void delete() {
+	public void updateById() {
+	}
+
+	@Test
+	public void updateListById() {
+	}
+
+	@Test
+	public void deleteById() {
+	}
+
+	@Test
+	public void deleteByIds() {
 	}
 
 	@Test
@@ -304,7 +315,15 @@ public abstract class BaseClient<T> {
 	}
 
 	@Test
+	public void listPage() {
+	}
+
+	@Test
 	public void info() {
+	}
+
+	@Test
+	public void infoById() {
 	}
 
 }

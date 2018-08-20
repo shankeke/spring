@@ -33,29 +33,38 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 	}
 
 	@Override
-	public void update() {
+	public void updateById() {
 		t.setId(3L);
 		t.setStatus(UsingStatus.DISABLE.getValue());
-		rest("/sysuser/update", t);
+		rest("/sysuser/updateById", t);
 	}
 
 	@Override
-	public void delete() {
+	public void deleteById() {
 		t.setId(3L);
-		rest("/sysuser/delete", t);
+		rest("/sysuser/deleteById", t);
 	}
 
 	@Override
 	public void list() {
-		PageVo pageVo = new PageVo(1, 50);
-		// pageVo.put("govId", 3);
-		rest("/sysuser/list", pageVo);
+		t.setPageable(true);
+		t.setPageNum(2);
+		t.setPageSize(10);
+		rest("/sysuser/list", t);
 	}
 
 	@Override
-	public void info() {
+	public void listPage() {
+		t.setPageable(true);
+		t.setPageNum(2);
+		t.setPageSize(10);
+		rest("/sysuser/listPage", t);
+	}
+
+	@Override
+	public void infoById() {
 		t.setId(2L);
-		rest("/sysuser/info", t);
+		rest("/sysuser/infoById", t);
 	}
 
 	@Test

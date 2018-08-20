@@ -12,10 +12,8 @@ public class SysLogClientTest extends BaseClient<SysLog> {
 
 	@Override
 	public void list() {
-		PageVo pageVo = new PageVo(1, 20);
-		pageVo.put("username", "admin");
-		pageVo.put("type", 1);
-		rest("/syslog/list", pageVo);
+		t.setPageNum(3);
+		rest("/syslog/list", t);
 	}
 
 }

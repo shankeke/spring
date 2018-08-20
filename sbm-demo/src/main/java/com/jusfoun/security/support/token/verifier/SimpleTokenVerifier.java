@@ -15,13 +15,13 @@ public class SimpleTokenVerifier implements TokenVerifier {
 	/**
 	 * 匹配规则
 	 */
-	private static final String TOKEN_DEF_REGEX = "[0-9a-zA-Z-_.\\s]{32,}";
+	private static final String TOKEN_DEF_REGEX = "[0-9a-zA-Z-_.\\s]{6,}";
 
 	@Override
 	public boolean verify(String tokenPayload) throws TokenInvalidException {
-		if (StringUtils.isEmpty(tokenPayload) || !RegexUtils.check(TOKEN_DEF_REGEX, tokenPayload)) {
-			throw new TokenInvalidException(String.format("Invalid token '%s' !", tokenPayload));
-		}
+//		if (StringUtils.isEmpty(tokenPayload) || !RegexUtils.check(TOKEN_DEF_REGEX, tokenPayload)) {
+//			throw new TokenInvalidException(String.format("Invalid token '%s' !", tokenPayload));
+//		}
 		return true;
 	}
 }

@@ -20,7 +20,7 @@ public enum ErrType implements IntegerValueEnum {
 	/**
 	 * 权限和数据
 	 */
-	AUTH_FAILED(401, "认证错误"), //
+	AUTH_FAILED(401, "认证失败"), //
 	UN_AUTHORIZED(403, "未授权的请求"), //
 	NOT_FOUND(404, "找不到请求的网页"), //
 	MOTHED_DISABLE(405, "方法禁用"), //

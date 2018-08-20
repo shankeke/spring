@@ -16,16 +16,16 @@ import com.jusfoun.entity.TArea;
 public class TAreaClientTest extends BaseClient<TArea> {
 
 	@Test
-	public void baseList() {
+	public void list() {
 		t.setLevel((byte) 4);
-		rest("/area/baseList", t);
+		rest("/area/list", t);
 	}
-	
+
 	@Test
-	public void getAreaTree() {
+	public void getTree() {
 		Map<String, Object> params = Maps.newHashMap();
-		params.put("areaName", "北京");
-		post("/area/getAreaTree", params);
+		params.put("keyword", "北京");
+		post("/area/getTree", params);
 	}
 
 }

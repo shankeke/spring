@@ -31,7 +31,7 @@ public class JacksonConfig {
 	private static final String DEFAULT_DATE_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
 	/**
-	 * 描述 :这里实例化一个统一的ObjectMapper实例，系统在哪里需要ObjectMapper的时候都引用该实例以实现json数据的统一规范.
+	 * 描述 :统一的ObjectMapper实例，系统在哪里需要ObjectMapper的时候都引用该实例以实现json数据的统一规范.
 	 * <br>
 	 * 
 	 * @author yjw@jusfoun.com
@@ -63,7 +63,7 @@ public class JacksonConfig {
 		// objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES,
 		// false);
 		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		
+
 		// 反序列化时，属性不存在的兼容处理
 		objectMapper.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);

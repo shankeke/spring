@@ -107,8 +107,9 @@ pagehelper:
     params: count=countSql
     
 server:
-  context-path: /aobo
-  display-name: /AoBo
+  servlet:
+    context-path: /sbm-demo
+    application-display-name: /SBM-DEMO
   compression:
     enabled: true
     mime-types:
@@ -126,7 +127,7 @@ server:
     max-threads: 200
     uri-encoding: UTF-8
   error:
-    path: /error  
+    path: /error
 logging:
   session:
     timeout: 60

@@ -31,7 +31,7 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 	}
 
 	@Override
-	public void update() {
+	public void updateById() {
 		t.setId(2L);
 		Set<SysModule> list = new HashSet<SysModule>();
 		SysModule t1 = null;
@@ -45,21 +45,31 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 	}
 
 	@Override
-	public void delete() {
+	public void deleteById() {
 		t.setId(1L);
-		rest("/sysrole/delete", t);
+		rest("/sysrole/deleteById", t);
 	}
 
 	@Override
 	public void list() {
-		PageVo pageVo = new PageVo(1, 10);
-		rest("/sysrole/list", pageVo);
+		t.setPageable(true);
+		t.setPageNum(2);
+		t.setPageSize(10);
+		rest("/sysrole/list", t);
 	}
 
 	@Override
-	public void info() {
+	public void listPage() {
+		t.setPageable(true);
+		t.setPageNum(2);
+		t.setPageSize(10);
+		rest("/sysrole/listPage", t);
+	}
+
+	@Override
+	public void infoById() {
 		t.setId(11L);
-		rest("/sysrole/info", t);
+		rest("/sysrole/infoById", t);
 	}
 
 }

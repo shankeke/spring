@@ -31,7 +31,7 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 	}
 
 	@Override
-	public void update() {
+	public void updateById() {
 		t.setId(1L);
 		t.setAddress("河北省保定市");
 		rest("/sysgov/updateById", t);
@@ -47,9 +47,9 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 	}
 
 	@Override
-	public void delete() {
+	public void deleteById() {
 		t.setId(1L);
-		rest("/sysgov/delete", t);
+		rest("/sysgov/deleteById", t);
 	}
 
 	@Override
@@ -59,9 +59,15 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 	}
 
 	@Override
-	public void info() {
+	public void listPage() {
+		t.setParentId(0L);
+		rest("/sysgov/listPage", t);
+	}
+
+	@Override
+	public void infoById() {
 		t.setId(1L);
-		rest("/sysgov/info", t);
+		rest("/sysgov/infoById", t);
 	}
 
 }

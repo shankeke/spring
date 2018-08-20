@@ -2,6 +2,8 @@ package com.jusfoun.client;
 
 import java.util.Map;
 
+import org.junit.Test;
+
 import com.google.common.collect.Maps;
 import com.jusfoun.entity.TCountry;
 
@@ -16,14 +18,14 @@ public class TCountryClientTest extends BaseClient<TCountry> {
 	@Override
 	public void list() {
 		t.setShName("朝鲜");
-		rest("/country/baseList", t);
+		rest("/country/list", t);
 	}
 
-	@Override
-	public void info() {
+	@Test
+	public void infoById() {
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("id", "1");
-		post("/country/baseInfo", params);
+		post("/country/infoById", params);
 	}
 
 }
