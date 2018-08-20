@@ -145,7 +145,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 	@Cacheable(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_sysmodule_byRootId'+#rootId", unless = "#result == null")
 	@Override
 	public SysModule selectTree(Long rootId) throws ServiceException {
-		return sysModuleMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 0L));
+		return sysModuleMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 1L));
 	}
 
 }

@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -31,8 +30,7 @@ public class JacksonConfig {
 	private static final String DEFAULT_DATE_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
 	/**
-	 * 描述 :统一的ObjectMapper实例，系统在哪里需要ObjectMapper的时候都引用该实例以实现json数据的统一规范.
-	 * <br>
+	 * 描述 :统一的ObjectMapper实例，系统在哪里需要ObjectMapper的时候都引用该实例以实现json数据的统一规范. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月25日 上午11:57:34
@@ -62,7 +60,7 @@ public class JacksonConfig {
 		// 空值不序列化
 		// objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES,
 		// false);
-		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		// objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
 		// 反序列化时，属性不存在的兼容处理
 		objectMapper.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);

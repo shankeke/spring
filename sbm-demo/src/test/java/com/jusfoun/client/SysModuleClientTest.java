@@ -1,5 +1,10 @@
 package com.jusfoun.client;
 
+import java.util.Map;
+
+import org.junit.Test;
+
+import com.beust.jcommander.internal.Maps;
 import com.jusfoun.entity.SysModule;
 
 /**
@@ -15,6 +20,17 @@ public class SysModuleClientTest extends BaseClient<SysModule> {
 		// for (int i = 0; i < 10000; i++) {
 		t.setParentId(1L);
 		rest("/sysmodule/list", t);
+		// }
+	}
+
+	@Test
+	public void getTree() {
+		// for (int i = 0; i < 10000; i++) {
+		// t.setParentId(1L);
+		Map<String, Object> params = Maps.newHashMap();
+		params.put("rootId", "1");
+		params.put("keyword", "生产计划");
+		post("/sysmodule/getTree", params);
 		// }
 	}
 }

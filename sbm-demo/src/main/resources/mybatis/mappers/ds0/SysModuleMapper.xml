@@ -77,7 +77,7 @@
 		from
 		<include refid="Base_Table_Name" />
 		<where>
-			<![CDATA[ id = #{_parameter,jdbcType=BIGINT} and t.status = 1 ]]>
+			<![CDATA[ id = #{_parameter,jdbcType=BIGINT} and status = 1 ]]>
 		</where>
 	</select>
 
