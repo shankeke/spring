@@ -477,4 +477,125 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 		}
 		return null;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accessToken == null) ? 0 : accessToken.hashCode());
+		result = prime * result + ((accessTokenExpTime == null) ? 0 : accessTokenExpTime.hashCode());
+		result = prime * result + (accountNonExpired ? 1231 : 1237);
+		result = prime * result + (accountNonLocked ? 1231 : 1237);
+		result = prime * result + (authenticated ? 1231 : 1237);
+		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
+		result = prime * result + ((clientId == null) ? 0 : clientId.hashCode());
+		result = prime * result + ((createTime == null) ? 0 : createTime.hashCode());
+		result = prime * result + (credentialsNonExpired ? 1231 : 1237);
+		result = prime * result + (enabled ? 1231 : 1237);
+		result = prime * result + ((expiresIn == null) ? 0 : expiresIn.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((realname == null) ? 0 : realname.hashCode());
+		result = prime * result + ((refreshToken == null) ? 0 : refreshToken.hashCode());
+		result = prime * result + ((refreshTokenExpTime == null) ? 0 : refreshTokenExpTime.hashCode());
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TokenUserDetails other = (TokenUserDetails) obj;
+		if (accessToken == null) {
+			if (other.accessToken != null)
+				return false;
+		} else if (!accessToken.equals(other.accessToken))
+			return false;
+		if (accessTokenExpTime == null) {
+			if (other.accessTokenExpTime != null)
+				return false;
+		} else if (!accessTokenExpTime.equals(other.accessTokenExpTime))
+			return false;
+		if (accountNonExpired != other.accountNonExpired)
+			return false;
+		if (accountNonLocked != other.accountNonLocked)
+			return false;
+		if (authenticated != other.authenticated)
+			return false;
+		if (authorities == null) {
+			if (other.authorities != null)
+				return false;
+		} else if (!authorities.equals(other.authorities))
+			return false;
+		if (clientId == null) {
+			if (other.clientId != null)
+				return false;
+		} else if (!clientId.equals(other.clientId))
+			return false;
+		if (createTime == null) {
+			if (other.createTime != null)
+				return false;
+		} else if (!createTime.equals(other.createTime))
+			return false;
+		if (credentialsNonExpired != other.credentialsNonExpired)
+			return false;
+		if (enabled != other.enabled)
+			return false;
+		if (expiresIn == null) {
+			if (other.expiresIn != null)
+				return false;
+		} else if (!expiresIn.equals(other.expiresIn))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (realname == null) {
+			if (other.realname != null)
+				return false;
+		} else if (!realname.equals(other.realname))
+			return false;
+		if (refreshToken == null) {
+			if (other.refreshToken != null)
+				return false;
+		} else if (!refreshToken.equals(other.refreshToken))
+			return false;
+		if (refreshTokenExpTime == null) {
+			if (other.refreshTokenExpTime != null)
+				return false;
+		} else if (!refreshTokenExpTime.equals(other.refreshTokenExpTime))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "TokenUserDetails [id=" + id + ", userId=" + userId + ", clientId=" + clientId + ", username=" + username + ", password=" + password + ", realname=" + realname
+				+ ", authorities=" + authorities + ", enabled=" + enabled + ", authenticated=" + authenticated + ", accountNonLocked=" + accountNonLocked + ", accountNonExpired="
+				+ accountNonExpired + ", credentialsNonExpired=" + credentialsNonExpired + ", accessToken=" + accessToken + ", refreshToken=" + refreshToken + ", expiresIn="
+				+ expiresIn + ", accessTokenExpTime=" + accessTokenExpTime + ", refreshTokenExpTime=" + refreshTokenExpTime + ", createTime=" + createTime + "]";
+	}
+
 }

@@ -322,4 +322,102 @@ public class SysLog extends BaseEntity<SysLog> {
 		this.resultType = resultType;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((areaName == null) ? 0 : areaName.hashCode());
+		result = prime * result + ((govId == null) ? 0 : govId.hashCode());
+		result = prime * result + ((govName == null) ? 0 : govName.hashCode());
+		result = prime * result + ((moduleName == null) ? 0 : moduleName.hashCode());
+		result = prime * result + ((modulePath == null) ? 0 : modulePath.hashCode());
+		result = prime * result + ((realName == null) ? 0 : realName.hashCode());
+		result = prime * result + ((remoteHost == null) ? 0 : remoteHost.hashCode());
+		result = prime * result + ((remotePort == null) ? 0 : remotePort.hashCode());
+		result = prime * result + ((requestUri == null) ? 0 : requestUri.hashCode());
+		result = prime * result + ((requestUrl == null) ? 0 : requestUrl.hashCode());
+		result = prime * result + ((resultType == null) ? 0 : resultType.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SysLog other = (SysLog) obj;
+		if (areaName == null) {
+			if (other.areaName != null)
+				return false;
+		} else if (!areaName.equals(other.areaName))
+			return false;
+		if (govId == null) {
+			if (other.govId != null)
+				return false;
+		} else if (!govId.equals(other.govId))
+			return false;
+		if (govName == null) {
+			if (other.govName != null)
+				return false;
+		} else if (!govName.equals(other.govName))
+			return false;
+		if (moduleName == null) {
+			if (other.moduleName != null)
+				return false;
+		} else if (!moduleName.equals(other.moduleName))
+			return false;
+		if (modulePath == null) {
+			if (other.modulePath != null)
+				return false;
+		} else if (!modulePath.equals(other.modulePath))
+			return false;
+		if (realName == null) {
+			if (other.realName != null)
+				return false;
+		} else if (!realName.equals(other.realName))
+			return false;
+		if (remoteHost == null) {
+			if (other.remoteHost != null)
+				return false;
+		} else if (!remoteHost.equals(other.remoteHost))
+			return false;
+		if (remotePort == null) {
+			if (other.remotePort != null)
+				return false;
+		} else if (!remotePort.equals(other.remotePort))
+			return false;
+		if (requestUri == null) {
+			if (other.requestUri != null)
+				return false;
+		} else if (!requestUri.equals(other.requestUri))
+			return false;
+		if (requestUrl == null) {
+			if (other.requestUrl != null)
+				return false;
+		} else if (!requestUrl.equals(other.requestUrl))
+			return false;
+		if (resultType == null) {
+			if (other.resultType != null)
+				return false;
+		} else if (!resultType.equals(other.resultType))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SysLog [remoteHost=" + remoteHost + ", remotePort=" + remotePort + ", requestUrl=" + requestUrl + ", requestUri=" + requestUri + ", govId=" + govId + ", govName="
+				+ govName + ", username=" + username + ", realName=" + realName + ", areaName=" + areaName + ", modulePath=" + modulePath + ", moduleName=" + moduleName
+				+ ", resultType=" + resultType + "]";
+	}
+
 }

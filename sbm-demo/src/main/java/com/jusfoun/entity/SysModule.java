@@ -185,4 +185,68 @@ public class SysModule extends BaseEntity<SysModule> implements Treeable<SysModu
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((clientId == null) ? 0 : clientId.hashCode());
+		result = prime * result + (leaf ? 1231 : 1237);
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
+		result = prime * result + ((subList == null) ? 0 : subList.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SysModule other = (SysModule) obj;
+		if (clientId == null) {
+			if (other.clientId != null)
+				return false;
+		} else if (!clientId.equals(other.clientId))
+			return false;
+		if (leaf != other.leaf)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (parentId == null) {
+			if (other.parentId != null)
+				return false;
+		} else if (!parentId.equals(other.parentId))
+			return false;
+		if (subList == null) {
+			if (other.subList != null)
+				return false;
+		} else if (!subList.equals(other.subList))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SysModule [name=" + name + ", parentId=" + parentId + ", type=" + type + ", clientId=" + clientId + ", url=" + url + ", subList=" + subList + ", leaf=" + leaf
+				+ "]";
+	}
 }

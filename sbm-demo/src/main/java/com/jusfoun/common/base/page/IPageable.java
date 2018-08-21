@@ -207,4 +207,52 @@ public abstract class IPageable implements Serializable {
 	public static RowBounds getRowBounds(IPageable pageable) {
 		return new RowBounds((pageable.getPageNum() - 1) * pageable.getPageSize(), pageable.getPageSize());
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((orderByClause == null) ? 0 : orderByClause.hashCode());
+		result = prime * result + ((pageNum == null) ? 0 : pageNum.hashCode());
+		result = prime * result + ((pageSize == null) ? 0 : pageSize.hashCode());
+		result = prime * result + ((pageable == null) ? 0 : pageable.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IPageable other = (IPageable) obj;
+		if (orderByClause == null) {
+			if (other.orderByClause != null)
+				return false;
+		} else if (!orderByClause.equals(other.orderByClause))
+			return false;
+		if (pageNum == null) {
+			if (other.pageNum != null)
+				return false;
+		} else if (!pageNum.equals(other.pageNum))
+			return false;
+		if (pageSize == null) {
+			if (other.pageSize != null)
+				return false;
+		} else if (!pageSize.equals(other.pageSize))
+			return false;
+		if (pageable == null) {
+			if (other.pageable != null)
+				return false;
+		} else if (!pageable.equals(other.pageable))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "IPageable [pageable=" + pageable + ", pageNum=" + pageNum + ", pageSize=" + pageSize + ", orderByClause=" + orderByClause + "]";
+	}
 }

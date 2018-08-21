@@ -144,46 +144,52 @@ public class TCountry extends IPageable implements Idable<Long>{
 	}
 
 	@Override
-	public boolean equals(Object that) {
-		if (this == that) {
-			return true;
-		}
-		if (that == null) {
-			return false;
-		}
-		if (getClass() != that.getClass()) {
-			return false;
-		}
-		TCountry other = (TCountry) that;
-		return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-				&& (this.getZhName() == null ? other.getZhName() == null : this.getZhName().equals(other.getZhName()))
-				&& (this.getShName() == null ? other.getShName() == null : this.getShName().equals(other.getShName()))
-				&& (this.getEnName() == null ? other.getEnName() == null : this.getEnName().equals(other.getEnName()));
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-		result = prime * result + ((getZhName() == null) ? 0 : getZhName().hashCode());
-		result = prime * result + ((getShName() == null) ? 0 : getShName().hashCode());
-		result = prime * result + ((getEnName() == null) ? 0 : getEnName().hashCode());
+		int result = super.hashCode();
+		result = prime * result + ((enName == null) ? 0 : enName.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((shName == null) ? 0 : shName.hashCode());
+		result = prime * result + ((zhName == null) ? 0 : zhName.hashCode());
 		return result;
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(getClass().getSimpleName());
-		sb.append(" [");
-		sb.append("Hash = ").append(hashCode());
-		sb.append(", id=").append(id);
-		sb.append(", zhName=").append(zhName);
-		sb.append(", shName=").append(shName);
-		sb.append(", enName=").append(enName);
-		sb.append(", serialVersionUID=").append(serialVersionUID);
-		sb.append("]");
-		return sb.toString();
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TCountry other = (TCountry) obj;
+		if (enName == null) {
+			if (other.enName != null)
+				return false;
+		} else if (!enName.equals(other.enName))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (shName == null) {
+			if (other.shName != null)
+				return false;
+		} else if (!shName.equals(other.shName))
+			return false;
+		if (zhName == null) {
+			if (other.zhName != null)
+				return false;
+		} else if (!zhName.equals(other.zhName))
+			return false;
+		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "TCountry [id=" + id + ", zhName=" + zhName + ", shName=" + shName + ", enName=" + enName + "]";
+	}
+
+ 
 }

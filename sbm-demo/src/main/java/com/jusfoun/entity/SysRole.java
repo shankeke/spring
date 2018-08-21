@@ -83,4 +83,46 @@ public class SysRole extends BaseEntity<SysRole> {
 		this.sysModules = sysModules;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
+		result = prime * result + ((sysModules == null) ? 0 : sysModules.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SysRole other = (SysRole) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (parentId == null) {
+			if (other.parentId != null)
+				return false;
+		} else if (!parentId.equals(other.parentId))
+			return false;
+		if (sysModules == null) {
+			if (other.sysModules != null)
+				return false;
+		} else if (!sysModules.equals(other.sysModules))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SysRole [parentId=" + parentId + ", name=" + name + ", sysModules=" + sysModules + "]";
+	}
+
 }

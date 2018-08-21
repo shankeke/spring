@@ -358,4 +358,40 @@ public class IPage<T> extends IPageable {
 		return null;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((list == null) ? 0 : list.hashCode());
+		result = prime * result + totalCount;
+		result = prime * result + totalPage;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IPage<?> other = (IPage<?>) obj;
+		if (list == null) {
+			if (other.list != null)
+				return false;
+		} else if (!list.equals(other.list))
+			return false;
+		if (totalCount != other.totalCount)
+			return false;
+		if (totalPage != other.totalPage)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "IPage [totalCount=" + totalCount + ", totalPage=" + totalPage + ", list=" + list + "]";
+	}
+
 }

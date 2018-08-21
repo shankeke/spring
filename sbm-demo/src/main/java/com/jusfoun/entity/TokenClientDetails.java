@@ -1,6 +1,7 @@
 package com.jusfoun.entity;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -213,6 +214,71 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 			return collect.parallelStream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
 		}
 		return null;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accessTokenValidity == null) ? 0 : accessTokenValidity.hashCode());
+		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
+		result = prime * result + ((clientId == null) ? 0 : clientId.hashCode());
+		result = prime * result + ((clientSecret == null) ? 0 : clientSecret.hashCode());
+		result = prime * result + Arrays.hashCode(grantTypes);
+		result = prime * result + ((refreshTokenValidity == null) ? 0 : refreshTokenValidity.hashCode());
+		result = prime * result + Arrays.hashCode(resourceIds);
+		result = prime * result + Arrays.hashCode(scopes);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TokenClientDetails other = (TokenClientDetails) obj;
+		if (accessTokenValidity == null) {
+			if (other.accessTokenValidity != null)
+				return false;
+		} else if (!accessTokenValidity.equals(other.accessTokenValidity))
+			return false;
+		if (authorities == null) {
+			if (other.authorities != null)
+				return false;
+		} else if (!authorities.equals(other.authorities))
+			return false;
+		if (clientId == null) {
+			if (other.clientId != null)
+				return false;
+		} else if (!clientId.equals(other.clientId))
+			return false;
+		if (clientSecret == null) {
+			if (other.clientSecret != null)
+				return false;
+		} else if (!clientSecret.equals(other.clientSecret))
+			return false;
+		if (!Arrays.equals(grantTypes, other.grantTypes))
+			return false;
+		if (refreshTokenValidity == null) {
+			if (other.refreshTokenValidity != null)
+				return false;
+		} else if (!refreshTokenValidity.equals(other.refreshTokenValidity))
+			return false;
+		if (!Arrays.equals(resourceIds, other.resourceIds))
+			return false;
+		if (!Arrays.equals(scopes, other.scopes))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "TokenClientDetails [clientId=" + clientId + ", clientSecret=" + clientSecret + ", resourceIds=" + Arrays.toString(resourceIds) + ", scopes="
+				+ Arrays.toString(scopes) + ", grantTypes=" + Arrays.toString(grantTypes) + ", accessTokenValidity=" + accessTokenValidity + ", refreshTokenValidity="
+				+ refreshTokenValidity + ", authorities=" + authorities + "]";
 	}
 
 }

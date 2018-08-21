@@ -291,4 +291,114 @@ public class SysUser extends BaseEntity<SysUser> {
 		this.realName = realName;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + ((govId == null) ? 0 : govId.hashCode());
+		result = prime * result + ((govName == null) ? 0 : govName.hashCode());
+		result = prime * result + ((isAdmin == null) ? 0 : isAdmin.hashCode());
+		result = prime * result + ((mobile == null) ? 0 : mobile.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((realName == null) ? 0 : realName.hashCode());
+		result = prime * result + ((roleNames == null) ? 0 : roleNames.hashCode());
+		result = prime * result + ((sysRoles == null) ? 0 : sysRoles.hashCode());
+		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SysUser other = (SysUser) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (authorities == null) {
+			if (other.authorities != null)
+				return false;
+		} else if (!authorities.equals(other.authorities))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (gender == null) {
+			if (other.gender != null)
+				return false;
+		} else if (!gender.equals(other.gender))
+			return false;
+		if (govId == null) {
+			if (other.govId != null)
+				return false;
+		} else if (!govId.equals(other.govId))
+			return false;
+		if (govName == null) {
+			if (other.govName != null)
+				return false;
+		} else if (!govName.equals(other.govName))
+			return false;
+		if (isAdmin == null) {
+			if (other.isAdmin != null)
+				return false;
+		} else if (!isAdmin.equals(other.isAdmin))
+			return false;
+		if (mobile == null) {
+			if (other.mobile != null)
+				return false;
+		} else if (!mobile.equals(other.mobile))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (realName == null) {
+			if (other.realName != null)
+				return false;
+		} else if (!realName.equals(other.realName))
+			return false;
+		if (roleNames == null) {
+			if (other.roleNames != null)
+				return false;
+		} else if (!roleNames.equals(other.roleNames))
+			return false;
+		if (sysRoles == null) {
+			if (other.sysRoles != null)
+				return false;
+		} else if (!sysRoles.equals(other.sysRoles))
+			return false;
+		if (tel == null) {
+			if (other.tel != null)
+				return false;
+		} else if (!tel.equals(other.tel))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SysUser [username=" + username + ", realName=" + realName + ", password=" + password + ", govId=" + govId + ", govName=" + govName + ", gender=" + gender + ", tel="
+				+ tel + ", mobile=" + mobile + ", email=" + email + ", address=" + address + ", isAdmin=" + isAdmin + ", sysRoles=" + sysRoles + ", roleNames=" + roleNames
+				+ ", authorities=" + authorities + "]";
+	}
+
 }

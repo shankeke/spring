@@ -310,4 +310,99 @@ public class SysGov extends BaseEntity<SysGov> implements Treeable<SysGov> {
 		this.area = area == null ? null : area.trim();
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((area == null) ? 0 : area.hashCode());
+		result = prime * result + ((contacts == null) ? 0 : contacts.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
+		result = prime * result + (leaf ? 1231 : 1237);
+		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
+		result = prime * result + ((parentName == null) ? 0 : parentName.hashCode());
+		result = prime * result + ((shortName == null) ? 0 : shortName.hashCode());
+		result = prime * result + ((subList == null) ? 0 : subList.hashCode());
+		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
+		result = prime * result + ((weburl == null) ? 0 : weburl.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SysGov other = (SysGov) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (area == null) {
+			if (other.area != null)
+				return false;
+		} else if (!area.equals(other.area))
+			return false;
+		if (contacts == null) {
+			if (other.contacts != null)
+				return false;
+		} else if (!contacts.equals(other.contacts))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (fullName == null) {
+			if (other.fullName != null)
+				return false;
+		} else if (!fullName.equals(other.fullName))
+			return false;
+		if (leaf != other.leaf)
+			return false;
+		if (parentId == null) {
+			if (other.parentId != null)
+				return false;
+		} else if (!parentId.equals(other.parentId))
+			return false;
+		if (parentName == null) {
+			if (other.parentName != null)
+				return false;
+		} else if (!parentName.equals(other.parentName))
+			return false;
+		if (shortName == null) {
+			if (other.shortName != null)
+				return false;
+		} else if (!shortName.equals(other.shortName))
+			return false;
+		if (subList == null) {
+			if (other.subList != null)
+				return false;
+		} else if (!subList.equals(other.subList))
+			return false;
+		if (tel == null) {
+			if (other.tel != null)
+				return false;
+		} else if (!tel.equals(other.tel))
+			return false;
+		if (weburl == null) {
+			if (other.weburl != null)
+				return false;
+		} else if (!weburl.equals(other.weburl))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "SysGov [parentId=" + parentId + ", parentName=" + parentName + ", fullName=" + fullName + ", shortName=" + shortName + ", address=" + address + ", contacts="
+				+ contacts + ", tel=" + tel + ", email=" + email + ", weburl=" + weburl + ", area=" + area + ", subList=" + subList + ", leaf=" + leaf + "]";
+	}
+	
+
 }
