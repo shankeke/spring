@@ -29,20 +29,20 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		t.setEmail("156@163.com");
 		t.setGovId(3L);
 		t.setRemark("他是王五，不是李四");
-		rest("/sysuser/save", t);
+		json("/sysuser/save", t);
 	}
 
 	@Override
 	public void updateById() {
 		t.setId(3L);
 		t.setStatus(UsingStatus.DISABLE.getValue());
-		rest("/sysuser/updateById", t);
+		json("/sysuser/updateById", t);
 	}
 
 	@Override
 	public void deleteById() {
 		t.setId(3L);
-		rest("/sysuser/deleteById", t);
+		json("/sysuser/deleteById", t);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		t.setPageable(true);
 		t.setPageNum(2);
 		t.setPageSize(10);
-		rest("/sysuser/list", t);
+		json("/sysuser/list", t);
 	}
 
 	@Override
@@ -58,19 +58,19 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		t.setPageable(true);
 		t.setPageNum(2);
 		t.setPageSize(10);
-		rest("/sysuser/listPage", t);
+		json("/sysuser/listPage", t);
 	}
 
 	@Override
 	public void infoById() {
 		t.setId(2L);
-		rest("/sysuser/infoById", t);
+		json("/sysuser/infoById", t);
 	}
 
 	@Test
 	public void resetPass() {
 		t.setId(2L);
-		rest("/sysuser/resetPass", t);
+		json("/sysuser/resetPass", t);
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		JSONObject params = new JSONObject();
 		params.put("oldPassword", "admin");
 		params.put("password", "admin");
-		rest("/sysuser/modifyPass", params);
+		json("/sysuser/modifyPass", params);
 	}
 
 	@Test
@@ -91,7 +91,7 @@ public class SysUserClientTest extends BaseClient<SysUser> {
 		list.add(new SysRole(5L));
 		t.setId(2L);
 		t.setSysRoles(list);
-		rest("/sysuser/modifyRoles", t);
+		json("/sysuser/modifyRoles", t);
 	}
 
 }

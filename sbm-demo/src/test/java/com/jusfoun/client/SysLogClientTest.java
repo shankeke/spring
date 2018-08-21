@@ -13,7 +13,7 @@ public class SysLogClientTest extends BaseClient<SysLog> {
 	@Override
 	public void list() {
 		t.setPageNum(3);
-		rest("/syslog/list", t);
+		json("/syslog/list", t);
 	}
 
 }

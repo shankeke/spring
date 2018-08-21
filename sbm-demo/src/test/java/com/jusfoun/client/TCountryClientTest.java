@@ -18,14 +18,14 @@ public class TCountryClientTest extends BaseClient<TCountry> {
 	@Override
 	public void list() {
 		t.setShName("朝鲜");
-		rest("/country/list", t);
+		json("/country/list", t);
 	}
 
 	@Test
 	public void infoById() {
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("id", "1");
-		post("/country/infoById", params);
+		form("/country/infoById", params);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.jusfoun.client;
+package com.jusfoun.date;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

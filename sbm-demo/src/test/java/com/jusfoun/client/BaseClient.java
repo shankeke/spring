@@ -125,7 +125,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述: 请求参数是json格式时使用该方法. <br>
+	 * 描述:json请求格式时使用该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午10:09:18
@@ -135,10 +135,10 @@ public abstract class BaseClient<T> {
 	 *            参数载体，可以使Map映射或者其他javaBean实体
 	 * @throws Exception
 	 */
-	protected void rest(String method, Object t) {
+	protected void json(String method, Object t) {
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON_UTF8));
 		headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-		excute(headers, method, t, RequestType.REST);
+		excute(headers, method, t, RequestType.JSON);
 	}
 
 	/**
@@ -157,7 +157,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述: post请求时使用该方法. <br>
+	 * 描述: form表单请求时使用该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午10:09:18
@@ -167,9 +167,9 @@ public abstract class BaseClient<T> {
 	 *            参数载体，可以使Map映射或者其他javaBean实体
 	 * @throws Exception
 	 */
-	protected void post(String method, Object t) {
+	protected void form(String method, Object t) {
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		excute(headers, method, t, RequestType.POST);
+		excute(headers, method, t, RequestType.FORM);
 	}
 
 	protected void excute(HttpHeaders headers, String method, Object t, RequestType requestType) {
@@ -188,7 +188,7 @@ public abstract class BaseClient<T> {
 					request = new HttpEntity<Object>(t, headers);
 					response = restTemplate.exchange(url, HttpMethod.GET, request, Object.class);
 					break;
-				case POST :
+				case FORM :
 					request = new HttpEntity<Object>(createLinkStringByPost(t), headers);
 					response = restTemplate.exchange(url, HttpMethod.POST, request, Object.class);
 					break;
@@ -284,7 +284,7 @@ public abstract class BaseClient<T> {
 	}
 
 	public enum RequestType {
-		GET, POST, REST;
+		GET, FORM, JSON;
 	}
 
 	@Test

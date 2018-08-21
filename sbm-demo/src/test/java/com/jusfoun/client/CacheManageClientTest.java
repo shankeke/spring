@@ -14,13 +14,13 @@ public class CacheManageClientTest extends BaseClient<JSONObject> {
 
 	@Test
 	public void list() {
-		rest("/cache/list", t);
+		json("/cache/list", t);
 	}
 
 	@Test
 	public void clear() {
 		// t.put("cacheName", "customCache");
-		rest("/cache/clear", t);
+		json("/cache/clear", t);
 	}
 
 	@Test
@@ -28,7 +28,7 @@ public class CacheManageClientTest extends BaseClient<JSONObject> {
 		t.put("paramKey", "key");
 		t.put("paramValue", "value");
 		t.put("cacheName", "customCache");
-		rest("/cache/put", t);
+		json("/cache/put", t);
 	}
 
 }

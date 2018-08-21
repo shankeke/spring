@@ -19,7 +19,7 @@ public class SysModuleClientTest extends BaseClient<SysModule> {
 	public void list() {
 		// for (int i = 0; i < 10000; i++) {
 		t.setParentId(1L);
-		rest("/sysmodule/list", t);
+		json("/sysmodule/list", t);
 		// }
 	}
 
@@ -30,7 +30,7 @@ public class SysModuleClientTest extends BaseClient<SysModule> {
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("rootId", "1");
 		params.put("keyword", "生产计划");
-		post("/sysmodule/getTree", params);
+		form("/sysmodule/getTree", params);
 		// }
 	}
 }

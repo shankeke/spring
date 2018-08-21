@@ -18,14 +18,14 @@ public class TAreaClientTest extends BaseClient<TArea> {
 	@Test
 	public void list() {
 		t.setLevel((byte) 4);
-		rest("/area/list", t);
+		json("/area/list", t);
 	}
 
 	@Test
 	public void getTree() {
 		Map<String, Object> params = Maps.newHashMap();
 		params.put("keyword", "北京");
-		post("/area/getTree", params);
+		form("/area/getTree", params);
 	}
 
 }

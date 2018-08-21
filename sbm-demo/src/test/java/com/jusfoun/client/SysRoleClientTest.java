@@ -27,7 +27,7 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 			list.add(t1);
 		}
 		t.setSysModules(list);
-		rest("/sysrole/save", t);
+		json("/sysrole/save", t);
 	}
 
 	@Override
@@ -41,13 +41,13 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 			list.add(t1);
 		}
 		t.setSysModules(list);
-		rest("/sysrole/update", t);
+		json("/sysrole/update", t);
 	}
 
 	@Override
 	public void deleteById() {
 		t.setId(1L);
-		rest("/sysrole/deleteById", t);
+		json("/sysrole/deleteById", t);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 		t.setPageable(true);
 		t.setPageNum(2);
 		t.setPageSize(10);
-		rest("/sysrole/list", t);
+		json("/sysrole/list", t);
 	}
 
 	@Override
@@ -63,13 +63,13 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 		t.setPageable(true);
 		t.setPageNum(2);
 		t.setPageSize(10);
-		rest("/sysrole/listPage", t);
+		json("/sysrole/listPage", t);
 	}
 
 	@Override
 	public void infoById() {
 		t.setId(11L);
-		rest("/sysrole/infoById", t);
+		json("/sysrole/infoById", t);
 	}
 
 }

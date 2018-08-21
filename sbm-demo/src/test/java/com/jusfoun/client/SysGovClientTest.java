@@ -27,14 +27,14 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 		t.setFullName("柔道散打部");
 		t.setShortName("散打部");
 		t.setRemark("主要负责河蟹销售");
-		rest("/sysgov/save", t);
+		json("/sysgov/save", t);
 	}
 
 	@Override
 	public void updateById() {
 		t.setId(1L);
 		t.setAddress("河北省保定市");
-		rest("/sysgov/updateById", t);
+		json("/sysgov/updateById", t);
 	}
 
 	@Test
@@ -43,31 +43,31 @@ public class SysGovClientTest extends BaseClient<SysGov> {
 		t.setId(1L);
 		t.setAddress("河北省保定市");
 		list.add(t);
-		rest("/sysgov/updateListById", list);
+		json("/sysgov/updateListById", list);
 	}
 
 	@Override
 	public void deleteById() {
 		t.setId(1L);
-		rest("/sysgov/deleteById", t);
+		json("/sysgov/deleteById", t);
 	}
 
 	@Override
 	public void list() {
 		t.setParentId(0L);
-		rest("/sysgov/list", t);
+		json("/sysgov/list", t);
 	}
 
 	@Override
 	public void listPage() {
 		t.setParentId(0L);
-		rest("/sysgov/listPage", t);
+		json("/sysgov/listPage", t);
 	}
 
 	@Override
 	public void infoById() {
 		t.setId(1L);
-		rest("/sysgov/infoById", t);
+		json("/sysgov/infoById", t);
 	}
 
 }
