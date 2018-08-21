@@ -165,7 +165,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET, securityCustomConfig.getIgnoredGetResources()).permitAll()//
 				.antMatchers(HttpMethod.POST, TOKEN_REFRESH_ENTRY_POINT).permitAll()//
 				.antMatchers(HttpMethod.POST, securityCustomConfig.getIgnoredPostResources()).permitAll()//
-				.antMatchers(HttpMethod.POST, "/**").permitAll()//
 				.antMatchers(TOKEN_AUTH_ENTRY_POINT).authenticated() //
 				.and()//
 				.addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)//

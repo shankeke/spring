@@ -9,15 +9,19 @@
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
 		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+		
 		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-			<property name="mappers" value="com.jusfoun.common.mybatis.mapper.MyMapper" /> <!-- <property name="mappers" value="tk.mybatis.mapper.common.Mapper" /> -->
+			<property name="mappers" value="com.jusfoun.common.mybatis.mapper.MyBaseMapper" /> <!-- <property name="mappers" value="tk.mybatis.mapper.common.Mapper" /> -->
 		</plugin>
+		
 		<commentGenerator> <!-- 这个元素用来去除指定生成的注释中是否包含生成的日期 false:表示保护 --> <!-- 如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true -->
 			<property name="suppressDate" value="true" /> <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
 			<property name="suppressAllComments" value="false" />
 		</commentGenerator>
+		
 		<jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}"
 			password="${jdbc.password}">
+			
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
@@ -26,11 +30,14 @@
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
+		
 		<sqlMapGenerator targetPackage="${targetXMLPackage}" targetProject="${targetResourcesProject}" />
 		<javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}"
 			type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
+		
+		
 		<table tableName="t_test" domainObjectName="TTest" enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 	</context>

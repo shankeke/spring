@@ -87,11 +87,10 @@ public abstract class ExcelUtils {
 	 * @return 返回实体集合
 	 * @throws Exception
 	 */
-	public static <T> List<T> readXls2List(Class<T> clazz, Class<?>[] fieldClasss, String[] fieldNames, String filePath,
-			Integer index, String dateFormat, String numberFormat) throws Exception {
+	public static <T> List<T> readXls2List(Class<T> clazz, Class<?>[] fieldClasss, String[] fieldNames, String filePath, Integer index, String dateFormat, String numberFormat)
+			throws Exception {
 		preReadCheck(filePath);
-		if (fieldClasss == null || fieldClasss.length == 0 || fieldNames == null || fieldNames.length == 0
-				|| fieldClasss.length != fieldNames.length) {
+		if (fieldClasss == null || fieldClasss.length == 0 || fieldNames == null || fieldNames.length == 0 || fieldClasss.length != fieldNames.length) {
 			throw new IllegalAccessException("必须指定java bean的属性类型和属性名，并且指定对应关系");
 		}
 		Workbook workbook = getWorkbook(filePath);
@@ -126,8 +125,7 @@ public abstract class ExcelUtils {
 					// 通过反射生成model的实例
 					t = (T) clazz.newInstance();
 					for (int i = 0; i < fieldNames.length; i++) {
-						initField(t, fieldClasss[i], fieldNames[i],
-								getValue(row.getCell(i), false, dateFormat, numberFormat), dateFormat);
+						initField(t, fieldClasss[i], fieldNames[i], getValue(row.getCell(i), false, dateFormat, numberFormat), dateFormat);
 					}
 					list.add(t);
 				}
@@ -156,8 +154,7 @@ public abstract class ExcelUtils {
 	 * @return 返回实体集合
 	 * @throws Exception
 	 */
-	public static <T> List<T> readXls2List(Class<T> clazz, Class<?>[] fieldClasss, String[] fieldNames, String filePath,
-			String dateFormat) throws Exception {
+	public static <T> List<T> readXls2List(Class<T> clazz, Class<?>[] fieldClasss, String[] fieldNames, String filePath, String dateFormat) throws Exception {
 		return readXls2List(clazz, fieldClasss, fieldNames, filePath, null, dateFormat, null);
 	}
 
@@ -181,8 +178,7 @@ public abstract class ExcelUtils {
 	 * @return 返回实体集合
 	 * @throws Exception
 	 */
-	public static <T> List<T> readXls2List(Class<T> clazz, Class<?>[] fieldClasss, String[] fieldNames, String filePath,
-			String dateFormat, String numberFormat) throws Exception {
+	public static <T> List<T> readXls2List(Class<T> clazz, Class<?>[] fieldClasss, String[] fieldNames, String filePath, String dateFormat, String numberFormat) throws Exception {
 		return readXls2List(clazz, fieldClasss, fieldNames, filePath, null, dateFormat, numberFormat);
 	}
 
@@ -266,8 +262,7 @@ public abstract class ExcelUtils {
 	 * 
 	 * @throws Exception
 	 */
-	private static <T> void initField(T t, Class<?> fieldClass, String fieldName, String fieldValue, String format)
-			throws Exception {
+	private static <T> void initField(T t, Class<?> fieldClass, String fieldName, String fieldValue, String format) throws Exception {
 		if (StringUtils.isEmpty(fieldValue)) {
 			return;
 		}
@@ -304,10 +299,10 @@ public abstract class ExcelUtils {
 	}
 
 	/*public static void main(String[] args) throws Exception {
-		List<User> readXls2List = ExcelParser.readXls2List(//
+		List<User> readXls2List = ExcelUtils.readXls2List(//
 				User.class, //
-				new Class[] { String.class, int.class, double.class, Date.class }, //
-				new String[] { "name", "age", "salary", "birth" }, //
+				new Class[]{String.class, int.class, double.class, Date.class}, //
+				new String[]{"name", "age", "salary", "birth"}, //
 				"D://user.xlsx", //
 				"yyyy/MM/dd"//
 		);

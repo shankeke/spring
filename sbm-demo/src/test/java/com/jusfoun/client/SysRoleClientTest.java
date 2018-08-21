@@ -47,7 +47,7 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 	@Override
 	public void deleteById() {
 		t.setId(1L);
-		json("/sysrole/deleteById", t);
+		get("/sysrole/deleteById", t);
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 	@Override
 	public void infoById() {
 		t.setId(11L);
-		json("/sysrole/infoById", t);
+		form("/sysrole/infoById", t);
 	}
 
 }

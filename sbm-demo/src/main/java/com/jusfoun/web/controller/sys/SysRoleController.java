@@ -109,4 +109,5 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 			throw new ControllerException(ErrType.SYSROLE_QUERY_INFO_ERROR);
 		}
 	}
+
 }

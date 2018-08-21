@@ -65,7 +65,7 @@
 			<if test="email     != null and email     != ''"><![CDATA[and email = #{email ,jdbcType=VARCHAR }]]></if>
 			<if test="realName  != null and realName  != ''"><![CDATA[and real_name = #{realName ,jdbcType=VARCHAR }]]></if>
 			<if test="status    != null"><![CDATA[and status = #{status ,jdbcType=BIT}]]></if>
-			<if test="remark    != null and remark     != ''"><![CDATA[and remark like CONCAT('%',#{remark ,jdbcType=VARCHAR},'%') ]]></if>
+			<if test="remark    != null and remark     != ''"><![CDATA[and remark like CONCAT('%',#{remark ,jdbcType=VARCHAR},'%')]]></if>
 		</where>
 	</sql>
 	<sql id="Base_Select_Sql">

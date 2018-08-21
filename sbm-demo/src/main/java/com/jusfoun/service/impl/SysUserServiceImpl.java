@@ -52,6 +52,8 @@ public class SysUserServiceImpl implements SysUserService {
 		return sysUserMapper;
 	}
 
+	
+
 	@Override
 	public int insertWithCache(SysUser sysUser) {
 		return insertSelective(sysUser);
