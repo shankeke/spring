@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -28,6 +30,11 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
 
 	@Autowired
 	private FileConfig fileConfig;
+
+	@Bean
+	public ServletListenerRegistrationBean<RequestContextListener> servletListenerRegistrationBean() {
+		return new ServletListenerRegistrationBean<RequestContextListener>(new RequestContextListener());
+	}
 
 	// 注册一个json结果处理器
 	@Bean

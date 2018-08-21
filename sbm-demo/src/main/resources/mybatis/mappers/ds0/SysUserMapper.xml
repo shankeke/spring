@@ -23,17 +23,20 @@
 		<result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
 		<result column="updater_name" jdbcType="VARCHAR" property="updaterName" />
 		<result column="remark" jdbcType="VARCHAR" property="remark" />
-		<association property="govName" column="gov_id" fetchType="lazy"
+	</resultMap>
+
+	<resultMap id="BaseWithGovNameResultMap" type="com.jusfoun.entity.SysUser" extends="BaseResultMap">
+		<association property="govName" column="gov_id" fetchType="eager"
 			select="com.jusfoun.mapper.ds0.SysGovMapper.selectNameByPrimaryKey" />
 	</resultMap>
 
-	<resultMap id="BaseListResultMap" extends="BaseResultMap" type="com.jusfoun.entity.SysUser">
-		<association property="roleNames" column="id" fetchType="lazy"
+	<resultMap id="BaseWithRoleNamesResultMap" type="com.jusfoun.entity.SysUser" extends="BaseWithGovNameResultMap">
+		<association property="roleNames" column="id" fetchType="eager"
 			select="com.jusfoun.mapper.ds0.SysRoleMapper.selectNamesByUserId" />
 	</resultMap>
 
-	<resultMap id="BaseInfoResultMap" extends="BaseResultMap" type="com.jusfoun.entity.SysUser">
-		<association property="sysRoles" column="ID" fetchType="lazy"
+	<resultMap id="BaseInfoResultMap" type="com.jusfoun.entity.SysUser" extends="BaseWithRoleNamesResultMap">
+		<association property="sysRoles" column="ID" fetchType="eager"
 			select="com.jusfoun.mapper.ds0.SysRoleMapper.selectByUserId" />
 	</resultMap>
 
@@ -86,9 +89,10 @@
 		<include refid="Base_Table_Name" />
 		<include refid="Base_Where_Clause" />
 	</select>
-	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseListResultMap">
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseWithGovNameResultMap">
 		<include refid="Base_Select_Sql" />
 	</select>
+
 	<select id="selectByUsername" parameterType="String" resultMap="BaseInfoResultMap">
 		select
 		<include refid="Base_Info_Column_List" />
