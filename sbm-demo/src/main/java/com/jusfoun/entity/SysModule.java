@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
 		"url", //
 		"type", //
 		"clientId", //
-		"sysModules" //
+		"subList" //
 })
 @JsonIgnoreProperties(value = {"handler"})
 @Table(name = "sys_module")
@@ -119,6 +119,7 @@ public class SysModule extends BaseEntity<SysModule> implements Treeable<SysModu
 	 */
 	@ApiModelProperty("是否是叶子节点")
 	@Transient
+	@XmlTransient
 	private boolean leaf;
 
 	@Override

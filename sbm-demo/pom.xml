@@ -304,7 +304,7 @@
 					<include>static/*</include>
 					<include>templates/*</include>
 					<include>banner.txt</include>
-					<include>SysModule.xml</include>
+					<include>SysModules.xml</include>
 					<include>ClientDetails.xml</include>
 					<include>logback-spring.xml</include>
 					<include>application.yml</include>
