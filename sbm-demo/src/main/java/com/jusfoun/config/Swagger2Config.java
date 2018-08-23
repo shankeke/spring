@@ -1,5 +1,6 @@
 package com.jusfoun.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,11 +20,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
+@ConfigurationProperties(prefix = Swagger2Config.PREFIX)
 public class Swagger2Config {
+
+	public static final String PREFIX = "swagger";
+
+	private boolean enable;
 
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2)//
+				.enable(enable)//
 				.apiInfo(apiInfo())//
 				.select()//
 				.apis(RequestHandlerSelectors.basePackage("com.jusfoun"))//
@@ -56,4 +63,11 @@ public class Swagger2Config {
 				.build();
 	}
 
+	public boolean isEnable() {
+		return enable;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
 }

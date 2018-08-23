@@ -24,6 +24,8 @@ spring:
         max-wait: -1
 server:
   port: 8080
+swagger:
+  enable: true
 system:
   init:
     username: admin
