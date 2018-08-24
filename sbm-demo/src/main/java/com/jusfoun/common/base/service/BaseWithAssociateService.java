@@ -28,7 +28,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 符合条件的数据总条数
 	 * @throws ServiceException
 	 */
-	default int selectCountWithAssociate(Map<String, Object> params) throws ServiceException {
+	default int selectCountWithAssociate(Map<?, ?> params) throws ServiceException {
 		return getBaseWithAssociateSelectMapper().selectCountWithAssociate(params);
 	}
 
@@ -42,7 +42,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 查询结果集
 	 * @throws ServiceException
 	 */
-	default List<T> selectListWithAssociate(Map<String, Object> params, String orderByClause) throws ServiceException {
+	default List<T> selectListWithAssociate(Map<?, ?> params, String orderByClause) throws ServiceException {
 		startOrderBy(orderByClause);// 排序
 		return getBaseWithAssociateSelectMapper().selectListWithAssociate(params);
 	}
@@ -59,7 +59,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 查询结果集
 	 * @throws ServiceException
 	 */
-	default List<T> selectListWithAssociate(Map<String, Object> params) throws ServiceException {
+	default List<T> selectListWithAssociate(Map<?, ?> params) throws ServiceException {
 		return selectListWithAssociate(params, "");
 	}
 
@@ -75,7 +75,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 分页数据包含附加字段
 	 * @throws ServiceException
 	 */
-	default List<T> selectListWithAssociate(Map<String, Object> params, IPage<T> page) throws ServiceException {
+	default List<T> selectListWithAssociate(Map<?, ?> params, IPage<T> page) throws ServiceException {
 		startPage(page);
 		return getBaseWithAssociateSelectMapper().selectListWithAssociate(params);
 	}
@@ -92,7 +92,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 分页数据包含附加字段
 	 * @throws ServiceException
 	 */
-	default IPage<T> selectPageWithAssociate(Map<String, Object> params, IPage<T> page) throws ServiceException {
+	default IPage<T> selectPageWithAssociate(Map<?, ?> params, IPage<T> page) throws ServiceException {
 		Integer totalCount = selectCountWithAssociate(params);
 		if (totalCount <= 0)
 			return new IPage<T>();
@@ -115,7 +115,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 *            查询条件
 	 * @return 符合条件的唯一一条记录，没查到返回空，如果多条则会抛出异常
 	 */
-	default T selectOneWithAssociate(Map<String, Object> params) throws ServiceException {
+	default T selectOneWithAssociate(Map<?, ?> params) throws ServiceException {
 		return getBaseWithAssociateSelectMapper().selectOneWithAssociate(params);
 	}
 

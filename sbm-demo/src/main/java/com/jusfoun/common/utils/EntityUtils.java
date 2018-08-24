@@ -148,6 +148,7 @@ public class EntityUtils {
 	public static Character getDefaultIfNull(Character src, Character def) {
 		return getDefaultIfNull(Character.class, src, def);
 	}
+
 	/**************************** 这一部分用于处理bean与map对象互转的功能 ******************************/
 	// Map --> Bean 1: 利用Introspector,PropertyDescriptor实现 Map --> Bean
 	public static void transMap2Bean(Map<String, Object> map, Object obj) {
@@ -235,15 +236,29 @@ public class EntityUtils {
 	}
 
 	public static Map<String, Object> bean2Map(Object obj) throws Exception {
-		if (obj == null) {
+		if (obj == null)
 			return null;
+		Map<String, Object> reMap = new HashMap<String, Object>();
+		Class<?> objClass = obj.getClass();
+		while (objClass != null) {
+			Field[] fields = objClass.getDeclaredFields();
+			for (int i = 0; i < fields.length; i++) {
+				try {
+					Field f = objClass.getDeclaredField(fields[i].getName());
+					f.setAccessible(true);
+					Object o = f.get(obj);
+					reMap.put(fields[i].getName(), o);
+				} catch (NoSuchFieldException e) {
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				}
+			}
+			objClass = objClass.getSuperclass();
 		}
-		Map<String, Object> map = new HashMap<String, Object>();
-		Field[] declaredFields = obj.getClass().getDeclaredFields();
-		for (Field field : declaredFields) {
-			field.setAccessible(true);
-			map.put(field.getName(), field.get(obj));
-		}
-		return map;
+
+		return reMap;
 	}
 }
