@@ -141,16 +141,14 @@ public class DateTest {
 		Date todayDate = null;
 		Date yesterdayDate = null;
 
-			String time = "2017-11-17";
-			//todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, time);
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(new Date());
-			calendar.add(calendar.DATE, -1);
-			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
-			System.out.println(yesterdayDateStr);
-
-
+		String time = "2017-11-17";
+		// todayDate = DateUtil.parse(DateUtil.DATE_SDF_DATE, time);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.add(calendar.DATE, -1);
+		yesterdayDate = calendar.getTime();
+		String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
+		System.out.println(yesterdayDateStr);
 
 	}
 
@@ -240,10 +238,11 @@ public class DateTest {
 		System.out.println(format);
 
 	}
-	@Test
-	public void testMap1(){
 
-		Map<String,Object> resultMap=new HashMap<String,Object>();
+	@Test
+	public void testMap1() {
+
+		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("aa", 50);
 		resultMap.put("bb", 5);
 		resultMap.put("cc", 51);
@@ -251,31 +250,27 @@ public class DateTest {
 		resultMap.put("ee", 51);
 		resultMap.put("ff", 53);
 		Iterator<String> iterator = resultMap.keySet().iterator();
-		while(iterator.hasNext()){
+		while (iterator.hasNext()) {
 			String next = iterator.next();
 			System.out.println(resultMap.get(next));
 
-
 		}
 
-
 	}
+
 	@Test
-	public void testData(){
+	public void testData() {
 
-		//int result=5/5;
-		int ch=4;
-		for(int i=0;i<40;i++){
-			int temp=i/ch+1;
+		// int result=5/5;
+		int ch = 4;
+		for (int i = 0; i < 40; i++) {
+			int temp = i / ch + 1;
 
-			System.out.println("值="+temp);
+			System.out.println("值=" + temp);
 
 		}
 
-
-
 	}
-
 
 	public static String getSpecifiedDayAfter(String specifiedDay) {
 		Calendar c = Calendar.getInstance();
@@ -295,7 +290,7 @@ public class DateTest {
 	}
 
 	@Test
-	public void testGetSpecifiedDayAfter(){
+	public void testGetSpecifiedDayAfter() {
 		String specifiedDayAfter = getSpecifiedDayAfter("2017-12-12");
 
 		System.out.println(specifiedDayAfter);
@@ -305,70 +300,68 @@ public class DateTest {
 	public String getYesterdayDate(String today) {
 		Date todayDate = null;
 		Date yesterdayDate = null;
-			try {
-				todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(todayDate);
-			calendar.add(Calendar.DATE, -1);
-			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
-			return yesterdayDateStr;
+		try {
+			todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(todayDate);
+		calendar.add(Calendar.DATE, -1);
+		yesterdayDate = calendar.getTime();
+		String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
+		return yesterdayDateStr;
 
 	}
 
 	@Test
-	public void testGet(){
+	public void testGet() {
 		String yesterdayDate = getYesterdayDate("2017-12-11");
 		System.out.println(yesterdayDate);
-
 
 	}
 
 	public String getBeforeHundredDate(String today) {
 		Date todayDate = null;
 		Date yesterdayDate = null;
-			try {
-				todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(todayDate);
-			calendar.add(Calendar.YEAR, -100);
-			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
-			return yesterdayDateStr;
+		try {
+			todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(todayDate);
+		calendar.add(Calendar.YEAR, -100);
+		yesterdayDate = calendar.getTime();
+		String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
+		return yesterdayDateStr;
 
 	}
 
 	public String gethundredAfterDate(String today) {
 		Date todayDate = null;
 		Date yesterdayDate = null;
-			try {
-				todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(todayDate);
-			calendar.add(Calendar.YEAR, 100);
-			yesterdayDate = calendar.getTime();
-			String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
-			return yesterdayDateStr;
+		try {
+			todayDate = DateUtils.parse(DateUtils.DATE_SDF_DATE, today);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(todayDate);
+		calendar.add(Calendar.YEAR, 100);
+		yesterdayDate = calendar.getTime();
+		String yesterdayDateStr = DateUtils.format(DateUtils.DATE_SDF_DATE, yesterdayDate);
+		return yesterdayDateStr;
 
 	}
 
 	@Test
-	public void getBrforeDate(){
-		String timeStr="2017-12-11";
+	public void getBrforeDate() {
+		String timeStr = "2017-12-11";
 		String brforeDate = getBeforeHundredDate(timeStr);
 		String afterDate = gethundredAfterDate(timeStr);
 		System.out.println(brforeDate);
 		System.out.println(afterDate);
-
 
 	}
 }

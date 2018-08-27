@@ -74,7 +74,7 @@ public class StartupRunner implements CommandLineRunner {
 	 */
 	private void initSysModules() throws FileNotFoundException {
 		int count = sysModuleService.selectCount(null);
-//		if (count == 0) {
+		if (count == 0) {
 			URL url = ResourceUtils.getURL(initConfig.getSysModulesFile());
 			SysModule root = JaxbUtils.xml2java(url, SysModule.class);
 
@@ -88,7 +88,7 @@ public class StartupRunner implements CommandLineRunner {
 				root.setCreateDate(now);
 				root.setUpdateDate(now);
 				root.setStatus(UsingStatus.ENABLE.getValue());
-//			}
+			}
 			sysModuleService.initSysModules(root);
 		}
 	}
