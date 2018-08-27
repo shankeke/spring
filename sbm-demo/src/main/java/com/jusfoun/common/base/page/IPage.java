@@ -295,14 +295,7 @@ public class IPage<T> extends IPageable {
 	 * @return 总页数
 	 */
 	private int getTotalPage(int pageSize, int totalCount) {
-		int totalPage = 0;
-		pageSize = pageSize <= 0 ? DEFAULT_PAGESIZE : pageSize;
-		if (totalCount % pageSize != 0) {
-			totalPage = (totalCount / pageSize) + 1;
-		} else {
-			totalPage = (totalCount / pageSize);
-		}
-		return totalPage;
+		return (int) Math.ceil(totalCount / (pageSize <= 0 ? DEFAULT_PAGESIZE : pageSize));
 	}
 
 	public int getTotalPage() {
