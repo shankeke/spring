@@ -34,6 +34,20 @@ public class ICollections {
 	}
 
 	/**
+	 * 描述:集合转数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年8月29日 下午4:02:16
+	 * @param collection
+	 *            集合数据
+	 * @return 数组
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] toArray(Collection<T> collection) {
+		return (T[]) collection.toArray();
+	}
+
+	/**
 	 * 描述: 将字符串装换成指定类型的数据集合. <br>
 	 * 
 	 * @author yjw@jusfoun.com
