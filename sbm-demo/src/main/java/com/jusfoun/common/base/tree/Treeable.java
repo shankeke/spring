@@ -4,8 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.xml.bind.annotation.XmlTransient;
-
 import com.jusfoun.common.utils.ICollections;
 
 /**

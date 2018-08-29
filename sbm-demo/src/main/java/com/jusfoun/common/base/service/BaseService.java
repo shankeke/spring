@@ -39,7 +39,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 
 	@Preprocess
 	@Override
-	default int insertList(@PreInsert List<T> recordList) {
+	default int insertList(@PreInsert List<? extends T> recordList) {
 		return getMyBaseMapper().insertList(recordList);
 	}
 
@@ -201,7 +201,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 		int totalCount = selectCount(s);
 		if (totalCount <= 0)
 			return page;
-	
+
 		if (page == null) {// 查询所有
 			page = new IPage<T>();
 			page.setTotalCount(totalCount);
