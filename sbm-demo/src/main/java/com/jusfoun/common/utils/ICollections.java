@@ -3,6 +3,7 @@ package com.jusfoun.common.utils;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -48,6 +49,48 @@ public class ICollections {
 	}
 
 	/**
+	 * 描述:将一种数据集合转化成另一种数据集合. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年8月29日 下午5:11:43
+	 * @param collection
+	 *            源集合
+	 * @param convertor
+	 *            转化器
+	 * @return 转化结果集
+	 */
+	public static <T, R> List<R> convertToList(Collection<T> collection, Function<T, R> convertor) {
+		if (hasElements(collection)) {
+			return collection//
+					.stream()//
+					.map(t -> convertor.apply(t))//
+					.collect(Collectors.toList());
+		}
+		return null;
+	}
+
+	/**
+	 * 描述:将一种数据集合转化成另一种数据集合. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年8月29日 下午5:11:43
+	 * @param collection
+	 *            源集合
+	 * @param convertor
+	 *            转化器
+	 * @return 转化结果集
+	 */
+	public static <T, R> Set<R> convertToSet(Collection<T> collection, Function<T, R> convertor) {
+		if (hasElements(collection)) {
+			return collection//
+					.stream()//
+					.map(t -> convertor.apply(t))//
+					.collect(Collectors.toSet());
+		}
+		return null;
+	}
+
+	/**
 	 * 描述: 将字符串装换成指定类型的数据集合. <br>
 	 * 
 	 * @author yjw@jusfoun.com
@@ -60,11 +103,11 @@ public class ICollections {
 	 *            转化函数
 	 * @return 转化结果
 	 */
-	public static <T> List<T> strToList(String str, String separator, Function<String, T> function) {
+	public static <T> List<T> strToList(String str, String separator, Function<String, T> convertor) {
 		if (StringUtils.isNotEmpty(str)) {
 			return Arrays//
 					.stream(StringUtils.split(str, separator))//
-					.map(t -> function.apply(t))//
+					.map(t -> convertor.apply(t))//
 					.collect(Collectors.toList());
 		}
 		return null;
