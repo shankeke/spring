@@ -2,8 +2,6 @@ package com.jusfoun.common.base.page;
 
 import java.util.List;
 
-import com.jusfoun.entity.TTest;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -132,11 +130,7 @@ public class IPage<T> extends IPageable {
 		super(pageable, pageNum, pageSize, orderByClause);
 		this.totalCount = totalCount;
 		this.totalPage = getTotalPage(pageSize, totalCount);
-		if (pageNum > this.totalPage) {
-			setPageNum(this.totalPage);
-		} else {
-			setPageNum(pageNum);
-		}
+		setPageNum(pageNum > this.totalPage ? this.totalPage : pageNum);
 		getNextPage(pageNum, totalPage);
 		getPrevPage(pageNum, totalPage);
 		this.list = list;
