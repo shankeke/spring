@@ -2,6 +2,8 @@ package com.jusfoun.common.base.page;
 
 import java.util.List;
 
+import com.jusfoun.entity.TTest;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -295,7 +297,7 @@ public class IPage<T> extends IPageable {
 	 * @return 总页数
 	 */
 	private int getTotalPage(int pageSize, int totalCount) {
-		return (int) Math.ceil(totalCount / (pageSize <= 0 ? DEFAULT_PAGESIZE : pageSize));
+		return (int) Math.ceil((double) totalCount / pageSize);
 	}
 
 	public int getTotalPage() {
@@ -386,5 +388,11 @@ public class IPage<T> extends IPageable {
 	public String toString() {
 		return "IPage [totalCount=" + totalCount + ", totalPage=" + totalPage + ", list=" + list + "]";
 	}
+
+	/*
+	 * public static void main(String[] args) { IPage<TTest> page = new
+	 * IPage<TTest>(1, 12); page.setTotalCount(27);
+	 * System.out.println(page.getTotalPage()); }
+	 */
 
 }
