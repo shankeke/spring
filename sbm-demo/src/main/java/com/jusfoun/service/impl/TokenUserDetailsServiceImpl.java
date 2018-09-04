@@ -32,7 +32,7 @@ public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
 	@Override
 	public BaseWithAssociateSelectMapper<TokenUserDetails> getBaseWithAssociateSelectMapper() {
 		return tokenUserDetailsMapper;
-	}
+	} 
 
 	@Override
 	public MyIdableMapper<TokenUserDetails> getMyIdableMapper() {

@@ -38,8 +38,7 @@ public class TAreaServiceImpl implements TAreaService {
 
 	@Override
 	public MyBaseMapper<TArea> getMyBaseMapper() {
-		// TODO Auto-generated method stub
-		return null;
+		return tAreaMapper;
 	}
 
 	@Cacheable(value = CacheConsts.CACHE_TEMP, key = "'area_cache_' + #id", unless = "#result == null")

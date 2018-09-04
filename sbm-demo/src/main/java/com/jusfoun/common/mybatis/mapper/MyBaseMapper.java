@@ -2,6 +2,10 @@ package com.jusfoun.common.mybatis.mapper;
 
 import com.jusfoun.common.mybatis.mapper.delete.DeleteListMapper;
 
+import tk.mybatis.mapper.additional.aggregation.AggregationMapper;
+import tk.mybatis.mapper.additional.insert.InsertListMapper;
+import tk.mybatis.mapper.additional.update.differ.UpdateByDifferMapper;
+import tk.mybatis.mapper.additional.update.force.UpdateByPrimaryKeySelectiveForceMapper;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 import tk.mybatis.mapper.common.RowBoundsMapper;
 import tk.mybatis.mapper.common.base.delete.DeleteMapper;
@@ -17,7 +21,6 @@ import tk.mybatis.mapper.common.example.SelectCountByExampleMapper;
 import tk.mybatis.mapper.common.example.SelectOneByExampleMapper;
 import tk.mybatis.mapper.common.example.UpdateByExampleMapper;
 import tk.mybatis.mapper.common.example.UpdateByExampleSelectiveMapper;
-import tk.mybatis.mapper.common.special.InsertListMapper;
 
 /**
  * 描述:基本增删改查操作接口. <br>
@@ -43,6 +46,9 @@ public interface MyBaseMapper<T>
 			SelectByExampleMapper<T>, //
 			RowBoundsMapper<T>, //
 			SelectCountMapper<T>, //
-			SelectCountByExampleMapper<T> //
+			SelectCountByExampleMapper<T>, //
+			UpdateByDifferMapper<T>, //
+			UpdateByPrimaryKeySelectiveForceMapper<T>, //
+			AggregationMapper<T>//
 {
 }

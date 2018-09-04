@@ -28,35 +28,35 @@ public interface BaseIdableController<T extends Idable<PK>, PK extends Serializa
 	BaseIdableService<T> getBaseIdableService();
 
 	@ApiOperation(value = "根据ID修改数据", notes = "根据ID修改数据", hidden = false)
-	@RequestMapping(value = "updateById", method = { RequestMethod.POST })
+	@RequestMapping(value = "updateById", method = {RequestMethod.POST})
 	default BaseResponse<T> updateById(@ApiParam(value = "数据对象", required = true) @RequestBody T t) {
 		getBaseIdableService().updateByPrimaryKeySelective(t);
 		return BaseResponse.success(t);
 	}
 
 	@ApiOperation(value = "根据ID批量修改数据", notes = "根据ID批量修改数据", hidden = false)
-	@RequestMapping(value = "updateListById", method = { RequestMethod.POST })
+	@RequestMapping(value = "updateListById", method = {RequestMethod.POST})
 	default BaseResponse<?> updateListById(@ApiParam(value = "数据对象集合", required = true) @RequestBody List<T> list) {
 		getBaseIdableService().updateListByPrimaryKeySelective(list);
 		return BaseResponse.success();
 	}
 
 	@ApiOperation(value = "根据ID删除数据", notes = "根据ID删除数据", hidden = false)
-	@RequestMapping(value = "deleteById", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "deleteById", method = {RequestMethod.POST, RequestMethod.GET})
 	default BaseResponse<?> deleteById(@ApiParam(value = "主键值", required = true) @RequestParam PK id) {
 		getBaseIdableService().deleteByPrimaryKey(id);
 		return BaseResponse.success();
 	}
 
 	@ApiOperation(value = "根据ID批量删除数据", notes = "根据ID批量删除数据", hidden = false)
-	@RequestMapping(value = "deleteByIds", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "deleteByIds", method = {RequestMethod.POST, RequestMethod.GET})
 	default BaseResponse<?> deleteByIds(@ApiParam(value = "ID集合", required = true) @RequestParam List<PK> ids) {
 		getBaseIdableService().deleteByPrimaryKeys(ids);
 		return BaseResponse.success();
 	}
 
 	@ApiOperation(value = "查询数据详情", notes = "查询数据详情", hidden = false)
-	@RequestMapping(value = "infoById", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "infoById", method = {RequestMethod.POST, RequestMethod.GET})
 	default BaseResponse<T> infoById(@ApiParam(value = "主键值", required = true) @RequestParam PK id) {
 		T t = getBaseIdableService().selectByPrimaryKey(id);
 		return BaseResponse.success(t);

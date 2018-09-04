@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
 				result = BaseResponse.exception(ErrType.FILE_IO_READ_ERROR);
 			} else if (e instanceof UnAuthorizedException) {
 				response.setStatus(ErrType.UN_AUTHORIZED.getCode());
-				result = BaseResponse.fail(ErrType.UN_AUTHORIZED, "未授权的请求");
+				result = BaseResponse.fail(ErrType.UN_AUTHORIZED);
 			} else if (e instanceof AuthenticationException) {
 				AuthenticationExceptionHandler handler = new AuthenticationExceptionHandler();
 				response.setStatus(ErrType.AUTH_FAILED.getCode());

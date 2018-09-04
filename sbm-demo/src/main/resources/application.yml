@@ -92,9 +92,6 @@ security:
       - /test/**
    
 mapper:
-#    mappers:
-#        - com.jusfoun.common.mybatis.mapper.MyMapper
-#        - com.jusfoun.common.mybatis.mapper.BaseWithAssociateMapper
     not-empty: false
     identity: MYSQL
     style: camelhumpanduppercase

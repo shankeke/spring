@@ -1,5 +1,7 @@
 package com.jusfoun;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 import com.jusfoun.common.message.result.BaseResponse;
@@ -28,6 +30,16 @@ public class ObjectTest {
 		System.out.println(t1.getClass().equals(SysUser.class));
 		System.out.println(t2.getClass().equals(SysModule.class));
 		System.out.println(t2.getClass().equals(SysUser.class));
+	}
+
+	private void output(Object... objs) {
+		Arrays.stream(objs).forEach(t -> System.out.println(t));
+	}
+
+	@Test
+	public void test2() {
+		output(1, 23, "23", (byte) 12, 'd', new SysModule());
+		output(new Object[]{1, 23, "23", (byte) 12, 'd', new SysModule()});
 	}
 
 }
