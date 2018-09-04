@@ -14,8 +14,6 @@ import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 
-import tk.mybatis.mapper.additional.aggregation.AggregateCondition;
-
 /**
  * 描述 : 业务层实现基类. <br>
  *
@@ -251,12 +249,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 		}
 		return page;
 	}
-
-	@Override
-	default List<T> selectAggregationByExample(Object example, AggregateCondition aggregateCondition) {
-		return getMyBaseMapper().selectAggregationByExample(example, aggregateCondition);
-	}
-
+ 
 	@Override
 	default int selectCount(T record) {
 		return getMyBaseMapper().selectCount(record);

@@ -2,7 +2,6 @@ package com.jusfoun.common.mybatis.mapper;
 
 import com.jusfoun.common.mybatis.mapper.delete.DeleteListMapper;
 
-import tk.mybatis.mapper.additional.aggregation.AggregationMapper;
 import tk.mybatis.mapper.additional.insert.InsertListMapper;
 import tk.mybatis.mapper.additional.update.differ.UpdateByDifferMapper;
 import tk.mybatis.mapper.additional.update.force.UpdateByPrimaryKeySelectiveForceMapper;
@@ -48,7 +47,6 @@ public interface MyBaseMapper<T>
 			SelectCountMapper<T>, //
 			SelectCountByExampleMapper<T>, //
 			UpdateByDifferMapper<T>, //
-			UpdateByPrimaryKeySelectiveForceMapper<T>, //
-			AggregationMapper<T>//
+			UpdateByPrimaryKeySelectiveForceMapper<T> //
 {
 }
