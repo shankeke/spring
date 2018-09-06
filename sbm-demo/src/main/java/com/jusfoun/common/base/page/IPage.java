@@ -106,6 +106,12 @@ public class IPage<T> extends IPageable {
 		super(pageable, pageNum, pageSize, orderByClause);
 	}
 
+	/**
+	 * 描述： 构造函数,根据IPageable实例构造IPage对象。<br/>
+	 * 
+	 * @param pageable
+	 *            IPageable实例
+	 */
 	public IPage(IPageable pageable) {
 		super(true, pageable.getPageNum(), pageable.getPageSize(), pageable.getOrderByClause());
 	}
