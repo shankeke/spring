@@ -28,7 +28,7 @@ public interface TreeableService<T extends Treeable<T>> {
 	 * @throws ServiceException
 	 */
 	default T selectTree(T root, String keyword) throws ServiceException {
-		// 如果跟节点存在并且需要根据关键字检索结果
+		// 如果根节点存在并且需要根据关键字检索结果
 		if (root != null && StringUtils.isNotEmpty(keyword)) {
 			List<T> searchList = root.search(root.getSubList(), keyword);
 			if (ICollections.hasElements(searchList) || root.isMatch(root, keyword)) {

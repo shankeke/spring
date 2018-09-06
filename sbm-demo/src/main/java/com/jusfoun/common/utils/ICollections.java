@@ -113,30 +113,107 @@ public class ICollections {
 		return null;
 	}
 
+	/**
+	 * 描述:字符串转Byte数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return Byte数组
+	 */
 	public static List<Byte> strToByteList(String str, String separator) {
 		return strToList(str, separator, Byte::valueOf);
 	}
 
+	/**
+	 * 描述:字符串转Short数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return Short数组
+	 */
 	public static List<Short> strToShortList(String str, String separator) {
 		return strToList(str, separator, Short::valueOf);
 	}
 
+	/**
+	 * 描述:字符串转Integer数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return Integer数组
+	 */
 	public static List<Integer> strToIntegerList(String str, String separator) {
 		return strToList(str, separator, Integer::valueOf);
 	}
 
+	/**
+	 * 描述:字符串转Long数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return Long数组
+	 */
 	public static List<Long> strToLongList(String str, String separator) {
 		return strToList(str, separator, Long::valueOf);
 	}
 
+	/**
+	 * 描述:字符串转Float数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return Float数组
+	 */
 	public static List<Float> strToFloatList(String str, String separator) {
 		return strToList(str, separator, Float::valueOf);
 	}
 
+	/**
+	 * 描述:字符串转Double数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return Double数组
+	 */
 	public static List<Double> strToDoubleList(String str, String separator) {
 		return strToList(str, separator, Double::valueOf);
 	}
 
+	/**
+	 * 描述:字符串转String数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月5日 上午9:43:44
+	 * @param str
+	 *            字符串
+	 * @param separator
+	 *            分隔符
+	 * @return String数组
+	 */
 	public static List<String> strToStringList(String str, String separator) {
 		return strToList(str, separator, String::valueOf);
 	}
