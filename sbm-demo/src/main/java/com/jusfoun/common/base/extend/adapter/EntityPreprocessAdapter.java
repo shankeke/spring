@@ -34,7 +34,7 @@ public interface EntityPreprocessAdapter {
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 下午7:33:05
 	 */
-	void add(EntityPreprocessor preprocessor);
+	EntityPreprocessAdapter add(EntityPreprocessor preprocessor);
 
 	/**
 	 * 描述:获取预处理器. <br>

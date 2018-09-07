@@ -1,6 +1,5 @@
 package com.jusfoun.common.mybatis.mapper.extend;
 
-import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 
 import tk.mybatis.mapper.annotation.RegisterMapper;
@@ -14,7 +13,6 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
 @RegisterMapper
 public interface BaseIdableWithAssociateMapper<T>
 		extends //
-			MyBaseMapper<T>, //
 			MyIdableMapper<T>, //
 			BaseWithAssociateSelectMapper<T> //
 {

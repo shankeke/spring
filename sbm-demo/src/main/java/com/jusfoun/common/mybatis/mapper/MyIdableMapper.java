@@ -41,6 +41,7 @@ public interface MyIdableMapper<T>
 			SelectByPrimaryKeyMapper<T>, //
 			SelectByPrimaryKeysMapper<T>, //
 			IdsMapper<T>, //
-			ExistsWithPrimaryKeyMapper<T> //
+			ExistsWithPrimaryKeyMapper<T>, //
+			MyBaseMapper<T> //
 {
 }

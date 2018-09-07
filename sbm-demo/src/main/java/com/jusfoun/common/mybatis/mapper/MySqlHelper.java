@@ -53,8 +53,7 @@ public class MySqlHelper extends SqlHelper {
 	public static String wherePKColumnsByList(Class<?> entityClass, String entityName) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("<where>");
-		sql.append("<foreach collection=\"list\" separator=\" or\" item=\"").append(entityName)
-				.append("\" index=\"index\">");
+		sql.append("<foreach collection=\"list\" separator=\" or\" item=\"").append(entityName).append("\" index=\"index\">");
 		sql.append(pKColumnsCondition(entityClass, entityName));
 		sql.append("</foreach>");
 		sql.append("</where>");
@@ -64,8 +63,7 @@ public class MySqlHelper extends SqlHelper {
 	public static String whereAllColumnsByList(Class<?> entityClass, String entityName, boolean empty) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("<where>");
-		sql.append("<foreach collection=\"list\" separator=\" or\" item=\"").append(entityName)
-				.append("\" index=\"index\">");
+		sql.append("<foreach collection=\"list\" separator=\" or\" item=\"").append(entityName).append("\" index=\"index\">");
 		sql.append(columnsIfNotNullCondition(entityClass, entityName, empty));
 		sql.append("</foreach>");
 		sql.append("</where>");

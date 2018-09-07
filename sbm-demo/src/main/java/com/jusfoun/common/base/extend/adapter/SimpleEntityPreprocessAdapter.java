@@ -66,11 +66,12 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	}
 
 	@Override
-	public void add(EntityPreprocessor preprocessor) {
+	public EntityPreprocessAdapter add(EntityPreprocessor preprocessor) {
 		if (ICollections.hasNoElements(preprocessors)) {
 			preprocessors = Lists.newArrayList();
 		}
 		preprocessors.add(preprocessor);
+		return this;
 	}
 
 	@Override
