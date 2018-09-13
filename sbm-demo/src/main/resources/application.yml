@@ -132,3 +132,7 @@ logging:
 templates:
   dir: /templets/
   countries: countries.ftl
+  
+jasypt:
+  encryptor:
+    password: nmyswls
