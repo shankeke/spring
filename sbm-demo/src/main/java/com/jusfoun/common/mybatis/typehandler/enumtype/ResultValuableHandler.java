@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @author yjw@jusfoun.com
  * @date 2018年1月26日 下午3:09:07
  */
-public interface ResultValueHandler<T> {
+public interface ResultValuableHandler<T> {
 
 	T getResultValue(ResultSet rs, String columnName) throws SQLException;
 

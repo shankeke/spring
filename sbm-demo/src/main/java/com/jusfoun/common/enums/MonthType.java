@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
  * 描述 : 月份枚举类. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @author yjw@jusfoun.com
  * @date 2018年1月12日 上午9:55:31
  */
-public enum MonthType implements IntegerValueEnum {
+public enum MonthType implements IntegerValuable{
 	JAN(1, "一月", "January", QuarterType.SPRING), //
 	FEB(2, "二月", "February", QuarterType.SPRING), //
 	MAR(3, "三月", "March", QuarterType.SPRING), //
@@ -17,7 +17,7 @@ public enum MonthType implements IntegerValueEnum {
 	JUNE(6, "六月", "June", QuarterType.SUMMER), //
 	JULY(7, "七月", "July", QuarterType.AUTUMN), //
 	AUG(8, "八月", "Aguest", QuarterType.AUTUMN), //
-	SEPT(9, "九月", "Septembe", QuarterType.AUTUMN), //
+	SEPT(9, "九月", "September", QuarterType.AUTUMN), //
 	OCT(10, "十月", "October", QuarterType.WINTER), //
 	NOV(11, "十一月", "November", QuarterType.WINTER), //
 	DEC(12, "十二月", "December", QuarterType.WINTER);//
@@ -54,7 +54,7 @@ public enum MonthType implements IntegerValueEnum {
 	public static MonthType valueOf(Integer value) {
 		if (value != null) {
 			for (MonthType type : values()) {
-				if (type.valEqualsTo(value)) {
+				if (type.equalsTo(value)) {
 					return type;
 				}
 			}

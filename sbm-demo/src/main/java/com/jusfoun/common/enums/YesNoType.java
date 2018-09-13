@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
  * 描述 :真假枚举==> 0-否,1-是. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @author yjw@jusfoun.com
  * @date 2017年9月12日 下午4:18:34
  */
-public enum YesNoType implements IntegerValueEnum {
+public enum YesNoType implements IntegerValuable {
 	NO(0, "否", false), //
 	YES(1, "是", true); //
 

@@ -1,6 +1,6 @@
 package com.jusfoun.web.runner;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.StringValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.StringValuable;
 
 /**
  * 描述:客户端类型. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.StringValueEnum;
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 下午2:27:27
  */
-public enum ClientType implements StringValueEnum {
+public enum ClientType implements StringValuable {
 
 	APP_CLIENT("app_client"), //
 	WEB_CLIENT("web_client"), //

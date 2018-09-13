@@ -13,15 +13,15 @@ import org.apache.ibatis.type.JdbcType;
  * @author yjw@jusfoun.com
  * @date 2017年12月23日 下午2:30:26
  */
-public class StringValueEnumTypeHandler<E extends Enum<E>> extends AbstractValueEnumTypeHandler<E, String> {
+public class StringValuableEnumTypeHandler<E extends Enum<E>> extends AbstractValuableEnumTypeHandler<E, String> {
 
-	public StringValueEnumTypeHandler(Class<E> type) {
+	public StringValuableEnumTypeHandler(Class<E> type) {
 		super(type);
 	}
 
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, E parameter, JdbcType jdbcType) throws SQLException {
-		StringValueEnum valueEnum = (StringValueEnum) parameter;
+		StringValuable valueEnum = (StringValuable) parameter;
 		ps.setString(i, valueEnum.getValue());
 	}
 

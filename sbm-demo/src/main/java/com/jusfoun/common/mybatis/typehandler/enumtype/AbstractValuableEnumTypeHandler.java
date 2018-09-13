@@ -14,12 +14,12 @@ import org.apache.ibatis.type.BaseTypeHandler;
  * @author yjw@jusfoun.com
  * @date 2017年12月23日 下午2:30:26
  */
-public abstract class AbstractValueEnumTypeHandler<E extends Enum<E>, V> extends BaseTypeHandler<E> implements ResultValueHandler<V> {
+public abstract class AbstractValuableEnumTypeHandler<E extends Enum<E>, V> extends BaseTypeHandler<E> implements ResultValuableHandler<V> {
 	private Class<E> type;
 	private Map<V, E> map = new HashMap<V, E>();
 
 	@SuppressWarnings("unchecked")
-	public AbstractValueEnumTypeHandler(Class<E> type) {
+	public AbstractValuableEnumTypeHandler(Class<E> type) {
 		if (type == null) {
 			throw new IllegalArgumentException("Type argument cannot be null");
 		}
@@ -28,9 +28,9 @@ public abstract class AbstractValueEnumTypeHandler<E extends Enum<E>, V> extends
 		if (enums == null) {
 			throw new IllegalArgumentException(type.getSimpleName() + " does not represent an enum type.");
 		}
-		ValueEnum<V> valueEnum = null;
+		Valuable<V> valueEnum = null;
 		for (E e : enums) {
-			valueEnum = (ValueEnum<V>) e;
+			valueEnum = (Valuable<V>) e;
 			map.put(valueEnum.getValue(), e);
 		}
 	}

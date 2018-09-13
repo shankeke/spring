@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
  * 描述 : 启用状态==>0-未启用、1-启用、-1-停用. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:30:48
  */
-public enum UsingStatus implements IntegerValueEnum {
+public enum UsingStatus implements IntegerValuable {
 	NOT_ENABLED(0, "未启用"), //
 	ENABLE(1, "启用"), //
 	DISABLE(-1, "停用"); //

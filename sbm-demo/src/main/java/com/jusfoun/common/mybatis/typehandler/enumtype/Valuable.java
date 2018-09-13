@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author yjw@jusfoun.com
  * @date 2018年1月17日 下午3:32:53
  */
-public interface ValueEnum<T> {
+public interface Valuable<T> {
 
 	/**
 	 * 描述: 获取枚举常量值. <br>
@@ -29,7 +29,7 @@ public interface ValueEnum<T> {
 	 * @return 是否目标常量集合中
 	 */
 	@SuppressWarnings("unchecked")
-	default boolean valIn(T... values) {
+	default boolean in(T... values) {
 		return Arrays.asList(values).contains(getValue());
 	}
 
@@ -43,8 +43,8 @@ public interface ValueEnum<T> {
 	 * @return 是否不在目标常量集合中
 	 */
 	@SuppressWarnings("unchecked")
-	default boolean valNotIn(T... values) {
-		return !valIn(values);
+	default boolean notIn(T... values) {
+		return !in(values);
 	}
 
 }

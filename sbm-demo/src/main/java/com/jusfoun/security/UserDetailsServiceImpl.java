@@ -50,12 +50,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		// 账户失效
-		if (UsingStatus.DISABLE.valEqualsTo(sysUser.getStatus())) {
+		if (UsingStatus.DISABLE.equalsTo(sysUser.getStatus())) {
 			throw new DisabledException(String.format("Disabled account '%s' !", username));
 		}
 
 		// 账户锁定
-		if (UsingStatus.NOT_ENABLED.valEqualsTo(sysUser.getStatus())) {
+		if (UsingStatus.NOT_ENABLED.equalsTo(sysUser.getStatus())) {
 			throw new LockedException(String.format("Locked account '%s' !", username));
 		}
 

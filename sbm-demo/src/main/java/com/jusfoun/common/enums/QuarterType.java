@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
  * 描述 : 项目执行阶段枚举类. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @author yjw@jusfoun.com
  * @date 2018年1月12日 上午9:55:31
  */
-public enum QuarterType implements IntegerValueEnum {
+public enum QuarterType implements IntegerValuable {
 	SPRING(1, "第一季度"), // 春季
 	SUMMER(2, "第二季度"), // 夏季
 	AUTUMN(3, "第三季度"), // 秋季
@@ -60,7 +60,7 @@ public enum QuarterType implements IntegerValueEnum {
 	public static QuarterType valueOf(Integer value) {
 		if (value != null) {
 			for (QuarterType type : values()) {
-				if (type.valEqualsTo(value)) {
+				if (type.equalsTo(value)) {
 					return type;
 				}
 			}

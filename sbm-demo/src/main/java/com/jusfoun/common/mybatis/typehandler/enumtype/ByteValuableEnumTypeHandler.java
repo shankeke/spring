@@ -13,14 +13,14 @@ import org.apache.ibatis.type.JdbcType;
  * @author yjw@jusfoun.com
  * @date 2017年12月23日 下午2:30:26
  */
-public class ByteValueEnumTypeHandler<E extends Enum<E>> extends AbstractValueEnumTypeHandler<E, Byte> {
-	public ByteValueEnumTypeHandler(Class<E> type) {
+public class ByteValuableEnumTypeHandler<E extends Enum<E>> extends AbstractValuableEnumTypeHandler<E, Byte> {
+	public ByteValuableEnumTypeHandler(Class<E> type) {
 		super(type);
 	}
 
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, E parameter, JdbcType jdbcType) throws SQLException {
-		ByteValueEnum valueEnum = (ByteValueEnum) parameter;
+		ByteValuable valueEnum = (ByteValuable) parameter;
 		ps.setByte(i, valueEnum.getValue());
 	}
 

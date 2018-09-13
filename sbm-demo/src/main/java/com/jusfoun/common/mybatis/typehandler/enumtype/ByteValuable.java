@@ -6,5 +6,5 @@ package com.jusfoun.common.mybatis.typehandler.enumtype;
  * @author yjw@jusfoun.com
  * @date 2018年1月10日 下午1:59:18
  */
-public interface ByteValueEnum extends ValueComparableEnum<Byte> {
+public interface ByteValuable extends ValuableAndComparable<Byte> {
 }

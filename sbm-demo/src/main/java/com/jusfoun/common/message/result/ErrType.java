@@ -1,6 +1,6 @@
 package com.jusfoun.common.message.result;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
+import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
  * 描述 : 业务异常枚举类. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValueEnum;
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午7:37:37
  */
-public enum ErrType implements IntegerValueEnum {
+public enum ErrType implements IntegerValuable{
 
 	SUCCESS(0, "调用成功"), //
 	FAILED(1, "调用失败"), //
