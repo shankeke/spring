@@ -1,4 +1,4 @@
-package com.jusfoun.mapper;
+package com.jusfoun.jasypt;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
