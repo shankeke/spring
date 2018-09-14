@@ -57,6 +57,7 @@
 	<logger name="io.lettuce" level="ERROR" />
 	<logger name="io.netty" level="ERROR" />
 	<logger name="reactor.core" level="ERROR" />
+	<logger name="com.ulisesbocchio" level="ERROR" />
 
 	<!-- hibernate日志输出 -->
 	<logger name="org.hibernate" level="ERROR" />

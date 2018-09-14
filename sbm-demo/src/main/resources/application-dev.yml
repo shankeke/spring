@@ -5,14 +5,12 @@ spring:
         driver-class-name: com.mysql.jdbc.Driver
         jdbc-url: jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
         username: root
-        password: root
-#        password: ENC(yyrqk9reuY5kScmS3D9mWQ==)
+        password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
       ds1:
         driver-class-name: com.mysql.jdbc.Driver
         jdbc-url: jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
         username: root
-        password: root
-#        password: ENC(yyrqk9reuY5kScmS3D9mWQ==)
+        password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
   redis:
     host: 127.0.0.1
     port: 6379
