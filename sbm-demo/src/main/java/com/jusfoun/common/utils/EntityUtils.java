@@ -9,8 +9,6 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.jusfoun.entity.TCountry;
-
 public class EntityUtils {
 
 	/**************************** 这一部分用于处理基本数据拆包常见处理类型 ******************************/
@@ -140,19 +138,5 @@ public class EntityUtils {
 			objClass = objClass.getSuperclass();
 		}
 		return reMap;
-	}
-
-	public static void main(String[] args) {
-		TCountry defaultIfNull = getDefaultIfNull(null, new TCountry());
-		System.out.println(defaultIfNull);
-		String defaultIfNull2 = getDefaultIfNull(null, "12");
-		System.out.println(defaultIfNull2);
-
-		System.out.println(getDefaultIfNull(true, false));
-		System.out.println(getDefaultIfNull(null, 1));
-		System.out.println(getDefaultIfNull(null, (byte) 0));
-		System.out.println(getDefaultIfNull(null, 0L));
-		System.out.println(getDefaultIfNull(null, "0L"));
-		System.out.println(getDefaultIfNull(null, 'A'));
 	}
 }

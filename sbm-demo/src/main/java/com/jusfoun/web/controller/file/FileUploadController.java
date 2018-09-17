@@ -73,8 +73,6 @@ public class FileUploadController {
 	@Logable(value = "多个文件上传", path = "多个文件上传")
 	@RequestMapping(value = "/uploadBatch", method = RequestMethod.POST)
 	public BaseResponse<List<FileItem>> uploadBatch(@ApiParam(required = true) @RequestParam List<MultipartFile> file, HttpServletRequest request) {
-		// List<MultipartFile> files = ((MultipartHttpServletRequest)
-		// request).getFiles("file");
 		List<FileItem> list = null;
 		try {
 			list = new ArrayList<FileItem>();
@@ -110,16 +108,8 @@ public class FileUploadController {
 		// 创建子目录
 		IoUtils.makdirs(subDir);
 		// 文件保存
-		// IOUtil.copy(file.getInputStream(), new FileOutputStream(new
-		// File(subDir, fileName)));
 		file.transferTo(new File(subDir, fileName));
 		// 返回上传结果给前端
-		// Map<String, Object> map = new HashMap<String, Object>();
-		// map.put("contentType", contentType);
-		// map.put("originalFilename", originalFilename);
-		// map.put("fileName", fileName);
-		// map.put("filePath", relativeDir + fileName);
-
 		return new FileItem(contentType, originalFilename, fileName, relativeDir + fileName);
 	}
 
