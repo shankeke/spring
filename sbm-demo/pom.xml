@@ -350,7 +350,7 @@
 					<overwrite>true</overwrite>
 					<verbose>true</verbose>
 					<!-- 注意跳过自动生成model，需要时再打开 -->
-					<skip>false</skip>
+					<skip>true</skip>
 					<configurationFile>${basedir}/src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
 				</configuration>
 				<executions>
