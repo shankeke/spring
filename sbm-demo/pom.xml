@@ -56,19 +56,6 @@
 		<commons-fileupload.version>1.3.3</commons-fileupload.version>
 
 		<swagger2.version>2.6.1</swagger2.version>
-
-		<!-- MyBatis Generator -->
-		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-		<jdbc.url>jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;autoReconnectForPools=true&amp;failOverReadOnly=false&amp;allowMultiQueries=true</jdbc.url>
-		<jdbc.username>root</jdbc.username>
-		<jdbc.password>root</jdbc.password>
-		<!-- Java接口和实体类 -->
-		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
-		<targetMapperPackage>com.jusfoun.mapper.ds1</targetMapperPackage>
-		<targetModelPackage>com.jusfoun.entity</targetModelPackage>
-		<!-- XML生成路径 -->
-		<targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
-		<targetXMLPackage>/mybatis/mappers/ds1</targetXMLPackage>
 	</properties>
 
 	<dependencyManagement>
@@ -297,13 +284,7 @@
 				<filtering>true</filtering>
 				<excludes>
 					<exclude>docs/**</exclude>
-					<exclude>cache/*</exclude>
-					<exclude>mybatis/*</exclude>
-					<exclude>public/*</exclude>
-					<exclude>static/*</exclude>
-					<exclude>templates/*</exclude>
-					<exclude>/*.txt</exclude>
-					<exclude>/*.xml</exclude>
+					<exclude>mybatis/generator/**</exclude>
 					<exclude>/*.yml</exclude>
 				</excludes>
 			</resource>
@@ -311,15 +292,6 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>cache/*</include>
-					<include>mybatis/*</include>
-					<include>public/*</include>
-					<include>static/*</include>
-					<include>templates/*</include>
-					<include>banner.txt</include>
-					<include>SysModules.xml</include>
-					<include>ClientDetails.xml</include>
-					<include>logback-spring.xml</include>
 					<include>application.yml</include>
 					<include>application-${profileActive}.yml</include>
 				</includes>

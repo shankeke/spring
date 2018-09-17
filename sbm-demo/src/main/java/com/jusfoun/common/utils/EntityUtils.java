@@ -9,144 +9,25 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.jusfoun.entity.TCountry;
+
 public class EntityUtils {
 
 	/**************************** 这一部分用于处理基本数据拆包常见处理类型 ******************************/
+
 	/**
 	 * 描述:为空则返回默认值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月21日 下午1:54:09
-	 * @param clazz
-	 *            数据类型
 	 * @param src
 	 *            元数据
 	 * @param def
 	 *            默认值
 	 * @return src不为空返回src，否则返回def
 	 */
-	public static <T> T getDefaultIfNull(Class<T> clazz, T src, T def) {
+	public static <T> T getDefaultIfNull(T src, T def) {
 		return null == src ? def : src;
-	}
-
-	/**
-	 * 描述:为空则返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Byte getDefaultIfNull(Byte src, Byte def) {
-		return getDefaultIfNull(Byte.class, src, def);
-	}
-
-	/**
-	 * 描述:为空则返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Short getDefaultIfNull(Short src, Short def) {
-		return getDefaultIfNull(Short.class, src, def);
-	}
-
-	/**
-	 * 描述:为空则返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Integer getDefaultIfNull(Integer src, Integer def) {
-		return getDefaultIfNull(Integer.class, src, def);
-	}
-
-	/**
-	 * 描述:为空返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Long getDefaultIfNull(Long src, Long def) {
-		return getDefaultIfNull(Long.class, src, def);
-	}
-
-	/**
-	 * 描述:为空返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Float getDefaultIfNull(Float src, Float def) {
-		return getDefaultIfNull(Float.class, src, def);
-	}
-
-	/**
-	 * 描述:为空返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Double getDefaultIfNull(Double src, Double def) {
-		return getDefaultIfNull(Double.class, src, def);
-	}
-
-	/**
-	 * 描述:为空则返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Boolean getDefaultIfNull(Boolean src, Boolean def) {
-		return getDefaultIfNull(Boolean.class, src, def);
-	}
-
-	/**
-	 * 描述:为空则返回默认值. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年3月21日 下午1:54:09
-	 * @param src
-	 *            元数据
-	 * @param def
-	 *            默认值
-	 * @return src不为空返回src，否则返回def
-	 */
-	public static Character getDefaultIfNull(Character src, Character def) {
-		return getDefaultIfNull(Character.class, src, def);
 	}
 
 	/**************************** 这一部分用于处理bean与map对象互转的功能 ******************************/
@@ -204,10 +85,10 @@ public class EntityUtils {
 		return map;
 	}
 
-	public static Object mapToBean(Map<String, Object> map, Class<?> beanClass) throws Exception {
+	public static <T> T mapToBean(Map<String, Object> map, Class<T> beanClass) throws Exception {
 		if (map == null)
 			return null;
-		Object obj = beanClass.newInstance();
+		T obj = beanClass.newInstance();
 		org.apache.commons.beanutils.BeanUtils.populate(obj, map);
 		return obj;
 	}
@@ -258,7 +139,20 @@ public class EntityUtils {
 			}
 			objClass = objClass.getSuperclass();
 		}
-
 		return reMap;
+	}
+
+	public static void main(String[] args) {
+		TCountry defaultIfNull = getDefaultIfNull(null, new TCountry());
+		System.out.println(defaultIfNull);
+		String defaultIfNull2 = getDefaultIfNull(null, "12");
+		System.out.println(defaultIfNull2);
+
+		System.out.println(getDefaultIfNull(true, false));
+		System.out.println(getDefaultIfNull(null, 1));
+		System.out.println(getDefaultIfNull(null, (byte) 0));
+		System.out.println(getDefaultIfNull(null, 0L));
+		System.out.println(getDefaultIfNull(null, "0L"));
+		System.out.println(getDefaultIfNull(null, 'A'));
 	}
 }
