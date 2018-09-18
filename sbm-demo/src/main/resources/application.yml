@@ -130,7 +130,7 @@ logging:
     timeout: 60
     
 templates:
-  dir: /templets/
+  dir: /extends/templets/
   countries: countries.ftl
   
 jasypt:
