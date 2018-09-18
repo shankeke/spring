@@ -30,8 +30,8 @@ system:
   init:
     username: admin
     password: 123456
-    sysModulesFile: classpath:/extends/init/SysModules.xml
-    clientDetailsFile: classpath:/extends/init/ClientDetails.xml
+    sysModulesFile: classpath:extends/init/SysModules.xml
+    clientDetailsFile: classpath:extends/init/ClientDetails.xml
   file:
     upload:
       root: D:/tianjinhexie/upload
