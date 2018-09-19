@@ -190,6 +190,5 @@ public class TCountry extends IPageable implements Idable<Long>{
 	public String toString() {
 		return "TCountry [id=" + id + ", zhName=" + zhName + ", shName=" + shName + ", enName=" + enName + "]";
 	}
-
  
 }
