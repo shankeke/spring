@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jusfoun.common.base.controller.BaseIdableController;
 import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.message.result.BaseResponse;
 
@@ -18,7 +19,7 @@ import io.swagger.annotations.ApiParam;
  * @author yjw@jusfoun.com
  * @date 2018年7月12日 下午2:08:27
  */
-public interface BaseTreeableAndIdableController<T extends Treeable<T> & Idable<PK>, PK extends Serializable> {
+public interface BaseTreeableAndIdableController<T extends Treeable<T> & Idable<PK>, PK extends Serializable> extends BaseIdableController<T, PK> {
 
 	/**
 	 * 描述: 获取树图操作业务实例. <br>
