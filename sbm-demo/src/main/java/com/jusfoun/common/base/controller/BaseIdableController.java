@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiParam;
  * @date 2018年7月12日 下午2:08:27
  */
 @Api
-public interface BaseIdableController<T extends Idable<PK>, PK extends Serializable> {
+public interface BaseIdableController<T extends Idable<PK>, PK extends Serializable> extends BaseController<T> {
 
 	BaseIdableService<T> getBaseIdableService();
 

@@ -30,5 +30,4 @@ public class TAreaController implements BaseController<TArea>, BaseTreeableAndId
 	public TreeableAndIdableService<TArea, Long> getTreeableIdableService() {
 		return tAreaService;
 	}
-
 }
