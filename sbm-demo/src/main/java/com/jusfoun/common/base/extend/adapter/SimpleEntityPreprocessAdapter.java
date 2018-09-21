@@ -37,26 +37,26 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	}
 
 	@Override
-	public void preprocess(Long userId, String realName, Annotation annotation, Object obj) {
+	public void preprocess(Annotation annotation, Object obj, Long userId, String realName) {
 		if (ICollections.hasElements(preprocessors)) {
 			EntityPreprocessor preprocessor = null;
 			Class<? extends Object> clazz = obj.getClass();
 			if (Iterable.class.isAssignableFrom(clazz)) {
 				Iterator<?> iterator = ((Iterable<?>) obj).iterator();
 				iterator.forEachRemaining(t -> {
-					handle(userId, realName, annotation, preprocessor, t);
+					handle(preprocessor, annotation, t, userId, realName);
 				});
 			} else if (clazz.isArray()) {
 				for (int i = 0; i < Array.getLength(obj); i++) {
-					handle(userId, realName, annotation, preprocessor, Array.get(obj, i));
+					handle(preprocessor, annotation, Array.get(obj, i), userId, realName);
 				}
 			} else {
-				handle(userId, realName, annotation, preprocessor, obj);
+				handle(preprocessor, annotation, obj, userId, realName);
 			}
 		}
 	}
 
-	private void handle(Long userId, String realName, Annotation annotation, EntityPreprocessor preprocessor, Object obj) {
+	private void handle(EntityPreprocessor preprocessor, Annotation annotation, Object obj, Long userId, String realName) {
 		if (preprocessor == null) {
 			preprocessor = get(annotation, obj.getClass());
 		}
@@ -66,11 +66,20 @@ public class SimpleEntityPreprocessAdapter implements EntityPreprocessAdapter {
 	}
 
 	@Override
-	public EntityPreprocessAdapter add(EntityPreprocessor preprocessor) {
+	public EntityPreprocessAdapter add(EntityPreprocessor processor) {
 		if (ICollections.hasNoElements(preprocessors)) {
 			preprocessors = Lists.newArrayList();
 		}
-		preprocessors.add(preprocessor);
+		preprocessors.add(processor);
+		return this;
+	}
+
+	@Override
+	public EntityPreprocessAdapter add(EntityPreprocessor... processors) {
+		if (ICollections.hasNoElements(preprocessors)) {
+			preprocessors = Lists.newArrayList();
+		}
+		preprocessors.addAll(Arrays.asList(processors));
 		return this;
 	}
 

@@ -80,11 +80,11 @@ public class EntityPreprocessAspect {
 					parameter = parameters[i];
 					annotation = parameter.getAnnotation(PreInsert.class);
 					if (annotation != null) {
-						preprocessAdapter.preprocess(userId, realName, annotation, args[i]);
+						preprocessAdapter.preprocess(annotation, args[i], userId, realName);
 					}
 					annotation = parameter.getAnnotation(PreUpdate.class);
 					if (annotation != null) {
-						preprocessAdapter.preprocess(userId, realName, annotation, args[i]);
+						preprocessAdapter.preprocess(annotation, args[i], userId, realName);
 					}
 				}
 			}

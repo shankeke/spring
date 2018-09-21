@@ -17,16 +17,16 @@ public interface EntityPreprocessAdapter {
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 上午10:49:53
-	 * @param userId
-	 *            当前用户ID
-	 * @param realName
-	 *            当前用户姓名
 	 * @param annotation
 	 *            预处理参数上的注解
 	 * @param obj
 	 *            实体对象（可以是支持的实体集合）
+	 * @param userId
+	 *            当前用户ID
+	 * @param realName
+	 *            当前用户姓名
 	 */
-	void preprocess(Long userId, String realName, Annotation annotation, Object obj);
+	void preprocess(Annotation annotation, Object obj, Long userId, String realName);
 
 	/**
 	 * 描述 :添加预处理器. <br>
@@ -34,7 +34,28 @@ public interface EntityPreprocessAdapter {
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 下午7:33:05
 	 */
-	EntityPreprocessAdapter add(EntityPreprocessor preprocessor);
+
+	/**
+	 * 描述:添加预处理器. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月21日 上午11:33:35
+	 * @param processor
+	 *            预处理器
+	 * @return 适配器
+	 */
+	EntityPreprocessAdapter add(EntityPreprocessor processor);
+
+	/**
+	 * 描述:添加预处理器数组. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月21日 上午11:53:26
+	 * @param processors
+	 *            预处理器数组
+	 * @return 适配器
+	 */
+	EntityPreprocessAdapter add(EntityPreprocessor... processors);
 
 	/**
 	 * 描述:获取预处理器. <br>
