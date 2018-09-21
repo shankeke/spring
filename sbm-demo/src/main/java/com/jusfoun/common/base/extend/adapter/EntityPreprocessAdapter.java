@@ -29,24 +29,6 @@ public interface EntityPreprocessAdapter {
 	void preprocess(Annotation annotation, Object obj, Long userId, String realName);
 
 	/**
-	 * 描述 :添加预处理器. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年7月30日 下午7:33:05
-	 */
-
-	/**
-	 * 描述:添加预处理器. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2018年9月21日 上午11:33:35
-	 * @param processor
-	 *            预处理器
-	 * @return 适配器
-	 */
-	EntityPreprocessAdapter add(EntityPreprocessor processor);
-
-	/**
 	 * 描述:添加预处理器数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
