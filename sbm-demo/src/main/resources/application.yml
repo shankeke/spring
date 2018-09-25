@@ -49,6 +49,7 @@ spring:
   pid:
     file: target/${spring.application.name}.pid
     fail-on-write-error: true
+
 security:
 #  enable-csrf: false
 #  ignored:
@@ -90,7 +91,6 @@ security:
       - /country/export
       - /swagger-resources/**
       - /test/**
-   
 mapper:
     not-empty: false
     identity: MYSQL
