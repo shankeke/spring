@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 @ApiModel
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "sys_role_user")
 public class SysRoleUser implements Serializable {
 	private static final long serialVersionUID = -1570907147241596748L;

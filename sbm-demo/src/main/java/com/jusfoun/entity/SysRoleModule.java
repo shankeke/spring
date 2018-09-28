@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:10:21
  */
 @ApiModel
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "sys_role_module")
 public class SysRoleModule implements Serializable {
 	private static final long serialVersionUID = -8437861697252568978L;

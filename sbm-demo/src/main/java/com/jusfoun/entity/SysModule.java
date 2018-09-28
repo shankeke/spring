@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
 		"clientId", //
 		"subList" //
 })
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "sys_module")
 public class SysModule extends BaseEntity<SysModule> implements Treeable<SysModule> {
 	private static final long serialVersionUID = -518969013141251551L;

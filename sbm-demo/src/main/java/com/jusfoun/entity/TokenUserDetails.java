@@ -40,7 +40,7 @@ import tk.mybatis.mapper.annotation.ColumnType;
  * @date 2017年11月8日 下午3:11:05
  */
 @ApiModel
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "token_user_details")
 public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	private static final long serialVersionUID = 1574825783668756453L;

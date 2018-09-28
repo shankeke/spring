@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月7日 上午10:35:16
  */
 @ApiModel
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 	private static final long serialVersionUID = 1957941391153967331L;
 

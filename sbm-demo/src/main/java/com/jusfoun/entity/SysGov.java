@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:09:08
  */
 @ApiModel
-@JsonIgnoreProperties(value = {"handler"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "sys_gov")
 public class SysGov extends BaseEntity<SysGov> implements Treeable<SysGov> {
 	private static final long serialVersionUID = 1135482541484948992L;
