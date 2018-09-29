@@ -18,6 +18,7 @@ public class InitConfig {
 	 * 初始化账户
 	 */
 	private String username;
+	
 	/**
 	 * 初始化密码
 	 */
