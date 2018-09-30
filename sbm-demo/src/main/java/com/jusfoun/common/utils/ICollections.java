@@ -22,14 +22,23 @@ public class ICollections {
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 上午11:32:37
-	 * @param list
-	 *            判断的集合
-	 * @return 集合为空返回false，否则返回true
+	 * @param collection
+	 *            需要判断的集合
+	 * @return 集合不为空返回true，否则返回false
 	 */
 	public static boolean hasElements(Collection<?> collection) {
 		return collection != null && !collection.isEmpty() && collection.size() > 0;
 	}
 
+	/**
+	 * 描述:判断集合中是否没有数据.. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年9月30日 下午2:24:03
+	 * @param collection
+	 *            需要判断的集合
+	 * @return 集合为空返回true，否则返回false
+	 */
 	public static boolean hasNoElements(Collection<?> collection) {
 		return !hasElements(collection);
 	}
