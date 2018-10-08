@@ -203,12 +203,12 @@ public class TokenClientDetails implements ClientDetails, Serializable {
 	}
 
 	@Override
-	public Collection<? extends GrantedAuthority> retainAuthorities(Collection<? extends GrantedAuthority> authorities) {
-		if (!ICollections.hasElements(authorities) || !ICollections.hasElements(this.authorities)) {
+	public Collection<? extends GrantedAuthority> retainAuthorities(Collection<? extends GrantedAuthority> grantedAuthorities) {
+		if (!ICollections.hasElements(grantedAuthorities) || !ICollections.hasElements(this.authorities)) {
 			return null;
 		}
 		Set<String> collect = this.authorities.parallelStream().map(t -> t.getAuthority()).collect(Collectors.toSet());
-		Set<String> collect1 = authorities.parallelStream().map(t -> t.getAuthority()).collect(Collectors.toSet());
+		Set<String> collect1 = grantedAuthorities.parallelStream().map(t -> t.getAuthority()).collect(Collectors.toSet());
 		collect.retainAll(collect1);
 		if (ICollections.hasElements(collect)) {
 			return collect.parallelStream().map(t -> new RawGrantedAuthority(t)).collect(Collectors.toSet());
