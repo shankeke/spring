@@ -147,6 +147,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	@ApiModelProperty("有效期")
 	@Column(name = "expires_in")
 	private Integer expiresIn;
+	
 	/**
 	 * access_token失效时间
 	 */
