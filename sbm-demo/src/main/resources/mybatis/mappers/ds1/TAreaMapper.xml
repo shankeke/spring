@@ -30,7 +30,7 @@
 		<where>
 			<if test="id        != null "><![CDATA[and id = #{id ,jdbcType=BIGINT }]]></if>
 			<if test="areaName  != null and areaName  != ''"><![CDATA[and area_name like CONCAT('%',#{areaName ,jdbcType=VARCHAR},'%')]]></if>
-			<if test="shortName != null and shortName  != ''"><![CDATA[and short_name like CONCAT('%',#{shortName ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="shortName != null and shortName != ''"><![CDATA[and short_name like CONCAT('%',#{shortName ,jdbcType=VARCHAR},'%')]]></if>
 			<if test="parentId  != null "><![CDATA[and parent_id = #{parentId ,jdbcType=BIGINT }]]></if>
 			<if test="level     != null "><![CDATA[and level = #{level ,jdbcType=TINYINT }]]></if>
 			<if test="sort      != null "><![CDATA[and sort = #{level ,jdbcType=TINYINT }]]></if>
