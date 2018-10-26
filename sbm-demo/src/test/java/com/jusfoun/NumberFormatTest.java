@@ -1,6 +1,7 @@
 package com.jusfoun;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import org.junit.Test;
@@ -31,6 +32,49 @@ public class NumberFormatTest {
 		a = a.add(b);
 		System.out.println(a);
 		System.out.println(0.06 + 0.01);
+	}
+	
+	@Test
+	public void test02() {
+		double initLots = 1, LotExponent = 2, initPrice = 1.200, pipStep = 0.03;
+		int pipTimes = 5;
+		System.out.println(avg(initLots, LotExponent, initPrice, pipStep, pipTimes, true));
+		System.out.println(avg(initLots, LotExponent, initPrice, pipStep, pipTimes, false));
+	}
+
+	/**
+	 * 说明：计算平均价格. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年10月26日 下午3:39:57
+	 * @param initLots
+	 *            初始仓位
+	 * @param LotExponent
+	 *            初始系数
+	 * @param initPrice
+	 *            初始价格
+	 * @param pipStep
+	 *            价格步长
+	 * @param pipTimes
+	 *            加仓次数
+	 * @param isL
+	 *            是否多头，多头为true，空头为false
+	 * @return 平均价格
+	 */
+	public double avg(double initLots, double LotExponent, double initPrice, double pipStep, int pipTimes, boolean isL) {
+		double total = initLots * initPrice, count = initLots;
+		for (int i = 1; i <= pipTimes; i++) {
+			if (isL) {
+				initPrice += pipStep * 1;// 当前价位
+			} else {
+				initPrice -= pipStep * 1;// 当前价位
+			}
+			initLots *= LotExponent;// 当前仓位
+			count += initLots;// 总的仓位
+			total += initPrice * initLots;// 总资金
+			System.out.println(String.format("当前价格：%.2f，当前仓位总数：%.2f，当前总资金：%.2f。", initPrice, initLots, total));
+		}
+		return new BigDecimal(total / count).setScale(2, RoundingMode.HALF_UP).doubleValue();
 	}
 
 }
