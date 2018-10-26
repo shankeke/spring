@@ -9,7 +9,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 
 /**
- * 描述 :一些涉及到关联数据的查询接口. <br>
+ * 描述 :一些通用的扩展查询接口，可用于涉及到关联数据的查询等. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月21日 下午12:56:29

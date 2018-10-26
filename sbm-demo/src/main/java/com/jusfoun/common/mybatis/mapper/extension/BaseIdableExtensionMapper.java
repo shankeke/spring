@@ -5,7 +5,7 @@ import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
 /**
- * 描述:需要继承动态生成sql并且手动封装一些复杂关联查询sql的接口可以继承改接口，并实现自己的关联查询sql。 <br>
+ * 描述:存在ID属性的实体持久层接口类，一并实现扩展的查询接口。 <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 上午11:15:38
