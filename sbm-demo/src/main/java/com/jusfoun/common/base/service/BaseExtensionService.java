@@ -71,8 +71,8 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	 * @param params
 	 *            查询条件
 	 * @param page
-	 *            分页信息，如果改成参数为空则不分页，查询所有
-	 * @return 分页数据包含附加字段
+	 *            分页信息，传空查询所有
+	 * @return 扩展查询数据列表
 	 * @throws ServiceException
 	 */
 	default List<T> selectExtensionList(Map<?, ?> params, IPage<T> page) throws ServiceException {
@@ -81,15 +81,15 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 描述 : 查询分页列表包含附加字段. <br>
+	 * 描述 : 查询扩展分页数据. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:25:23
 	 * @param params
 	 *            查询条件
 	 * @param page
-	 *            分页信息，如果改成参数为空则不分页，查询所有
-	 * @return 分页数据包含附加字段
+	 *            分页信息，传空查询所有
+	 * @return 扩展分页数据
 	 * @throws ServiceException
 	 */
 	default IPage<T> selectExtensionPage(Map<?, ?> params, IPage<T> page) throws ServiceException {
