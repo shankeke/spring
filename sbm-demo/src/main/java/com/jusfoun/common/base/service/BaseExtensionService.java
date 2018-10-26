@@ -9,7 +9,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 
 /**
- * 说明：一些通用的扩展查询接口，可用于涉及到关联数据的查询等. <br>
+ * 描述 :一些通用的扩展查询接口，可用于涉及到关联数据的查询等. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月21日 下午12:56:29
@@ -19,7 +19,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	BaseExtensionSelectMapper<T> getBaseExtensionSelectMapper();
 
 	/**
-	 * 说明： 查询条数，有模糊查询等参数. <br>
+	 * 描述 : 查询条数，有模糊查询等参数. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:30:22
@@ -33,7 +33,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 根据条件查询所有数据，附加关联字段. <br>
+	 * 描述: 根据条件查询所有数据，附加关联字段. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月22日 下午3:02:49
@@ -50,7 +50,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 根据条件查询所有数据，附加关联字段. <br>
+	 * 描述: 根据条件查询所有数据，附加关联字段. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月22日 下午2:59:11
@@ -64,7 +64,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 查询分页列表包含附加属性. <br>
+	 * 描述 : 查询分页列表包含附加属性. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:25:23
@@ -81,7 +81,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 查询分页列表包含附加字段. <br>
+	 * 描述 : 查询分页列表包含附加字段. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:25:23
@@ -107,7 +107,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 根据条件查询唯一一条记录. <br>
+	 * 描述 : 根据条件查询唯一一条记录. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:25:23
@@ -120,7 +120,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 根据主键查询唯一的记录（当主键名称默认的“id”）. <br>
+	 * 描述 : 根据主键查询唯一的记录（当主键名称默认的“id”）. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:25:23
@@ -133,7 +133,7 @@ public interface BaseExtensionService<T> extends BaseService<T> {
 	}
 
 	/**
-	 * 说明： 根据主键查询唯一的记录（当主键名称不是默认的“id”时，指定主键名称和主键值）. <br>
+	 * 描述 : 根据主键查询唯一的记录（当主键名称不是默认的“id”时，指定主键名称和主键值）. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午4:25:23
