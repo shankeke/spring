@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * 描述 : sql脚本执行定时任务. <br>
+ * 说明： sql脚本执行定时任务. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年10月24日 下午2:22:04

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
- * 描述 : 继承HttpServletRequestWrapper，创建装饰类，以达到修改HttpServletRequest参数的目的. <br>
+ * 说明： 继承HttpServletRequestWrapper，创建装饰类，以达到修改HttpServletRequest参数的目的. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月9日 下午7:48:54

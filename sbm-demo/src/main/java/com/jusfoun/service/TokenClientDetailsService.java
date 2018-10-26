@@ -4,7 +4,7 @@ import com.jusfoun.common.base.service.BaseIdableExtensionService;
 import com.jusfoun.entity.TokenClientDetails;
 
 /**
- * 描述 : 客户端信息业务处理. <br>
+ * 说明： 客户端信息业务处理. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月30日 下午4:08:10
@@ -12,7 +12,7 @@ import com.jusfoun.entity.TokenClientDetails;
 public interface TokenClientDetailsService extends BaseIdableExtensionService<TokenClientDetails> {
 
 	/**
-	 * 描述 :保存并缓存. <br>
+	 * 说明：保存并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月30日 下午4:08:24
@@ -23,7 +23,7 @@ public interface TokenClientDetailsService extends BaseIdableExtensionService<To
 	TokenClientDetails insertAndCache(TokenClientDetails record);
 
 	/**
-	 * 描述 :替换并缓存. <br>
+	 * 说明：替换并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月30日 下午4:08:24
@@ -34,7 +34,7 @@ public interface TokenClientDetailsService extends BaseIdableExtensionService<To
 	TokenClientDetails replaceAndCache(TokenClientDetails record);
 
 	/**
-	 * 描述 : 删除数据库记录和缓存. <br>
+	 * 说明： 删除数据库记录和缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月30日 下午4:08:36
@@ -45,7 +45,7 @@ public interface TokenClientDetailsService extends BaseIdableExtensionService<To
 	int deleteWithCache(TokenClientDetails record);
 
 	/**
-	 * 描述 : 修改并缓存. <br>
+	 * 说明： 修改并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月30日 下午4:08:48
@@ -56,7 +56,7 @@ public interface TokenClientDetailsService extends BaseIdableExtensionService<To
 	TokenClientDetails updateAndCache(TokenClientDetails record);
 
 	/**
-	 * 描述 : 根据clientI查询并缓存. <br>
+	 * 说明： 根据clientI查询并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月30日 下午4:09:28

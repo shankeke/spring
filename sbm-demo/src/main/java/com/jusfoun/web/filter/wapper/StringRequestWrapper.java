@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
- * 描述 : 自定义request包装类. <br>
+ * 说明： 自定义request包装类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 上午10:24:43

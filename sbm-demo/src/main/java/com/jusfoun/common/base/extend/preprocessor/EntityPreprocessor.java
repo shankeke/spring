@@ -3,7 +3,7 @@ package com.jusfoun.common.base.extend.preprocessor;
 import java.lang.annotation.Annotation;
 
 /**
- * 描述:实体对象预处理器. <br>
+ * 说明：实体对象预处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:14:40
@@ -11,7 +11,7 @@ import java.lang.annotation.Annotation;
 public interface EntityPreprocessor {
 
 	/**
-	 * 描述:预处理方法. <br>
+	 * 说明：预处理方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 上午10:49:53
@@ -26,7 +26,7 @@ public interface EntityPreprocessor {
 	Object process(Long userId, String realName, Object obj);
 
 	/**
-	 * 描述:是否支持. <br>
+	 * 说明：是否支持. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 上午10:59:34

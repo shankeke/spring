@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 : 基础MODEL类. <br>
+ * 说明： 基础MODEL类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:35:16

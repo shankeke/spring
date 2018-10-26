@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.jusfoun.common.message.utils.ProxyTargetUtils;
 
 /**
- * 描述 :jackson 中， 我们可以通过 ObjectMapper.setFilterProvider 来进行过滤规则的设置， jackson
+ * 说明：jackson 中， 我们可以通过 ObjectMapper.setFilterProvider 来进行过滤规则的设置， jackson
  * 内置了一个 SimpleFilterProvider 过滤器，这个过滤器功能比较单一， 不能很好的支持我们想要的效果。这里自己实现了一个过滤器
  * JacksonJsonFilter. <br>
  * 

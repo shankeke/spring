@@ -11,7 +11,7 @@ import com.jusfoun.security.support.token.TokenType;
 import com.jusfoun.security.support.token.parser.TokenParser;
 
 /**
- * 描述 : 简单令牌处理工厂 . <br>
+ * 说明： 简单令牌处理工厂 . <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月3日 上午12:11:07

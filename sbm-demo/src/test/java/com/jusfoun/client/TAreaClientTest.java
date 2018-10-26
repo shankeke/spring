@@ -8,7 +8,7 @@ import com.google.common.collect.Maps;
 import com.jusfoun.entity.TArea;
 
 /**
- * 描述 :地区信息管理接口测试. <br>
+ * 说明：地区信息管理接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午11:00:47

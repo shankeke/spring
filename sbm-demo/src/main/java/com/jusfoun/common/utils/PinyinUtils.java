@@ -10,7 +10,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 /**
- * 描述:汉语拼音处理工具. <br>
+ * 说明：汉语拼音处理工具. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月31日 上午9:57:17
@@ -18,7 +18,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 public class PinyinUtils {
 
 	/**
-	 * 描述:获得汉语拼音首字母. <br>
+	 * 说明：获得汉语拼音首字母. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月31日 上午9:57:42
@@ -35,7 +35,7 @@ public class PinyinUtils {
 	}
 
 	/**
-	 * 描述:获得汉语拼音首字母. <br>
+	 * 说明：获得汉语拼音首字母. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月31日 上午9:58:21
@@ -64,7 +64,7 @@ public class PinyinUtils {
 	}
 
 	/**
-	 * 描述:将字符串中的中文转化为拼音，英文字符不变. <br>
+	 * 说明：将字符串中的中文转化为拼音，英文字符不变. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月31日 上午9:59:14
@@ -98,7 +98,7 @@ public class PinyinUtils {
 	}
 
 	/**
-	 * 描述:汉字转换位汉语拼音首字母，英文字符不变. <br>
+	 * 说明：汉字转换位汉语拼音首字母，英文字符不变. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月31日 上午9:59:53

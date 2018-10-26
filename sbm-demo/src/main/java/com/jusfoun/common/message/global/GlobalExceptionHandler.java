@@ -21,7 +21,7 @@ import com.jusfoun.security.exceptions.AuthenticationExceptionHandler;
 import com.jusfoun.security.exceptions.UnAuthorizedException;
 
 /**
- * 描述 : 系统异常统一处理. <br>
+ * 说明： 系统异常统一处理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月9日 下午2:10:32

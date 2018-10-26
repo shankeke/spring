@@ -12,7 +12,7 @@ import com.jusfoun.entity.SysModule;
 public interface SysModuleMapper extends BaseIdableExtensionMapper<SysModule> ,TreeableMapper<SysModule, Long>{
 
 	/**
-	 * 描述 :根据角色ID查询角色拥有的权限列表. <br>
+	 * 说明：根据角色ID查询角色拥有的权限列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月20日 上午9:16:03
@@ -23,7 +23,7 @@ public interface SysModuleMapper extends BaseIdableExtensionMapper<SysModule> ,T
 	List<SysModule> selectByRoleId(Long roleId);
 
 	/**
-	 * 描述 :根据父节点ID查询权限列表. <br>
+	 * 说明：根据父节点ID查询权限列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月20日 上午9:16:03

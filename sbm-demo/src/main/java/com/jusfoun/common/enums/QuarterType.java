@@ -3,7 +3,7 @@ package com.jusfoun.common.enums;
 import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
- * 描述 : 项目执行阶段枚举类. <br>
+ * 说明： 项目执行阶段枚举类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月12日 上午9:55:31
@@ -32,7 +32,7 @@ public enum QuarterType implements IntegerValuable {
 	}
 
 	/**
-	 * 描述 : 根据ID获取名称. <br>
+	 * 说明： 根据ID获取名称. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月16日 上午9:59:03
@@ -49,7 +49,7 @@ public enum QuarterType implements IntegerValuable {
 	}
 
 	/**
-	 * 描述 :根据ID值获取类型. <br>
+	 * 说明：根据ID值获取类型. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月16日 上午9:58:12

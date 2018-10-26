@@ -45,7 +45,7 @@ import com.jusfoun.security.support.token.verifier.TokenVerifier;
 import com.jusfoun.service.TokenUserDetailsService;
 
 /**
- * 描述 : security安全配置. <br>
+ * 说明： security安全配置. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:06:05

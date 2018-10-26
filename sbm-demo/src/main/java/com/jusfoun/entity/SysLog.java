@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 :系统操作日志信息. <br>
+ * 说明：系统操作日志信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月5日 上午9:09:21

@@ -17,7 +17,7 @@ import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.security.exceptions.AuthenticationExceptionHandler;
 
 /**
- * 描述 :自定义异常响应逻辑. <br>
+ * 说明：自定义异常响应逻辑. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月3日 上午10:12:05

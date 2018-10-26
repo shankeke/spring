@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述:上传文件包装类. <br>
+ * 说明：上传文件包装类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月11日 下午4:21:16

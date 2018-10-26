@@ -1,7 +1,7 @@
 package com.jusfoun.common.enums;
 
 /**
- * 描述 : 时段类型. <br>
+ * 说明： 时段类型. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月27日 下午7:04:36

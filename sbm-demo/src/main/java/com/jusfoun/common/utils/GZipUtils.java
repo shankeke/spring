@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.jusfoun.common.utils.io.IoUtils;
 
 /**
- * 描述 : Gzip文件格式处理. <br>
+ * 说明： Gzip文件格式处理. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月16日 下午3:29:07
@@ -22,7 +22,7 @@ public class GZipUtils {
 	private static final Logger log = LoggerFactory.getLogger(GZipUtils.class);
 
 	/**
-	 * 描述 :压缩. <br>
+	 * 说明：压缩. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月16日 下午3:29:33
@@ -51,7 +51,7 @@ public class GZipUtils {
 	}
 
 	/**
-	 * 描述 :解压缩. <br>
+	 * 说明：解压缩. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月16日 下午3:29:50

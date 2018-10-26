@@ -11,7 +11,7 @@ import tk.mybatis.mapper.mapperhelper.MapperTemplate;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :根据主键集合批量删除提供器. <br>
+ * 说明：根据主键集合批量删除提供器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月22日 下午1:54:00
@@ -23,7 +23,7 @@ public class DeleteByPrimaryKeysProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 :通过主键集合批量删除，并且该类只能有一个主键，如果对应表存在联合主键或者没有主键则生成空实现，即sql为空. <br>
+	 * 说明：通过主键集合批量删除，并且该类只能有一个主键，如果对应表存在联合主键或者没有主键则生成空实现，即sql为空. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 上午11:56:32

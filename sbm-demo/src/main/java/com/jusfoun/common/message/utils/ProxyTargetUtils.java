@@ -8,7 +8,7 @@ import org.springframework.aop.framework.AopProxy;
 import org.springframework.aop.support.AopUtils;
 
 /**
- * 描述 : 代理工具类. <br>
+ * 说明： 代理工具类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 下午8:05:12
@@ -16,7 +16,7 @@ import org.springframework.aop.support.AopUtils;
 public class ProxyTargetUtils {
 
 	/**
-	 * 描述 :获取代理对象的正式类型. <br>
+	 * 说明：获取代理对象的正式类型. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月7日 下午8:25:34
@@ -36,7 +36,7 @@ public class ProxyTargetUtils {
 	}
 
 	/**
-	 * 描述 :获取代理对象的原来的类型对象. <br>
+	 * 说明：获取代理对象的原来的类型对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月8日 上午10:32:41
@@ -57,7 +57,7 @@ public class ProxyTargetUtils {
 	}
 
 	/**
-	 * 描述 : 获取CGLIB代理的对象真实对象. <br>
+	 * 说明： 获取CGLIB代理的对象真实对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月8日 上午10:33:37
@@ -80,7 +80,7 @@ public class ProxyTargetUtils {
 	}
 
 	/**
-	 * 描述 : 获取JDK动态代理的真实对象. <br>
+	 * 说明： 获取JDK动态代理的真实对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月8日 上午10:34:38

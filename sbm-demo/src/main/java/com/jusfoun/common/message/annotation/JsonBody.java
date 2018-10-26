@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 描述:json字段过滤器，指定的java类型的对象在序列化为json串的时候实现字段的排除或者包含关系的指定，达到定制化的目的. <br>
+ * 说明：json字段过滤器，指定的java类型的对象在序列化为json串的时候实现字段的排除或者包含关系的指定，达到定制化的目的. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 下午2:33:05
@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 public @interface JsonBody {
 
 	/**
-	 * 描述: 需要过滤字段的类型. <br>
+	 * 说明： 需要过滤字段的类型. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:55:10
@@ -27,7 +27,7 @@ public @interface JsonBody {
 	Class<?> type();
 
 	/**
-	 * 描述: 需要序列换的字段名数组. <br>
+	 * 说明： 需要序列换的字段名数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:55:58
@@ -36,7 +36,7 @@ public @interface JsonBody {
 	String[] includes() default {};
 
 	/**
-	 * 描述: 需要忽略掉的字段名数组 <br>
+	 * 说明： 需要忽略掉的字段名数组 <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:56:49

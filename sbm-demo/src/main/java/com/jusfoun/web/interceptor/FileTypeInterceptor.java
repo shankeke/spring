@@ -15,7 +15,7 @@ import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.result.ErrType;
 
 /**
- * 描述 : 文件类型限制拦截器. <br>
+ * 说明： 文件类型限制拦截器. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午3:41:44

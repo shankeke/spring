@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 : 简单token对象. <br>
+ * 说明： 简单token对象. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月4日 下午8:38:24

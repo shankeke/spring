@@ -3,7 +3,7 @@ package com.jusfoun.common.utils.math;
 import java.math.BigDecimal;
 
 /**
- * 描述 : 进行BigDecimal对象的加减乘除，四舍五入等运算的工具类. <br>
+ * 说明： 进行BigDecimal对象的加减乘除，四舍五入等运算的工具类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:34:21
@@ -37,7 +37,7 @@ public class ArithUtils {
 	}
 
 	/**
-	 * 描述 :提供多个数据精确的加法运算。. <br>
+	 * 说明：提供多个数据精确的加法运算。. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -76,7 +76,7 @@ public class ArithUtils {
 	}
 
 	/**
-	 * 描述 : 精确加法运算. <br>
+	 * 说明： 精确加法运算. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -149,7 +149,7 @@ public class ArithUtils {
 	 */
 
 	/**
-	 * 描述 : 提供多个数据精确的乘法运算. <br>
+	 * 说明： 提供多个数据精确的乘法运算. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -163,7 +163,7 @@ public class ArithUtils {
 	}
 
 	/**
-	 * 描述 : 提供多个数据精确的乘法运算. <br>
+	 * 说明： 提供多个数据精确的乘法运算. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw

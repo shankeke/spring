@@ -13,7 +13,7 @@ import com.jusfoun.service.SysLogService;
 import io.swagger.annotations.Api;
 
 /**
- * 描述 : 系统日志管理. <br>
+ * 说明： 系统日志管理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:07:10

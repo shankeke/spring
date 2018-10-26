@@ -28,7 +28,7 @@ import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.util.WebUtil;
 
 /**
- * 描述 : 登录流程过滤器. <br>
+ * 说明： 登录流程过滤器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午2:52:47

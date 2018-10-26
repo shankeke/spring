@@ -37,7 +37,7 @@ import javassist.bytecode.annotation.MemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 
 /**
- * 描述 : 使用代理来创建jackson的MixInAnnotation注解接口<br>
+ * 说明： 使用代理来创建jackson的MixInAnnotation注解接口<br>
  * 如果使用本实现方法，一定要配置在web.xml中配置过滤器WebContextFilter，否则无法输出json到客户端 <br>
  * 
  * @author yjw@jusfoun.com
@@ -108,7 +108,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	}
 
 	/**
-	 * 描述 : 处理JsonBody注解. <br>
+	 * 说明： 处理JsonBody注解. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月8日 下午8:33:16
@@ -128,7 +128,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	}
 
 	/**
-	 * 描述 : 解析注解中忽略的字段信息，将配置的字段存入忽略的字段集合中并放入映射 <br>
+	 * 说明： 解析注解中忽略的字段信息，将配置的字段存入忽略的字段集合中并放入映射 <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月11日 下午2:21:52
@@ -147,7 +147,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	}
 
 	/**
-	 * 描述 : 解析注解中包含的字段信息，就是说如果配置的字段存在于忽略的字段集合中的话，在这里则要将他们从集合中删除. <br>
+	 * 说明： 解析注解中包含的字段信息，就是说如果配置的字段存在于忽略的字段集合中的话，在这里则要将他们从集合中删除. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月11日 下午2:21:52
@@ -187,7 +187,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	}
 
 	/**
-	 * 描述 : 根据方法获取过滤映射表 . <br>
+	 * 说明： 根据方法获取过滤映射表 . <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月8日 下午8:32:36
@@ -254,7 +254,7 @@ public class JavassistFilterPropertyHandler implements FilterPropertyHandler {
 	}
 
 	/**
-	 * 描述 : 创建jackson的代理注解接口类 . <br>
+	 * 说明： 创建jackson的代理注解接口类 . <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月8日 下午8:39:54

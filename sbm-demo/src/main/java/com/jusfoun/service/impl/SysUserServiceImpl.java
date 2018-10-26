@@ -24,7 +24,7 @@ import com.jusfoun.mapper.ds0.SysUserMapper;
 import com.jusfoun.service.SysUserService;
 
 /**
- * 描述 :系统用户信息管理业务接口实现. <br>
+ * 说明：系统用户信息管理业务接口实现. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月24日 下午7:00:05

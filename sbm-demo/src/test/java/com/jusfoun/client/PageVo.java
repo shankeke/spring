@@ -2,7 +2,7 @@ package com.jusfoun.client;
 
 import com.alibaba.fastjson.JSONObject;
 /**
- * 描述 : 定义一个请求残烛的包装类. <br>
+ * 说明： 定义一个请求残烛的包装类. <br>
  * @author yjw@jusfoun.com
  * @date 2017年9月21日 下午1:01:59
  */

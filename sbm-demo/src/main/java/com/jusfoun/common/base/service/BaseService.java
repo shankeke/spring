@@ -15,7 +15,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 
 /**
- * 描述 : 业务层实现基类. <br>
+ * 说明： 业务层实现基类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月12日 上午10:55:07
@@ -44,7 +44,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述:批量插入，空字段使用默认值. <br>
+	 * 说明：批量插入，空字段使用默认值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:20:27
@@ -115,7 +115,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述:查询并排序. <br>
+	 * 说明：查询并排序. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:21:22
@@ -136,7 +136,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: 查询所有数据并排序. <br>
+	 * 说明： 查询所有数据并排序. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:22:20
@@ -165,7 +165,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: 使用example对象查询分页数据. <br>
+	 * 说明： 使用example对象查询分页数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:22:55
@@ -181,7 +181,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: 根据条件查询分页数据. <br>
+	 * 说明： 根据条件查询分页数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:22:55
@@ -197,7 +197,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: 根据条件查询分页数据. <br>
+	 * 说明： 根据条件查询分页数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:22:55
@@ -224,7 +224,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: 使用example对象查询分页数据. <br>
+	 * 说明： 使用example对象查询分页数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:22:55
@@ -261,7 +261,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述:分页排序. <br>
+	 * 说明：分页排序. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月26日 上午10:16:26
@@ -275,7 +275,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述: 分页排序. <br>
+	 * 说明： 分页排序. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月26日 上午10:35:41
@@ -291,7 +291,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 	}
 
 	/**
-	 * 描述:分页排序. <br>
+	 * 说明：分页排序. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月26日 上午10:16:26

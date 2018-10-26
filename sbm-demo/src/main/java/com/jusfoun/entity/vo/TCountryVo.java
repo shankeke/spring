@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述: 国家信息包装模型. <br>
+ * 说明： 国家信息包装模型. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年6月15日 上午10:50:03

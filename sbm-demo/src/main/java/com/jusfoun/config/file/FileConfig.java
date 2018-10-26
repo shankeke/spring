@@ -14,7 +14,7 @@ import com.jusfoun.common.utils.DateUtils;
 import com.jusfoun.common.utils.ICollections;
 
 /**
- * 描述 : 上传文件配置和文件处理的公共类，主要用于文件上传路径处理，文件的删除等操作. <br>
+ * 说明： 上传文件配置和文件处理的公共类，主要用于文件上传路径处理，文件的删除等操作. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 下午1:40:24
@@ -62,7 +62,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 获取一个信息UUID. <br>
+	 * 说明： 获取一个信息UUID. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:44:53
@@ -73,7 +73,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 新生成一个文件名称>. <br>
+	 * 说明： 新生成一个文件名称>. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:42:59
@@ -86,7 +86,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 随机生成一个文件相对路径. <br>
+	 * 说明： 随机生成一个文件相对路径. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:42:59
@@ -99,7 +99,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 拆分文件路径，有的对象附件是有多个，那么它的存储的文件路径是通过多个相对路径拼接而成的，<br>
+	 * 说明： 拆分文件路径，有的对象附件是有多个，那么它的存储的文件路径是通过多个相对路径拼接而成的，<br>
 	 * 中间以分隔符分割，这里通过分隔符分割将文件路径取出放入集合中. <br>
 	 * 如： 原路径为-/2017/09/09/01.png;/2017/09/09/02.png;<br>
 	 * 拆分后为-[/2017/09/09/01.png,/2017/09/09/02.png];<br>
@@ -115,7 +115,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
+	 * 说明： 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 上午11:48:57
@@ -136,7 +136,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
+	 * 说明： 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 上午11:48:57
@@ -147,7 +147,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
+	 * 说明： 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 上午11:48:57
@@ -158,7 +158,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
+	 * 说明： 创建子目录 名称（根据日期：如当前时间 2017-09-15，生成路径 2017/09/15）. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 上午11:48:57
@@ -169,7 +169,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 获取绝对路径. <br>
+	 * 说明： 获取绝对路径. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:17:15
@@ -180,7 +180,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 获取绝对路径. <br>
+	 * 说明： 获取绝对路径. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:17:15
@@ -191,7 +191,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 获取绝对路径. <br>
+	 * 说明： 获取绝对路径. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:17:15
@@ -202,7 +202,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 : 根据相对路径删除文件. <br>
+	 * 说明： 根据相对路径删除文件. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:21:20
@@ -217,7 +217,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 :根据相对路径删除多个文件. <br>
+	 * 说明：根据相对路径删除多个文件. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:21:20
@@ -231,7 +231,7 @@ public class FileConfig {
 	}
 
 	/**
-	 * 描述 :根据相对路径删除多个文件. <br>
+	 * 说明：根据相对路径删除多个文件. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:21:20

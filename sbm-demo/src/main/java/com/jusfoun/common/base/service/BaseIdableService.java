@@ -11,7 +11,7 @@ import com.jusfoun.common.base.extend.annotation.Preprocess;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 
 /**
- * 描述 : 存在ID属性的实体业务层实现基类. <br>
+ * 说明： 存在ID属性的实体业务层实现基类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月12日 上午10:55:07
@@ -85,7 +85,7 @@ public interface BaseIdableService<T> extends BaseService<T>, MyIdableMapper<T> 
 	}
 
 	/**
-	 * 描述:根据主键值数组批量删除. <br>
+	 * 说明：根据主键值数组批量删除. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:25:52
@@ -108,7 +108,7 @@ public interface BaseIdableService<T> extends BaseService<T>, MyIdableMapper<T> 
 	}
 
 	/**
-	 * 描述:根据主键值数组查询. <br>
+	 * 说明：根据主键值数组查询. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月27日 下午4:26:26

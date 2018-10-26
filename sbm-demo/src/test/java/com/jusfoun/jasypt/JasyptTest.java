@@ -15,7 +15,7 @@ public class JasyptTest {
 	StringEncryptor stringEncryptor;
 
 	/**
-	 * 描述:测试加密
+	 * 说明：测试加密
 	 * 
 	 * <pre>
 	 * 【命令使用说明】

@@ -8,7 +8,7 @@ import com.beust.jcommander.internal.Maps;
 import com.jusfoun.entity.SysModule;
 
 /**
- * 描述 :权限管理接口测试. <br>
+ * 说明：权限管理接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午5:57:26

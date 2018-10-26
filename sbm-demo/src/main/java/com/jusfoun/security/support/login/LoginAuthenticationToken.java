@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import com.jusfoun.security.ClientDetails;
 
 /**
- * 描述 : 登录认证信息包装. <br>
+ * 说明： 登录认证信息包装. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月6日 下午3:32:34

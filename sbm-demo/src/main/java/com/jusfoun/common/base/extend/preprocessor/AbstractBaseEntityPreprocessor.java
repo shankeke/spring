@@ -5,7 +5,7 @@ import java.lang.annotation.Annotation;
 import com.jusfoun.common.base.extend.entity.BaseEntity;
 
 /**
- * 描述:继承<code>BaseEntity</code>实体对象抽象预处理器. <br>
+ * 说明：继承<code>BaseEntity</code>实体对象抽象预处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:31:09
@@ -18,7 +18,7 @@ public abstract class AbstractBaseEntityPreprocessor implements EntityPreprocess
 	}
 
 	/**
-	 * 描述 :获取注解类型. <br>
+	 * 说明：获取注解类型. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 下午7:44:05

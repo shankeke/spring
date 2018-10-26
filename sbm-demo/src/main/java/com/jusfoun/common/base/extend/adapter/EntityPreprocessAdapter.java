@@ -5,7 +5,7 @@ import java.lang.annotation.Annotation;
 import com.jusfoun.common.base.extend.preprocessor.EntityPreprocessor;
 
 /**
- * 描述:实体对象预处理器适配器定义. <br>
+ * 说明：实体对象预处理器适配器定义. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:22:13
@@ -13,7 +13,7 @@ import com.jusfoun.common.base.extend.preprocessor.EntityPreprocessor;
 public interface EntityPreprocessAdapter {
 
 	/**
-	 * 描述:预处理方法. <br>
+	 * 说明：预处理方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月30日 上午10:49:53
@@ -29,7 +29,7 @@ public interface EntityPreprocessAdapter {
 	void preprocess(Annotation annotation, Object obj, Long userId, String realName);
 
 	/**
-	 * 描述:添加预处理器数组. <br>
+	 * 说明：添加预处理器数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月21日 上午11:53:26
@@ -40,7 +40,7 @@ public interface EntityPreprocessAdapter {
 	EntityPreprocessAdapter add(EntityPreprocessor... processors);
 
 	/**
-	 * 描述:获取预处理器. <br>
+	 * 说明：获取预处理器. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月2日 上午9:58:30

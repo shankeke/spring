@@ -29,7 +29,7 @@ import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.security.RawGrantedToken;
 
 /**
- * 描述 : 接口测试基类，测试接口时可继承该类并可实现没有实现的方法，或者自己扩展方法，调用封装好的方法直接用于发送接口测试请求<br>
+ * 说明： 接口测试基类，测试接口时可继承该类并可实现没有实现的方法，或者自己扩展方法，调用封装好的方法直接用于发送接口测试请求<br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月21日 下午1:02:36
@@ -81,7 +81,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述 : 初始化. <br>
+	 * 说明： 初始化. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月21日 上午9:41:24
@@ -112,7 +112,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述 :销毁方法. <br>
+	 * 说明：销毁方法. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月21日 上午9:41:00
@@ -125,7 +125,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述:json请求格式时使用该方法. <br>
+	 * 说明：json请求格式时使用该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午10:09:18
@@ -142,7 +142,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述: get请求时使用该方法. <br>
+	 * 说明： get请求时使用该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午10:09:18
@@ -157,7 +157,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述: form表单请求时使用该方法. <br>
+	 * 说明： form表单请求时使用该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午10:09:18
@@ -213,7 +213,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述: 把数组所有元素排序，并按照“参数=参数值”的模式用“&”字符拼接成字符串. <br>
+	 * 说明： 把数组所有元素排序，并按照“参数=参数值”的模式用“&”字符拼接成字符串. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午9:02:30
@@ -252,7 +252,7 @@ public abstract class BaseClient<T> {
 	}
 
 	/**
-	 * 描述: 把参数转化成map格式，用于表单参数. <br>
+	 * 说明： 把参数转化成map格式，用于表单参数. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月19日 上午9:02:30

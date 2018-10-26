@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述: UUID类型作为主键. <br>
+ * 说明： UUID类型作为主键. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午12:52:54

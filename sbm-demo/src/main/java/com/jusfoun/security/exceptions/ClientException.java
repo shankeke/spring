@@ -3,7 +3,7 @@ package com.jusfoun.security.exceptions;
 import org.springframework.security.core.AuthenticationException;
 
 /**
- * 描述 : client异常. <br>
+ * 说明： client异常. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月14日 下午1:45:42

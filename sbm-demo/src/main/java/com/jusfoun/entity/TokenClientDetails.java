@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
 import tk.mybatis.mapper.annotation.ColumnType;
 
 /**
- * 描述 : 客户端信息. <br>
+ * 说明： 客户端信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月30日 下午4:15:34

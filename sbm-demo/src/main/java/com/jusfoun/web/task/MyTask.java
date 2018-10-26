@@ -1,7 +1,7 @@
 package com.jusfoun.web.task;
 
 /**
- * 描述 : 任务统一接口. <br>
+ * 说明： 任务统一接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月29日 下午2:08:01
@@ -25,7 +25,7 @@ public interface MyTask {
 	 */
 
 	/**
-	 * 描述 : 任务执行逻辑. <br>
+	 * 说明： 任务执行逻辑. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月29日 下午2:08:40

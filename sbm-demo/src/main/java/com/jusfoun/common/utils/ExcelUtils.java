@@ -23,7 +23,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.xmlbeans.impl.piccolo.io.FileFormatException;
 
 /**
- * 描述 :Excel文件读入为java对象 . <br>
+ * 说明：Excel文件读入为java对象 . <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年10月26日 下午4:47:59
@@ -34,7 +34,7 @@ public abstract class ExcelUtils {
 	private static final String EXTENSION_XLSX = "xlsx";
 
 	/**
-	 * 描述 : 获取Workbook. <br>
+	 * 说明： 获取Workbook. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月26日 上午11:39:00
@@ -66,7 +66,7 @@ public abstract class ExcelUtils {
 	}
 
 	/**
-	 * 描述: 读取excel中内容到java类型的集合中去. <br>
+	 * 说明： 读取excel中内容到java类型的集合中去. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月25日 下午3:05:42
@@ -135,7 +135,7 @@ public abstract class ExcelUtils {
 	}
 
 	/**
-	 * 描述: 读取excel中内容到javabean的集合中中去. <br>
+	 * 说明： 读取excel中内容到javabean的集合中中去. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月25日 下午3:05:42
@@ -159,7 +159,7 @@ public abstract class ExcelUtils {
 	}
 
 	/**
-	 * 描述: 读取excel中内容到javabean的集合中中去. <br>
+	 * 说明： 读取excel中内容到javabean的集合中中去. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月25日 下午3:05:42
@@ -183,7 +183,7 @@ public abstract class ExcelUtils {
 	}
 
 	/**
-	 * 描述:获取单元格中的数据为字符串格式. <br>
+	 * 说明：获取单元格中的数据为字符串格式. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月25日 下午3:35:28
@@ -245,7 +245,7 @@ public abstract class ExcelUtils {
 	}
 
 	/**
-	 * 描述: 实体字段赋值. <br>
+	 * 说明： 实体字段赋值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月25日 下午3:14:16

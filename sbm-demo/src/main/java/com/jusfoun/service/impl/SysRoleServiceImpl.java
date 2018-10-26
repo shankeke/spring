@@ -25,7 +25,7 @@ import com.jusfoun.mapper.ds0.SysRoleModuleMapper;
 import com.jusfoun.service.SysRoleService;
 
 /**
- * 描述:系统角色业务接口实现. <br>
+ * 说明：系统角色业务接口实现. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月23日 下午5:22:38

@@ -3,7 +3,7 @@ package com.jusfoun.common.message.exception;
 import com.jusfoun.common.message.result.ErrType;
 
 /**
- * 描述 : 定义业务异常. <br>
+ * 说明： 定义业务异常. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月13日 上午10:08:47

@@ -25,7 +25,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.jusfoun.common.message.annotation.JsonBodys;
 
 /**
- * 描述 :json返回结果处理器. <br>
+ * 说明：json返回结果处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月25日 上午10:26:19

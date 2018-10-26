@@ -21,7 +21,7 @@ import com.jusfoun.common.utils.ICollections;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 /**
- * 描述 : 系统用户信息. <br>
+ * 说明： 系统用户信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月5日 上午9:10:43
@@ -137,7 +137,7 @@ public class SysUser extends BaseEntity<SysUser> {
 	}
 
 	/**
-	 * 描述 : 如果角色不为空则获取角色列表. <br>
+	 * 说明： 如果角色不为空则获取角色列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月23日 下午2:49:40

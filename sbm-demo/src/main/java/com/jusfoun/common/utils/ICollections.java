@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 描述 :集合工具类. <br>
+ * 说明：集合工具类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 上午11:32:23
@@ -18,7 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 public class ICollections {
 
 	/**
-	 * 描述 : 判断集合中是否有数据. <br>
+	 * 说明： 判断集合中是否有数据. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 上午11:32:37
@@ -31,7 +31,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:判断集合中是否没有数据.. <br>
+	 * 说明：判断集合中是否没有数据.. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月30日 下午2:24:03
@@ -44,7 +44,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:集合转数组. <br>
+	 * 说明：集合转数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月29日 下午4:02:16
@@ -58,7 +58,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:将一种数据集合转化成另一种数据集合. <br>
+	 * 说明：将一种数据集合转化成另一种数据集合. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月29日 下午5:11:43
@@ -79,7 +79,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:将一种数据集合转化成另一种数据集合. <br>
+	 * 说明：将一种数据集合转化成另一种数据集合. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月29日 下午5:11:43
@@ -100,7 +100,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述: 将字符串装换成指定类型的数据集合. <br>
+	 * 说明： 将字符串装换成指定类型的数据集合. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月16日 下午5:52:45
@@ -123,7 +123,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转Byte数组. <br>
+	 * 说明：字符串转Byte数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44
@@ -138,7 +138,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转Short数组. <br>
+	 * 说明：字符串转Short数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44
@@ -153,7 +153,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转Integer数组. <br>
+	 * 说明：字符串转Integer数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44
@@ -168,7 +168,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转Long数组. <br>
+	 * 说明：字符串转Long数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44
@@ -183,7 +183,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转Float数组. <br>
+	 * 说明：字符串转Float数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44
@@ -198,7 +198,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转Double数组. <br>
+	 * 说明：字符串转Double数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44
@@ -213,7 +213,7 @@ public class ICollections {
 	}
 
 	/**
-	 * 描述:字符串转String数组. <br>
+	 * 说明：字符串转String数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月5日 上午9:43:44

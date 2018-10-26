@@ -12,7 +12,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.entity.SysModule;
 
 /**
- * 描述 : 系统权限管理. <br>
+ * 说明： 系统权限管理. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年10月12日 下午5:50:25
@@ -20,7 +20,7 @@ import com.jusfoun.entity.SysModule;
 public interface SysModuleService extends BaseEntityWithAssociateService<SysModule>, TreeableAndIdableService<SysModule, Long> {
 
 	/**
-	 * 描述 : 初始化系统权限. <br>
+	 * 说明： 初始化系统权限. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月12日 上午9:46:11
@@ -31,7 +31,7 @@ public interface SysModuleService extends BaseEntityWithAssociateService<SysModu
 	void initSysModules(SysModule root) throws ServiceException;
 
 	/**
-	 * 描述 :根据父节点ID查询权限列表. <br>
+	 * 说明：根据父节点ID查询权限列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月20日 上午9:16:03
@@ -43,7 +43,7 @@ public interface SysModuleService extends BaseEntityWithAssociateService<SysModu
 	List<SysModule> selectByParentId(Long parentId) throws ServiceException;
 
 	/**
-	 * 描述 : 查询系统已有的所有权限值. <br>
+	 * 说明： 查询系统已有的所有权限值. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月12日 上午9:46:11
@@ -52,7 +52,7 @@ public interface SysModuleService extends BaseEntityWithAssociateService<SysModu
 	Set<String> selectUrlByClientId(String clientId) throws ServiceException;
 
 	/**
-	 * 描述 : 查询权限对象. <br>
+	 * 说明： 查询权限对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月5日 下午5:07:15

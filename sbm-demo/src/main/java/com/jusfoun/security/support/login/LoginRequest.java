@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * 描述 : 登录请求包装. <br>
+ * 说明： 登录请求包装. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午2:53:15

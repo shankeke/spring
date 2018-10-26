@@ -3,7 +3,7 @@ package com.jusfoun.common.utils.zxing;
 import java.util.Random;
 
 /**
- * 描述 :
+ * 说明：
  * 常用的RGB值和颜色对照表，参考：<a>http://blog.csdn.net/zhuimengzh/article/details/6953155</a>.
  * <br>
  * 

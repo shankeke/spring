@@ -1,7 +1,7 @@
 package com.jusfoun.common.mybatis.typehandler.enumtype;
 
 /**
- * 描述:可取常量且可比较大小常量值枚举接口. <br>
+ * 说明：可取常量且可比较大小常量值枚举接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月17日 下午3:32:53
@@ -9,7 +9,7 @@ package com.jusfoun.common.mybatis.typehandler.enumtype;
 public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable<T> {
 
 	/**
-	 * 描述: 常量值与目标常量值比较结果. <br>
+	 * 说明： 常量值与目标常量值比较结果. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月2日 下午2:02:52
@@ -26,7 +26,7 @@ public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable
 	}
 
 	/**
-	 * 描述:常量值与目标常量值是否相等.<br>
+	 * 说明：常量值与目标常量值是否相等.<br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年5月3日 上午9:37:42
@@ -43,7 +43,7 @@ public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable
 	}
 
 	/**
-	 * 描述:常量值与目标常量值是否不相等. <br>
+	 * 说明：常量值与目标常量值是否不相等. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年5月3日 上午9:37:42
@@ -57,7 +57,7 @@ public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable
 	}
 
 	/**
-	 * 描述:判断常量值是否是大于目标常量值. <br>
+	 * 说明：判断常量值是否是大于目标常量值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年5月3日 上午9:37:42
@@ -74,7 +74,7 @@ public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable
 	}
 
 	/**
-	 * 描述:判断常量值是否是大于等于目标常量值. <br>
+	 * 说明：判断常量值是否是大于等于目标常量值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年5月3日 上午9:37:42
@@ -91,7 +91,7 @@ public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable
 	}
 
 	/**
-	 * 描述:判断常量值是否是小于目标常量值. <br>
+	 * 说明：判断常量值是否是小于目标常量值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年5月3日 上午9:37:42
@@ -108,7 +108,7 @@ public interface ValuableAndComparable<T extends Comparable<T>> extends Valuable
 	}
 
 	/**
-	 * 描述:判断常量值是否是小于等于目标常量值. <br>
+	 * 说明：判断常量值是否是小于等于目标常量值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年5月3日 上午9:37:42

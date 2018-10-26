@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 描述 : 日期工具类. <br>
+ * 说明： 日期工具类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:33:06
@@ -71,7 +71,7 @@ public class DateUtils {
 	public static final String timeStamp = "yyyyMMddHHmmss";
 
 	/**
-	 * 描述 : 根据时间格式返回指定的时间字符串. <br>
+	 * 说明： 根据时间格式返回指定的时间字符串. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 下午1:55:19
@@ -86,7 +86,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 : 解析日期. <br>
+	 * 说明： 解析日期. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 下午1:54:30
@@ -167,7 +167,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 : 时间比较. <br>
+	 * 说明： 时间比较. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 下午1:51:44
@@ -182,7 +182,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 : 前面时间 等于后面时间. <br>
+	 * 说明： 前面时间 等于后面时间. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 上午10:09:43
@@ -197,7 +197,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 : 前面时间大于后面时间. <br>
+	 * 说明： 前面时间大于后面时间. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 上午10:08:36
@@ -212,7 +212,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 :前面时间大于等于后面时间. <br>
+	 * 说明：前面时间大于等于后面时间. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 上午10:09:10
@@ -227,7 +227,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 :前面时间小于后面时间. <br>
+	 * 说明：前面时间小于后面时间. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 上午10:09:28
@@ -242,7 +242,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 : 前面时间小于等于后面时间. <br>
+	 * 说明： 前面时间小于等于后面时间. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月9日 上午10:09:43
@@ -758,7 +758,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 描述 :计算两个日期之间的间隔. <br>
+	 * 说明：计算两个日期之间的间隔. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw

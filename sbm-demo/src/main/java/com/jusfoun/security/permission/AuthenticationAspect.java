@@ -26,7 +26,7 @@ import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysModuleService;
 
 /**
- * 描述:权限访问控制处理. <br>
+ * 说明：权限访问控制处理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月10日 下午2:32:00
@@ -46,7 +46,7 @@ public class AuthenticationAspect {
 	}
 
 	/**
-	 * 描述 :定义前置通知，在执行请求方法之前就对当前用户的权限进行判断，如果有该权限则放行，否则抛出异常. <br>
+	 * 说明：定义前置通知，在执行请求方法之前就对当前用户的权限进行判断，如果有该权限则放行，否则抛出异常. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月2日 下午2:32:55

@@ -3,7 +3,7 @@ package com.jusfoun.common.enums;
 import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
- * 描述 : 启用状态==>0-未启用、1-启用、-1-停用. <br>
+ * 说明： 启用状态==>0-未启用、1-启用、-1-停用. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:30:48

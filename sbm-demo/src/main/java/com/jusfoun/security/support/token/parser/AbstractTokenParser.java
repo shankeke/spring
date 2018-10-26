@@ -13,7 +13,7 @@ import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.verifier.TokenVerifier;
 
 /**
- * 描述 : 抽象令牌解析器，模板模式公共部分逻辑，子类去实现具体的解析逻辑. <br>
+ * 说明： 抽象令牌解析器，模板模式公共部分逻辑，子类去实现具体的解析逻辑. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月2日 下午11:02:30
@@ -51,7 +51,7 @@ public abstract class AbstractTokenParser implements TokenParser {
 	}
 
 	/**
-	 * 描述:创建令牌. <br>
+	 * 说明：创建令牌. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年4月9日 上午9:36:19
@@ -74,7 +74,7 @@ public abstract class AbstractTokenParser implements TokenParser {
 	}
 
 	/**
-	 * 描述:解析令牌. <br>
+	 * 说明：解析令牌. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年4月9日 上午9:36:59

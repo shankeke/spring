@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.text.DecimalFormat;
 
 /**
- * 描述 :文件大小计算工具类，用于文件长度KB,MB,GB,TB,PB等转换. <br>
+ * 说明：文件大小计算工具类，用于文件长度KB,MB,GB,TB,PB等转换. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:33:24

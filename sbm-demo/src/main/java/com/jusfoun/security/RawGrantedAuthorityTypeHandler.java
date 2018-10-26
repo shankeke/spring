@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSON;
 import com.jusfoun.common.mybatis.typehandler.blobtype.AbstractBlobTypeHandler;
 
 /**
- * 描述 : Blob转权限集合TypeHandler. <br>
+ * 说明： Blob转权限集合TypeHandler. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32

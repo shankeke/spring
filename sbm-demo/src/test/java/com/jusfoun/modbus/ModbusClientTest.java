@@ -11,7 +11,7 @@ import com.serotonin.modbus4j.exception.ModbusTransportException;
 import com.serotonin.modbus4j.sero.util.queue.ByteQueue;
 
 /**
- * 描述 :传感器数据采集接口测试. <br>
+ * 说明：传感器数据采集接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月20日 下午1:41:31

@@ -1,7 +1,7 @@
 package com.jusfoun.common.constant;
 
 /**
- * 描述 :常量定义. <br>
+ * 说明：常量定义. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:29:12
@@ -13,7 +13,7 @@ public class Constants {
 	public static final String WHJSSYF_REPCODE = "WHSY100";
 
 	/**
-	 * 描述 : 纳税人资格类型. <br>
+	 * 说明： 纳税人资格类型. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月7日 上午10:29:45

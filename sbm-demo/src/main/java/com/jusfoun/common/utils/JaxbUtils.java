@@ -31,7 +31,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 /**
- * 描述 : jaxb处理工具. <br>
+ * 说明： jaxb处理工具. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月11日 上午10:34:08
@@ -43,7 +43,7 @@ public class JaxbUtils {
 	private static final String DEFAULT_ENCODING = "UTF-8";
 
 	/**
-	 * 描述 :创建上下文对象. <br>
+	 * 说明：创建上下文对象. <br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -92,7 +92,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流，通过参数设置xml是否格式化和省略头信息. <br>
+	 * 说明： java对象序列化为xml数据流，通过参数设置xml是否格式化和省略头信息. <br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -142,7 +142,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流，通过参数设置xml是否格式化和省略头信息. <br>
+	 * 说明： java对象序列化为xml数据流，通过参数设置xml是否格式化和省略头信息. <br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -163,7 +163,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流，通过参数设置xml是否格式化和省略头信息. <br>
+	 * 说明： java对象序列化为xml数据流，通过参数设置xml是否格式化和省略头信息. <br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -184,7 +184,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流，默认不格式化. <br>
+	 * 说明： java对象序列化为xml数据流，默认不格式化. <br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -203,7 +203,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 :java对象序列化为xml数据流，默认不格式化xml，并且省略头信息. <br>
+	 * 说明：java对象序列化为xml数据流，默认不格式化xml，并且省略头信息. <br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -220,7 +220,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流.<br>
+	 * 说明： java对象序列化为xml数据流.<br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -260,7 +260,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流.<br>
+	 * 说明： java对象序列化为xml数据流.<br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com
@@ -281,7 +281,7 @@ public class JaxbUtils {
 	}
 
 	/**
-	 * 描述 : java对象序列化为xml数据流.<br>
+	 * 说明： java对象序列化为xml数据流.<br>
 	 * <p>
 	 *
 	 * @author yjw@jusfoun.com

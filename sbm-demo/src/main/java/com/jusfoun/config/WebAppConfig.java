@@ -20,7 +20,7 @@ import com.jusfoun.web.filter.gzip.GzipSupportFilter;
 import com.jusfoun.web.interceptor.FileTypeInterceptor;
 
 /**
- * 描述 : web属性配置. <br>
+ * 说明： web属性配置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:24:03
@@ -80,7 +80,7 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
 	}
 
 	/**
-	 * 描述 : 注册一个自定义的通信数据压缩的过滤器. <br>
+	 * 说明： 注册一个自定义的通信数据压缩的过滤器. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月1日 下午2:06:52

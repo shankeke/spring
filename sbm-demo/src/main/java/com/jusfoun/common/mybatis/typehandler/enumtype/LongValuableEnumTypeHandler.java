@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.apache.ibatis.type.JdbcType;
 
 /**
- * 描述 :Long value类型枚举处理器. <br>
+ * 说明：Long value类型枚举处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月23日 下午2:30:26

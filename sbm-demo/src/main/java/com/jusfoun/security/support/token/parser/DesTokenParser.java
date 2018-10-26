@@ -17,7 +17,7 @@ import com.jusfoun.security.support.token.extract.adapter.TokenExtractAdapter;
 import com.jusfoun.security.support.token.verifier.TokenVerifier;
 
 /**
- * 描述 :基于DES编码的令牌解析器. <br>
+ * 说明：基于DES编码的令牌解析器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月2日 下午11:11:14

@@ -6,7 +6,7 @@ import com.jusfoun.security.exceptions.TokenInvalidException;
 import com.jusfoun.security.support.token.extract.extractor.TokenExtractor;
 
 /**
- * 描述 : 令牌信息抽取处理器适配器. <br>
+ * 说明： 令牌信息抽取处理器适配器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:00:48
@@ -14,7 +14,7 @@ import com.jusfoun.security.support.token.extract.extractor.TokenExtractor;
 public interface TokenExtractAdapter {
 
 	/**
-	 * 描述: 从编码字符串的载体中抽取令牌的有效信息. <br>
+	 * 说明： 从编码字符串的载体中抽取令牌的有效信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年4月9日 上午9:39:29
@@ -26,7 +26,7 @@ public interface TokenExtractAdapter {
 	String handle(String payload) throws TokenInvalidException;
 
 	/**
-	 * 描述:添加一个处理器. <br>
+	 * 说明：添加一个处理器. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月1日 上午9:54:04
@@ -36,7 +36,7 @@ public interface TokenExtractAdapter {
 	void add(TokenExtractor tokenExtractor);
 
 	/**
-	 * 描述:添加一个处理器. <br>
+	 * 说明：添加一个处理器. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年8月1日 上午9:54:04

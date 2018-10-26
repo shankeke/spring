@@ -9,7 +9,7 @@ import java.util.Map;
 import org.apache.ibatis.type.BaseTypeHandler;
 
 /**
- * 描述 :Value类型枚举处理器. <br>
+ * 说明：Value类型枚举处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月23日 下午2:30:26

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 import tk.mybatis.mapper.annotation.ColumnType;
 
 /**
- * 描述 : 用户认证信息模型. <br>
+ * 说明： 用户认证信息模型. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:11:05
@@ -211,7 +211,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	}
 
 	/**
-	 * 描述 : 创建用户信息. <br>
+	 * 说明： 创建用户信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月2日 下午7:46:27
@@ -235,7 +235,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	}
 
 	/**
-	 * 描述 : 创建TokenUser对象. <br>
+	 * 说明： 创建TokenUser对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月2日 下午7:44:55
@@ -253,7 +253,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	}
 
 	/**
-	 * 描述 : 生成token信息. <br>
+	 * 说明： 生成token信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月2日 下午7:43:59
@@ -282,7 +282,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	}
 
 	/**
-	 * 描述 : access_token是否过期. <br>
+	 * 说明： access_token是否过期. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月2日 下午7:30:47
@@ -293,7 +293,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	}
 
 	/**
-	 * 描述 : refresh_token是否过期. <br>
+	 * 说明： refresh_token是否过期. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月2日 下午7:29:44
@@ -304,7 +304,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	}
 
 	/**
-	 * 描述 : 根据当前时间和有效期计算token过期时间. <br>
+	 * 说明： 根据当前时间和有效期计算token过期时间. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月2日 下午7:28:16

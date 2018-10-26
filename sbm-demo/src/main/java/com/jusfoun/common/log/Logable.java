@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 描述 :<br>
+ * 说明：<br>
  * 访问日志注解，使用在类和方法上:<br>
  * 如果用在类上使用，该类下面的所有方法会被拦截（ 如果定义了切面的话）；<br>
  * 如果在方法上面则只对该方法生效，方法上的优先级高于类型上的注解；<br>
@@ -23,7 +23,7 @@ import java.lang.annotation.Target;
 public @interface Logable {
 
 	/**
-	 * 描述:是否记录日志，默认true，需关闭设为false. <br>
+	 * 说明：是否记录日志，默认true，需关闭设为false. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:39:22
@@ -32,7 +32,7 @@ public @interface Logable {
 	boolean enable() default true;
 
 	/**
-	 * 描述:功能名称<br>
+	 * 说明：功能名称<br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:41:53
@@ -41,7 +41,7 @@ public @interface Logable {
 	String value() default "";
 
 	/**
-	 * 描述: 自定义访问地址，如：【/sysuser/save】对应【系统管理>用户管理>用户添加】. <br>
+	 * 说明： 自定义访问地址，如：【/sysuser/save】对应【系统管理>用户管理>用户添加】. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:41:06
@@ -50,7 +50,7 @@ public @interface Logable {
 	String path() default "";
 
 	/**
-	 * 描述:日志内容（支持spel表达式）<br>
+	 * 说明：日志内容（支持spel表达式）<br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:41:53
@@ -59,7 +59,7 @@ public @interface Logable {
 	String message() default "";
 
 	/**
-	 * 描述: 日志级别，默认DEBUG. <br>
+	 * 说明： 日志级别，默认DEBUG. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:40:26
@@ -68,7 +68,7 @@ public @interface Logable {
 	LevelType level() default LevelType.DEBUG;
 
 	/**
-	 * 描述: 日志等级. <br>
+	 * 说明： 日志等级. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:42:26

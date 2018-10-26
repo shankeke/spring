@@ -7,7 +7,7 @@ import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysRole;
 
 /**
- * 描述 :用户角色管理接口测试. <br>
+ * 说明：用户角色管理接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午4:48:56

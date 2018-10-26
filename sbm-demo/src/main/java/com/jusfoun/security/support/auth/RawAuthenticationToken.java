@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.jusfoun.security.support.token.AccessToken;
 
 /**
- * 描述 :客户端令牌包装类. <br>
+ * 说明：客户端令牌包装类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:05:19

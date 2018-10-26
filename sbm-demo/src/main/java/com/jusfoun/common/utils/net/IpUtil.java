@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 描述 : IP相关方法. <br>
+ * 说明： IP相关方法. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月10日 下午7:52:46
@@ -23,7 +23,7 @@ public class IpUtil {
 	private static final String URL = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=";
 
 	/**
-	 * 描述 : 根据IP地址查询IP地址所属地区. <br>
+	 * 说明： 根据IP地址查询IP地址所属地区. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月10日 下午7:39:22
@@ -82,7 +82,7 @@ public class IpUtil {
 	}
 
 	/**
-	 * 描述 : 获取IP地址. <br>
+	 * 说明： 获取IP地址. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月14日 上午11:30:12

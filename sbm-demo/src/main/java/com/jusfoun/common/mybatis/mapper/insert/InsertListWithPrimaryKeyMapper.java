@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Options;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
 /**
- * 描述 : 批量插入，需要指定每条数据的主键值<br>
+ * 说明： 批量插入，需要指定每条数据的主键值<br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月22日 上午10:43:18
@@ -17,7 +17,7 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
 public interface InsertListWithPrimaryKeyMapper<T> {
 
 	/**
-	 * 描述 :批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，该接口限制实体包含主键属性并且插入时指定主键值。 <br>
+	 * 说明：批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，该接口限制实体包含主键属性并且插入时指定主键值。 <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月7日 下午2:16:17

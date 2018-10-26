@@ -13,7 +13,7 @@ import com.jusfoun.mapper.ds0.SysGovMapper;
 import com.jusfoun.service.SysGovService;
 
 /**
- * 描述 :组织机构管理. <br>
+ * 说明：组织机构管理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:04:49

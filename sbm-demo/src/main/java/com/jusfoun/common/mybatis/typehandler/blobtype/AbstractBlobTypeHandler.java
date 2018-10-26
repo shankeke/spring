@@ -13,7 +13,7 @@ import org.apache.ibatis.type.JdbcType;
 import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
 
 /**
- * 描述:Blob数据类型处理器抽象. <br>
+ * 说明：Blob数据类型处理器抽象. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月17日 下午1:47:50
@@ -51,7 +51,7 @@ public abstract class AbstractBlobTypeHandler<T> extends AbstractComplexTypeHand
 	}
 
 	/**
-	 * 描述:将blob字段转化为实体对象. <br>
+	 * 说明：将blob字段转化为实体对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月18日 上午9:58:33

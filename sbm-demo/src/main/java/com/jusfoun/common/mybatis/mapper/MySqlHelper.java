@@ -8,7 +8,7 @@ import tk.mybatis.mapper.mapperhelper.EntityHelper;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :SqlHelper扩展. <br>
+ * 说明：SqlHelper扩展. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 上午9:33:54

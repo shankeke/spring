@@ -3,7 +3,7 @@ package com.jusfoun.common.utils.math;
 import java.util.Stack;
 
 /**
- * 描述 : 数字工具,进行42以下的任意进制转换. <br>
+ * 说明： 数字工具,进行42以下的任意进制转换. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月19日 下午3:30:29
@@ -12,7 +12,7 @@ public class NumericalUtil {
 	private static final String C_CODES_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$.`";
 
 	/**
-	 * 描述 : <方法描述>. <br>
+	 * 说明： <方法描述>. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月19日 下午3:29:17
@@ -25,7 +25,7 @@ public class NumericalUtil {
 	}
 
 	/**
-	 * 描述 :将10进制转换为任意进制. <br>
+	 * 说明：将10进制转换为任意进制. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月19日 下午3:27:38
@@ -53,7 +53,7 @@ public class NumericalUtil {
 	}
 
 	/**
-	 * 描述 : 任何进制转换. <br>
+	 * 说明： 任何进制转换. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月19日 下午3:24:56

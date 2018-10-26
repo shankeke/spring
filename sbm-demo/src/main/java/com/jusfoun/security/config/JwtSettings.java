@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 描述 :jwt属性配置. <br>
+ * 说明：jwt属性配置. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:05:41

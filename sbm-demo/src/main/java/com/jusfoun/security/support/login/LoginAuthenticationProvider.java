@@ -19,7 +19,7 @@ import com.jusfoun.security.exceptions.ClientBadSecretException;
 import com.jusfoun.security.exceptions.NoGrantedAnyAuthorityException;
 
 /**
- * 描述 : 认证提供器. <br>
+ * 说明： 认证提供器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午2:48:46

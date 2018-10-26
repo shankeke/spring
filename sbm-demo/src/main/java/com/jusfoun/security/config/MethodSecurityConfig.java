@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 
 /**
- * 描述 : 启用security注解，在方法上控制权限. <br>
+ * 说明： 启用security注解，在方法上控制权限. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月8日 下午7:59:59

@@ -7,7 +7,7 @@ import java.util.Set;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * 描述 :在当前线程内保存ObjectMapper供Jackson2HttpMessageConverter使用. <br>
+ * 说明：在当前线程内保存ObjectMapper供Jackson2HttpMessageConverter使用. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月11日 上午11:04:09

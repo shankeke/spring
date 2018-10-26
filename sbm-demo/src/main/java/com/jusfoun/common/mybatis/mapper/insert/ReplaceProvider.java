@@ -15,7 +15,7 @@ import tk.mybatis.mapper.mapperhelper.SelectKeyHelper;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :替换方式插入实体实现. <br>
+ * 说明：替换方式插入实体实现. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 上午9:40:02
@@ -27,7 +27,7 @@ public class ReplaceProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 替换方式插入全部,这段代码比较复杂，这里举个例子 CountryU生成的replace into方法结构如下：
+	 * 说明： 替换方式插入全部,这段代码比较复杂，这里举个例子 CountryU生成的replace into方法结构如下：
 	 * 
 	 * <pre>
 	 * &lt;bind name="countryname_bind" value='@java.util.UUID@randomUUID().toString().replace("-", "")'/&gt;

@@ -7,7 +7,7 @@ import com.jusfoun.common.base.extend.annotation.PreInsert;
 import com.jusfoun.common.base.extend.entity.BaseEntity;
 
 /**
- * 描述:继承<code>BaseEntity</code>类的实体对象插入前预处理. <br>
+ * 说明：继承<code>BaseEntity</code>类的实体对象插入前预处理. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:34:03

@@ -1,7 +1,7 @@
 package com.jusfoun.security.exceptions;
 
 /**
- * 描述 : 令牌过期异常. <br>
+ * 说明： 令牌过期异常. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月9日 下午7:45:02

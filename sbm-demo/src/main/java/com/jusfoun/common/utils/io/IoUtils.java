@@ -12,7 +12,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
 /**
- * 描述 : 文件数据流操作，文件复制，文件路径创建，文件重命名等. <br>
+ * 说明： 文件数据流操作，文件复制，文件路径创建，文件重命名等. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:33:55

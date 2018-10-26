@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * 描述 : 生产树结构数据. <br>
+ * 说明： 生产树结构数据. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月16日 上午9:37:28

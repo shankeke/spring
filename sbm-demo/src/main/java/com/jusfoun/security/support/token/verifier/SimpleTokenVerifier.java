@@ -6,7 +6,7 @@ import com.jusfoun.common.utils.RegexUtils;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 
 /**
- * 描述 : 简单令牌检验器. <br>
+ * 说明： 简单令牌检验器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:02:15

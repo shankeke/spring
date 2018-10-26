@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 描述 :后台鉴权注解，用于标示某一个请求是否需要进行鉴权处理，如果需要则通过aop中实现面向切面的对用户访问权限进行拦截处理。<br>
+ * 说明：后台鉴权注解，用于标示某一个请求是否需要进行鉴权处理，如果需要则通过aop中实现面向切面的对用户访问权限进行拦截处理。<br>
  * 该注解适用于Controller层的方法上，并配置是否开启鉴权和鉴权路径，当请求的路径与配置路径匹配时则放行，否则不放行 。<br>
  * 
  * @author yjw@jusfoun.com
@@ -19,7 +19,7 @@ import java.lang.annotation.Target;
 public @interface Authentication {
 
 	/**
-	 * 描述:是否开启日志，默认开启，需要关闭设为false即可. <br>
+	 * 说明：是否开启日志，默认开启，需要关闭设为false即可. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月2日 上午10:47:12
@@ -28,7 +28,7 @@ public @interface Authentication {
 	boolean enable() default true;
 
 	/**
-	 * 描述:权限标识. <br>
+	 * 说明：权限标识. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月2日 上午10:48:19
@@ -37,7 +37,7 @@ public @interface Authentication {
 	String value() default "";
 
 	/**
-	 * 描述:方法功能说明. <br>
+	 * 说明：方法功能说明. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月2日 上午10:48:53

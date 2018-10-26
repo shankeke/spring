@@ -3,7 +3,7 @@ package com.jusfoun.security.exceptions;
 import org.springframework.security.authentication.AuthenticationServiceException;
 
 /**
- * 描述 :没有授予任何权限. <br>
+ * 说明：没有授予任何权限. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月14日 下午2:31:26

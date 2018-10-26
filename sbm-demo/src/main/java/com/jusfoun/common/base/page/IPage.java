@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 : 分页对象. <br>
+ * 说明： 分页对象. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:34
@@ -256,7 +256,7 @@ public class IPage<T> extends IPageable {
 	}
 
 	/**
-	 * 描述: 是否有下一页，是否当前页码小于总的页码数. <br>
+	 * 说明： 是否有下一页，是否当前页码小于总的页码数. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月17日 上午10:15:51
@@ -271,7 +271,7 @@ public class IPage<T> extends IPageable {
 	}
 
 	/**
-	 * 描述: 是否有上一页，是否当前页码大于1. <br>
+	 * 说明： 是否有上一页，是否当前页码大于1. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月17日 上午10:16:27
@@ -286,7 +286,7 @@ public class IPage<T> extends IPageable {
 	}
 
 	/**
-	 * 描述: 根据总数据量和每页数据条数计算总的页数. <br>
+	 * 说明： 根据总数据量和每页数据条数计算总的页数. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月17日 上午10:16:58
@@ -309,7 +309,7 @@ public class IPage<T> extends IPageable {
 	}
 
 	/**
-	 * 描述:是否有下一页. <br>
+	 * 说明：是否有下一页. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月17日 上午10:22:26
@@ -321,7 +321,7 @@ public class IPage<T> extends IPageable {
 	}
 
 	/**
-	 * 描述:是否有上一页. <br>
+	 * 说明：是否有上一页. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月17日 上午10:22:26

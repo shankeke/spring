@@ -31,7 +31,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 描述 :刷新令牌. <br>
+ * 说明：刷新令牌. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:09:50

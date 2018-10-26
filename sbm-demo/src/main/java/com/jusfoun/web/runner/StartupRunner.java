@@ -27,7 +27,7 @@ import com.jusfoun.service.SysUserService;
 import com.jusfoun.service.TokenClientDetailsService;
 
 /**
- * 描述 : 服务启动执行初始化任务>. <br>
+ * 说明： 服务启动执行初始化任务>. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午11:07:09
@@ -66,7 +66,7 @@ public class StartupRunner implements CommandLineRunner {
 	}
 
 	/**
-	 * 描述 :初始化系统权限数据. <br>
+	 * 说明：初始化系统权限数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月6日 下午5:12:14
@@ -94,7 +94,7 @@ public class StartupRunner implements CommandLineRunner {
 	}
 
 	/**
-	 * 描述 : 初始化系统超级管理员. <br>
+	 * 说明： 初始化系统超级管理员. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月6日 下午5:12:49
@@ -123,7 +123,7 @@ public class StartupRunner implements CommandLineRunner {
 	}
 
 	/**
-	 * 描述 : 初始化系统客户端信息. <br>
+	 * 说明： 初始化系统客户端信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @throws FileNotFoundException

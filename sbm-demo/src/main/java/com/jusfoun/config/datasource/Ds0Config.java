@@ -19,7 +19,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
- * 描述 :主数据源配置. <br>
+ * 说明：主数据源配置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月29日 下午2:37:28

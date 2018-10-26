@@ -19,7 +19,7 @@ import tk.mybatis.mapper.common.base.update.UpdateByPrimaryKeySelectiveMapper;
 import tk.mybatis.mapper.common.special.InsertUseGeneratedKeysMapper;
 
 /**
- * 描述:存在主键的实体根据主键参数进行增删改查操作接口. <br>
+ * 说明：存在主键的实体根据主键参数进行增删改查操作接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:17

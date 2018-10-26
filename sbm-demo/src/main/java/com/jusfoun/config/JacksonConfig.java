@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * 描述 :Jackson序列化属性配置. <br>
+ * 说明：Jackson序列化属性配置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月23日 下午8:24:37
@@ -30,7 +30,7 @@ public class JacksonConfig {
 	private static final String DEFAULT_DATE_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
 	/**
-	 * 描述 :统一的ObjectMapper实例，系统在哪里需要ObjectMapper的时候都引用该实例以实现json数据的统一规范. <br>
+	 * 说明：统一的ObjectMapper实例，系统在哪里需要ObjectMapper的时候都引用该实例以实现json数据的统一规范. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月25日 上午11:57:34

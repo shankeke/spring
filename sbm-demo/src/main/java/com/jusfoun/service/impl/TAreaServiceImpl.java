@@ -15,7 +15,7 @@ import com.jusfoun.mapper.ds1.TAreaMapper;
 import com.jusfoun.service.TAreaService;
 
 /**
- * 描述: 地区管理业务接口实现. <br>
+ * 说明： 地区管理业务接口实现. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 上午11:05:19

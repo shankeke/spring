@@ -5,7 +5,7 @@ import java.util.Base64;
 import com.jusfoun.security.exceptions.TokenInvalidException;
 
 /**
- * 描述 : 从Basic类型的头信息抽取令牌的处理器. <br>
+ * 说明： 从Basic类型的头信息抽取令牌的处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:00:21

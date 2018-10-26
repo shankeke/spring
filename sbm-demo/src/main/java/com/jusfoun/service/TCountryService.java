@@ -6,7 +6,7 @@ import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;
 
 /**
- * 描述: 国家信息维护业务接口. <br>
+ * 说明： 国家信息维护业务接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午12:46:08
@@ -14,7 +14,7 @@ import com.jusfoun.entity.vo.TCountryTotalVo;
 public interface TCountryService extends BaseIdableExtensionService<TCountry> {
 
 	/**
-	 * 描述:查询国家列表并根据首字母分组>. <br>
+	 * 说明：查询国家列表并根据首字母分组>. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午6:37:36

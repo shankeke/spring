@@ -9,7 +9,7 @@ import com.jusfoun.common.utils.net.IpUtil;
 import com.jusfoun.service.IpService;
 
 /**
- * 描述 : IP地址服务. <br>
+ * 说明： IP地址服务. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月13日 下午1:42:29

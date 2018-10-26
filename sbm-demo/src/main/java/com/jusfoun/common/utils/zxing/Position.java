@@ -1,7 +1,7 @@
 package com.jusfoun.common.utils.zxing;
 
 /**
- * 描述 : logo位置枚举. <br>
+ * 说明： logo位置枚举. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月22日 下午5:16:08

@@ -16,7 +16,7 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateNotFoundException;
 
 /**
- * 描述:Freemarker Template 解析器. <br>
+ * 说明：Freemarker Template 解析器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年3月7日 上午10:13:15
@@ -28,7 +28,7 @@ public class FreemarkerUtils {
 	private static final String DEFAUT_NUMBER_FORMAT = "#.##";
 
 	/**
-	 * 描述:初始化模板. <br>
+	 * 说明：初始化模板. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月7日 上午10:53:03
@@ -61,7 +61,7 @@ public class FreemarkerUtils {
 	}
 
 	/**
-	 * 描述:解析模板渲染数据生成输出. <br>
+	 * 说明：解析模板渲染数据生成输出. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月7日 上午10:30:00
@@ -90,7 +90,7 @@ public class FreemarkerUtils {
 	}
 
 	/**
-	 * 描述:解析模板渲染数据生成输出文件. <br>
+	 * 说明：解析模板渲染数据生成输出文件. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月7日 上午10:34:04
@@ -110,7 +110,7 @@ public class FreemarkerUtils {
 	}
 
 	/**
-	 * 描述:解析模板返回字节数组. <br>
+	 * 说明：解析模板返回字节数组. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年3月7日 上午10:56:56

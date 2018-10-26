@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cache.interceptor.KeyGenerator;
 
 /**
- * 描述 :自定义cache key生成策略. <br>
+ * 说明：自定义cache key生成策略. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月13日 下午2:19:43

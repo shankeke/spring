@@ -11,7 +11,7 @@ import org.apache.ibatis.type.JdbcType;
 import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
 
 /**
- * 描述 : Varchar类型字段转换抽象TypeHandler. <br>
+ * 说明： Varchar类型字段转换抽象TypeHandler. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32
@@ -39,7 +39,7 @@ public abstract class AbstractVarcharTypeHandler<T> extends AbstractComplexTypeH
 	}
 
 	/**
-	 * 描述: 将Varchar数据转化为实体对象. <br>
+	 * 说明： 将Varchar数据转化为实体对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月18日 上午9:59:50

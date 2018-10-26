@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.jusfoun.common.message.annotation.JsonBody;
 
 /**
- * 描述 : jackson序列化处理器. <br>
+ * 说明： jackson序列化处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月25日 上午9:56:03
@@ -56,7 +56,7 @@ public class FilterFieldsJsonSerializer {
 	}
 
 	/**
-	 * 描述 : 过滤逻辑. <br>
+	 * 说明： 过滤逻辑. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月25日 上午9:56:16
@@ -80,7 +80,7 @@ public class FilterFieldsJsonSerializer {
 	}
 
 	/**
-	 * 描述 :返回json. <br>
+	 * 说明：返回json. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月25日 上午9:58:40
@@ -95,7 +95,7 @@ public class FilterFieldsJsonSerializer {
 	}
 
 	/**
-	 * 描述 : 执行过滤. <br>
+	 * 说明： 执行过滤. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月25日 上午9:59:00

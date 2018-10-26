@@ -21,7 +21,7 @@ import com.jusfoun.service.SysRoleService;
 import io.swagger.annotations.Api;
 
 /**
- * 描述 :系统角色管理接口. <br>
+ * 说明：系统角色管理接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午4:11:34

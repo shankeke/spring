@@ -18,7 +18,7 @@ import com.jusfoun.security.support.token.RefreshToken;
 import com.jusfoun.service.TokenUserDetailsService;
 
 /**
- * 描述 : 用户toke信息管理. <br>
+ * 说明： 用户toke信息管理. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月9日 上午11:37:10

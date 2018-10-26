@@ -3,7 +3,7 @@ package com.jusfoun.web.runner;
 import com.jusfoun.common.mybatis.typehandler.enumtype.StringValuable;
 
 /**
- * 描述:客户端类型. <br>
+ * 说明：客户端类型. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月7日 下午2:27:27

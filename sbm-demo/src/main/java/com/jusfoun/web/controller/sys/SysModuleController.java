@@ -15,7 +15,7 @@ import com.jusfoun.service.SysModuleService;
 import io.swagger.annotations.Api;
 
 /**
- * 描述 :权限管理接口. <br>
+ * 说明：权限管理接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午5:37:13

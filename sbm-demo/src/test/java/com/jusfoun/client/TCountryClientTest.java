@@ -8,7 +8,7 @@ import com.google.common.collect.Maps;
 import com.jusfoun.entity.TCountry;
 
 /**
- * 描述: 国家信息接口测试. <br>
+ * 说明： 国家信息接口测试. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午4:54:13

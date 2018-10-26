@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * 描述:redis配置级缓存配置. <br>
+ * 说明：redis配置级缓存配置. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年8月9日 下午5:24:43

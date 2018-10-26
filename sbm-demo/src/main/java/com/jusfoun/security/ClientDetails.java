@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * 描述 :客户端信息. <br>
+ * 说明：客户端信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月1日 上午9:12:10
@@ -13,7 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 public interface ClientDetails {
 
 	/**
-	 * 描述 :获取client_id. <br>
+	 * 说明：获取client_id. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:12:25
@@ -22,7 +22,7 @@ public interface ClientDetails {
 	String getClientId();
 
 	/**
-	 * 描述 : 获取client_secret. <br>
+	 * 说明： 获取client_secret. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:12:39
@@ -31,7 +31,7 @@ public interface ClientDetails {
 	String getClientSecret();
 
 	/**
-	 * 描述 :获取resource_ids. <br>
+	 * 说明：获取resource_ids. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:13:01
@@ -40,7 +40,7 @@ public interface ClientDetails {
 	String[] getResourceIds();
 
 	/**
-	 * 描述 : 获取scopes. <br>
+	 * 说明： 获取scopes. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:13:32
@@ -49,7 +49,7 @@ public interface ClientDetails {
 	String[] getScopes();
 
 	/**
-	 * 描述 : 获取grant_types. <br>
+	 * 说明： 获取grant_types. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:13:47
@@ -58,7 +58,7 @@ public interface ClientDetails {
 	String[] getGrantTypes();
 
 	/**
-	 * 描述 : access_token有效期. <br>
+	 * 说明： access_token有效期. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:14:07
@@ -67,7 +67,7 @@ public interface ClientDetails {
 	Integer getAccessTokenValidity();
 
 	/**
-	 * 描述 : refresh_token有效期. <br>
+	 * 说明： refresh_token有效期. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:14:31
@@ -76,7 +76,7 @@ public interface ClientDetails {
 	Integer getRefreshTokenValidity();
 
 	/**
-	 * 描述 : 获取客户端拥有的权限列表. <br>
+	 * 说明： 获取客户端拥有的权限列表. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 上午9:15:19
@@ -85,7 +85,7 @@ public interface ClientDetails {
 	Collection<? extends GrantedAuthority> getAuthorities();
 
 	/**
-	 * 描述 :求权限交集. <br>
+	 * 说明：求权限交集. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月1日 下午1:09:29

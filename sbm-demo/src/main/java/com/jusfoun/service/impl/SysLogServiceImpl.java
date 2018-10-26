@@ -11,7 +11,7 @@ import com.jusfoun.mapper.ds0.SysLogMapper;
 import com.jusfoun.service.SysLogService;
 
 /**
- * 描述 : 系统访问日志操作. <br>
+ * 说明： 系统访问日志操作. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月10日 下午2:54:20

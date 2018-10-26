@@ -22,7 +22,7 @@ import com.jusfoun.security.support.token.factory.TokenFactory;
 import com.jusfoun.service.TokenUserDetailsService;
 
 /**
- * 描述 : 认证成功处理器. <br>
+ * 说明： 认证成功处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午2:52:27

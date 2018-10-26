@@ -11,7 +11,7 @@ import tk.mybatis.mapper.mapperhelper.MapperTemplate;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :根据主键集合查询. <br>
+ * 说明：根据主键集合查询. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月22日 下午1:54:00
@@ -23,7 +23,7 @@ public class SelectByPrimaryKeysProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 根据主键集合进行查询，类中只有存在一个带有@Id注解的字段，如果对应表存在联合主键或者没有主键则生成空实现，即sql为空. <br>
+	 * 说明： 根据主键集合进行查询，类中只有存在一个带有@Id注解的字段，如果对应表存在联合主键或者没有主键则生成空实现，即sql为空. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 下午12:43:55

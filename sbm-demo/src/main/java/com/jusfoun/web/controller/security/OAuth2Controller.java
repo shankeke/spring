@@ -15,7 +15,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 描述 : 授权管理. <br>
+ * 说明： 授权管理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月26日 下午1:52:50
@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiOperation;
 public class OAuth2Controller {
 
 	/**
-	 * 描述 :获取用户信息. <br>
+	 * 说明：获取用户信息. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月26日 下午1:52:04

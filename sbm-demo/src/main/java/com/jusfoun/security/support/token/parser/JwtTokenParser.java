@@ -34,7 +34,7 @@ import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 
 /**
- * 描述 :基于jwt实现的令牌解析器. <br>
+ * 说明：基于jwt实现的令牌解析器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月6日 上午10:35:21

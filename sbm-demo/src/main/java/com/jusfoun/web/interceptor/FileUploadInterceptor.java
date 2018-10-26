@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
- * 描述 : 文件上传拦截器. <br>
+ * 说明： 文件上传拦截器. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午4:04:35

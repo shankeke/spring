@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 /**
- * 描述 : 系统用户管理接口. <br>
+ * 说明： 系统用户管理接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午11:45:00

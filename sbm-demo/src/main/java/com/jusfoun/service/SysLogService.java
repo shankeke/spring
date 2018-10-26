@@ -4,7 +4,7 @@ import com.jusfoun.common.base.extend.entity.BaseEntityWithAssociateService;
 import com.jusfoun.entity.SysLog;
 
 /**
- * 描述 : 系统日志操作. <br>
+ * 说明： 系统日志操作. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月10日 下午2:53:19

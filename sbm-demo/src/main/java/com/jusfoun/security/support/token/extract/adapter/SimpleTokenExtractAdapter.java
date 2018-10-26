@@ -13,7 +13,7 @@ import com.jusfoun.security.support.token.extract.extractor.BearerHeaderTokenExt
 import com.jusfoun.security.support.token.extract.extractor.TokenExtractor;
 
 /**
- * 描述 : 默认实现令牌信息抽取处理器适配器. <br>
+ * 说明： 默认实现令牌信息抽取处理器适配器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:00:48

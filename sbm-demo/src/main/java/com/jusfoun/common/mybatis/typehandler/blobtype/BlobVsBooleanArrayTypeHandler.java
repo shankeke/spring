@@ -5,7 +5,7 @@ import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 描述 : Blob转Boolean数组TypeHandler. <br>
+ * 说明： Blob转Boolean数组TypeHandler. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32

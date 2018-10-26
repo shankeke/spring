@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 描述 : Varchar转String集合TypeHandler. <br>
+ * 说明： Varchar转String集合TypeHandler. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32

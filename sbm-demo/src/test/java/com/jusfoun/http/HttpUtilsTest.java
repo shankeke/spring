@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.jusfoun.common.utils.net.HttpUtils;
 
 /**
- * 描述 : HttpUtils工具类测试. <br>
+ * 说明： HttpUtils工具类测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月27日 上午8:59:00

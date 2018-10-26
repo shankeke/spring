@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 /**
- * 描述 : 自定义基于方法的权限验证逻辑之 hasPermission()实现逻辑. <br>
+ * 说明： 自定义基于方法的权限验证逻辑之 hasPermission()实现逻辑. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月11日 上午10:24:27
@@ -43,7 +43,7 @@ public class RawPermissionEvaluator implements PermissionEvaluator {
 	}
 
 	/**
-	 * 描述 : 简单的字符串比较，相同则认为有权限. <br>
+	 * 说明： 简单的字符串比较，相同则认为有权限. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月11日 上午10:21:47

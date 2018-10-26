@@ -7,7 +7,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 /**
- * 描述 : <文件描述>. <br>
+ * 说明： <文件描述>. <br>
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:34:40
  */

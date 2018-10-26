@@ -16,7 +16,7 @@ import com.serotonin.modbus4j.msg.WriteRegistersResponse;
 import com.serotonin.modbus4j.sero.util.queue.ByteQueue;
 
 /**
- * 描述 : Modbus通信工具类. <br>
+ * 说明： Modbus通信工具类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月19日 下午3:31:50
@@ -68,7 +68,7 @@ public class ModbusUtils {
 	}
 
 	/**
-	 * 描述 : 返回数据队列 . <br>
+	 * 说明： 返回数据队列 . <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月20日 上午10:38:36
@@ -109,7 +109,7 @@ public class ModbusUtils {
 	}
 
 	/**
-	 * 描述 :直接返回十六进制类型数据数组 . <br>
+	 * 说明：直接返回十六进制类型数据数组 . <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月20日 上午10:37:46
@@ -141,7 +141,7 @@ public class ModbusUtils {
 	}
 
 	/**
-	 * 描述 : 直接返回float类型数据数组. <br>
+	 * 说明： 直接返回float类型数据数组. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月20日 上午10:34:49
@@ -187,7 +187,7 @@ public class ModbusUtils {
 	}
 
 	/**
-	 * 描述 :直接返回float类型数据数组 . <br>
+	 * 说明：直接返回float类型数据数组 . <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月20日 上午10:33:42

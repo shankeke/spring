@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述:地区信息. <br>
+ * 说明：地区信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 上午10:08:21

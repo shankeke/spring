@@ -1,7 +1,7 @@
 package com.jusfoun.security.exceptions;
 
 /**
- * 描述 :Token失效. <br>
+ * 说明：Token失效. <br>
  * @author yjw@jusfoun.com
  * @date 2017年11月29日 上午10:35:04
  */

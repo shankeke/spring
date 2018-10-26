@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * 描述: 获取结果方法. <br>
+ * 说明： 获取结果方法. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月26日 下午3:09:07

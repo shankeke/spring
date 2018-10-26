@@ -9,7 +9,7 @@ import tk.mybatis.mapper.mapperhelper.MapperTemplate;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :批量删除. <br>
+ * 说明：批量删除. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月21日 上午11:46:08
@@ -21,7 +21,7 @@ public class DeleteListByPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 通过实体字段为条件批量删除，根据参数中每个实体的字段值进行匹配删除，相当于视图属性值建立联合条件匹配删除. <br>
+	 * 说明： 通过实体字段为条件批量删除，根据参数中每个实体的字段值进行匹配删除，相当于视图属性值建立联合条件匹配删除. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 上午11:58:27
@@ -38,7 +38,7 @@ public class DeleteListByPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 通过主键批量删除，参数集合中每个实体的主键字段不为空，根据对应主键值匹配删除. <br>
+	 * 说明： 通过主键批量删除，参数集合中每个实体的主键字段不为空，根据对应主键值匹配删除. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月4日 下午5:48:20

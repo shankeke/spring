@@ -13,7 +13,7 @@ import tk.mybatis.mapper.mapperhelper.MapperTemplate;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :批量覆盖式插入操作处理器 <br>
+ * 说明：批量覆盖式插入操作处理器 <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月22日 上午11:09:21
@@ -25,7 +25,7 @@ public class ReplaceListWithPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 :批量插入,如果表中存在主键，这里可以指定主键值，不同于主键自增长的模式，主键的名称“id”. <br>
+	 * 说明：批量插入,如果表中存在主键，这里可以指定主键值，不同于主键自增长的模式，主键的名称“id”. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 下午12:01:51

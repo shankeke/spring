@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述:树状结构数据查询处理接口. <br>
+ * 说明：树状结构数据查询处理接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午2:24:03

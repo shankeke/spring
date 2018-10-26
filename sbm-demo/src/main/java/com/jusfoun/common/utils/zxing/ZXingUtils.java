@@ -33,7 +33,7 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 /**
- * 描述 : 二维码生成工具. <br>
+ * 说明： 二维码生成工具. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午7:23:16
@@ -72,7 +72,7 @@ public class ZXingUtils {
 	public static final int DEF_HEIGHT = 200;
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:23:26
@@ -88,7 +88,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:24:21
@@ -108,7 +108,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:07
@@ -132,7 +132,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -157,7 +157,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : <方法描述>. <br>
+	 * 说明： <方法描述>. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:27:04
@@ -181,7 +181,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -197,7 +197,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -217,7 +217,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -246,7 +246,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -262,7 +262,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -282,7 +282,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码生成. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:25:49
@@ -311,7 +311,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : <方法描述>. <br>
+	 * 说明： <方法描述>. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:27:04
@@ -482,7 +482,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 描述 : 二维码解码. <br>
+	 * 说明： 二维码解码. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:27:38

@@ -1,7 +1,7 @@
 package com.jusfoun.security.exceptions;
 
 /**
- * 描述 :令牌创建异常. <br>
+ * 说明：令牌创建异常. <br>
  * @author yjw@jusfoun.com
  * @date 2017年12月25日 上午11:20:02
  */

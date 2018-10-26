@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.SelectProvider;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
 /**
- * 描述 : 根据主键集合查询. <br>
+ * 说明： 根据主键集合查询. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月22日 下午2:48:07
@@ -16,7 +16,7 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
 public interface SelectByPrimaryKeysMapper<T> {
 
 	/**
-	 * 描述 : 根据主键集合进行查询，类中只有存在一个带有@Id注解的字段. <br>
+	 * 说明： 根据主键集合进行查询，类中只有存在一个带有@Id注解的字段. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月4日 下午5:51:44

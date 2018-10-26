@@ -3,7 +3,7 @@ package com.jusfoun.common.cache;
 import java.io.Serializable;
 
 /**
- * 描述:缓存请求包装类. <br>
+ * 说明：缓存请求包装类. <br>
  * <p>
  *
  * Copyright (c) 2016 优识云创(YSYC)

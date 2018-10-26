@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.DeleteProvider;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
 /**
- * 描述 : 根据主键字段进行批量删除. <br>
+ * 说明： 根据主键字段进行批量删除. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月21日 上午11:44:11
@@ -16,7 +16,7 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
 public interface DeleteListByPrimaryKeyMapper<T> {
 
 	/**
-	 * 描述 :根据主键字段进行批量删除，方法参数每个实体必须包含完整的主键属性. <br>
+	 * 说明：根据主键字段进行批量删除，方法参数每个实体必须包含完整的主键属性. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月4日 下午5:47:56

@@ -8,7 +8,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.ICollections;
 
 /**
- * 描述:树状数据结构的数据模型业务处理接口定义. <br>
+ * 说明：树状数据结构的数据模型业务处理接口定义. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月26日 上午11:44:43
@@ -16,7 +16,7 @@ import com.jusfoun.common.utils.ICollections;
 public interface TreeableService<T extends Treeable<T>> {
 
 	/**
-	 * 描述: 树数据检索，可根据根节点和关键字检索符合的树数据. <br>
+	 * 说明： 树数据检索，可根据根节点和关键字检索符合的树数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月26日 上午11:46:51

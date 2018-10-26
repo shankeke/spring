@@ -3,7 +3,7 @@ package com.jusfoun.common.enums;
 import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
- * 描述 : 月份枚举类. <br>
+ * 说明： 月份枚举类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月12日 上午9:55:31

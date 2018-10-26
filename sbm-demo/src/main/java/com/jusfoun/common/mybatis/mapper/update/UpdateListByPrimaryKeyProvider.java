@@ -13,7 +13,7 @@ import tk.mybatis.mapper.mapperhelper.MapperTemplate;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :批量修改操作处理器 <br>
+ * 说明：批量修改操作处理器 <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月22日 上午11:09:21
@@ -27,7 +27,7 @@ public class UpdateListByPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 根据主键批量修改，需要指定每条数据的主键值，并且修改所有字段. <br>
+	 * 说明： 根据主键批量修改，需要指定每条数据的主键值，并且修改所有字段. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 下午12:44:26
@@ -45,7 +45,7 @@ public class UpdateListByPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 根据主键批量修改，需要指定每条数据的主键值，只修改非空字段，并且集合中的每个实体需要修改的字段是一样的. <br>
+	 * 说明： 根据主键批量修改，需要指定每条数据的主键值，只修改非空字段，并且集合中的每个实体需要修改的字段是一样的. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 下午12:59:56
@@ -63,7 +63,7 @@ public class UpdateListByPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 :拼接 case when条件下的set动态sql. <br>
+	 * 说明：拼接 case when条件下的set动态sql. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 下午1:00:25

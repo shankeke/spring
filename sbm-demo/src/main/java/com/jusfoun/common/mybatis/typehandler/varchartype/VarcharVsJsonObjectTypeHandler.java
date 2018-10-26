@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 描述 : Varchar转JSONObject TypeHandler. <br>
+ * 说明： Varchar转JSONObject TypeHandler. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月10日 下午12:44:32

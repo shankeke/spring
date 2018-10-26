@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 描述 : 系统的一些常量的配置. <br>
+ * 说明： 系统的一些常量的配置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 下午1:40:24

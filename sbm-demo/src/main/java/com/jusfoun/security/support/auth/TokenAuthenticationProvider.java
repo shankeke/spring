@@ -13,7 +13,7 @@ import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.service.TokenUserDetailsService;
 
 /**
- * 描述 : 鉴权处理器. <br>
+ * 说明： 鉴权处理器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:02:57

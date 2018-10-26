@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.jusfoun.security.config.WebSecurityConfig;
 
 /**
- * 描述 :用户授权接口测试. <br>
+ * 说明：用户授权接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午6:12:47

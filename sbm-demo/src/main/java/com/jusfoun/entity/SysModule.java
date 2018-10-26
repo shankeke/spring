@@ -24,7 +24,7 @@ import com.jusfoun.common.base.tree.Treeable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 /**
- * 描述 :系统权限模型. <br>
+ * 说明：系统权限模型. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月5日 上午9:09:48
@@ -102,7 +102,7 @@ public class SysModule extends BaseEntity<SysModule> implements Treeable<SysModu
 	}
 
 	/**
-	 * 描述 : 添加一个子节点. <br>
+	 * 说明： 添加一个子节点. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月12日 上午10:47:17

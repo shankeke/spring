@@ -7,7 +7,7 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
 /**
- * 描述 :批量操作汇总接口. <br>
+ * 说明：批量操作汇总接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月21日 下午7:13:30

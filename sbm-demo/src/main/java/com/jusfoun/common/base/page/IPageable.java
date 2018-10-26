@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 : 分页参数包装. <br>
+ * 说明： 分页参数包装. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:34
@@ -187,7 +187,7 @@ public abstract class IPageable implements Serializable {
 	}
 
 	/**
-	 * 描述: 获取默认的排序字段信息，继承该类需要实现该方法. <br>
+	 * 说明： 获取默认的排序字段信息，继承该类需要实现该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月25日 下午2:14:18
@@ -196,7 +196,7 @@ public abstract class IPageable implements Serializable {
 	public abstract String initOrderByClause();
 
 	/**
-	 * 描述: 根据一个page对象获取生成一个mybatis的分页边界对象. <br>
+	 * 说明： 根据一个page对象获取生成一个mybatis的分页边界对象. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月17日 上午10:24:40

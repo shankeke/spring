@@ -5,7 +5,7 @@ import org.junit.Test;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 描述 : 缓存管理接口测试. <br>
+ * 说明： 缓存管理接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月22日 上午10:07:54

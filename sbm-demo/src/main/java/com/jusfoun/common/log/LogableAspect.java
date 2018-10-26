@@ -39,7 +39,7 @@ import com.jusfoun.service.SysLogService;
 import com.jusfoun.service.SysUserService;
 
 /**
- * 描述 : 系统访问日志处理， 主要拦截 <code>@Logable</code>注解的类和方法。<br>
+ * 说明： 系统访问日志处理， 主要拦截 <code>@Logable</code>注解的类和方法。<br>
  * 如果用在类上使用，该类下面的所有方法会被拦截 ， 如果在方法上面则只对该方法生效，方法上的优先级高于类型上的注解。<br>
  * 切入点根据相应属性判断是否输出日志信息，如果需要输出根据级别输出日志，该注解主要是方便查看指定的方法输入参数和返回结果。 <br>
  *
@@ -65,7 +65,7 @@ public class LogableAspect {
 	// private IpService ipService;
 
 	/**
-	 * 描述 : 默认拦截controller层和授权鉴权的接口. <br>
+	 * 说明： 默认拦截controller层和授权鉴权的接口. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月2日 下午8:04:36
@@ -179,7 +179,7 @@ public class LogableAspect {
 	}
 
 	/**
-	 * 描述 : 将日志加入缓存中. <br>
+	 * 说明： 将日志加入缓存中. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月14日 上午9:37:53

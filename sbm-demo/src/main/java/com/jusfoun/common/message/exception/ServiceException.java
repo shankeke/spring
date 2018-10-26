@@ -3,7 +3,7 @@ package com.jusfoun.common.message.exception;
 import com.jusfoun.common.message.result.ErrType;
 
 /**
- * 描述 :Service 层异常. <br>
+ * 说明：Service 层异常. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:59:30

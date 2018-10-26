@@ -3,7 +3,7 @@ package com.jusfoun.common.utils;
 import java.util.regex.Pattern;
 
 /**
- * 描述 :常用正则验证. <br>
+ * 说明：常用正则验证. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月16日 上午11:36:43
@@ -28,7 +28,7 @@ public class RegexUtils {
 	public static final String REGEX_HTML_A = "<a.*?>";// 链接
 
 	/**
-	 * 描述 : 正则验证. <br>
+	 * 说明： 正则验证. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 上午11:37:19
@@ -131,7 +131,7 @@ public class RegexUtils {
 	}
 
 	/**
-	 * 描述 : 校验日期格式：YYYY-MM-DD. <br>
+	 * 说明： 校验日期格式：YYYY-MM-DD. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月17日 下午7:11:28
@@ -143,7 +143,7 @@ public class RegexUtils {
 	}
 
 	/**
-	 * 描述 : 校验日期时间格式:YYYY-MM-DD HH:mm:ss. <br>
+	 * 说明： 校验日期时间格式:YYYY-MM-DD HH:mm:ss. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月17日 下午7:11:10

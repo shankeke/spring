@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.DeleteProvider;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
 /**
- * 描述 : 根据条件进行批量删除. <br>
+ * 说明： 根据条件进行批量删除. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月21日 上午11:44:11
@@ -16,7 +16,7 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
 public interface DeleteListMapper<T> {
 
 	/**
-	 * 描述 :根据条件进行批量删除，依照方法参数集合中每个实体的非空字段为条件删除对应记录. <br>
+	 * 说明：根据条件进行批量删除，依照方法参数集合中每个实体的非空字段为条件删除对应记录. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年1月4日 下午5:46:27

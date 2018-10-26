@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 :角色权限关联模型. <br>
+ * 说明：角色权限关联模型. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月5日 上午9:10:21

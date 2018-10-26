@@ -62,7 +62,7 @@ public class PluploadService {
 	}
 
 	/**
-	 * 描述 : 写入文件到磁盘. <br>
+	 * 说明： 写入文件到磁盘. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月18日 上午9:32:15

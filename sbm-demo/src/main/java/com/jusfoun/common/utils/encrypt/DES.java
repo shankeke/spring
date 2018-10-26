@@ -6,7 +6,7 @@ import java.security.Security;
 import javax.crypto.Cipher;
 
 /**
- * 描述 : DES可逆加密算法. <br>
+ * 说明： DES可逆加密算法. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月11日 上午11:30:16

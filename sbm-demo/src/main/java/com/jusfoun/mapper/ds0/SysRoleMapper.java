@@ -8,7 +8,7 @@ import com.jusfoun.entity.SysRole;
 public interface SysRoleMapper extends BaseIdableExtensionMapper<SysRole> {
 
 	/**
-	 * 描述 :根据用户ID查询用户角色列表. <br>
+	 * 说明：根据用户ID查询用户角色列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月20日 上午9:33:42
@@ -19,7 +19,7 @@ public interface SysRoleMapper extends BaseIdableExtensionMapper<SysRole> {
 	List<SysRole> selectByUserId(Long userId);
 
 	/**
-	 * 描述 :根据用户ID查询用户角色名称列表. <br>
+	 * 说明：根据用户ID查询用户角色名称列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月20日 上午9:33:42

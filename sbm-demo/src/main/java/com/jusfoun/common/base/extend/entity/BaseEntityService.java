@@ -4,7 +4,7 @@ import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.message.exception.ServiceException;
 
 /**
- * 描述 : 继承BaseEntity的实体业务操作通用方法接口实现. <br>
+ * 说明： 继承BaseEntity的实体业务操作通用方法接口实现. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:35:45
@@ -12,7 +12,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 public interface BaseEntityService<T extends BaseEntity<T>> extends BaseIdableService<T> {
 
 	/**
-	 * 描述: 保存基础信息. <br>
+	 * 说明： 保存基础信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年2月26日 下午2:20:10
@@ -26,7 +26,7 @@ public interface BaseEntityService<T extends BaseEntity<T>> extends BaseIdableSe
 	}
 
 	/**
-	 * 描述: 更新基础信息. <br>
+	 * 说明： 更新基础信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年2月26日 下午2:20:21

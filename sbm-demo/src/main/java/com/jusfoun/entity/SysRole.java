@@ -14,7 +14,7 @@ import com.jusfoun.common.base.extend.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 /**
- * 描述 :系统角色信息. <br>
+ * 说明：系统角色信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年1月5日 上午9:10:08

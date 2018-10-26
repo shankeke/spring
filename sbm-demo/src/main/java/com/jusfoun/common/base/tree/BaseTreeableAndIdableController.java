@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 /**
- * 描述: 实现树结构数据和存在主键的实体Controller基类. <br>
+ * 说明： 实现树结构数据和存在主键的实体Controller基类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月12日 下午2:08:27
@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiParam;
 public interface BaseTreeableAndIdableController<T extends Treeable<T> & Idable<PK>, PK extends Serializable> extends BaseIdableController<T, PK> {
 
 	/**
-	 * 描述: 获取树图操作业务实例. <br>
+	 * 说明： 获取树图操作业务实例. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月26日 下午2:11:41
@@ -31,7 +31,7 @@ public interface BaseTreeableAndIdableController<T extends Treeable<T> & Idable<
 	TreeableAndIdableService<T, PK> getTreeableIdableService();
 
 	/**
-	 * 描述: 获取树数据. <br>
+	 * 说明： 获取树数据. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 上午10:58:38

@@ -28,7 +28,7 @@ import com.jusfoun.security.RawGrantedAuthority;
 import com.jusfoun.service.SysModuleService;
 
 /**
- * 描述:系统权限业务接口实现. <br>
+ * 说明：系统权限业务接口实现. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月12日 下午5:50:49
@@ -76,7 +76,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 	}
 
 	/**
-	 * 描述 : 以递归的方式保存权限节点. <br>
+	 * 说明： 以递归的方式保存权限节点. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月12日 上午9:50:47

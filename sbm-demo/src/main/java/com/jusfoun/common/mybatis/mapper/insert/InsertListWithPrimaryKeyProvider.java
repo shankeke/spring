@@ -11,7 +11,7 @@ import tk.mybatis.mapper.mapperhelper.MapperTemplate;
 import tk.mybatis.mapper.mapperhelper.SqlHelper;
 
 /**
- * 描述 :批量插入操作处理器 <br>
+ * 说明：批量插入操作处理器 <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月22日 上午11:09:21
@@ -23,7 +23,7 @@ public class InsertListWithPrimaryKeyProvider extends MapperTemplate {
 	}
 
 	/**
-	 * 描述 : 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，该接口限制实体包含主键属性并且插入时指定主键值. <br>
+	 * 说明： 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，该接口限制实体包含主键属性并且插入时指定主键值. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月23日 下午12:01:24

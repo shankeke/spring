@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 描述 : http请求. <br>
+ * 说明： http请求. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 上午11:34:50
@@ -183,7 +183,7 @@ public class HttpUtils {
 
 	/****************************** 新加方法 ******************************/
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -254,7 +254,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -306,7 +306,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -335,7 +335,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -357,7 +357,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -379,7 +379,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -409,7 +409,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -428,7 +428,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -463,7 +463,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -485,7 +485,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送post请求. <br>
+	 * 说明：发送post请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -507,7 +507,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送get请求. <br>
+	 * 说明：发送get请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -533,7 +533,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送get请求. <br>
+	 * 说明：发送get请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -555,7 +555,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送get请求. <br>
+	 * 说明：发送get请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -577,7 +577,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送get请求. <br>
+	 * 说明：发送get请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw
@@ -594,7 +594,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 描述 :发送get请求. <br>
+	 * 说明：发送get请求. <br>
 	 * <p>
 	 *
 	 * @author Uknower-yjw

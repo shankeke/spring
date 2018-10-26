@@ -28,7 +28,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 描述:国家信息管理接口类. <br>
+ * 说明：国家信息管理接口类. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午12:49:39

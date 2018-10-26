@@ -29,7 +29,7 @@ public class ClientDetailsRoot {
 	}
 
 	/**
-	 * 描述 : 初始化系统客户端信息. <br>
+	 * 说明： 初始化系统客户端信息. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月6日 下午5:13:11

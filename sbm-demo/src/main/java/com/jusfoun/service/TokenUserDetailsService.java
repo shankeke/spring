@@ -6,7 +6,7 @@ import com.jusfoun.security.support.token.AccessToken;
 import com.jusfoun.security.support.token.RefreshToken;
 
 /**
- * 描述: 系统用户鉴权信息业务处理. <br>
+ * 说明： 系统用户鉴权信息业务处理. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午5:54:20
@@ -14,7 +14,7 @@ import com.jusfoun.security.support.token.RefreshToken;
 public interface TokenUserDetailsService extends BaseIdableExtensionService<TokenUserDetails> {
 
 	/**
-	 * 描述 : 保存并缓存. <br>
+	 * 说明： 保存并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月11日 下午12:16:17
@@ -25,7 +25,7 @@ public interface TokenUserDetailsService extends BaseIdableExtensionService<Toke
 	TokenUserDetails insertAndCache(TokenUserDetails record);
 
 	/**
-	 * 描述 :修改并缓存. <br>
+	 * 说明：修改并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月11日 下午12:15:47
@@ -36,7 +36,7 @@ public interface TokenUserDetailsService extends BaseIdableExtensionService<Toke
 	TokenUserDetails updateAndCache(TokenUserDetails record);
 
 	/**
-	 * 描述 : 根据用户名和客户端ID删除数据库记录和缓存. <br>
+	 * 说明： 根据用户名和客户端ID删除数据库记录和缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月11日 下午12:15:18
@@ -49,7 +49,7 @@ public interface TokenUserDetailsService extends BaseIdableExtensionService<Toke
 	int deleteWithCacheByUsernameAndClientId(String username, String clientId);
 
 	/**
-	 * 描述 : 根据用户名和客户端ID查询用户的授权信息并缓存. <br>
+	 * 说明： 根据用户名和客户端ID查询用户的授权信息并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月9日 上午10:43:23
@@ -60,7 +60,7 @@ public interface TokenUserDetailsService extends BaseIdableExtensionService<Toke
 	TokenUserDetails findAndCacheByUsernameAndClientId(String username, String clientId);
 
 	/**
-	 * 描述 :根据AccessToken查找授权信息并缓存. <br>
+	 * 说明：根据AccessToken查找授权信息并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月11日 下午12:13:51
@@ -71,7 +71,7 @@ public interface TokenUserDetailsService extends BaseIdableExtensionService<Toke
 	TokenUserDetails findAndCacheByAccessToken(AccessToken token);
 
 	/**
-	 * 描述 :根据RefreshToken查找授权信息并缓存. <br>
+	 * 说明：根据RefreshToken查找授权信息并缓存. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月11日 下午12:13:51

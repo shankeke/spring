@@ -9,7 +9,7 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 /**
- * 描述:spel解析工具. <br>
+ * 说明：spel解析工具. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月31日 上午8:59:38
@@ -17,7 +17,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 public class SpelUtils {
 
 	/**
-	 * 描述:解析方法注解上面的spel表达式. <br>
+	 * 说明：解析方法注解上面的spel表达式. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月31日 上午9:00:11

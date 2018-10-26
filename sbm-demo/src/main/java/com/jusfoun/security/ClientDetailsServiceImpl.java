@@ -9,7 +9,7 @@ import com.jusfoun.security.exceptions.ClientIdNotFoundException;
 import com.jusfoun.service.TokenClientDetailsService;
 
 /**
- * 描述 : 实现客户端信息加载方法. <br>
+ * 说明： 实现客户端信息加载方法. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月2日 下午8:58:36

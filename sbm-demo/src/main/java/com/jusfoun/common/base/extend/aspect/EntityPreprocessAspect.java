@@ -22,7 +22,7 @@ import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysUserService;
 
 /**
- * 描述:实体对象预处理切面. <br>
+ * 说明：实体对象预处理切面. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午11:31:24
@@ -40,7 +40,7 @@ public class EntityPreprocessAspect {
 	private SysUserService sysUserService;
 
 	/**
-	 * 描述 : 默认拦截@Preprocess注解的方法. <br>
+	 * 说明： 默认拦截@Preprocess注解的方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年11月2日 下午8:04:36

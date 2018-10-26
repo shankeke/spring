@@ -5,7 +5,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
 /**
- * 描述 : 缓存管理. <br>
+ * 说明： 缓存管理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月22日 上午9:53:00

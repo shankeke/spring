@@ -18,7 +18,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 描述 :销毁令牌. <br>
+ * 说明：销毁令牌. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月9日 下午5:20:40

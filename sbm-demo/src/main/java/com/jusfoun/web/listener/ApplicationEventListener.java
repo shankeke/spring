@@ -11,7 +11,7 @@ import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
 
 /**
- * 描述 : 监听Spring Boot的启动、停止、重启、关闭. <br>
+ * 说明： 监听Spring Boot的启动、停止、重启、关闭. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月14日 上午10:26:18

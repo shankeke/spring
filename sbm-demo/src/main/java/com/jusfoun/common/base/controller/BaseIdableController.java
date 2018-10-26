@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 /**
- * 描述: 根据ID操作的接口定义. <br>
+ * 说明： 根据ID操作的接口定义. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月12日 下午2:08:27

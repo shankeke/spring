@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import com.jusfoun.common.utils.ICollections;
 
 /**
- * 描述:树结构数据检索查询接口. <br>
+ * 说明：树结构数据检索查询接口. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午2:24:03
@@ -15,7 +15,7 @@ import com.jusfoun.common.utils.ICollections;
 public interface Treeable<T extends Treeable<T>> {
 
 	/**
-	 * 描述:根据关键字在树结构数据中查询需要的数据，最后保留数据的树状结构，根节点不变，将不符合的叶子都删除，最后符合的节点都变成叶子节点. <br>
+	 * 说明：根据关键字在树结构数据中查询需要的数据，最后保留数据的树状结构，根节点不变，将不符合的叶子都删除，最后符合的节点都变成叶子节点. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:50:07
@@ -62,7 +62,7 @@ public interface Treeable<T extends Treeable<T>> {
 	}
 
 	/**
-	 * 描述:是否遍历结束. <br>
+	 * 说明：是否遍历结束. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:48:26
@@ -86,7 +86,7 @@ public interface Treeable<T extends Treeable<T>> {
 	}
 
 	/**
-	 * 描述: 检查对象是否否匹配，这里是默认实现，如果不能满足自己的需求可以在子类中重写该方法. <br>
+	 * 说明： 检查对象是否否匹配，这里是默认实现，如果不能满足自己的需求可以在子类中重写该方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:45:03
@@ -107,7 +107,7 @@ public interface Treeable<T extends Treeable<T>> {
 	}
 
 	/**
-	 * 描述:获取子集 <br>
+	 * 说明：获取子集 <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:50:07
@@ -116,7 +116,7 @@ public interface Treeable<T extends Treeable<T>> {
 	List<T> getSubList();
 
 	/**
-	 * 描述:设置子集 <br>
+	 * 说明：设置子集 <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:50:07
@@ -126,7 +126,7 @@ public interface Treeable<T extends Treeable<T>> {
 	void setSubList(List<T> subList);
 
 	/**
-	 * 描述: 设置是否是叶子节点. <br>
+	 * 说明： 设置是否是叶子节点. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:42:02
@@ -134,7 +134,7 @@ public interface Treeable<T extends Treeable<T>> {
 	void setLeaf(boolean leaf);
 
 	/**
-	 * 描述: 是否是叶子节点. <br>
+	 * 说明： 是否是叶子节点. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:42:02
@@ -143,7 +143,7 @@ public interface Treeable<T extends Treeable<T>> {
 	boolean isLeaf();
 
 	/**
-	 * 描述:获取匹配的字段值集合. <br>
+	 * 说明：获取匹配的字段值集合. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月24日 下午1:45:03

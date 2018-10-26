@@ -19,7 +19,7 @@ import com.jusfoun.mapper.ds1.TCountryMapper;
 import com.jusfoun.service.TCountryService;
 
 /**
- * 描述: 国家信息维护业务接口实现. <br>
+ * 说明： 国家信息维护业务接口实现. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月24日 下午12:47:08

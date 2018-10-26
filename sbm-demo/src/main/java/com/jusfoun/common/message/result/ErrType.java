@@ -3,7 +3,7 @@ package com.jusfoun.common.message.result;
 import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
 
 /**
- * 描述 : 业务异常枚举类. <br>
+ * 说明： 业务异常枚举类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午7:37:37

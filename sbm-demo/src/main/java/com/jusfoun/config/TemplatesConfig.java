@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 描述:模板配置信息. <br>
+ * 说明：模板配置信息. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年6月15日 上午9:22:09

@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 /**
- * 描述 : 文件上传管理功能. <br>
+ * 说明： 文件上传管理功能. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月15日 上午11:39:50
@@ -43,7 +43,7 @@ public class FileUploadController {
 	private FileConfig fileConfig;
 
 	/**
-	 * 描述 : 单个文件上传. <br>
+	 * 说明： 单个文件上传. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午1:09:05
@@ -89,7 +89,7 @@ public class FileUploadController {
 	}
 
 	/**
-	 * 描述 : 保存文件到本地. <br>
+	 * 说明： 保存文件到本地. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午1:14:09
@@ -114,7 +114,7 @@ public class FileUploadController {
 	}
 
 	/**
-	 * 描述 : 文件下载. <br>
+	 * 说明： 文件下载. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月15日 下午1:28:44

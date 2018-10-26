@@ -1,7 +1,7 @@
 package com.jusfoun.security.support.token;
 
 /**
- * 描述 :访问令牌. <br>
+ * 说明：访问令牌. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月2日 下午11:35:01

@@ -6,7 +6,7 @@ import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.message.exception.ServiceException;
 
 /**
- * 描述:树状数据结构的数据模型业务处理接口定义. <br>
+ * 说明：树状数据结构的数据模型业务处理接口定义. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月26日 上午11:44:43
@@ -14,7 +14,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 public interface TreeableAndIdableService<T extends Treeable<T> & Idable<PK>, PK extends Serializable> extends TreeableService<T>, TreeableMapper<T, PK> {
 
 	/**
-	 * 描述: 树数据查询，可根据根节点主键和关键字检索. <br>
+	 * 说明： 树数据查询，可根据根节点主键和关键字检索. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月26日 上午11:46:51

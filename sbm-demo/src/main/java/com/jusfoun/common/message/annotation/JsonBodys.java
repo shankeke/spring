@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 描述:json格式数据声明注解，使用该注解方法返回数据使用<code>FilterFieldsJsonReturnHandler</code>处理，配合<code>JsonFilter</code>
+ * 说明：json格式数据声明注解，使用该注解方法返回数据使用<code>FilterFieldsJsonReturnHandler</code>处理，配合<code>JsonFilter</code>
  * 实现对将要按照json格式输出的实体进行字段过滤，以达到字段定制的目的. <br>
  * 
  * @author yjw@jusfoun.com
@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
 public @interface JsonBodys {
 
 	/**
-	 * 描述:支持同时过滤多个数据类型的字段. <br>
+	 * 说明：支持同时过滤多个数据类型的字段. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年7月18日 上午9:58:01

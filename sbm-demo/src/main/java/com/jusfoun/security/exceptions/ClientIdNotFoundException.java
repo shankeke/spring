@@ -1,7 +1,7 @@
 package com.jusfoun.security.exceptions;
 
 /**
- * 描述 : clientId错误. <br>
+ * 说明： clientId错误. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年11月14日 下午1:45:42

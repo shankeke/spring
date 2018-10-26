@@ -23,7 +23,7 @@ import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
 
 /**
- * 描述 :处理包装同时使用@ResponseBody和@JsonBody注解的方法以满足json字段过滤等需求. <br>
+ * 说明：处理包装同时使用@ResponseBody和@JsonBody注解的方法以满足json字段过滤等需求. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月18日 下午6:12:38

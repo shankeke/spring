@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 public interface FilterPropertyHandler {
 
 	/**
-	 * 描述 :过滤属性方法. <br>
+	 * 说明：过滤属性方法. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2017年12月11日 上午11:03:12

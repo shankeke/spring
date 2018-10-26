@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.jusfoun.common.utils.ICollections;
 
 /**
- * 描述 :Spring security用户Context中信息获取工具类. <br>
+ * 说明：Spring security用户Context中信息获取工具类. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月6日 下午3:49:48
@@ -19,7 +19,7 @@ import com.jusfoun.common.utils.ICollections;
 public final class SecurityUtils {
 
 	/**
-	 * 描述 : 获取当前用户授权信息. <br>
+	 * 说明： 获取当前用户授权信息. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月6日 下午3:50:12
@@ -30,7 +30,7 @@ public final class SecurityUtils {
 	}
 
 	/**
-	 * 描述 : 获取当前用户授权权限. <br>
+	 * 说明： 获取当前用户授权权限. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月6日 下午3:50:12
@@ -41,7 +41,7 @@ public final class SecurityUtils {
 	}
 
 	/**
-	 * 描述 : 获取当前用户授权权限. <br>
+	 * 说明： 获取当前用户授权权限. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月6日 下午3:50:12
@@ -56,7 +56,7 @@ public final class SecurityUtils {
 	}
 
 	/**
-	 * 描述 : 获取当前用户名称. <br>
+	 * 说明： 获取当前用户名称. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月6日 下午3:50:12
@@ -74,7 +74,7 @@ public final class SecurityUtils {
 	}
 
 	/**
-	 * 描述 : 获取当前用户信息. <br>
+	 * 说明： 获取当前用户信息. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月6日 下午3:50:12

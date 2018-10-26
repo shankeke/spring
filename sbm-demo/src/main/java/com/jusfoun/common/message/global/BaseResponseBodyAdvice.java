@@ -14,7 +14,7 @@ import com.jusfoun.common.message.annotation.JsonBodys;
 import com.jusfoun.common.message.result.BaseResponse;
 
 /**
- * 描述 :自定义的返回报文包装. <br>
+ * 说明：自定义的返回报文包装. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月18日 下午6:12:38

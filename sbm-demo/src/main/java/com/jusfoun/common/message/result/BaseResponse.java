@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述 :定义接口返回的数据包装. <br>
+ * 说明：定义接口返回的数据包装. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月13日 上午10:04:28
@@ -91,7 +91,7 @@ public class BaseResponse<T> implements Serializable {
 	}
 
 	/**
-	 * 描述 : 基本方法. <br>
+	 * 说明： 基本方法. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月13日 上午10:03:33

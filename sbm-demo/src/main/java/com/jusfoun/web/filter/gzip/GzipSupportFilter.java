@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 描述 : 支持数据压缩. <br>
+ * 说明： 支持数据压缩. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月27日 下午4:21:44

@@ -22,7 +22,7 @@ import tk.mybatis.mapper.common.example.UpdateByExampleMapper;
 import tk.mybatis.mapper.common.example.UpdateByExampleSelectiveMapper;
 
 /**
- * 描述:基本增删改查操作接口. <br>
+ * 说明：基本增删改查操作接口. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:26:17

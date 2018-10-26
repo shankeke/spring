@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 描述 : Modbus地址配置. <br>
+ * 说明： Modbus地址配置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年10月19日 下午5:35:42

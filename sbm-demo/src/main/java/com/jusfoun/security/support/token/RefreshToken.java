@@ -1,7 +1,7 @@
 package com.jusfoun.security.support.token;
 
 /**
- * 描述 : 刷新令牌. <br>
+ * 说明： 刷新令牌. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2017年12月22日 下午5:27:26

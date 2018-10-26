@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 描述 :spring boot 处理listener.<br>
+ * 说明：spring boot 处理listener.<br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午11:09:11

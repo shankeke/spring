@@ -9,7 +9,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.ICollections;
 
 /**
- * 描述 : 缓存管理. <br>
+ * 说明： 缓存管理. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月22日 上午9:51:19
@@ -17,7 +17,7 @@ import com.jusfoun.common.utils.ICollections;
 public interface CacheService {
 
 	/**
-	 * 描述:获取一个缓存管理器. <br>
+	 * 说明：获取一个缓存管理器. <br>
 	 * 
 	 * @author yjw@jusfoun.com
 	 * @date 2018年9月6日 下午2:32:44
@@ -26,7 +26,7 @@ public interface CacheService {
 	CacheManager getCacheManager();
 
 	/**
-	 * 描述 : 获取所有的缓存名称列表. <br>
+	 * 说明： 获取所有的缓存名称列表. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:51:01
@@ -38,7 +38,7 @@ public interface CacheService {
 	}
 
 	/**
-	 * 描述 : 向指定的缓存实例中存入键值. <br>
+	 * 说明： 向指定的缓存实例中存入键值. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:50:30
@@ -58,7 +58,7 @@ public interface CacheService {
 	}
 
 	/**
-	 * 描述 : 向指定的缓存实例中存入键值. <br>
+	 * 说明： 向指定的缓存实例中存入键值. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:50:06
@@ -75,7 +75,7 @@ public interface CacheService {
 	}
 
 	/**
-	 * 描述 : 获取指定名称的缓存实例. <br>
+	 * 说明： 获取指定名称的缓存实例. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:49:19
@@ -90,7 +90,7 @@ public interface CacheService {
 
 	/**
 	 *
-	 * 描述 : 获取缓存数据. <br>
+	 * 说明： 获取缓存数据. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:48:49
@@ -111,7 +111,7 @@ public interface CacheService {
 
 	/**
 	 *
-	 * 描述 : 删除缓存数据. <br>
+	 * 说明： 删除缓存数据. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:48:33
@@ -129,7 +129,7 @@ public interface CacheService {
 	}
 
 	/**
-	 * 描述 : 清空指定实例的缓存. <br>
+	 * 说明： 清空指定实例的缓存. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:48:20
@@ -145,7 +145,7 @@ public interface CacheService {
 	}
 
 	/**
-	 * 描述 :清空所有的缓存. <br>
+	 * 说明：清空所有的缓存. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月22日 上午9:48:10

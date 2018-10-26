@@ -15,7 +15,7 @@ import com.jusfoun.common.base.extend.preprocessor.EntityPreprocessor;
 import com.jusfoun.common.utils.ICollections;
 
 /**
- * 描述:实体预处理适配器. <br>
+ * 说明：实体预处理适配器. <br>
  * 
  * @author yjw@jusfoun.com
  * @date 2018年7月30日 上午10:22:13

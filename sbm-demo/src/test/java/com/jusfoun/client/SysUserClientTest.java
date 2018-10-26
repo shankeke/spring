@@ -11,7 +11,7 @@ import com.jusfoun.entity.SysRole;
 import com.jusfoun.entity.SysUser;
 
 /**
- * 描述 : 系统用户信息管理接口测试. <br>
+ * 说明： 系统用户信息管理接口测试. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午1:45:58
