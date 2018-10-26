@@ -1,6 +1,6 @@
 package com.jusfoun.service;
 
-import com.jusfoun.common.base.service.BaseIdableWithAssociateService;
+import com.jusfoun.common.base.service.BaseIdableExtensionService;
 import com.jusfoun.entity.TokenClientDetails;
 
 /**
@@ -9,7 +9,7 @@ import com.jusfoun.entity.TokenClientDetails;
  * @author yjw@jusfoun.com
  * @date 2017年11月30日 下午4:08:10
  */
-public interface TokenClientDetailsService extends BaseIdableWithAssociateService<TokenClientDetails> {
+public interface TokenClientDetailsService extends BaseIdableExtensionService<TokenClientDetails> {
 
 	/**
 	 * 描述 :保存并缓存. <br>

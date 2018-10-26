@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.mapper.ds0.SysGovMapper;
@@ -25,7 +25,7 @@ public class SysGovServiceImpl implements SysGovService {
 	private SysGovMapper sysGovMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<SysGov> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<SysGov> getBaseExtensionSelectMapper() {
 		return sysGovMapper;
 	}
 

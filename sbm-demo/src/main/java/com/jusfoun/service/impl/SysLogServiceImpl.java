@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.entity.SysLog;
 import com.jusfoun.mapper.ds0.SysLogMapper;
 import com.jusfoun.service.SysLogService;
@@ -33,7 +33,7 @@ public class SysLogServiceImpl implements SysLogService {
 	}
 
 	@Override
-	public BaseWithAssociateSelectMapper<SysLog> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<SysLog> getBaseExtensionSelectMapper() {
 		return sysLogMapper;
 	}
 }

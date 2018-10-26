@@ -19,7 +19,7 @@ import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.SysModule;
@@ -40,7 +40,7 @@ public class SysModuleServiceImpl implements SysModuleService {
 	private SysModuleMapper sysModuleMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<SysModule> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<SysModule> getBaseExtensionSelectMapper() {
 		return sysModuleMapper;
 	}
 

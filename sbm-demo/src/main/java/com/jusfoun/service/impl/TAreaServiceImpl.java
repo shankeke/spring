@@ -8,7 +8,7 @@ import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.TArea;
 import com.jusfoun.mapper.ds1.TAreaMapper;
@@ -27,7 +27,7 @@ public class TAreaServiceImpl implements TAreaService {
 	private TAreaMapper tAreaMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<TArea> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<TArea> getBaseExtensionSelectMapper() {
 		return tAreaMapper;
 	}
 

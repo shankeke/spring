@@ -60,17 +60,17 @@
 		<include refid="Base_Table_Name" />
 		<include refid="Base_Where_Clause" />
 	</sql>
-	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+	<select id="selectExtensionCount" parameterType="Map" resultType="Integer">
 		select count(*) from
 		<include refid="Base_Table_Name" />
 		<if test="_parameter != null">
 			<include refid="Base_Where_Clause" />
 		</if>
 	</select>
-	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseInfoResultMap">
+	<select id="selectExtensionOne" parameterType="Map" resultMap="BaseInfoResultMap">
 		<include refid="Base_Select_Sql" />
 	</select>
-	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+	<select id="selectExtensionList" parameterType="Map" resultMap="BaseResultMap">
 		<include refid="Base_Select_Sql" />
 	</select>
 

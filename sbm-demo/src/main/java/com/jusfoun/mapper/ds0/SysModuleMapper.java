@@ -5,11 +5,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.jusfoun.common.base.tree.TreeableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseIdableWithAssociateMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseIdableExtensionMapper;
 import com.jusfoun.entity.SysModule;
 
 @Mapper
-public interface SysModuleMapper extends BaseIdableWithAssociateMapper<SysModule> ,TreeableMapper<SysModule, Long>{
+public interface SysModuleMapper extends BaseIdableExtensionMapper<SysModule> ,TreeableMapper<SysModule, Long>{
 
 	/**
 	 * 描述 :根据角色ID查询角色拥有的权限列表. <br>

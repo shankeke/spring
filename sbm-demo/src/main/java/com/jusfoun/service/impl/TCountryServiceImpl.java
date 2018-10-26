@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.TCountry;
 import com.jusfoun.entity.vo.TCountryTotalVo;
@@ -31,7 +31,7 @@ public class TCountryServiceImpl implements TCountryService {
 	private TCountryMapper tCountryMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<TCountry> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<TCountry> getBaseExtensionSelectMapper() {
 		return tCountryMapper;
 	}
 

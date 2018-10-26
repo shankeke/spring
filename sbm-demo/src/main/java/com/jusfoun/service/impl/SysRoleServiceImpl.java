@@ -15,7 +15,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.SysModule;
 import com.jusfoun.entity.SysRole;
@@ -39,7 +39,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 	private SysRoleModuleMapper sysRoleModuleMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<SysRole> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<SysRole> getBaseExtensionSelectMapper() {
 		return sysRoleMapper;
 	}
 

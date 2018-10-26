@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.entity.TokenClientDetails;
 import com.jusfoun.mapper.ds0.TokenClientDetailsMapper;
 import com.jusfoun.service.TokenClientDetailsService;
@@ -21,7 +21,7 @@ public class TokenClientDetailsServiceImpl implements TokenClientDetailsService 
 	private TokenClientDetailsMapper tokenClientDetailsMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<TokenClientDetails> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<TokenClientDetails> getBaseExtensionSelectMapper() {
 		return tokenClientDetailsMapper;
 	}
 
@@ -65,7 +65,7 @@ public class TokenClientDetailsServiceImpl implements TokenClientDetailsService 
 	@Cacheable(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_client_' + #clientId", unless = "#result == null")
 	@Override
 	public TokenClientDetails findAndCacheByClientId(String clientId) {
-		return selectPKWithAssociate("clientId", clientId);
+		return selectExtensionPK("clientId", clientId);
 	}
 
 }

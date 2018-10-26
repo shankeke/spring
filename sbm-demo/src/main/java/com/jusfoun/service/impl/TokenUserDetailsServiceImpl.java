@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.mapper.ds0.TokenUserDetailsMapper;
@@ -30,7 +30,7 @@ public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
 	private TokenUserDetailsMapper tokenUserDetailsMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<TokenUserDetails> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<TokenUserDetails> getBaseExtensionSelectMapper() {
 		return tokenUserDetailsMapper;
 	} 
 
@@ -73,7 +73,7 @@ public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
 		TokenUserDetails record = new TokenUserDetails();
 		record.setUsername(username);
 		record.setClientId(clientId);
-		return selectOneWithAssociate(EntityUtils.transBean2Map(record));
+		return selectExtensionOne(EntityUtils.transBean2Map(record));
 	}
 
 	@Cacheable(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_token_' + #token.clientId + '_' + #token.subject", unless = "#result == null")
@@ -81,7 +81,7 @@ public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
 	public TokenUserDetails findAndCacheByAccessToken(AccessToken token) {
 		TokenUserDetails record = new TokenUserDetails();
 		record.setAccessToken(token.getToken());
-		return selectOneWithAssociate(EntityUtils.transBean2Map(record));
+		return selectExtensionOne(EntityUtils.transBean2Map(record));
 	}
 
 	@Cacheable(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_token_' + #token.clientId + '_' + #token.subject", unless = "#result == null")
@@ -89,6 +89,6 @@ public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
 	public TokenUserDetails findAndCacheByRefreshToken(RefreshToken token) {
 		TokenUserDetails record = new TokenUserDetails();
 		record.setRefreshToken(token.getToken());
-		return selectOneWithAssociate(EntityUtils.transBean2Map(record));
+		return selectExtensionOne(EntityUtils.transBean2Map(record));
 	}
 }

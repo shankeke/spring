@@ -14,7 +14,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.entity.SysRole;
 import com.jusfoun.entity.SysRoleUser;
@@ -38,7 +38,7 @@ public class SysUserServiceImpl implements SysUserService {
 	private SysRoleUserMapper sysRoleUserMapper;
 
 	@Override
-	public BaseWithAssociateSelectMapper<SysUser> getBaseWithAssociateSelectMapper() {
+	public BaseExtensionSelectMapper<SysUser> getBaseExtensionSelectMapper() {
 		return sysUserMapper;
 	}
 
@@ -112,7 +112,7 @@ public class SysUserServiceImpl implements SysUserService {
 	@Cacheable(value = CacheConsts.CACHE_SECURITY, key = "'security_cache_sysuser_' + #id", unless = "#result == null")
 	@Override
 	public SysUser selectPKWithCache(Long id) throws ServiceException {
-		return selectPKWithAssociate(id);
+		return selectExtensionPK(id);
 	}
 
 }

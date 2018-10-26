@@ -1,4 +1,4 @@
-package com.jusfoun.common.mybatis.mapper.extend;
+package com.jusfoun.common.mybatis.mapper.extension;
 
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 
@@ -11,9 +11,9 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年9月16日 上午11:15:38
  */
 @RegisterMapper
-public interface BaseWithAssociateMapper<T>
+public interface BaseExtensionMapper<T>
 		extends //
 			MyBaseMapper<T>, //
-			BaseWithAssociateSelectMapper<T> //
+			BaseExtensionSelectMapper<T> //
 {
 }

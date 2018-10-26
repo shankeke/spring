@@ -1,4 +1,4 @@
-package com.jusfoun.common.mybatis.mapper.extend;
+package com.jusfoun.common.mybatis.mapper.extension;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,7 @@ import tk.mybatis.mapper.annotation.RegisterMapper;
  * @date 2017年9月16日 上午11:15:38
  */
 @RegisterMapper
-public interface BaseWithAssociateSelectMapper<T> {
+public interface BaseExtensionSelectMapper<T> {
 
 	/**
 	 * 描述: 查询数据条数. <br>
@@ -23,7 +23,7 @@ public interface BaseWithAssociateSelectMapper<T> {
 	 *            查询条件
 	 * @return 符合条件的数据条数
 	 */
-	int selectCountWithAssociate(Map<?, ?> params);
+	int selectExtensionCount(Map<?, ?> params);
 
 	/**
 	 * 描述: 查询符合条件的数据集合，其中返回的数据可能包含附加关联字段. <br>
@@ -34,7 +34,7 @@ public interface BaseWithAssociateSelectMapper<T> {
 	 *            查询条件
 	 * @return 符合条件的数据集合
 	 */
-	List<T> selectListWithAssociate(Map<?, ?> params);
+	List<T> selectExtensionList(Map<?, ?> params);
 
 	/**
 	 * 描述: 根据条件查询唯一一条符合条件的记录. <br>
@@ -45,6 +45,6 @@ public interface BaseWithAssociateSelectMapper<T> {
 	 *            查询条件，一般该条件最多能匹配到唯一一条数据
 	 * @return 符合条件的唯一数据记录
 	 */
-	T selectOneWithAssociate(Map<?, ?> params);
+	T selectExtensionOne(Map<?, ?> params);
 
 }

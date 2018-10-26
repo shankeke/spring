@@ -249,7 +249,7 @@ public interface BaseService<T> extends MyBaseMapper<T> {
 		}
 		return page;
 	}
- 
+
 	@Override
 	default int selectCount(T record) {
 		return getMyBaseMapper().selectCount(record);

@@ -6,7 +6,7 @@ import java.util.Map;
 
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.message.exception.ServiceException;
-import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
+import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 
 /**
  * 描述 :一些涉及到关联数据的查询接口. <br>
@@ -14,9 +14,9 @@ import com.jusfoun.common.mybatis.mapper.extend.BaseWithAssociateSelectMapper;
  * @author yjw@jusfoun.com
  * @date 2017年9月21日 下午12:56:29
  */
-public interface BaseWithAssociateService<T> extends BaseService<T> {
+public interface BaseExtensionService<T> extends BaseService<T> {
 
-	BaseWithAssociateSelectMapper<T> getBaseWithAssociateSelectMapper();
+	BaseExtensionSelectMapper<T> getBaseExtensionSelectMapper();
 
 	/**
 	 * 描述 : 查询条数，有模糊查询等参数. <br>
@@ -28,8 +28,8 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 符合条件的数据总条数
 	 * @throws ServiceException
 	 */
-	default int selectCountWithAssociate(Map<?, ?> params) throws ServiceException {
-		return getBaseWithAssociateSelectMapper().selectCountWithAssociate(params);
+	default int selectExtensionCount(Map<?, ?> params) throws ServiceException {
+		return getBaseExtensionSelectMapper().selectExtensionCount(params);
 	}
 
 	/**
@@ -39,12 +39,14 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @date 2018年1月22日 下午3:02:49
 	 * @param params
 	 *            查询条件
+	 * @param orderByClause
+	 *            排序条件，根据查询的字段排序，如：“id asc,name desc”
 	 * @return 查询结果集
 	 * @throws ServiceException
 	 */
-	default List<T> selectListWithAssociate(Map<?, ?> params, String orderByClause) throws ServiceException {
+	default List<T> selectExtensionList(Map<?, ?> params, String orderByClause) throws ServiceException {
 		startOrderBy(orderByClause);// 排序
-		return getBaseWithAssociateSelectMapper().selectListWithAssociate(params);
+		return selectExtensionList(params);
 	}
 
 	/**
@@ -54,13 +56,11 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @date 2018年1月22日 下午2:59:11
 	 * @param params
 	 *            查询条件
-	 * @param orderByClause
-	 *            排序条件，根据查询的字段排序，如：“id asc,name desc”
 	 * @return 查询结果集
 	 * @throws ServiceException
 	 */
-	default List<T> selectListWithAssociate(Map<?, ?> params) throws ServiceException {
-		return selectListWithAssociate(params, "");
+	default List<T> selectExtensionList(Map<?, ?> params) throws ServiceException {
+		return getBaseExtensionSelectMapper().selectExtensionList(params);
 	}
 
 	/**
@@ -75,9 +75,9 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 分页数据包含附加字段
 	 * @throws ServiceException
 	 */
-	default List<T> selectListWithAssociate(Map<?, ?> params, IPage<T> page) throws ServiceException {
+	default List<T> selectExtensionList(Map<?, ?> params, IPage<T> page) throws ServiceException {
 		startPage(page);
-		return getBaseWithAssociateSelectMapper().selectListWithAssociate(params);
+		return getBaseExtensionSelectMapper().selectExtensionList(params);
 	}
 
 	/**
@@ -92,8 +92,8 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 * @return 分页数据包含附加字段
 	 * @throws ServiceException
 	 */
-	default IPage<T> selectPageWithAssociate(Map<?, ?> params, IPage<T> page) throws ServiceException {
-		Integer totalCount = selectCountWithAssociate(params);
+	default IPage<T> selectExtensionPage(Map<?, ?> params, IPage<T> page) throws ServiceException {
+		Integer totalCount = selectExtensionCount(params);
 		if (totalCount <= 0)
 			return new IPage<T>();
 
@@ -101,7 +101,7 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 			page = new IPage<T>(IPage.DEFAULT_PAGENUM, totalCount);
 
 		page.setTotalCount(totalCount);
-		page.setList(selectListWithAssociate(params, page));
+		page.setList(selectExtensionList(params, page));
 
 		return page;
 	}
@@ -115,8 +115,8 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 *            查询条件
 	 * @return 符合条件的唯一一条记录，没查到返回空，如果多条则会抛出异常
 	 */
-	default T selectOneWithAssociate(Map<?, ?> params) throws ServiceException {
-		return getBaseWithAssociateSelectMapper().selectOneWithAssociate(params);
+	default T selectExtensionOne(Map<?, ?> params) throws ServiceException {
+		return getBaseExtensionSelectMapper().selectExtensionOne(params);
 	}
 
 	/**
@@ -128,8 +128,8 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 *            主键值
 	 * @return 主键对应记录，没查到返回空
 	 */
-	default T selectPKWithAssociate(Object id) throws ServiceException {
-		return selectPKWithAssociate("id", id);
+	default T selectExtensionPK(Object id) throws ServiceException {
+		return selectExtensionPK("id", id);
 	}
 
 	/**
@@ -143,10 +143,10 @@ public interface BaseWithAssociateService<T> extends BaseService<T> {
 	 *            主键值
 	 * @return 主键对应记录，无记录返回空
 	 */
-	default T selectPKWithAssociate(String primaryKeyName, Object primaryKeyValue) throws ServiceException {
+	default T selectExtensionPK(String primaryKeyName, Object primaryKeyValue) throws ServiceException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put(primaryKeyName, primaryKeyValue);// 默认的主键名称为id，也可以修改改参数同时传入主键名称和主键值
-		return selectOneWithAssociate(params);
+		return selectExtensionOne(params);
 	}
 
 }

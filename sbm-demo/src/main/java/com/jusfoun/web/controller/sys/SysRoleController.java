@@ -103,7 +103,7 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 	@Override
 	public BaseResponse<SysRole> infoById(Long id) {
 		try {
-			return BaseResponse.success(sysRoleService.selectPKWithAssociate(id));
+			return BaseResponse.success(sysRoleService.selectExtensionPK(id));
 		} catch (ServiceException e) {
 			e.printStackTrace();
 			throw new ControllerException(ErrType.SYSROLE_QUERY_INFO_ERROR);
