@@ -72,7 +72,7 @@ public class NumberFormatTest {
 			initLots *= LotExponent;// 当前仓位
 			count += initLots;// 总的仓位
 			total += initPrice * initLots;// 总资金
-			System.out.println(String.format("当前价格：%.2f，当前仓位总数：%.2f，当前总资金：%.2f。", initPrice, initLots, total));
+			System.out.println(String.format("当前价格：%.2f，当前持仓总数：%.2f，当前占用总资金：%.2f。", initPrice, initLots, total));
 		}
 		return new BigDecimal(total / count).setScale(2, RoundingMode.HALF_UP).doubleValue();
 	}
