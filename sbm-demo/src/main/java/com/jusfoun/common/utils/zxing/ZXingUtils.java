@@ -157,7 +157,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 说明： <方法描述>. <br>
+	 * 说明：  二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:27:04
@@ -311,7 +311,7 @@ public class ZXingUtils {
 	}
 
 	/**
-	 * 说明： <方法描述>. <br>
+	 * 说明： 二维码生成. <br>
 	 *
 	 * @author yjw@jusfoun.com
 	 * @date 2017年10月11日 下午7:27:04

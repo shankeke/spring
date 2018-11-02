@@ -9,6 +9,8 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.jusfoun.entity.SysUser;
+
 public class EntityUtils {
 
 	/**************************** 这一部分用于处理基本数据拆包常见处理类型 ******************************/
@@ -139,4 +141,17 @@ public class EntityUtils {
 		}
 		return reMap;
 	}
+
+	/*public static void main(String[] args) {
+		Integer defaultIfNull = getDefaultIfNull(null, 1);
+		System.out.println(defaultIfNull.getClass());
+		Long defaultIfNull2 = getDefaultIfNull(null, 1L);
+		System.out.println(defaultIfNull2.getClass());
+		Double defaultIfNull3 = getDefaultIfNull(null, 1D);
+		System.out.println(defaultIfNull3.getClass());
+		SysUser defaultIfNull4 = getDefaultIfNull(null, new SysUser());
+		System.out.println(defaultIfNull4.getClass());
+		String defaultIfNull5 = getDefaultIfNull(null, "");
+		System.out.println(defaultIfNull5.getClass());
+	}*/
 }

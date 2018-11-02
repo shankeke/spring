@@ -33,10 +33,10 @@ public class NumberFormatTest {
 		System.out.println(a);
 		System.out.println(0.06 + 0.01);
 	}
-	
+
 	@Test
 	public void test02() {
-		double initLots = 1, LotExponent = 2, initPrice = 1.200, pipStep = 0.03;
+		double initLots = 1, LotExponent = 1.2, initPrice = 1.200, pipStep = 0.03;
 		int pipTimes = 5;
 		System.out.println(avg(initLots, LotExponent, initPrice, pipStep, pipTimes, true));
 		System.out.println(avg(initLots, LotExponent, initPrice, pipStep, pipTimes, false));
@@ -65,9 +65,9 @@ public class NumberFormatTest {
 		double total = initLots * initPrice, count = initLots;
 		for (int i = 1; i <= pipTimes; i++) {
 			if (isL) {
-				initPrice += pipStep * 1;// 当前价位
+				initPrice += pipStep;// 当前价位
 			} else {
-				initPrice -= pipStep * 1;// 当前价位
+				initPrice -= pipStep;// 当前价位
 			}
 			initLots *= LotExponent;// 当前仓位
 			count += initLots;// 总的仓位
