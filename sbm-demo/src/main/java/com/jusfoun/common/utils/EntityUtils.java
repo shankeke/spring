@@ -9,8 +9,6 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.jusfoun.entity.SysUser;
-
 public class EntityUtils {
 
 	/**************************** 这一部分用于处理基本数据拆包常见处理类型 ******************************/

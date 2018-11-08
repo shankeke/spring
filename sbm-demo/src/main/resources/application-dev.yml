@@ -2,12 +2,12 @@ spring:
   datasource:
     hikari:
       ds0:
-        driver-class-name: com.mysql.jdbc.Driver
+        driver-class-name: com.mysql.cj.jdbc.Driver
         jdbc-url: jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
         username: root
         password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
       ds1:
-        driver-class-name: com.mysql.jdbc.Driver
+        driver-class-name: com.mysql.cj.jdbc.Driver
         jdbc-url: jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
         username: root
         password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
