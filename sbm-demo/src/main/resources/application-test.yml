@@ -3,12 +3,12 @@ spring:
     hikari:
       ds0:
         driver-class-name: com.mysql.jdbc.Driver
-        jdbc-url: jdbc:mysql://172.16.100.199:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
+        jdbc-url: jdbc:mysql://172.16.100.199:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
         username: root
         password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
       ds1:
         driver-class-name: com.mysql.jdbc.Driver
-        jdbc-url: jdbc:mysql://172.16.100.199:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true
+        jdbc-url: jdbc:mysql://172.16.100.199:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
         username: root
         password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
   redis:

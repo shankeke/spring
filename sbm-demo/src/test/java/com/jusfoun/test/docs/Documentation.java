@@ -25,10 +25,7 @@ import io.github.robwin.markup.builder.MarkupLanguage;
 import io.github.robwin.swagger2markup.GroupBy;
 import io.github.robwin.swagger2markup.Swagger2MarkupConverter;
 import springfox.documentation.staticdocs.SwaggerResultHandler;
-
-/**
- * Created by szl on 2017/1/9.
- */
+ 
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs(outputDir = "target/generated-snippets")
 @RunWith(SpringRunner.class)
@@ -53,11 +50,13 @@ public class Documentation {
 		Swagger2MarkupConverter.from(outputDir + "/swagger.json").withPathsGroupedBy(GroupBy.TAGS)// 按tag排序
 				.withMarkupLanguage(MarkupLanguage.ASCIIDOC)// 格式
 				.withExamples(snippetDir).build().intoFolder(outputDir);// 输出
+
 	}
+
 	@Test
 	public void TestApi() throws Exception {
-		mockMvc.perform(get("/area").param("id", "1").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-				.andDo(MockMvcRestDocumentation.document("infoById", preprocessResponse(prettyPrint())));
+		mockMvc.perform(get("/infoById").param("id", "1").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+				.andDo(MockMvcRestDocumentation.document("area", preprocessResponse(prettyPrint())));
 
 		TArea area = new TArea();
 		area.setId(100000L);
@@ -68,8 +67,8 @@ public class Documentation {
 		area.setLeaf(false);
 		area.setLevel((byte) 2);
 
-		mockMvc.perform(post("/area").contentType(MediaType.APPLICATION_JSON).content(JSON.toJSONString(area)).accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().is2xxSuccessful()).andDo(MockMvcRestDocumentation.document("save", preprocessResponse(prettyPrint())));
+		mockMvc.perform(post("/save").contentType(MediaType.APPLICATION_JSON).content(JSON.toJSONString(area)).accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().is2xxSuccessful()).andDo(MockMvcRestDocumentation.document("area", preprocessResponse(prettyPrint())));
 	}
 
 }
