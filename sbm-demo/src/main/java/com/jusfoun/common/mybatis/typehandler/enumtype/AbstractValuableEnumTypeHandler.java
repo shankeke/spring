@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 
+import com.jusfoun.common.enums.valuable.Valuable;
+
 /**
  * 说明：Value类型枚举处理器. <br>
  * 

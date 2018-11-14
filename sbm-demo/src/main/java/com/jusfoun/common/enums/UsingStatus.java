@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
+import com.jusfoun.common.enums.valuable.IntegerValuable;
 
 /**
  * 说明： 启用状态==>0-未启用、1-启用、-1-停用. <br>

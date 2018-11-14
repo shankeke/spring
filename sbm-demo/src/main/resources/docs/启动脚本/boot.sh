@@ -36,6 +36,7 @@ then
 fi
 
 function start() {
+    echo "Start $ser_name"
 	count=`ps -ef |grep java|grep $ser_name|grep -v grep|wc -l`
 	if [ $count != 0 ];then
 		echo "$ser_name is running..."

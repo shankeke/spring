@@ -1,4 +1,4 @@
-package com.jusfoun.common.mybatis.typehandler.enumtype;
+package com.jusfoun.common.enums.valuable;
 
 /**
  * 说明：可取常量且可比较大小常量值枚举接口. <br>

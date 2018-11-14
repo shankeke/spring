@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.type.JdbcType;
 
+import com.jusfoun.common.enums.valuable.StringValuable;
+
 /**
  * 说明：String value类型枚举处理器. <br>
  * 

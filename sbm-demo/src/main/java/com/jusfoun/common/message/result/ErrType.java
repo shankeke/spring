@@ -1,6 +1,6 @@
 package com.jusfoun.common.message.result;
 
-import com.jusfoun.common.mybatis.typehandler.enumtype.IntegerValuable;
+import com.jusfoun.common.enums.valuable.IntegerValuable;
 
 /**
  * 说明： 业务异常枚举类. <br>

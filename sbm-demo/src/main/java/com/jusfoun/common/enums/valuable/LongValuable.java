@@ -1,4 +1,4 @@
-package com.jusfoun.common.mybatis.typehandler.enumtype;
+package com.jusfoun.common.enums.valuable;
 
 /**
  * 说明： Long数值类型枚举. <br>

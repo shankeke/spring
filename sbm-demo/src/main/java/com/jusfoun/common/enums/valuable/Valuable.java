@@ -1,4 +1,4 @@
-package com.jusfoun.common.mybatis.typehandler.enumtype;
+package com.jusfoun.common.enums.valuable;
 
 import java.util.Arrays;
 

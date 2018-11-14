@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.type.JdbcType;
 
+import com.jusfoun.common.enums.valuable.ShortValuable;
+
 /**
  * 说明：Short value类型枚举处理器. <br>
  * 
