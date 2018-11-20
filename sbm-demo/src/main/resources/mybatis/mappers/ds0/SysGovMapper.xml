@@ -28,7 +28,7 @@
 	</resultMap>
 
 	<resultMap id="BaseTreeResultMap" type="com.jusfoun.entity.SysGov" extends="BaseResultMap">
-		<association property="subList" column="id" fetchType="lazy" select="selectByParentId" />
+		<association property="subList" column="id" fetchType="lazy" select="selectSubTree" />
 	</resultMap>
 
 	<sql id="Base_Table_Name">
@@ -78,7 +78,7 @@
     <![CDATA[ select t.full_name from sys_gov t where t.id = #{_parameter,jdbcType=BIGINT} ]]>
 	</select>
 
-	<select id="selectByParentId" parameterType="Long" resultMap="BaseTreeResultMap">
+	<select id="selectByParentId" parameterType="Long" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from
@@ -87,7 +87,16 @@
    			<![CDATA[ parent_id = #{_parameter,jdbcType=BIGINT} ]]>
 		</where>
 	</select>
-	
+	<select id="selectSubTree" parameterType="Long" resultMap="BaseTreeResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<where>
+   			<![CDATA[ parent_id = #{_parameter,jdbcType=BIGINT} ]]>
+		</where>
+	</select>
+
 	<select id="selectTree" parameterType="Long" resultMap="BaseTreeResultMap">
 		select
 		<include refid="Base_Column_List" />

@@ -24,10 +24,25 @@ import com.jusfoun.common.utils.ICollections;
 public class FileConfig {
 	public static final String PREFIX = "system.file.upload";
 
-	private String root;// 文件目录
-	private String rootDir;// 根文件夹
-	private String separator;// 多个文件路径之间的分隔符
-	private String suffix;// 允许的文件格式
+	/**
+	 * 文件存储的根目录
+	 */
+	private String root;
+
+	/**
+	 * 文件存储根文件夹，是网络访问路径一部分
+	 */
+	private String rootDir;
+
+	/**
+	 * 多个文件路径之间的分隔符
+	 */
+	private String separator;
+
+	/**
+	 * 允许的文件格式
+	 */
+	private String suffix;
 
 	public String getRootDir() {
 		return rootDir;
@@ -207,13 +222,14 @@ public class FileConfig {
 	 * @author yjw@jusfoun.com
 	 * @date 2017年9月16日 下午1:21:20
 	 */
-	public void deleteFile(String relativePath) {
+	public boolean deleteFile(String relativePath) {
 		if (StringUtils.isNotEmpty(relativePath)) {
 			File file = getAbsoluteFile(relativePath);
 			if (file.exists()) {
-				file.delete();
+				return file.delete();
 			}
 		}
+		return false;
 	}
 
 	/**

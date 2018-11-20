@@ -15,10 +15,15 @@ public class InitConfig {
 	public static final String PREFIX = "system.init";
 
 	/**
+	 * 是否开启系统初始化
+	 */
+	private boolean enable;
+
+	/**
 	 * 初始化账户
 	 */
 	private String username;
-	
+
 	/**
 	 * 初始化密码
 	 */
@@ -27,12 +32,20 @@ public class InitConfig {
 	/**
 	 * 系统权限初始化文件
 	 */
-	private String sysModulesFile;
+	private String sysPrivssFile;
 
 	/**
 	 * 客户端信息初始化文件
 	 */
 	private String clientDetailsFile;
+
+	public boolean isEnable() {
+		return enable;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
 
 	public String getUsername() {
 		return username;
@@ -50,12 +63,12 @@ public class InitConfig {
 		this.password = password;
 	}
 
-	public String getSysModulesFile() {
-		return sysModulesFile;
+	public String getSysPrivssFile() {
+		return sysPrivssFile;
 	}
 
-	public void setSysModulesFile(String sysModulesFile) {
-		this.sysModulesFile = sysModulesFile;
+	public void setSysPrivssFile(String sysPrivssFile) {
+		this.sysPrivssFile = sysPrivssFile;
 	}
 
 	public String getClientDetailsFile() {

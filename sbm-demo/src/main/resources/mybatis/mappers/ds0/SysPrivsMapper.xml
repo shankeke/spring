@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jusfoun.mapper.ds0.SysPrivsMapper">
+	<resultMap id="BaseResultMap" type="com.jusfoun.entity.SysPrivs">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="parent_id" property="parentId" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="INTEGER" />
+		<result column="client_id" property="clientId" jdbcType="VARCHAR" />
+		<result column="url" property="url" jdbcType="VARCHAR" />
+		<result column="status" jdbcType="BIT" property="status" />
+		<result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+		<result column="updater_id" jdbcType="BIGINT" property="updaterId" />
+		<result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+		<result column="updater_name" jdbcType="VARCHAR" property="updaterName" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+
+	<resultMap id="BaseTreeResultMap" extends="BaseResultMap" type="com.jusfoun.entity.SysPrivs">
+		<association property="subList" column="id" fetchType="lazy" select="selectSubTree" />
+	</resultMap>
+
+	<sql id="Base_Table_Name">
+		sys_privs
+	</sql>
+	<sql id="Base_Column_List">
+		*
+	</sql>
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="id         != null "><![CDATA[and id          = #{id,jdbcType=BIGINT}]]></if>
+			<if test="parentId   != null "><![CDATA[and parent_id   = #{parentId,jdbcType=BIGINT}]]></if>
+			<if test="name       != null and name != ''"><![CDATA[and name like CONCAT('%',#{name ,jdbcType=VARCHAR},'%')]]></if>
+			<if test="type       != null "><![CDATA[and type        = #{type,jdbcType=INTEGER}]]></if>
+			<if test="clientId   != null "><![CDATA[and client_id   = #{clientId,jdbcType=VARCHAR}]]></if>
+			<if test="url        != null and url != ''"><![CDATA[and url = #{url,jdbcType=VARCHAR}]]></if>
+			<if test="status     != null"><![CDATA[and status = #{status ,jdbcType=BIT}]]></if>
+			<if test="remark     != null and remark != ''"><![CDATA[and remark like CONCAT('%',#{remark ,jdbcType=VARCHAR},'%') ]]></if>
+		</where>
+	</sql>
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+	<select id="selectExtensionCount" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+	<select id="selectExtensionOne" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+	<select id="selectExtensionList" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+
+	<select id="selectByParentId" parameterType="Long" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<where>
+			<![CDATA[ parent_id = #{_parameter,jdbcType=BIGINT} and status = 1 ]]>
+		</where>
+	</select>
+
+	<select id="selectSubTree" parameterType="Long" resultMap="BaseTreeResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<where>
+			<![CDATA[ parent_id = #{_parameter,jdbcType=BIGINT} and status = 1 ]]>
+		</where>
+	</select>
+
+	<select id="selectTree" parameterType="Long" resultMap="BaseTreeResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<where>
+			<![CDATA[ id = #{_parameter,jdbcType=BIGINT} and status = 1 ]]>
+		</where>
+	</select>
+
+
+	<select id="selectByRoleId" parameterType="Long" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+	<![CDATA[
+     	from 
+     		sys_privs t
+        join 
+     		sys_role_privs t1
+     	on 
+     		t.id = t1.privs_id
+     	and 
+     		t1.role_id = #{_parameter,jdbcType=BIGINT}
+	]]>
+	</select>
+</mapper>

@@ -5,12 +5,22 @@ spring:
         driver-class-name: com.mysql.jdbc.Driver
         jdbc-url: jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
         username: root
-        password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
+        password: ENC(3PVCf6aMsTLbiRP04tKhIw==)
       ds1:
         driver-class-name: com.mysql.jdbc.Driver
         jdbc-url: jdbc:mysql://localhost:3306/sbm-demo?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
         username: root
-        password: ENC(C1YwKdt4sZ3qBchVUdGUBA==)
+        password: ENC(3PVCf6aMsTLbiRP04tKhIw==)
+  cache:
+    type: redis
+    cache-names:
+    - tempCache
+    - customCache
+    - persistentCache
+    - securityCache
+    redis:
+      time-to-live:
+        seconds: 3600
   redis:
     host: 127.0.0.1
     port: 6379
@@ -28,23 +38,18 @@ swagger:
   enable: false
 system:
   init:
+    enable: false
     username: admin
     password: 123456
-    sysModulesFile: classpath:extends/init/SysModules.xml
+    sysPrivssFile: classpath:extends/init/SysPrivss.xml
     clientDetailsFile: classpath:extends/init/ClientDetails.xml
   file:
     upload:
-      root: D:/tianjinhexie/upload
-      rootDir: /files
+      root: D:/wfny/upload
+      rootDir: /atts
       separator: ;
-      suffix: jpg,png,jpeg,tiff,flv,mp4
+      suffix: jpg,png,jpeg,tiff,gif,bmp,flv,mp4,txt,doc,docx,xls,xlsx,pdf,zip,rar
   urls:
-    baseUrl: http://192.168.21.31:8080/aobo
+    baseUrl: http://192.168.21.31:${server.port}/
     baseLoginUrl: ${system.constants.baseUrl}/app/index.html%s/baseLogin?id=%s
     inputOriginUrl: ${system.constants.baseUrl}/app/index.html%s/inputOrigin?id=%s
-  modbus:
-    ip: 60.15.167.154
-    port: 3001
-    slaveId: 1
-    start: 3
-    readLenth: 40

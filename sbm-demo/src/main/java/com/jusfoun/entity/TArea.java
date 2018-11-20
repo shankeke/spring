@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.base.page.IPageable;
 import com.jusfoun.common.base.tree.Treeable;
@@ -22,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年7月24日 上午10:08:21
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 @Table(name = "t_area")
 public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	private static final long serialVersionUID = -3980406855769490927L;
@@ -46,50 +45,20 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	 */
 	@ApiModelProperty("父级地区主键")
 	@Column(name = "parent_id")
-	private Integer parentId;
+	private Long parentId;
 
 	/**
-	 * 简称
+	 * 父级地区全称
 	 */
-	@ApiModelProperty("简称")
-	@Column(name = "short_name")
-	private String shortName;
-
-	/**
-	 * 经度
-	 */
-	@ApiModelProperty("经度")
-	private String lng;
-
-	/**
-	 * 纬度
-	 */
-	@ApiModelProperty("纬度")
-	private String lat;
+	@ApiModelProperty("父级地区全称")
+	@Column(name = "parent_name")
+	private String parentName;
 
 	/**
 	 * 级别
 	 */
 	@ApiModelProperty("级别")
 	private Byte level;
-
-	/**
-	 * 定位
-	 */
-	@ApiModelProperty("定位")
-	private String position;
-
-	/**
-	 * 排序
-	 */
-	@ApiModelProperty("排序")
-	private Byte sort;
-
-	/**
-	 * 上下级机构标识符
-	 */
-	@ApiModelProperty("上下级机构标识符")
-	private String flag;
 
 	/**
 	 * 地区子集
@@ -111,7 +80,7 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 
 	@Override
 	public String[] matchFeilds() {
-		return new String[]{areaName, shortName};
+		return new String[]{areaName};
 	}
 
 	@Override
@@ -177,7 +146,7 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	 *
 	 * @return parent_id - 父栏目
 	 */
-	public Integer getParentId() {
+	public Long getParentId() {
 		return parentId;
 	}
 
@@ -187,65 +156,16 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	 * @param parentId
 	 *            父栏目
 	 */
-	public void setParentId(Integer parentId) {
+	public void setParentId(Long parentId) {
 		this.parentId = parentId;
 	}
 
-	/**
-	 * 获取简称
-	 *
-	 * @return short_name - 简称
-	 */
-	public String getShortName() {
-		return shortName;
+	public String getParentName() {
+		return parentName;
 	}
 
-	/**
-	 * 设置简称
-	 *
-	 * @param shortName
-	 *            简称
-	 */
-	public void setShortName(String shortName) {
-		this.shortName = shortName == null ? null : shortName.trim();
-	}
-
-	/**
-	 * 获取经度
-	 *
-	 * @return lng - 经度
-	 */
-	public String getLng() {
-		return lng;
-	}
-
-	/**
-	 * 设置经度
-	 *
-	 * @param lng
-	 *            经度
-	 */
-	public void setLng(String lng) {
-		this.lng = lng == null ? null : lng.trim();
-	}
-
-	/**
-	 * 获取纬度
-	 *
-	 * @return lat - 纬度
-	 */
-	public String getLat() {
-		return lat;
-	}
-
-	/**
-	 * 设置纬度
-	 *
-	 * @param lat
-	 *            纬度
-	 */
-	public void setLat(String lat) {
-		this.lat = lat == null ? null : lat.trim();
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
 	}
 
 	/**
@@ -267,77 +187,17 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 		this.level = level;
 	}
 
-	/**
-	 * 获取定位
-	 *
-	 * @return position - 定位
-	 */
-	public String getPosition() {
-		return position;
-	}
-
-	/**
-	 * 设置定位
-	 *
-	 * @param position
-	 *            定位
-	 */
-	public void setPosition(String position) {
-		this.position = position == null ? null : position.trim();
-	}
-
-	/**
-	 * 获取排序
-	 *
-	 * @return sort - 排序
-	 */
-	public Byte getSort() {
-		return sort;
-	}
-
-	/**
-	 * 设置排序
-	 *
-	 * @param sort
-	 *            排序
-	 */
-	public void setSort(Byte sort) {
-		this.sort = sort;
-	}
-
-	/**
-	 * 获取上下级机构标识符
-	 *
-	 * @return flag - 上下级机构标识符
-	 */
-	public String getFlag() {
-		return flag;
-	}
-
-	/**
-	 * 设置上下级机构标识符
-	 *
-	 * @param flag
-	 *            上下级机构标识符
-	 */
-	public void setFlag(String flag) {
-		this.flag = flag == null ? null : flag.trim();
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((areaName == null) ? 0 : areaName.hashCode());
-		result = prime * result + ((flag == null) ? 0 : flag.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((lat == null) ? 0 : lat.hashCode());
+		result = prime * result + (leaf ? 1231 : 1237);
 		result = prime * result + ((level == null) ? 0 : level.hashCode());
-		result = prime * result + ((lng == null) ? 0 : lng.hashCode());
 		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
-		result = prime * result + ((position == null) ? 0 : position.hashCode());
-		result = prime * result + ((shortName == null) ? 0 : shortName.hashCode());
-		result = prime * result + ((sort == null) ? 0 : sort.hashCode());
+		result = prime * result + ((parentName == null) ? 0 : parentName.hashCode());
+		result = prime * result + ((subList == null) ? 0 : subList.hashCode());
 		return result;
 	}
 
@@ -345,7 +205,7 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -355,58 +215,40 @@ public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 				return false;
 		} else if (!areaName.equals(other.areaName))
 			return false;
-		if (flag == null) {
-			if (other.flag != null)
-				return false;
-		} else if (!flag.equals(other.flag))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (lat == null) {
-			if (other.lat != null)
-				return false;
-		} else if (!lat.equals(other.lat))
+		if (leaf != other.leaf)
 			return false;
 		if (level == null) {
 			if (other.level != null)
 				return false;
 		} else if (!level.equals(other.level))
 			return false;
-		if (lng == null) {
-			if (other.lng != null)
-				return false;
-		} else if (!lng.equals(other.lng))
-			return false;
 		if (parentId == null) {
 			if (other.parentId != null)
 				return false;
 		} else if (!parentId.equals(other.parentId))
 			return false;
-		if (position == null) {
-			if (other.position != null)
+		if (parentName == null) {
+			if (other.parentName != null)
 				return false;
-		} else if (!position.equals(other.position))
+		} else if (!parentName.equals(other.parentName))
 			return false;
-		if (shortName == null) {
-			if (other.shortName != null)
+		if (subList == null) {
+			if (other.subList != null)
 				return false;
-		} else if (!shortName.equals(other.shortName))
-			return false;
-		if (sort == null) {
-			if (other.sort != null)
-				return false;
-		} else if (!sort.equals(other.sort))
+		} else if (!subList.equals(other.subList))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "TArea [id=" + id + ", areaName=" + areaName + ", parentId=" + parentId + ", shortName=" + shortName + ", lng=" + lng + ", lat=" + lat + ", level=" + level
-				+ ", position=" + position + ", sort=" + sort + ", flag=" + flag + "]";
+		return "TArea [id=" + id + ", areaName=" + areaName + ", parentId=" + parentId + ", parentName=" + parentName + ", level=" + level + ", subList=" + subList + ", leaf="
+				+ leaf + "]";
 	}
 
 }

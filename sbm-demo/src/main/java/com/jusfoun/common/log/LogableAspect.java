@@ -153,6 +153,8 @@ public class LogableAspect {
 					if (user == null && StringUtils.isNotEmpty(username)) {
 						user = sysUserService.selectByUsername(username);
 						sysLog.setUsername(username);
+					} else {
+						username = "Anonymous";
 					}
 
 					// 设置用户属性
@@ -163,7 +165,7 @@ public class LogableAspect {
 					}
 
 					// 登录日志单独处理
-					if (WebSecurityConfig.TOKEN_ENTRY_POINT.equals(servletPath)) {
+					if (WebSecurityConfig.TOKEN_ENTRY_POINT.equals(servletPath) || WebSecurityConfig.TOKEN_REVOKE_ENTRY_POINT.equals(servletPath)) {
 						sysLogService.insert(sysLog);
 					} else {
 						cacheLog(sysLog, false);

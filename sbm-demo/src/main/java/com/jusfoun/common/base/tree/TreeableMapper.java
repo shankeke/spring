@@ -1,6 +1,9 @@
 package com.jusfoun.common.base.tree;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.jusfoun.common.message.exception.ServiceException;
 
 /**
  * 说明：树状结构数据查询接口. <br>
@@ -20,4 +23,16 @@ public interface TreeableMapper<T extends Treeable<T>, PK extends Serializable> 
 	 * @return 根节点及子孙节点
 	 */
 	T selectTree(PK rootId);
+
+	/**
+	 * 说明： 根据父节点ID查询子集列表. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2018年11月15日 下午3:33:21
+	 * @param parentId
+	 *            父节点ID
+	 * @return 子集列表
+	 * @throws ServiceException
+	 */
+	List<T> selectByParentId(PK parentId);
 }

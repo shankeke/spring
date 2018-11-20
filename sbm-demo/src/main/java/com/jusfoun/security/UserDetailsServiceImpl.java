@@ -11,11 +11,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.jusfoun.common.enums.UsingStatus;
+import com.jusfoun.common.enums.AccountStatus;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.entity.TokenUserDetails;
 import com.jusfoun.security.exceptions.NoGrantedAnyAuthorityException;
-import com.jusfoun.service.SysModuleService;
+import com.jusfoun.service.SysPrivsService;
 import com.jusfoun.service.SysUserService;
 
 /**
@@ -31,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private SysUserService sysUserService;
 
 	@Autowired
-	private SysModuleService sysModuleService;
+	private SysPrivsService sysPrivsService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -49,19 +49,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			throw new UsernameNotFoundException(String.format("User not found with username '%s' !", username));
 		}
 
-		// 账户失效
-		if (UsingStatus.DISABLE.equalsTo(sysUser.getStatus())) {
-			throw new DisabledException(String.format("Disabled account '%s' !", username));
+		// 账户锁定
+		if (AccountStatus.LOCKED.equalsTo(sysUser.getStatus())) {
+			throw new LockedException(String.format("Locked account '%s' !", username));
 		}
 
-		// 账户锁定
-		if (UsingStatus.NOT_ENABLED.equalsTo(sysUser.getStatus())) {
-			throw new LockedException(String.format("Locked account '%s' !", username));
+		// 账户失效
+		if (AccountStatus.DISABLED.equalsTo(sysUser.getStatus())) {
+			throw new DisabledException(String.format("Disabled account '%s' !", username));
 		}
 
 		// 如果是管理员权限则需要用户拥有所有的权限，这里赋给该账户所有的权限
 		if (sysUser.isAdmin()) {
-			sysUser.setAuthorities(sysModuleService.selectAll().parallelStream().map(t -> new RawGrantedAuthority(t.getUrl())).collect(Collectors.toSet()));
+			sysUser.setAuthorities(sysPrivsService.selectAll().parallelStream().map(t -> new RawGrantedAuthority(t.getUrl())).collect(Collectors.toSet()));
 		}
 
 		// 用户没有赋权，用户需要有权限才能登陆服务

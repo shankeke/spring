@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.base.page.IPageable;
 
@@ -22,7 +21,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月7日 上午10:35:16
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 	private static final long serialVersionUID = 1957941391153967331L;
 
@@ -30,10 +28,6 @@ public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 	@Id
 	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
-
-	@ApiModelProperty("状态")
-	@Column(name = "status")
-	protected Integer status;
 
 	@ApiModelProperty("创建日期")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -125,14 +119,6 @@ public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 		this.updaterName = updaterName;
 	}
 
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
 	public String getRemark() {
 		return remark;
 	}
@@ -155,7 +141,6 @@ public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 		result = prime * result + ((creatorName == null) ? 0 : creatorName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((updateDate == null) ? 0 : updateDate.hashCode());
 		result = prime * result + ((updaterId == null) ? 0 : updaterId.hashCode());
 		result = prime * result + ((updaterName == null) ? 0 : updaterName.hashCode());
@@ -196,11 +181,6 @@ public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 				return false;
 		} else if (!remark.equals(other.remark))
 			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
 		if (updateDate == null) {
 			if (other.updateDate != null)
 				return false;
@@ -221,8 +201,7 @@ public abstract class BaseEntity<T> extends IPageable implements Idable<Long> {
 
 	@Override
 	public String toString() {
-		return "BaseEntity [id=" + id + ", status=" + status + ", createDate=" + createDate + ", creatorId=" + creatorId + ", creatorName=" + creatorName + ", updateDate="
-				+ updateDate + ", updaterId=" + updaterId + ", updaterName=" + updaterName + ", remark=" + remark + "]";
+		return "BaseEntity [id=" + id + ", createDate=" + createDate + ", creatorId=" + creatorId + ", creatorName=" + creatorName + ", updateDate=" + updateDate + ", updaterId="
+				+ updaterId + ", updaterName=" + updaterName + ", remark=" + remark + "]";
 	}
-
 }

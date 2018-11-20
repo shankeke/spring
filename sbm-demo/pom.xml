@@ -13,16 +13,26 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.0.RELEASE</version>
+		<version>2.0.6.RELEASE</version>
 		<relativePath />
 	</parent>
 
 	<developers>
 		<developer>
+			<id>yhb</id>
+			<name>于海滨</name>
+			<email>yhb@jusfoun.com</email>
+			<organization>九次方大数据-农业大数据</organization>
+			<organizationUrl>http://www.jusfoun.com/</organizationUrl>
+			<roles>
+				<role>Java Engineer</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>yjw</id>
 			<name>杨靖伟</name>
 			<email>yjw@jusfoun.com</email>
-			<organization>九次方大数据-研发一部</organization>
+			<organization>九次方大数据-农业大数据</organization>
 			<organizationUrl>http://www.jusfoun.com/</organizationUrl>
 			<roles>
 				<role>Java Engineer</role>
@@ -48,7 +58,6 @@
 		<fastjson.version>1.2.34</fastjson.version>
 		<zxing.version>3.3.0</zxing.version>
 		<poi.version>3.9</poi.version>
-		<modbus4j.version>3.0.3</modbus4j.version>
 		<jjwt.version>0.7.0</jjwt.version>
 		<pinyin4j.version>2.5.0</pinyin4j.version>
 
@@ -134,11 +143,6 @@
 				<version>${zxing.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.infiniteautomation</groupId>
-				<artifactId>modbus4j</artifactId>
-				<version>${modbus4j.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi</artifactId>
 				<version>${poi.version}</version>
@@ -207,8 +211,11 @@
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
 		</dependency>
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-devtools</artifactId> <optional>true</optional> 
-			</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -311,10 +318,6 @@
 			<artifactId>pinyin4j</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.infiniteautomation</groupId>
-			<artifactId>modbus4j</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 		</dependency>
@@ -325,6 +328,11 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml-schemas</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-maven-plugin</artifactId>
+			<version>${mybatis-generator.version}</version>
 		</dependency>
 	</dependencies>
 	<profiles>
@@ -396,13 +404,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.springframework</groupId>
-						<artifactId>springloaded</artifactId>
-						<version>1.2.7.RELEASE</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -419,7 +420,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<!-- <skip>true</skip> --><!-- 跳过测试 -->
+					<skip>true</skip> <!-- 跳过测试 -->
 					<includes>
 						<include>**/*Documentation.java</include>
 					</includes>
@@ -431,7 +432,7 @@
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
-<!-- 				<version>1.5.7.1</version> -->
+				<!-- <version>1.5.7.1</version> -->
 				<configuration>
 					<sourceDirectory>${project.basedir}/docs/asciidoc</sourceDirectory>
 					<sourceDocumentName>index.adoc</sourceDocumentName>
@@ -447,17 +448,8 @@
 					</attributes>
 				</configuration>
 				<executions>
-					<!-- <execution>
-						<id>generate-docs</id>
-						<phase>test</phase>
-						<goals>
-							<goal>process-asciidoc</goal>
-						</goals>
-						<configuration>
-							<backend>html5</backend>
-							 <outputDirectory>${project.basedir}/docs/asciidoc/html</outputDirectory>  
-						</configuration>
-					</execution> -->
+					<!-- <execution> <id>generate-docs</id> <phase>test</phase> <goals> <goal>process-asciidoc</goal> </goals> <configuration> 
+						<backend>html5</backend> <outputDirectory>${project.basedir}/docs/asciidoc/html</outputDirectory> </configuration> </execution> -->
 					<execution>
 						<id>generate-docs</id>
 						<phase>prepare-package</phase>
@@ -474,16 +466,28 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
 			<!-- 此插件用来生成通用mapper的代码 -->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>${mybatis-generator.version}</version>
 				<configuration>
-					<overwrite>true</overwrite>
-					<verbose>true</verbose>
 					<!-- 注意跳过自动生成model，需要时再打开 -->
 					<skip>true</skip>
+					<verbose>true</verbose>
+					<overwrite>false</overwrite>
 					<configurationFile>${basedir}/src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
 				</configuration>
 				<executions>
@@ -512,6 +516,18 @@
 						<groupId>tk.mybatis</groupId>
 						<artifactId>mapper</artifactId>
 						<version>${tk.mybatis.mapper.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.mybatis.generator</groupId>
+						<artifactId>mybatis-generator-mybatis3-plugins</artifactId>
+						<version>1.0</version>
+						<scope>system</scope>
+						<systemPath>${basedir}/src/main/resources/mybatis/generator/lib/mybatis-generator-mybatis3-plugins-1.0.jar</systemPath>
+					</dependency>
+					<dependency>
+						<groupId>org.freemarker</groupId>
+						<artifactId>freemarker</artifactId>
+						<version>${freemarker.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>

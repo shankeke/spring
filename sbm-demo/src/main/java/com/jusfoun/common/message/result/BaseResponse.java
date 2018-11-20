@@ -2,7 +2,6 @@ package com.jusfoun.common.message.result;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -16,7 +15,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2017年9月13日 上午10:04:28
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseResponse<T> implements Serializable {
 	private static final long serialVersionUID = 3218508078738927801L;
 

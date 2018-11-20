@@ -90,7 +90,7 @@ public class EntityPreprocessAspect {
 			}
 			return pjd.proceed(args);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("实体预处理工作异常", e);
 			throw e;
 		}
 	}

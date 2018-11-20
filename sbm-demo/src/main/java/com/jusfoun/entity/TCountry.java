@@ -7,7 +7,6 @@ import javax.persistence.Transient;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.base.page.IPageable;
 
@@ -21,7 +20,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年7月24日 下午12:40:38
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "t_country")
 public class TCountry extends IPageable implements Idable<Long>{
 	private static final long serialVersionUID = -2326084818533423613L;

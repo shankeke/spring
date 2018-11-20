@@ -66,11 +66,10 @@ public class Documentation {
 		TArea area = new TArea();
 		area.setId(100000L);
 		area.setAreaName("北京市");
-		area.setFlag("0");
-		area.setLat("110.12121212");
-		area.setLat("38.121212121");
+		area.setParentId(0L);
+		area.setParentName("中国");
+		area.setLevel((byte) 1);
 		area.setLeaf(false);
-		area.setLevel((byte) 2);
 
 		mockMvc.perform(post("/area")//
 				.contentType(MediaType.APPLICATION_JSON)//

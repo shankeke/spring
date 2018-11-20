@@ -3,6 +3,7 @@ package com.jusfoun.web.controller.sys;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jusfoun.common.base.controller.BasePageableAndIdableController;
 import com.jusfoun.common.base.service.BaseIdableService;
 import com.jusfoun.common.base.service.BaseService;
-import com.jusfoun.common.enums.UsingStatus;
+import com.jusfoun.common.enums.AccountStatus;
 import com.jusfoun.common.enums.YesNoType;
 import com.jusfoun.common.log.Logable;
 import com.jusfoun.common.message.exception.ControllerException;
@@ -33,9 +34,9 @@ import io.swagger.annotations.ApiParam;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午11:45:00
  */
-@Api(value = "系统用户管理接口类", description = "系统用户管理接口类")
+@Api(tags = "SYS-SysUserController", value = "系统用户管理接口类", description = "系统用户管理接口类")
 @RestController
-@RequestMapping("/sysuser")
+@RequestMapping(value = {"/v1/sysuser", "/app/sysuser"})
 public class SysUserController implements BasePageableAndIdableController<SysUser, Long> {
 
 	@Autowired
@@ -59,7 +60,9 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 	@Logable(value = "保存系统用户", path = "系统管理/用户管理/保存系统用户")
 	@Override
-	public BaseResponse<SysUser> save(SysUser t) {
+	public BaseResponse<SysUser> save(//
+			@RequestBody SysUser t//
+	) {
 		if (t == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
@@ -79,7 +82,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 		try {
 			t.setPassword(passwordEncoder.encode(StringUtils.defaultIfEmpty(t.getPassword(), initConfig.getPassword())));
 			if (t.getStatus() == null) {
-				t.setStatus(UsingStatus.NOT_ENABLED.getValue());
+				t.setStatus(AccountStatus.NOT_ENABLED.getValue());
 			}
 			if (t.getGender() == null) {
 				t.setGender(YesNoType.NO.getValue());
@@ -94,7 +97,9 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 	@Logable(value = "修改系统用户", path = "系统管理/用户管理/修改系统用户")
 	@Override
-	public BaseResponse<SysUser> updateById(SysUser t) {
+	public BaseResponse<SysUser> updateById(//
+			@RequestBody SysUser t//
+	) {
 		if (t == null || t.getId() == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
@@ -110,7 +115,9 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 	@Logable(value = "删除系统用户", path = "系统管理/用户管理/删除系统用户")
 	@Override
-	public BaseResponse<?> deleteById(Long id) {
+	public BaseResponse<?> deleteById(//
+			@ApiParam(value = "用户ID", required = true) @RequestParam Long id//
+	) {
 		try {
 			sysUserService.deleteWithRoles(id);
 		} catch (Exception e) {
@@ -122,7 +129,9 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 	@Logable(value = "查询系统用户详情", path = "系统管理/用户管理/查询系统用户详情")
 	@Override
-	public BaseResponse<SysUser> infoById(Long id) {
+	public BaseResponse<SysUser> infoById(//
+			@ApiParam(value = "用户ID", required = true) @RequestParam Long id//
+	) {
 		try {
 			SysUser sysUser = sysUserService.selectPKWithCache(id);
 			sysUser.setPassword(null);
@@ -136,7 +145,9 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 	@ApiOperation(value = "重置用户密码", notes = "重置用户密码", hidden = false)
 	@Logable(value = "重置用户密码", path = "系统管理/用户管理/重置用户密码")
 	@RequestMapping(value = "/resetPass", method = {RequestMethod.POST, RequestMethod.GET})
-	public BaseResponse<?> resetPass(@ApiParam(value = "重置密码的记录ID", required = true) @RequestParam Long id) {
+	public BaseResponse<?> resetPass(//
+			@ApiParam(value = "重置密码的记录ID", required = true) @RequestParam Long id//
+	) {
 		try {
 			SysUser sysUser = new SysUser();
 			sysUser.setId(id);
@@ -151,7 +162,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 	@ApiOperation(value = "修改用户密码", notes = "修改用户密码", hidden = false)
 	@Logable(value = "修改用户密码", path = "系统管理/用户管理/修改用户密码")
-	@RequestMapping(value = "/modifyPass", method = {RequestMethod.POST})
+	@PostMapping("/modifyPass")
 	public BaseResponse<?> modifyPass(//
 			@ApiParam(value = "原密码", required = true) @RequestParam String oldPassword, //
 			@ApiParam(value = "新密码", required = true) @RequestParam String password //
@@ -174,8 +185,10 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 
 	@ApiOperation(value = "修改用户角色", notes = "修改用户角色", hidden = false)
 	@Logable(value = "修改用户角色", path = "系统管理/用户管理/修改用户角色")
-	@RequestMapping(value = "/modifyRoles", method = {RequestMethod.POST})
-	public BaseResponse<?> modifyRoles(@ApiParam(value = "用户信息，包含用户的角色信息", required = true) @RequestBody SysUser sysUser) {
+	@PostMapping("/modifyRoles")
+	public BaseResponse<?> modifyRoles(//
+			@ApiParam(value = "用户信息，包含用户的角色信息", required = true) @RequestBody SysUser sysUser//
+	) {
 		if (sysUser == null || sysUser.getId() == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}

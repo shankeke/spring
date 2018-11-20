@@ -23,7 +23,6 @@ import org.springframework.util.Assert;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.security.ClientDetails;
 import com.jusfoun.security.RawGrantedAuthorityTypeHandler;
 import com.jusfoun.security.support.token.Token;
@@ -40,7 +39,7 @@ import tk.mybatis.mapper.annotation.ColumnType;
  * @date 2017年11月8日 下午3:11:05
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 @Table(name = "token_user_details")
 public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	private static final long serialVersionUID = 1574825783668756453L;
@@ -147,7 +146,7 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 	@ApiModelProperty("有效期")
 	@Column(name = "expires_in")
 	private Integer expiresIn;
-	
+
 	/**
 	 * access_token失效时间
 	 */
@@ -276,8 +275,8 @@ public class TokenUserDetails implements UserDetails, CredentialsContainer {
 		// 有工厂生成token信息
 		Token accessToken = tokenFactory.createAccessToken(clientDetails, userDetails);
 		Token refreshtoken = tokenFactory.createRefreshToken(clientDetails, userDetails);
-		userDetails.setAccessToken(accessToken.getToken());
-		userDetails.setRefreshToken(refreshtoken.getToken());
+		userDetails.setAccessToken("Bearer ".concat(accessToken.getToken()));
+		userDetails.setRefreshToken("Bearer ".concat(refreshtoken.getToken()));
 		return userDetails;
 	}
 

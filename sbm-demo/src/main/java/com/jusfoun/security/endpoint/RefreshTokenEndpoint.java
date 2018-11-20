@@ -3,13 +3,11 @@ package com.jusfoun.security.endpoint;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.log.Logable;
@@ -29,6 +27,7 @@ import com.jusfoun.service.TokenUserDetailsService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /**
  * 说明：刷新令牌. <br>
@@ -36,7 +35,7 @@ import io.swagger.annotations.ApiOperation;
  * @author yjw@jusfoun.com
  * @date 2017年11月8日 下午3:09:50
  */
-@Api(value = "刷新令牌接口类", description = "刷新令牌接口类")
+@Api(tags = "AUTH-RefreshTokenEndpoint", value = "刷新令牌接口类", description = "刷新令牌接口类")
 @RestController
 public class RefreshTokenEndpoint {
 
@@ -51,9 +50,9 @@ public class RefreshTokenEndpoint {
 
 	@ApiOperation(value = "刷新令牌", notes = "根据刷新令牌获取新的令牌信息", hidden = false)
 	@Logable(path = "系统管理/用户管理/刷新令牌", value = "刷新令牌")
-	@RequestMapping(value = WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT, method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@PostMapping(WebSecurityConfig.TOKEN_REFRESH_ENTRY_POINT)
 	public BaseResponse<RawGrantedToken> refreshToken(//
-			@RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //
+			@ApiParam(value = "令牌", required = true) @RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token //
 	) {
 		// 解析token为RefreshToken对象
 		RefreshToken refreshToken = tokenFactory.parseRefreshToken(token);

@@ -8,7 +8,7 @@ import com.jusfoun.common.enums.valuable.IntegerValuable;
  * @author yjw@jusfoun.com
  * @date 2017年10月11日 下午7:37:37
  */
-public enum ErrType implements IntegerValuable{
+public enum ErrType implements IntegerValuable {
 
 	SUCCESS(0, "调用成功"), //
 	FAILED(1, "调用失败"), //
@@ -22,7 +22,7 @@ public enum ErrType implements IntegerValuable{
 	 */
 	AUTH_FAILED(401, "认证失败"), //
 	UN_AUTHORIZED(403, "未授权的请求"), //
-	NOT_FOUND(404, "找不到请求的网页"), //
+	NOT_FOUND(404, "找不到请求的资源"), //
 	MOTHED_DISABLE(405, "方法禁用"), //
 	SERVICE_ERROR(500, "服务出错"), //
 
@@ -59,14 +59,14 @@ public enum ErrType implements IntegerValuable{
 	SYSROLE_QUERY_INFO_ERROR(1588, "系统角色详情查询异常"), //
 
 	/*********************** 系统权限信息异常********************** */
-	SYSMODULE_ENTITY_NULL(1601, "系统权限实体为空"), //
-	SYSMODULE_ENTITY_EXIST_ERROR(1602, "系统权限已经存在"), //
-	SYSMODULE_ENTITY_NOT_EXIST(1603, "系统权限不存在"), //
-	SYSMODULE_SAVE_ERROR(1604, "系统权限保存异常"), //
-	SYSMODULE_UPDATE_ERROR(1605, "系统权限更新异常"), //
-	SYSMODULE_DELETE_ERROR(1606, "系统权限删除异常"), //
-	SYSMODULE_QUERY_LIST_ERROR(1607, "系统权限列表查询异常"), //
-	SYSMODULE_QUERY_INFO_ERROR(1608, "系统权限详情查询异常"), //
+	SYSPRIVS_ENTITY_NULL(1601, "系统权限实体为空"), //
+	SYSPRIVS_ENTITY_EXIST_ERROR(1602, "系统权限已经存在"), //
+	SYSPRIVS_ENTITY_NOT_EXIST(1603, "系统权限不存在"), //
+	SYSPRIVS_SAVE_ERROR(1604, "系统权限保存异常"), //
+	SYSPRIVS_UPDATE_ERROR(1605, "系统权限更新异常"), //
+	SYSPRIVS_DELETE_ERROR(1606, "系统权限删除异常"), //
+	SYSPRIVS_QUERY_LIST_ERROR(1607, "系统权限列表查询异常"), //
+	SYSPRIVS_QUERY_INFO_ERROR(1608, "系统权限详情查询异常"), //
 
 	/*********************** 系统日志信息异常********************** */
 	SYSLOG_ENTITY_NULL(1621, "系统日志实体为空"), //
@@ -106,18 +106,22 @@ public enum ErrType implements IntegerValuable{
 	}
 
 	public static ErrType valueOf(Integer code) {
-		for (ErrType type : values()) {
-			if (type.getCode().intValue() == code.intValue()) {
-				return type;
+		if (code != null) {
+			for (ErrType type : values()) {
+				if (type.equalsTo(code)) {
+					return type;
+				}
 			}
 		}
-		return ErrType.SUCCESS;
+		return ErrType.FAILED;
 	}
 
 	public static String getMessageByCode(Integer code) {
-		for (ErrType type : values()) {
-			if (type.getCode().intValue() == code.intValue()) {
-				return type.getMessage();
+		if (code != null) {
+			for (ErrType type : values()) {
+				if (type.equalsTo(code)) {
+					return type.getMessage();
+				}
 			}
 		}
 		return null;

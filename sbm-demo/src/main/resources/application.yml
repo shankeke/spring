@@ -1,22 +1,26 @@
 spring:
   application:
-    name: sbm-demo
+    name: wfny
   profiles:
     active:
      - @profileActive@
-  cache:
-    type: redis
-    cache-names:
-    - tempCache
-    - customCache
-    - persistentCache
-    - securityCache
-#    ehcache:
-#      config: classpath:extends/cache/ehcache/ehcache.xml
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
     joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      indent-output: true
+      fail-on-empty-beans: false
+#    default-property-inclusion: non-null
+    generator:
+      ignore-unknown: true
+    deserialization:
+      fail-on-ignored-properties: false
+      fail-on-unknown-properties: false
+    parser:
+      allow_unquoted_control_chars: true
+      allow-single-quotes: true
+      ignore-undefined: true
   mvc:
     static-path-pattern: /**
     throw-exception-if-no-handler-found: true
@@ -51,46 +55,37 @@ spring:
     fail-on-write-error: true
 
 security:
-#  enable-csrf: false
-#  ignored:
-#  - /**
-#  headers:
-#    cache: true
-#    xss: true
-#  basic:
-#    authorize-mode: authenticated
-#    enabled: true
-#    path:
-#    - /**
-#    realm: Spring
    jwt:
-    accessTokenExpIn: 60000
-    refreshTokenExpIn: 72000
-    tokenIssuer: tjhx.9cfcf.com
-    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
-   custom:
-    ignoredStaticResources: 
-      - /
-      - /files/**
-      - /static/**
-      - /app/static/**
-      - /bigData/static/**
-      - /test/**
-      - /**/*.html
-      - /**/*.js
-      - /**/*.css
-      - /**/*.ico
-      - /webjars/**
-      - /swagger-ui.html**
-    ignoredGetResources: 
-      - /qcode/showCode
-      - /country/export
-      - /swagger-resources/**
-      - /v2/**
-    ignoredPostResources:
-      - /country/export
-      - /swagger-resources/**
-      - /test/**
+    access-token-exp-in: 60000
+    refresh-token-exp-in: 72000
+    token-issuer: www.jusfoun.com
+    token-signing-key: 2e30dc3372c04b93a234d9baad43abd5
+   token:
+    ignored:
+      any-methods:
+        - /v1/**
+        - /test/**
+        - /swagger-resources/** 
+        - /v2/api-docs
+        - /swagger-ui.html**
+      post-methods:
+        - /country/export
+      get-methods:
+        - /qcode/getCode
+        - /*/sysattachment/download
+      static-resources:
+        - /
+        - /atts/**
+        - /static/**
+        - /app/static/**
+        - /bigData/static/**
+        - /**/*.html
+        - /**/*.js
+        - /**/*.css
+        - /**/*.ico
+        - /webjars/**
+        - /swagger-ui.html**
+        
 mapper:
     not-empty: false
     identity: MYSQL
@@ -105,8 +100,8 @@ pagehelper:
     
 server:
   servlet:
-    context-path: /sbm-demo
-    application-display-name: /SBM-DEMO
+    context-path: /
+    application-display-name: WFNY
   compression:
     enabled: true
     mime-types:

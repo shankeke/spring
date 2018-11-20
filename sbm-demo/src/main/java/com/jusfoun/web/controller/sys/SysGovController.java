@@ -23,9 +23,9 @@ import io.swagger.annotations.Api;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:07:10
  */
-@Api(description = "组织机构管理", value = "组织机构管理接口类")
+@Api(tags = "SYS-SysGovController", description = "组织机构管理", value = "组织机构管理接口类")
 @RestController
-@RequestMapping("/sysgov")
+@RequestMapping(value = {"/v1/sysgov", "/app/sysgov"})
 public class SysGovController implements BasePageableAndIdableController<SysGov, Long>, BaseTreeableAndIdableController<SysGov, Long> {
 
 	@Autowired
@@ -48,13 +48,17 @@ public class SysGovController implements BasePageableAndIdableController<SysGov,
 
 	@Logable(value = "保存组织架构信息", path = "/系统管理/组织架构管理/保存组织架构", message = "'保存组织架构信息，机构名称' + #t.fullName+ '（' + #t.shortName + '）'")
 	@Override
-	public BaseResponse<SysGov> save(@RequestBody SysGov t) {
+	public BaseResponse<SysGov> save(//
+			@RequestBody SysGov t//
+	) {
 		return BasePageableAndIdableController.super.save(t);
 	}
 
 	@Logable(value = "修改组织架构信息", path = "/系统管理/组织架构管理/修改组织架构", message = "'修改组织架构信息，机构名称' + #t.fullName+ '（' + #t.shortName + '）'")
 	@Override
-	public BaseResponse<SysGov> updateById(@RequestBody SysGov t) {
+	public BaseResponse<SysGov> updateById(//
+			@RequestBody SysGov t//
+	) {
 		return BasePageableAndIdableController.super.updateById(t);
 	}
 

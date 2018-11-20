@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jusfoun.common.base.extend.entity.BaseEntity;
 import com.jusfoun.common.base.tree.Treeable;
 
@@ -19,7 +18,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:09:08
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "sys_gov")
 public class SysGov extends BaseEntity<SysGov> implements Treeable<SysGov> {
 	private static final long serialVersionUID = 1135482541484948992L;

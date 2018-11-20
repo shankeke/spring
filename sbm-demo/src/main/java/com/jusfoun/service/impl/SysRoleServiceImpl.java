@@ -17,11 +17,11 @@ import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
 import com.jusfoun.common.utils.ICollections;
-import com.jusfoun.entity.SysModule;
+import com.jusfoun.entity.SysPrivs;
 import com.jusfoun.entity.SysRole;
-import com.jusfoun.entity.SysRoleModule;
+import com.jusfoun.entity.SysRolePrivs;
 import com.jusfoun.mapper.ds0.SysRoleMapper;
-import com.jusfoun.mapper.ds0.SysRoleModuleMapper;
+import com.jusfoun.mapper.ds0.SysRolePrivsMapper;
 import com.jusfoun.service.SysRoleService;
 
 /**
@@ -36,7 +36,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 	@Autowired
 	private SysRoleMapper sysRoleMapper;
 	@Autowired
-	private SysRoleModuleMapper sysRoleModuleMapper;
+	private SysRolePrivsMapper sysRolePrivsMapper;
 
 	@Override
 	public BaseExtensionSelectMapper<SysRole> getBaseExtensionSelectMapper() {
@@ -66,18 +66,18 @@ public class SysRoleServiceImpl implements SysRoleService {
 			sysRoleMapper.insert(sysRole);
 
 			// 保存关系
-			Set<SysModule> sysModules = sysRole.getSysModules();
-			if (ICollections.hasElements(sysModules)) {
+			Set<SysPrivs> sysPrivss = sysRole.getSysPrivss();
+			if (ICollections.hasElements(sysPrivss)) {
 				Long roleId = sysRole.getId();
-				List<SysRoleModule> list = new ArrayList<SysRoleModule>();
-				SysRoleModule record = null;
-				for (SysModule t : sysModules) {
-					record = new SysRoleModule();
-					record.setModuleId(t.getId());
+				List<SysRolePrivs> list = new ArrayList<SysRolePrivs>();
+				SysRolePrivs record = null;
+				for (SysPrivs t : sysPrivss) {
+					record = new SysRolePrivs();
+					record.setPrivsId(t.getId());
 					record.setRoleId(roleId);
 					list.add(record);
 				}
-				sysRoleModuleMapper.insertList(list);
+				sysRolePrivsMapper.insertList(list);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,21 +98,21 @@ public class SysRoleServiceImpl implements SysRoleService {
 
 			// 删除原来的关系
 			Long roleId = sysRole.getId();
-			SysRoleModule record = new SysRoleModule();
+			SysRolePrivs record = new SysRolePrivs();
 			record.setRoleId(roleId);
-			sysRoleModuleMapper.delete(record);
+			sysRolePrivsMapper.delete(record);
 
-			Set<SysModule> sysModules = sysRole.getSysModules();
-			if (ICollections.hasElements(sysModules)) {
+			Set<SysPrivs> sysPrivss = sysRole.getSysPrivss();
+			if (ICollections.hasElements(sysPrivss)) {
 				// 保存新关系
-				List<SysRoleModule> list = new ArrayList<SysRoleModule>();
-				for (SysModule t : sysModules) {
-					record = new SysRoleModule();
-					record.setModuleId(t.getId());
+				List<SysRolePrivs> list = new ArrayList<SysRolePrivs>();
+				for (SysPrivs t : sysPrivss) {
+					record = new SysRolePrivs();
+					record.setPrivsId(t.getId());
 					record.setRoleId(roleId);
 					list.add(record);
 				}
-				sysRoleModuleMapper.insertList(list);
+				sysRolePrivsMapper.insertList(list);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,12 +123,12 @@ public class SysRoleServiceImpl implements SysRoleService {
 	// 删除角色的时候需要同时修改用户的权限，所以需要同时清理权限的缓存信息
 	@CacheEvict(value = CacheConsts.CACHE_SECURITY, allEntries = true)
 	@Override
-	public void deleteRoleWithModules(Long id) throws ServiceException {
+	public void deleteRoleWithPrivss(Long id) throws ServiceException {
 		try {
 			// 删除角色对应的权限关系
-			SysRoleModule t = new SysRoleModule();
+			SysRolePrivs t = new SysRolePrivs();
 			t.setRoleId(id);
-			sysRoleModuleMapper.delete(t);
+			sysRolePrivsMapper.delete(t);
 
 			// 删除角色
 			sysRoleMapper.deleteByPrimaryKey(id);

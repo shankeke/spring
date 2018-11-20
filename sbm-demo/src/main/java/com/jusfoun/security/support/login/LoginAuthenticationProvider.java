@@ -29,8 +29,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 	private final UserDetailsService userDetailsService;
 	private final PasswordEncoder passwordEncoder;
 
-	public LoginAuthenticationProvider(final UserDetailsService userDetailsService,
-			final PasswordEncoder passwordEncoder, final ClientDetailsService clientDetailsService) {
+	public LoginAuthenticationProvider(final UserDetailsService userDetailsService, final PasswordEncoder passwordEncoder, final ClientDetailsService clientDetailsService) {
 		this.userDetailsService = userDetailsService;
 		this.passwordEncoder = passwordEncoder;
 		this.clientDetailsService = clientDetailsService;
@@ -64,8 +63,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 		}
 
 		// 对客户端的权限和用户的权限求交集就是该用户在该客户端拥有的权限集合
-		Collection<? extends GrantedAuthority> authorities = loadClientDetails
-				.retainAuthorities(userDetails.getAuthorities());
+		Collection<? extends GrantedAuthority> authorities = loadClientDetails.retainAuthorities(userDetails.getAuthorities());
 		if (authorities == null || authorities.isEmpty()) {
 			throw new NoGrantedAnyAuthorityException("User has no authority assigned");
 		}
@@ -73,8 +71,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 		userDetails.setAuthorities(authorities);
 
 		// 认证通过
-		return new LoginAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities(),
-				loadClientDetails);
+		return new LoginAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities(), loadClientDetails);
 	}
 
 	@Override

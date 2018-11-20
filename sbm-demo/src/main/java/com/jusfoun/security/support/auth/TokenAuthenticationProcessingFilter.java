@@ -51,7 +51,7 @@ public class TokenAuthenticationProcessingFilter extends AbstractAuthenticationP
 		try {
 			token = tokenFactory.parseAccessToken(tokenPayload);
 		} catch (TokenInvalidException e) {
-			e.printStackTrace();
+			log.error("Invalid token: " + tokenPayload, e);
 			throw new TokenInvalidException("Invalid token: " + tokenPayload);
 		}
 		return getAuthenticationManager().authenticate(new RawAuthenticationToken(token));

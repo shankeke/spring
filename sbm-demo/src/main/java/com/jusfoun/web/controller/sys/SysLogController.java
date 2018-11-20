@@ -18,9 +18,9 @@ import io.swagger.annotations.Api;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 上午10:07:10
  */
-@Api(description = "操作日志管理", value = "操作日志管理接口类")
+@Api(tags = "SYS-SysLogController", description = "操作日志管理", value = "操作日志管理接口类")
 @RestController
-@RequestMapping("/syslog")
+@RequestMapping(value = {"/v1/syslog", "/app/syslog"})
 public class SysLogController implements BasePageableAndIdableController<SysLog, Long> {
 	@Autowired
 	private SysLogService sysLogService;

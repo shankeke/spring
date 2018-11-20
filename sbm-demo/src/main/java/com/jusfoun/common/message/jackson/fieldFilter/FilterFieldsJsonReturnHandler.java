@@ -22,6 +22,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jusfoun.common.message.annotation.JsonBodys;
 
 /**
@@ -34,20 +35,23 @@ public class FilterFieldsJsonReturnHandler implements HandlerMethodReturnValueHa
 
 	List<ResponseBodyAdvice<Object>> advices = new ArrayList<>();
 
+	private ObjectMapper objectMapper;
+
+	public FilterFieldsJsonReturnHandler(ObjectMapper objectMapper) {
+		this.objectMapper = objectMapper;
+	}
+
 	// 判断是否有JsonBody或Json注解
 	@Override
 	public boolean supportsReturnType(MethodParameter returnType) {
 		// 该Controller类上面存在RestController注解或者该方法上面存在ResponseBody注解，并且该方法上面存在JsonBody注解(过滤所有，暂时不需要判断是否存在JsonBody注解)
 		Class<?> declaringClass = returnType.getMethod().getDeclaringClass();
-		return (declaringClass.isAnnotationPresent(RestController.class)
-				|| returnType.hasMethodAnnotation(ResponseBody.class))
-				&& returnType.hasMethodAnnotation(JsonBodys.class);
+		return (declaringClass.isAnnotationPresent(RestController.class) || returnType.hasMethodAnnotation(ResponseBody.class)) && returnType.hasMethodAnnotation(JsonBodys.class);
 	}
 
 	// 有的话就会执行这个方法
 	@Override
-	public void handleReturnValue(Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest) throws Exception {
+	public void handleReturnValue(Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
 		mavContainer.setRequestHandled(true);
 		for (ResponseBodyAdvice<Object> ad : advices) {
 			if (ad.supports(returnType, null)) {
@@ -60,7 +64,7 @@ public class FilterFieldsJsonReturnHandler implements HandlerMethodReturnValueHa
 		HttpServletResponse response = webRequest.getNativeResponse(HttpServletResponse.class);
 		Annotation[] annos = returnType.getMethodAnnotations();
 		// 调用
-		FilterFieldsJsonSerializer jsonSerializer = new FilterFieldsJsonSerializer();
+		FilterFieldsJsonSerializer jsonSerializer = new FilterFieldsJsonSerializer(objectMapper);
 		// 如果是JsonBody就循环调用
 		Arrays.asList(annos).forEach(a -> {
 			if (a instanceof JsonBodys) {
@@ -88,8 +92,7 @@ public class FilterFieldsJsonReturnHandler implements HandlerMethodReturnValueHa
 		if (bean instanceof ResponseBodyAdvice) {
 			advices.add((ResponseBodyAdvice<Object>) bean);
 		} else if (bean instanceof RequestMappingHandlerAdapter) {
-			List<HandlerMethodReturnValueHandler> handlers = new ArrayList<>(
-					((RequestMappingHandlerAdapter) bean).getReturnValueHandlers());
+			List<HandlerMethodReturnValueHandler> handlers = new ArrayList<>(((RequestMappingHandlerAdapter) bean).getReturnValueHandlers());
 			FilterFieldsJsonReturnHandler jsonHandler = null;
 			for (int i = 0; i < handlers.size(); i++) {
 				HandlerMethodReturnValueHandler handler = handlers.get(i);
@@ -101,10 +104,7 @@ public class FilterFieldsJsonReturnHandler implements HandlerMethodReturnValueHa
 			if (jsonHandler != null) {
 				handlers.remove(jsonHandler);
 				handlers.add(0, jsonHandler);
-				((RequestMappingHandlerAdapter) bean).setReturnValueHandlers(handlers); // change
-																						// the
-																						// jsonhandler
-																						// sort
+				((RequestMappingHandlerAdapter) bean).setReturnValueHandlers(handlers);
 			}
 		}
 		return bean;

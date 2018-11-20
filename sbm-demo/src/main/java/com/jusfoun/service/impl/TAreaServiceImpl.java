@@ -1,17 +1,19 @@
 package com.jusfoun.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.jusfoun.common.base.tree.TreeableMapper;
 import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
-import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.TArea;
-import com.jusfoun.mapper.ds1.TAreaMapper;
+import com.jusfoun.mapper.ds0.TAreaMapper;
 import com.jusfoun.service.TAreaService;
 
 /**
@@ -41,9 +43,21 @@ public class TAreaServiceImpl implements TAreaService {
 		return tAreaMapper;
 	}
 
-	@Cacheable(value = CacheConsts.CACHE_TEMP, key = "'area_cache_' + #id", unless = "#result == null")
+	@Override
+	public TreeableMapper<TArea, Long> getTreeableMapper() {
+		return tAreaMapper;
+	}
+
+	@Cacheable(value = CacheConsts.CACHE_PERSISTENT, unless = "#result == null")
 	@Override
 	public TArea selectTree(Long rootId) throws ServiceException {
-		return tAreaMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 0L));
+		return TAreaService.super.selectTree(rootId);
 	}
+
+	@Cacheable(value = CacheConsts.CACHE_PERSISTENT, unless = "#result == null")
+	@Override
+	public List<TArea> selectByParentId(Long parentId) throws ServiceException {
+		return TAreaService.super.selectByParentId(parentId);
+	}
+
 }

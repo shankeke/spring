@@ -19,10 +19,10 @@ import com.jusfoun.common.enums.UsingStatus;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.common.utils.JaxbUtils;
 import com.jusfoun.config.InitConfig;
-import com.jusfoun.entity.SysModule;
+import com.jusfoun.entity.SysPrivs;
 import com.jusfoun.entity.SysUser;
 import com.jusfoun.entity.TokenClientDetails;
-import com.jusfoun.service.SysModuleService;
+import com.jusfoun.service.SysPrivsService;
 import com.jusfoun.service.SysUserService;
 import com.jusfoun.service.TokenClientDetailsService;
 
@@ -39,7 +39,7 @@ public class StartupRunner implements CommandLineRunner {
 	private static final Logger log = LoggerFactory.getLogger(StartupRunner.class);
 
 	@Autowired
-	private SysModuleService sysModuleService;
+	private SysPrivsService sysPrivsService;
 	@Autowired
 	private CacheService cacheService;
 	@Autowired
@@ -53,11 +53,15 @@ public class StartupRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info(">> ### 服务启动执行,系统初始化选项执行开始 ### <<");
 		log.info("--> 清理系统缓存.... ");
 		cacheService.clear();
+		if (!initConfig.isEnable()) {
+			log.info(">> ### 服务系统初始化选项未开启，不执行初始化操作 ### <<");
+			return;
+		}
+		log.info(">> ### 服务启动执行,系统初始化选项执行开始 ### <<");
 		log.info("--> 初始化系统权限列表.... ");
-		initSysModules();// 初始化企业信息
+		initSysPrivss();// 初始化企业信息
 		log.info("--> 初始化客户端权限信息.... ");
 		initClients();// 初始化企业信息
 		log.info("--> 初始化系统管理员信息.... ");
@@ -72,11 +76,11 @@ public class StartupRunner implements CommandLineRunner {
 	 * @date 2017年12月6日 下午5:12:14
 	 * @throws FileNotFoundException
 	 */
-	private void initSysModules() throws FileNotFoundException {
-		int count = sysModuleService.selectCount(null);
+	private void initSysPrivss() throws FileNotFoundException {
+		int count = sysPrivsService.selectCount(null);
 		if (count == 0) {
-			URL url = ResourceUtils.getURL(initConfig.getSysModulesFile());
-			SysModule root = JaxbUtils.xml2java(url, SysModule.class);
+			URL url = ResourceUtils.getURL(initConfig.getSysPrivssFile());
+			SysPrivs root = JaxbUtils.xml2java(url, SysPrivs.class);
 
 			SysUser admin = sysUserService.selectByUsername(initConfig.getUsername());
 			if (admin != null) {
@@ -89,7 +93,7 @@ public class StartupRunner implements CommandLineRunner {
 				root.setUpdateDate(now);
 				root.setStatus(UsingStatus.ENABLE.getValue());
 			}
-			sysModuleService.initSysModules(root);
+			sysPrivsService.initSysPrivss(root);
 		}
 	}
 
@@ -139,7 +143,7 @@ public class StartupRunner implements CommandLineRunner {
 		if (ICollections.hasElements(list)) {
 			for (TokenClientDetails t : list) {
 				t.setClientSecret(passwordEncoder.encode(t.getClientSecret()));
-				t.setAuthorities(sysModuleService.selectAuthorities(t.getClientId()));
+				t.setAuthorities(sysPrivsService.selectAuthorities(t.getClientId()));
 				tokenClientService.replaceAndCache(t);
 			}
 		}

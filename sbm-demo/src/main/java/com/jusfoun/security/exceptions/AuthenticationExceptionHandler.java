@@ -24,6 +24,8 @@ import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
 
 /**
+ * 认证异常处理器
+ * 
  * @author yjw@jusfoun.com
  * @date 2017年11月14日 下午1:45:19
  */

@@ -3,8 +3,8 @@
 <mapper namespace="com.jusfoun.mapper.ds0.SysRoleMapper">
 	<resultMap id="BaseResultMap" type="com.jusfoun.entity.SysRole">
 		<id column="id" property="id" jdbcType="BIGINT" />
-		<result column="parent_id" property="parentId" jdbcType="BIGINT" />
-		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="parent_id" jdbcType="BIGINT" property="parentId" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
 		<result column="status" jdbcType="BIT" property="status" />
 		<result column="creator_id" jdbcType="BIGINT" property="creatorId" />
 		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
@@ -16,8 +16,8 @@
 	</resultMap>
 
 	<resultMap id="BaseInfoResultMap" extends="BaseResultMap" type="com.jusfoun.entity.SysRole">
-		<association property="sysModules" column="ID" fetchType="lazy"
-			select="com.jusfoun.mapper.ds0.SysModuleMapper.selectByRoleId" />
+		<association property="sysPrivss" column="ID" fetchType="lazy"
+			select="com.jusfoun.mapper.ds0.SysPrivsMapper.selectByRoleId" />
 	</resultMap>
 	<sql id="Base_Table_Name">
 		sys_role

@@ -18,10 +18,8 @@ public class Jackson2HttpMessageConverter extends MappingJackson2HttpMessageConv
 	private boolean prefixJson = false;
 
 	@Override
-	protected void writeInternal(Object object, HttpOutputMessage outputMessage)
-			throws IOException, HttpMessageNotWritableException {
+	protected void writeInternal(Object object, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
 		// super.writeInternal(object, outputMessage);
-
 		// 判断是否需要重写objectMapper
 		ObjectMapper objectMapper = this.objectMapper;// 本地化ObjectMapper，防止方法级别的ObjectMapper改变全局ObjectMapper
 		if (ThreadJacksonMixInHolder.isContainsMixIn()) {

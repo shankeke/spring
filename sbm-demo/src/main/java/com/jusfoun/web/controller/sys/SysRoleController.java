@@ -2,7 +2,9 @@ package com.jusfoun.web.controller.sys;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.base.controller.BasePageableAndIdableController;
@@ -19,6 +21,7 @@ import com.jusfoun.entity.SysRole;
 import com.jusfoun.service.SysRoleService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 
 /**
  * 说明：系统角色管理接口. <br>
@@ -26,9 +29,9 @@ import io.swagger.annotations.Api;
  * @author yjw@jusfoun.com
  * @date 2017年9月23日 下午4:11:34
  */
-@Api(description = "系统角色管理", value = "系统角色管理接口类")
+@Api(tags = "SYS-SysRoleController", description = "系统角色管理", value = "系统角色管理接口类")
 @RestController
-@RequestMapping("/sysrole")
+@RequestMapping(value = {"/v1/sysrole", "/app/sysrole"})
 public class SysRoleController implements BasePageableAndIdableController<SysRole, Long> {
 
 	@Autowired
@@ -46,7 +49,9 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 
 	@Logable(value = "保存角色", path = "系统管理/角色管理/保存角色")
 	@Override
-	public BaseResponse<SysRole> save(SysRole t) {
+	public BaseResponse<SysRole> save(//
+			@RequestBody SysRole t//
+	) {
 		if (t == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
@@ -73,7 +78,9 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 
 	@Logable(value = "修改角色", path = "系统管理/角色管理/修改角色")
 	@Override
-	public BaseResponse<SysRole> updateById(SysRole t) {
+	public BaseResponse<SysRole> updateById(//
+			@RequestBody SysRole t//
+	) {
 		if (t == null || t.getId() == null) {
 			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
 		}
@@ -88,9 +95,11 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 
 	@Logable(value = "删除角色", path = "系统管理/角色管理/删除角色")
 	@Override
-	public BaseResponse<?> deleteById(Long id) {
+	public BaseResponse<?> deleteById(//
+			@ApiParam(value = "角色ID", required = true) @RequestParam(required = true) Long id//
+	) {
 		try {
-			sysRoleService.deleteRoleWithModules(id);
+			sysRoleService.deleteRoleWithPrivss(id);
 			return BaseResponse.success();
 		} catch (ServiceException e) {
 			e.printStackTrace();
@@ -101,7 +110,9 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 	@JsonBodys({@JsonBody(type = SysRole.class, excludes = {"createId", "creatorName", "createDate", "updateId", "updaterName", "updateDate"})})
 	@Logable(value = "查询角色详情", path = "系统管理/角色管理/查询角色详情", message = "'根据角色ID（' + #id + '）查询角色详情信息'")
 	@Override
-	public BaseResponse<SysRole> infoById(Long id) {
+	public BaseResponse<SysRole> infoById(//
+			@ApiParam(value = "角色ID", required = true) @RequestParam(required = true) Long id//
+	) {
 		try {
 			return BaseResponse.success(sysRoleService.selectExtensionPK(id));
 		} catch (ServiceException e) {

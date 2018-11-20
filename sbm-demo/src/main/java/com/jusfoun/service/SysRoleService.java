@@ -43,6 +43,6 @@ public interface SysRoleService extends BaseEntityWithAssociateService<SysRole> 
 	 *            记录ID
 	 * @throws ServiceException
 	 */
-	void deleteRoleWithModules(Long id) throws ServiceException;
+	void deleteRoleWithPrivss(Long id) throws ServiceException;
 
 }

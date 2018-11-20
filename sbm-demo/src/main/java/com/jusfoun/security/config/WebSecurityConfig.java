@@ -24,7 +24,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jusfoun.config.SecurityCustomConfig;
 import com.jusfoun.security.ClientDetailsService;
 import com.jusfoun.security.support.auth.RawBasicAuthenticationEntryPoint;
 import com.jusfoun.security.support.auth.SkipPathRequestMatcher;
@@ -61,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public static final String TOKEN_AUTH_ENTRY_POINT = "/**";// 需要鉴权的路径
 
 	@Autowired
-	private SecurityCustomConfig securityCustomConfig;
+	private TokenIgnoredConfig securityCustomConfig;
 
 	@Autowired
 	private JwtSettings jwtSettings;
@@ -128,8 +127,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected TokenAuthenticationProcessingFilter buildTokenAuthenticationProcessingFilter() {
 		List<String> skipPaths = new ArrayList<String>();
 		skipPaths.addAll(Arrays.asList(tokenSkipPaths));
-		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredGetResources()));
-		skipPaths.addAll(Arrays.asList(securityCustomConfig.getIgnoredPostResources()));
+		skipPaths.addAll(Arrays.asList(securityCustomConfig.getStaticResources()));
+		skipPaths.addAll(Arrays.asList(securityCustomConfig.getAnyMethods()));
+		skipPaths.addAll(Arrays.asList(securityCustomConfig.getGetMethods()));
+		skipPaths.addAll(Arrays.asList(securityCustomConfig.getPostMethods()));
 		SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(skipPaths, TOKEN_AUTH_ENTRY_POINT);
 		TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(matcher, authenticationFailureHandler(), tokenFactory());
 		filter.setAuthenticationManager(authenticationManager);
@@ -138,7 +139,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers(securityCustomConfig.getIgnoredStaticResources());
+		web.ignoring().antMatchers(securityCustomConfig.getStaticResources());
 	}
 
 	@Bean
@@ -161,10 +162,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//
 				.and()//
 				.authorizeRequests()//
-				.antMatchers(HttpMethod.POST, TOKEN_ENTRY_POINT).fullyAuthenticated() //
-				.antMatchers(HttpMethod.GET, securityCustomConfig.getIgnoredGetResources()).permitAll()//
-				.antMatchers(HttpMethod.POST, TOKEN_REFRESH_ENTRY_POINT).permitAll()//
-				.antMatchers(HttpMethod.POST, securityCustomConfig.getIgnoredPostResources()).permitAll()//
+				.antMatchers(TOKEN_ENTRY_POINT).fullyAuthenticated() //
+				.antMatchers(TOKEN_REFRESH_ENTRY_POINT).permitAll()//
+				.antMatchers(securityCustomConfig.getAnyMethods()).permitAll()//
+				.antMatchers(HttpMethod.GET, securityCustomConfig.getGetMethods()).permitAll()//
+				.antMatchers(HttpMethod.POST, securityCustomConfig.getPostMethods()).permitAll()//
 				.antMatchers(TOKEN_AUTH_ENTRY_POINT).authenticated() //
 				.and()//
 				.addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)//

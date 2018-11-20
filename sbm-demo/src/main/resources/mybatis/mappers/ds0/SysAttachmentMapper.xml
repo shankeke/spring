@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jusfoun.mapper.ds0.SysAttachmentMapper">
+	<resultMap id="BaseResultMap" type="com.jusfoun.entity.SysAttachment">
+		<!-- WARNING - @mbg.generated -->
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="content_type" jdbcType="VARCHAR" property="contentType" />
+		<result column="original_name" jdbcType="VARCHAR" property="originalName" />
+		<result column="file_name" jdbcType="VARCHAR" property="fileName" />
+		<result column="file_path" jdbcType="VARCHAR" property="filePath" />
+		<result column="obj_id" jdbcType="BIGINT" property="objId" />
+		<result column="obj_type" jdbcType="TINYINT" property="objType" />
+		<result column="status" jdbcType="BIT" property="status" />
+		<result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+		<result column="updater_id" jdbcType="BIGINT" property="updaterId" />
+		<result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+		<result column="updater_name" jdbcType="VARCHAR" property="updaterName" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+
+	<sql id="Base_Table_Name">
+		sys_attachment
+	</sql>
+
+	<sql id="Base_Column_List">
+		*
+	</sql>
+
+	<sql id="Base_Where_Clause">
+		<where>
+			<if test="id            != null "><![CDATA[and id             = #{id,jdbcType=BIGINT}]]></if>
+			<if test="contentType   != null and contentType   != ''"><![CDATA[and content_type   = #{contentType  ,jdbcType=VARCHAR }]]></if>
+			<if test="originalName  != null and originalName  != ''"><![CDATA[and original_name  like concat('%',#{originalName ,jdbcType=VARCHAR },'%')]]></if>
+			<if test="fileName      != null and fileName      != ''"><![CDATA[and file_name      like concat('%',#{fileName     ,jdbcType=VARCHAR },'%')]]></if>
+			<if test="filePath      != null and filePath      != ''"><![CDATA[and file_path      like concat('%',#{filePath      ,jdbcType=VARCHAR },'%')]]></if>
+			<if test="objId         != null "><![CDATA[and obj_id         = #{objId        ,jdbcType=BIGINT }]]></if>
+			<if test="objType       != null and objType       != ''"><![CDATA[and obj_type       = #{objType      ,jdbcType=TINYINT }]]></if>
+			<if test="creatorId     != null and creatorId     != ''"><![CDATA[and creator_id     = #{creatorId    ,jdbcType=BIGINT  }]]></if>
+			<if test="updaterId     != null and updaterId     != ''"><![CDATA[and updater_id     = #{updaterId    ,jdbcType=BIGINT  }]]></if>
+			<if test="status        != null"><![CDATA[and status = #{status ,jdbcType=BIT}]]></if>
+			<if test="remark        != null and remark        != ''"><![CDATA[and remark like CONCAT('%',#{remark ,jdbcType=VARCHAR},'%')]]></if>
+
+			<!-- 查询的起止时间 -->
+			<if test="startTime != null and startTime != ''"><![CDATA[and DATE_FORMAT(create_date,'%Y-%m-%d') >= #{startTime ,jdbcType=VARCHAR}]]></if>
+			<if test="endTime   != null and endTime   != ''"><![CDATA[and DATE_FORMAT(create_date,'%Y-%m-%d') <= #{endTime   ,jdbcType=VARCHAR}]]></if>
+		</where>
+	</sql>
+
+	<sql id="Base_Select_Sql">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="Base_Table_Name" />
+		<include refid="Base_Where_Clause" />
+	</sql>
+
+	<select id="selectCountWithAssociate" parameterType="Map" resultType="Integer">
+		select count(*) from
+		<include refid="Base_Table_Name" />
+		<if test="_parameter != null">
+			<include refid="Base_Where_Clause" />
+		</if>
+	</select>
+
+	<select id="selectOneWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+
+	<select id="selectListWithAssociate" parameterType="Map" resultMap="BaseResultMap">
+		<include refid="Base_Select_Sql" />
+	</select>
+</mapper>

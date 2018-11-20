@@ -1,14 +1,14 @@
 package com.jusfoun.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 @Table(name = "sys_role_user")
 public class SysRoleUser implements Serializable {
 	private static final long serialVersionUID = -1570907147241596748L;

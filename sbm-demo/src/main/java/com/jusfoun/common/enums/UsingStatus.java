@@ -1,22 +1,22 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.enums.valuable.IntegerValuable;
+import com.jusfoun.common.enums.valuable.ByteValuable;
 
 /**
- * 说明： 启用状态==>0-未启用、1-启用、-1-停用. <br>
+ * 说明： 使用状态==>0-启用、1-闲置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:30:48
  */
-public enum UsingStatus implements IntegerValuable {
-	NOT_ENABLED(0, "未启用"), //
-	ENABLE(1, "启用"), //
-	DISABLE(-1, "停用"); //
+public enum UsingStatus implements ByteValuable {
+
+	ENABLE((byte) 0, "启用"), //
+	DISABLE((byte) 1, "闲置"); //
 
 	private final String label;// 类型名称
-	private final Integer value;// 类型值
+	private final Byte value;// 类型值
 
-	private UsingStatus(Integer value, String label) {
+	private UsingStatus(Byte value, String label) {
 		this.value = value;
 		this.label = label;
 	}
@@ -26,7 +26,7 @@ public enum UsingStatus implements IntegerValuable {
 	}
 
 	@Override
-	public Integer getValue() {
+	public Byte getValue() {
 		return value;
 	}
 

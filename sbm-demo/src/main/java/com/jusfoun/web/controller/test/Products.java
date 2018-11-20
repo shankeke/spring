@@ -1,5 +1,6 @@
 package com.jusfoun.web.controller.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -36,6 +37,20 @@ public class Products {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public static List<Product> getProducts(int n) {
+		List<Product> products = new ArrayList<Product>();
+		Product p = null;
+		for (int j = 0; j < n; j++) {
+			p = new Product();
+			p.setId(j);
+			p.setName("产品" + j);
+			p.setPrice(0.5 * j);
+			p.setDesc("Product:" + p.getName() + "单价是" + p.getPrice() + "元。");
+			products.add(p);
+		}
+		return products;
 	}
 
 }

@@ -12,24 +12,29 @@ import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonReturnHandler;
 import com.jusfoun.config.file.FileConfig;
 import com.jusfoun.web.filter.gzip.GzipSupportFilter;
 import com.jusfoun.web.interceptor.FileTypeInterceptor;
 
 /**
- * 说明： web属性配置. <br>
+ * 说明： WEB MVC属性配置. <br>
  *
  * @author yjw@jusfoun.com
  * @date 2017年9月7日 上午10:24:03
  */
 @Configuration
-public class WebAppConfig extends WebMvcConfigurationSupport {
+public class WebAppConfig implements  WebMvcConfigurer //extends WebMvcConfigurationSupport 
+{
 
 	@Autowired
 	private FileConfig fileConfig;
+
+	@Autowired
+	private ObjectMapper objectMapper;
 
 	@Bean
 	public ServletListenerRegistrationBean<RequestContextListener> servletListenerRegistrationBean() {
@@ -39,7 +44,7 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
 	// 注册一个json结果处理器
 	@Bean
 	public HandlerMethodReturnValueHandler filterFieldsJsonReturnHandler() {
-		return new FilterFieldsJsonReturnHandler();// 初始化json处理器
+		return new FilterFieldsJsonReturnHandler(objectMapper);// 初始化json处理器
 	}
 
 	@Override
@@ -57,15 +62,10 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) { // 多个拦截器组成一个拦截器链
 		// 注册文件类型过滤拦截器
-		super.addInterceptors(registry);
-		registry.addInterceptor(new FileTypeInterceptor(fileConfig.getSuffix())).addPathPatterns("/file/**");
+//		super.addInterceptors(registry);
+		registry.addInterceptor(new FileTypeInterceptor(fileConfig.getSuffix())).addPathPatterns("/*/sysattachment/**");
 	}
 
-	/**
-	 * 跨域访问过滤配置
-	 *
-	 * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#addCorsMappings(org.springframework.web.servlet.config.annotation.CorsRegistry)
-	 */
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		// registry//

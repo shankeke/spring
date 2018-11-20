@@ -12,10 +12,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.jusfoun.common.base.extend.entity.BaseEntity;
+import com.jusfoun.common.enums.AccountStatus;
 import com.jusfoun.common.utils.ICollections;
 
 import io.swagger.annotations.ApiModel;
@@ -27,7 +27,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:10:43
  */
 @ApiModel
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "sys_user")
 public class SysUser extends BaseEntity<SysUser> {
 	private static final long serialVersionUID = -1543606832463879178L;
@@ -90,13 +89,29 @@ public class SysUser extends BaseEntity<SysUser> {
 	@ApiModelProperty("邮箱")
 	private String email;
 
+	/**
+	 * 用户地址
+	 */
 	@ApiModelProperty("地址")
 	private String address;
 
+	/**
+	 * 是否是系统管理员：0-否，1-是
+	 */
 	@ApiModelProperty("是否是系统管理员：0-否，1-是")
 	@JsonIgnore
 	@Column(name = "is_admin")
 	private Boolean isAdmin;
+
+	/**
+	 * 用户状态
+	 * 
+	 * @see AccountStatus
+	 */
+	@ApiModelProperty("用户状态：0-未启用,1-已启用,2-已锁定,3-已禁用")
+	@JsonIgnore
+	@Column(name = "status")
+	private Byte status;
 
 	/**
 	 * 角色列表
@@ -128,8 +143,8 @@ public class SysUser extends BaseEntity<SysUser> {
 		sysRoles = getSysRoles();
 		if (ICollections.hasElements(sysRoles)) {
 			for (SysRole role : sysRoles) {
-				if (ICollections.hasElements(role.getSysModules())) {
-					userAuthotities.addAll(role.getSysModules().parallelStream().map(authority -> new SimpleGrantedAuthority(authority.getUrl())).collect(Collectors.toSet()));
+				if (ICollections.hasElements(role.getSysPrivss())) {
+					userAuthotities.addAll(role.getSysPrivss().parallelStream().map(authority -> new SimpleGrantedAuthority(authority.getUrl())).collect(Collectors.toSet()));
 				}
 			}
 		}
@@ -205,6 +220,14 @@ public class SysUser extends BaseEntity<SysUser> {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Byte getStatus() {
+		return status;
+	}
+
+	public void setStatus(Byte status) {
+		this.status = status;
 	}
 
 	/**

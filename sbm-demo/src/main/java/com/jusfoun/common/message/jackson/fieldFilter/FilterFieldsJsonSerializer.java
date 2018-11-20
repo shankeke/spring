@@ -1,18 +1,12 @@
 package com.jusfoun.common.message.jackson.fieldFilter;
 
+import java.io.DataOutput;
+import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
+import java.io.OutputStream;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.jusfoun.common.message.annotation.JsonBody;
 
 /**
@@ -22,37 +16,11 @@ import com.jusfoun.common.message.annotation.JsonBody;
  * @date 2017年11月25日 上午9:56:03
  */
 public class FilterFieldsJsonSerializer {
-	private static final String DEFAULT_DATE_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
-
 	private FilterFieldsJsonFilter jacksonFilter = new FilterFieldsJsonFilter();
-	private static ObjectMapper objectMapper;
+	private ObjectMapper objectMapper;
 
-	static {
-		objectMapper = new ObjectMapper();
-		// 设置json为空字段时的序列化方式
-		objectMapper.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
-			@Override
-			public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
-				jsonGenerator.writeString("");
-			}
-		});
-
-		// 去掉默认的时间戳格式
-		objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-		// 序列化时，日期的统一格式
-		objectMapper.setDateFormat(new SimpleDateFormat(DEFAULT_DATE_FORMAT_PATTERN));
-		// 设置为中国上海时区
-		objectMapper.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-		// 空值不序列化
-		// objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES,
-		// false);//属性已弃用
-		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		// 反序列化时，属性不存在的兼容处理
-		objectMapper.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		// 单引号处理
-		objectMapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
+	public FilterFieldsJsonSerializer(ObjectMapper objectMapper) {
+		this.objectMapper = objectMapper;
 	}
 
 	/**
@@ -80,21 +48,6 @@ public class FilterFieldsJsonSerializer {
 	}
 
 	/**
-	 * 说明：返回json. <br>
-	 * 
-	 * @author yjw@jusfoun.com
-	 * @date 2017年11月25日 上午9:58:40
-	 * @param object
-	 *            返回对象
-	 * @return
-	 * @throws JsonProcessingException
-	 */
-	public String toJson(Object object) throws JsonProcessingException {
-		objectMapper.setFilterProvider(jacksonFilter);
-		return objectMapper.writeValueAsString(object);
-	}
-
-	/**
 	 * 说明： 执行过滤. <br>
 	 * 
 	 * @author yjw@jusfoun.com
@@ -104,5 +57,68 @@ public class FilterFieldsJsonSerializer {
 	 */
 	public void filter(JsonBody filter) {
 		this.filter(filter.type(), filter.includes(), filter.excludes());
+	}
+
+	/**
+	 * 说明：返回json. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2017年11月25日 上午9:58:40
+	 * @param object
+	 *            返回对象
+	 * @return 序列化字符串
+	 * @throws JsonProcessingException
+	 */
+	public String toJson(Object object) throws JsonProcessingException {
+		objectMapper.setFilterProvider(jacksonFilter);
+		return objectMapper.writeValueAsString(object);
+	}
+
+	/**
+	 * 说明：返回json. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2017年11月25日 上午9:58:40
+	 * @param resultFile
+	 *            输出文件
+	 * @param object
+	 *            返回对象
+	 * @throws IOException
+	 */
+	public void toJson(File resultFile, Object value) throws IOException {
+		objectMapper.setFilterProvider(jacksonFilter);
+		objectMapper.writeValue(resultFile, value);
+	}
+
+	/**
+	 * 说明：返回json. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2017年11月25日 上午9:58:40
+	 * @param out
+	 *            输出流
+	 * @param object
+	 *            返回对象
+	 * @throws IOException
+	 */
+	public void toJson(OutputStream out, Object value) throws IOException {
+		objectMapper.setFilterProvider(jacksonFilter);
+		objectMapper.writeValue(out, value);
+	}
+
+	/**
+	 * 说明：返回json. <br>
+	 * 
+	 * @author yjw@jusfoun.com
+	 * @date 2017年11月25日 上午9:58:40
+	 * @param out
+	 *            输出流
+	 * @param object
+	 *            返回对象
+	 * @throws IOException
+	 */
+	public void toJson(DataOutput out, Object value) throws IOException {
+		objectMapper.setFilterProvider(jacksonFilter);
+		objectMapper.writeValue(out, value);
 	}
 }

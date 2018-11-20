@@ -3,7 +3,7 @@ package com.jusfoun.test.client;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.jusfoun.entity.SysModule;
+import com.jusfoun.entity.SysPrivs;
 import com.jusfoun.entity.SysRole;
 
 /**
@@ -19,28 +19,28 @@ public class SysRoleClientTest extends BaseClient<SysRole> {
 		t.setName("管理1");
 		t.setRemark("生产管理");
 
-		Set<SysModule> list = new HashSet<SysModule>();
-		SysModule t1 = null;
+		Set<SysPrivs> list = new HashSet<SysPrivs>();
+		SysPrivs t1 = null;
 		for (long i = 1; i <= 6; i++) {
-			t1 = new SysModule();
+			t1 = new SysPrivs();
 			t1.setId(i);
 			list.add(t1);
 		}
-		t.setSysModules(list);
+		t.setSysPrivss(list);
 		json("/sysrole/save", t);
 	}
 
 	@Override
 	public void updateById() {
 		t.setId(2L);
-		Set<SysModule> list = new HashSet<SysModule>();
-		SysModule t1 = null;
+		Set<SysPrivs> list = new HashSet<SysPrivs>();
+		SysPrivs t1 = null;
 		for (long i = 7; i <= 12; i++) {
-			t1 = new SysModule();
+			t1 = new SysPrivs();
 			t1.setId(i);
 			list.add(t1);
 		}
-		t.setSysModules(list);
+		t.setSysPrivss(list);
 		json("/sysrole/update", t);
 	}
 

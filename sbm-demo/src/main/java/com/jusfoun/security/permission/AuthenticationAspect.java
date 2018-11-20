@@ -23,7 +23,7 @@ import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.ICollections;
 import com.jusfoun.security.exceptions.UnAuthorizedException;
 import com.jusfoun.security.util.SecurityUtils;
-import com.jusfoun.service.SysModuleService;
+import com.jusfoun.service.SysPrivsService;
 
 /**
  * 说明：权限访问控制处理. <br>
@@ -37,7 +37,7 @@ public class AuthenticationAspect {
 	protected static Logger logger = LoggerFactory.getLogger(AuthenticationAspect.class);
 
 	@Autowired
-	private SysModuleService sysModuleService;
+	private SysPrivsService sysPrivsService;
 
 	// @Pointcut("execution(* com.jusfoun.web.controller..*(..)) &&
 	// @annotation(com.jusfoun.security.authorize.permission.annotation.Authentication)")
@@ -85,7 +85,7 @@ public class AuthenticationAspect {
 		}
 
 		// 判断该请求是否需要判断权限
-		Set<String> allAuthorities = sysModuleService.selectUrlByClientId(null);
+		Set<String> allAuthorities = sysPrivsService.selectUrlByClientId(null);
 		if (allAuthorities.contains(authority)) {
 			// 获取当前用户的权限列表
 			Collection<String> grantedAuthorities = SecurityUtils.getCurrentUserAuthorities();

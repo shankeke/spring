@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.enums.valuable.IntegerValuable;
+import com.jusfoun.common.enums.valuable.ByteValuable;
 
 /**
  * 说明： 月份枚举类. <br>
@@ -8,26 +8,27 @@ import com.jusfoun.common.enums.valuable.IntegerValuable;
  * @author yjw@jusfoun.com
  * @date 2018年1月12日 上午9:55:31
  */
-public enum MonthType implements IntegerValuable{
-	JAN(1, "一月", "January", QuarterType.SPRING), //
-	FEB(2, "二月", "February", QuarterType.SPRING), //
-	MAR(3, "三月", "March", QuarterType.SPRING), //
-	APR(4, "四月", "April", QuarterType.SUMMER), //
-	MAY(5, "五月", "May", QuarterType.SUMMER), //
-	JUNE(6, "六月", "June", QuarterType.SUMMER), //
-	JULY(7, "七月", "July", QuarterType.AUTUMN), //
-	AUG(8, "八月", "Aguest", QuarterType.AUTUMN), //
-	SEPT(9, "九月", "September", QuarterType.AUTUMN), //
-	OCT(10, "十月", "October", QuarterType.WINTER), //
-	NOV(11, "十一月", "November", QuarterType.WINTER), //
-	DEC(12, "十二月", "December", QuarterType.WINTER);//
+public enum MonthType implements ByteValuable {
 
-	private final Integer value;// 数字值
+	JAN((byte) 1, "一月", "January", QuarterType.SPRING), //
+	FEB((byte) 2, "二月", "February", QuarterType.SPRING), //
+	MAR((byte) 3, "三月", "March", QuarterType.SPRING), //
+	APR((byte) 4, "四月", "April", QuarterType.SUMMER), //
+	MAY((byte) 5, "五月", "May", QuarterType.SUMMER), //
+	JUNE((byte) 6, "六月", "June", QuarterType.SUMMER), //
+	JULY((byte) 7, "七月", "July", QuarterType.AUTUMN), //
+	AUG((byte) 8, "八月", "Aguest", QuarterType.AUTUMN), //
+	SEPT((byte) 9, "九月", "September", QuarterType.AUTUMN), //
+	OCT((byte) 10, "十月", "October", QuarterType.WINTER), //
+	NOV((byte) 11, "十一月", "November", QuarterType.WINTER), //
+	DEC((byte) 12, "十二月", "December", QuarterType.WINTER);//
+
+	private final Byte value;// 数字值
 	private final String label_cn;// 中文名称
 	private final String label_en;// 英文名称
 	private final QuarterType quarterType;// 季度
 
-	private MonthType(Integer value, String label_cn, String label_en, QuarterType quarterType) {
+	private MonthType(Byte value, String label_cn, String label_en, QuarterType quarterType) {
 		this.value = value;
 		this.label_cn = label_cn;
 		this.label_en = label_en;
@@ -35,7 +36,7 @@ public enum MonthType implements IntegerValuable{
 	}
 
 	@Override
-	public Integer getValue() {
+	public Byte getValue() {
 		return value;
 	}
 
@@ -51,7 +52,7 @@ public enum MonthType implements IntegerValuable{
 		return quarterType;
 	}
 
-	public static MonthType valueOf(Integer value) {
+	public static MonthType valueOf(Byte value) {
 		if (value != null) {
 			for (MonthType type : values()) {
 				if (type.equalsTo(value)) {

@@ -3,6 +3,7 @@ package com.jusfoun.common.message.global;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -14,10 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jusfoun.common.message.annotation.JsonBodys;
-import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.jackson.fieldFilter.FilterFieldsJsonSerializer;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
@@ -30,6 +29,9 @@ import com.jusfoun.common.message.result.ErrType;
  */
 @ControllerAdvice
 public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
+
+	@Autowired
+	private ObjectMapper objectMapper;
 
 	@Override
 	public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
@@ -56,7 +58,7 @@ public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
 
 		// 处理json字段过滤逻辑
 		Annotation[] annos = returnType.getMethodAnnotations();
-		FilterFieldsJsonSerializer jsonSerializer = new FilterFieldsJsonSerializer();
+		FilterFieldsJsonSerializer jsonSerializer = new FilterFieldsJsonSerializer(objectMapper);
 		// 如果是@JsonBody就循环调用
 		Arrays.asList(annos).forEach(a -> {
 			if (a instanceof JsonBodys) {
@@ -68,13 +70,12 @@ public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
 		});
 
 		// 转换成json返回
-		String json = null;
 		try {
-			json = jsonSerializer.toJson(body);
-		} catch (JsonProcessingException e) {
+			jsonSerializer.toJson(response.getBody(), body);
+		} catch (Exception e) {
 			e.printStackTrace();
-			throw new CoreException(ErrType.ERROR);// 将异常抛出
+			return BaseResponse.fail(ErrType.FAILED, "报文序列化失败，" + e.getCause());
 		}
-		return JSON.parseObject(json, BaseResponse.class);
+		return null;
 	}
 }

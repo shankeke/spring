@@ -3,11 +3,11 @@ package com.jusfoun.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jusfoun.common.base.tree.TreeableMapper;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
 import com.jusfoun.common.mybatis.mapper.extension.BaseExtensionSelectMapper;
-import com.jusfoun.common.utils.EntityUtils;
 import com.jusfoun.entity.SysGov;
 import com.jusfoun.mapper.ds0.SysGovMapper;
 import com.jusfoun.service.SysGovService;
@@ -40,12 +40,13 @@ public class SysGovServiceImpl implements SysGovService {
 	}
 
 	@Override
+	public TreeableMapper<SysGov, Long> getTreeableMapper() {
+		return sysGovMapper;
+	}
+
+	@Override
 	public String selectNameByPrimaryKey(Long id) throws ServiceException {
 		return sysGovMapper.selectNameByPrimaryKey(id);
 	}
 
-	@Override
-	public SysGov selectTree(Long rootId) throws ServiceException {
-		return sysGovMapper.selectTree(EntityUtils.getDefaultIfNull(rootId, 0L));
-	}
 }
