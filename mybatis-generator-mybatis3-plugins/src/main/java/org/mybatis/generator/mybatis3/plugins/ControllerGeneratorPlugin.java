@@ -21,7 +21,7 @@ public class ControllerGeneratorPlugin extends AbstractGeneratorPlugin {
 		if (!StringUtility.stringHasValue(targetPackage)) {
 			targetPackage = topPackage.replaceAll("\\.", "/") + ".controller";
 		}
-		generate(targetProject, targetPackage, javaClassName, "Controller.java", "EntityController.ftl", root);
+		generate(targetProject, targetPackage, javaClassName, "Controller.java", "controller.ftl", root);
 	}
 
 }

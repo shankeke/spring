@@ -18,10 +18,10 @@ public class ServiceGeneratorPlugin extends AbstractGeneratorPlugin {
 		if (!StringUtility.stringHasValue(targetPackage)) {
 			targetPackage = topPackage.replaceAll("\\.", "/") + ".service";
 		}
-		generate(targetProject, targetPackage, javaClassName, "Service.java", "EntityService.ftl", root);
+		generate(targetProject, targetPackage, javaClassName, "Service.java", "service.ftl", root);
 		// 生成ServiceImpl代码
 		String serviceImplTargetPackage = targetPackage + ".impl";
-		generate(targetProject, serviceImplTargetPackage, javaClassName, "ServiceImpl.java", "EntityServiceImpl.ftl", root);
+		generate(targetProject, serviceImplTargetPackage, javaClassName, "ServiceImpl.java", "service-impl.ftl", root);
 	}
 
 }

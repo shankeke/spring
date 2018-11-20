@@ -104,11 +104,11 @@ public class ServiceAndControllerGeneratorPlugin extends PluginAdapter {
 		if (!StringUtility.stringHasValue(serviceTargetPackage)) {
 			serviceTargetPackage = topPackage.replaceAll("\\.", "/") + ".service";
 		}
-		generate(targetProject, serviceTargetPackage, javaClassName, "Service.java", "EntityService.ftl", root);
+		generate(targetProject, serviceTargetPackage, javaClassName, "Service.java", "service.ftl", root);
 
 		// 生成ServiceImpl代码
 		String serviceImplTargetPackage = serviceTargetPackage + ".impl";
-		generate(targetProject, serviceImplTargetPackage, javaClassName, "ServiceImpl.java", "EntityServiceImpl.ftl", root);
+		generate(targetProject, serviceImplTargetPackage, javaClassName, "ServiceImpl.java", "service-impl.ftl", root);
 
 		// 生成Controller层代码
 		root.put("injectPackage", serviceTargetPackage);
@@ -116,7 +116,7 @@ public class ServiceAndControllerGeneratorPlugin extends PluginAdapter {
 		if (!StringUtility.stringHasValue(controllerTargetPackage)) {
 			controllerTargetPackage = topPackage.replaceAll("\\.", "/") + ".controller";
 		}
-		generate(targetProject, controllerTargetPackage, javaClassName, "Controller.java", "EntityController.ftl", root);
+		generate(targetProject, controllerTargetPackage, javaClassName, "Controller.java", "controller.ftl", root);
 
 		return null;
 	}
