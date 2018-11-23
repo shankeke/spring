@@ -3,6 +3,8 @@ package ${targetPackage};
 import ${entityPackage}.${EntityName};
 import ${injectPackage}.${EntityName}Service;
 import com.jusfoun.common.base.service.BaseService;
+import com.jusfoun.common.base.service.BaseIdableService;
+import com.jusfoun.common.base.controller.BaseIdableController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,14 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 */
 @RestController
 @RequestMapping("/api/${entityName}")
-public class ${EntityName}Controller implements BaseController<${EntityName}>  {
+public class ${EntityName}Controller implements BaseIdableController<${EntityName},Long>  {
  
 	@Autowired
 	private ${EntityName}Service ${entityName}Service;
 	
 	@Override
-	public BaseService<TArea> getBaseService() {
-		return tAreaService;
+	public BaseService<${EntityName}> getBaseService() {
+		return ${entityName}Service;;
+	}
+	
+	@Override
+	public BaseIdableService<${EntityName}> getBaseIdableService() {
+		return ${entityName}Service;;
 	}
 	
 }
