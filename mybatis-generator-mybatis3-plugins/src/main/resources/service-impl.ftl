@@ -5,7 +5,6 @@ import ${injectPackage}.${EntityName}Mapper;
 import ${targetPackage}.${EntityName}Service;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
-import com.jusfoun.common.base.service.BaseIdableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
  
