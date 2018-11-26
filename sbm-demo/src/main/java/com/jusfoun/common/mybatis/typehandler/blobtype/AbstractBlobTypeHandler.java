@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.ibatis.type.JdbcType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
 
@@ -20,6 +22,8 @@ import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
  */
 public abstract class AbstractBlobTypeHandler<T> extends AbstractComplexTypeHandler<T> {
 
+	private static final Logger log = LoggerFactory.getLogger(AbstractBlobTypeHandler.class);
+
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, T t, JdbcType jdbcType) throws SQLException {
 		ByteArrayInputStream bis;
@@ -30,6 +34,7 @@ public abstract class AbstractBlobTypeHandler<T> extends AbstractComplexTypeHand
 			// 把String转化成byte流
 			bis = new ByteArrayInputStream(str.getBytes(DEFAULT_CHARSET));
 		} catch (UnsupportedEncodingException e) {
+			log.error("java对象转化为blob数据失败", e);
 			throw new RuntimeException("Blob Encoding Error!");
 		}
 		ps.setBinaryStream(i, bis, str.length());
@@ -69,6 +74,7 @@ public abstract class AbstractBlobTypeHandler<T> extends AbstractComplexTypeHand
 			// 把byte转化成string，并将字符串反序列化成需要的java bean对象
 			return translate2Bean(new String(blob.getBytes(1, (int) blob.length()), DEFAULT_CHARSET));
 		} catch (UnsupportedEncodingException e) {
+			log.error("blob数据转化为java对象失败", e);
 			throw new RuntimeException("Blob Encoding Error!");
 		}
 	}

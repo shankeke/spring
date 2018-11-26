@@ -2,12 +2,18 @@ package com.jusfoun.common.base.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.base.service.BaseService;
+import com.jusfoun.common.message.exception.ControllerException;
+import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
+import com.jusfoun.common.utils.ICollections;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,6 +26,7 @@ import io.swagger.annotations.ApiParam;
  */
 @RestController
 public interface BaseController<T> {
+	public static final Logger log = LoggerFactory.getLogger(BaseController.class);
 
 	BaseService<T> getBaseService();
 
@@ -28,7 +35,15 @@ public interface BaseController<T> {
 	default BaseResponse<T> save(//
 			@ApiParam(value = "数据对象", required = true) @RequestBody T t//
 	) {
-		getBaseService().insertSelective(t);
+		if (t == null) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		try {
+			getBaseService().insertSelective(t);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_SAVE_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_SAVE_ERROR);
+		}
 		return BaseResponse.success(t);
 	}
 
@@ -37,7 +52,18 @@ public interface BaseController<T> {
 	default BaseResponse<?> saveList(//
 			@ApiParam(value = "数据对象集合", required = true) @RequestBody List<T> list//
 	) {
-		getBaseService().insertListSelective(list);
+		if (list == null || ICollections.hasNoElements(list)) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		try {
+			getBaseService().insertListSelective(list);
+		} catch (ServiceException e) {
+			log.error(ErrType.ENTITY_SAVE_ERROR.getMessage(), e);
+			throw new ControllerException(e);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_SAVE_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_SAVE_ERROR);
+		}
 		return BaseResponse.success();
 	}
 
@@ -46,7 +72,12 @@ public interface BaseController<T> {
 	default BaseResponse<T> info(//
 			@ApiParam(value = "查询参数", required = true) @RequestBody T t//
 	) {
-		t = getBaseService().selectOne(t);
+		try {
+			t = getBaseService().selectOne(t);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_QUERY_INFO_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_QUERY_INFO_ERROR);
+		}
 		return BaseResponse.success(t);
 	}
 

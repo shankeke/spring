@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.type.BaseTypeHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jusfoun.common.enums.valuable.Valuable;
 
@@ -17,6 +19,9 @@ import com.jusfoun.common.enums.valuable.Valuable;
  * @date 2017年12月23日 下午2:30:26
  */
 public abstract class AbstractValuableEnumTypeHandler<E extends Enum<E>, V> extends BaseTypeHandler<E> implements ResultValuableHandler<V> {
+
+	private static final Logger log = LoggerFactory.getLogger(AbstractValuableEnumTypeHandler.class);
+
 	private Class<E> type;
 	private Map<V, E> map = new HashMap<V, E>();
 
@@ -64,8 +69,9 @@ public abstract class AbstractValuableEnumTypeHandler<E extends Enum<E>, V> exte
 	public E getNullableResult(V value) {
 		try {
 			return map.get(value);
-		} catch (Exception ex) {
-			throw new IllegalArgumentException("Cannot convert " + value + " to " + type.getSimpleName() + " by value.", ex);
+		} catch (Exception e) {
+			log.error("获取枚举值失败", e);
+			throw new IllegalArgumentException("Cannot convert " + value + " to " + type.getSimpleName() + " by value.", e);
 		}
 	}
 }

@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.jusfoun.common.cache.CacheConsts;
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.mybatis.mapper.MyBaseMapper;
 import com.jusfoun.common.mybatis.mapper.MyIdableMapper;
@@ -45,18 +47,19 @@ public class TCountryServiceImpl implements TCountryService {
 		return tCountryMapper;
 	}
 
+	@Cacheable(value = CacheConsts.CACHE_PERSISTENT, unless = "#result == null")
 	@Override
 	public TCountryTotalVo selectCounties() throws ServiceException {
 		List<TCountry> list = selectAll();
-		TCountryTotalVo total = new TCountryTotalVo();
 		if (ICollections.hasElements(list)) {
+			TCountryTotalVo total = new TCountryTotalVo();
 			Map<String, List<TCountry>> alphaGroup = list.parallelStream().collect(Collectors.groupingBy(TCountry::getAlpha));
 			List<TCountryVo> tCountryVos = total.getList();
 			alphaGroup.forEach((k, v) -> {
 				tCountryVos.add(new TCountryVo(k, v));
 			});
+			return total;
 		}
-		return total;
+		return null;
 	}
-
 }

@@ -53,10 +53,10 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 			@RequestBody SysRole t//
 	) {
 		if (t == null) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
+			return BaseResponse.fail(ErrType.BAD_REQUEST);
 		}
 		if (StringUtils.isEmpty(t.getName())) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR, "角色名称不能为空");
+			return BaseResponse.fail(ErrType.BAD_REQUEST, "角色名称不能为空");
 		}
 
 		// 判断角色是否已经存在
@@ -82,7 +82,7 @@ public class SysRoleController implements BasePageableAndIdableController<SysRol
 			@RequestBody SysRole t//
 	) {
 		if (t == null || t.getId() == null) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
+			return BaseResponse.fail(ErrType.BAD_REQUEST);
 		}
 		try {
 			sysRoleService.updateWithAssociate(t);

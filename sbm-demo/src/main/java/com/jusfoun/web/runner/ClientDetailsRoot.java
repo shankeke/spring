@@ -40,7 +40,7 @@ public class ClientDetailsRoot {
 		List<TokenClientDetails> list = new ArrayList<>();
 
 		// 初始化app客户端信息
-		String clientId = ClientType.APP_CLIENT.getClientId();
+		String clientId = ClientType.APP_CLIENT.name().toLowerCase();
 		TokenClientDetails t = new TokenClientDetails();
 		t.setClientId(clientId);
 		t.setClientSecret("123456");
@@ -52,7 +52,7 @@ public class ClientDetailsRoot {
 		list.add(t);
 
 		// 初始化web客户端信息
-		clientId = ClientType.WEB_CLIENT.getClientId();
+		clientId = ClientType.WEB_CLIENT.name().toLowerCase();
 		t = new TokenClientDetails();
 		t.setClientId(clientId);
 		t.setClientSecret("123456");
@@ -64,7 +64,7 @@ public class ClientDetailsRoot {
 		list.add(t);
 
 		// 初始化bigdata客户端信息
-		clientId = ClientType.BIGDATA_CLIENT.getClientId();
+		clientId = ClientType.BIGDATA_CLIENT.name().toLowerCase();
 		t = new TokenClientDetails();
 		t.setClientId(clientId);
 		t.setClientSecret("123456");

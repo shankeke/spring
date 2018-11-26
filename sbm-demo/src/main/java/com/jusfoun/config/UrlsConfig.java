@@ -14,9 +14,27 @@ import org.springframework.context.annotation.Configuration;
 public class UrlsConfig {
 	public static final String PREFIX = "system.urls";
 
+	private String ip;
+	private int port;
 	private String baseUrl;
 	private String baseLoginUrl;
 	private String inputOriginUrl;
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
 
 	public String getBaseUrl() {
 		return baseUrl;

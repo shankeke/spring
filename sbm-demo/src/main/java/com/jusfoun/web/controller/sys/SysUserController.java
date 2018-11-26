@@ -64,10 +64,10 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 			@RequestBody SysUser t//
 	) {
 		if (t == null) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
+			return BaseResponse.fail(ErrType.BAD_REQUEST);
 		}
 		if (StringUtils.isEmpty(t.getUsername())) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR, "用户名称不能为空");
+			return BaseResponse.fail(ErrType.BAD_REQUEST, "用户名称不能为空");
 		}
 
 		// 检查数据是否已经存在
@@ -101,7 +101,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 			@RequestBody SysUser t//
 	) {
 		if (t == null || t.getId() == null) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
+			return BaseResponse.fail(ErrType.BAD_REQUEST);
 		}
 		// 更新数据
 		try {
@@ -190,7 +190,7 @@ public class SysUserController implements BasePageableAndIdableController<SysUse
 			@ApiParam(value = "用户信息，包含用户的角色信息", required = true) @RequestBody SysUser sysUser//
 	) {
 		if (sysUser == null || sysUser.getId() == null) {
-			return BaseResponse.fail(ErrType.PARAMETERS_IS_INVALIDAT_ERROR);
+			return BaseResponse.fail(ErrType.BAD_REQUEST);
 		}
 		try {
 			sysUserService.modifyRoles(sysUser);

@@ -4,15 +4,18 @@ import java.security.Principal;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.jusfoun.common.log.Logable;
+import com.jusfoun.security.config.WebSecurityConfig;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /**
  * 说明： 授权管理. <br>
@@ -33,13 +36,17 @@ public class OAuthController {
 	 * @date 2017年9月26日 下午1:52:04
 	 * @param user
 	 *            用户信息
-	 * @return
+	 * @return 用户信息
 	 */
 	@ApiOperation(value = "获取登录用户信息", notes = "获取登录用户信息", hidden = false)
 	@Logable(value = "获取登录用户信息", path = "获取登录用户信息")
 	@GetMapping({"/user"})
 	@ResponseStatus(HttpStatus.OK)
-	public Principal user(Principal user) {
+	public Principal user(//
+			@ApiParam(value = "令牌", required = true) @RequestHeader(name = WebSecurityConfig.TOKEN_HEADER_PARAM, required = true) String token, //
+			Principal user//
+	) {
 		return user;
 	}
+
 }

@@ -6,5 +6,5 @@ package com.jusfoun.common.enums.valuable;
  * @author yjw@jusfoun.com
  * @date 2018年1月10日 下午1:59:26
  */
-public interface BooleanValuable extends ValuableAndComparable<Boolean> {
+public interface BooleanValuable extends ValuableAndComparableAndLabelable<Boolean> {
 }

@@ -84,7 +84,7 @@ public class IdablePlugin extends PluginAdapter {
 				}
 			}
 
-			// 如果存在@Id的注解则表示存在ID则添加接口
+			// 如果存在@Id的注解则表示存在ID则添加Idable接口
 			if (fullyQualifiedJavaType != null) {
 				topLevelClass.addImportedType("com.jusfoun.common.base.id.Idable");
 				FullyQualifiedJavaType superInterface = new FullyQualifiedJavaType("Idable");

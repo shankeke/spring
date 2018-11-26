@@ -51,7 +51,7 @@ public class SysAttachmentServiceImpl implements SysAttachmentService {
 				return fileConfig.deleteFile(filePath);
 			} catch (Exception e) {
 				e.printStackTrace();
-				throw new ServiceException(ErrType.ERROR, "附件删除失败");
+				throw new ServiceException(ErrType.INTERNAL_SERVER_ERROR, "附件删除失败");
 			}
 		}
 		return true;

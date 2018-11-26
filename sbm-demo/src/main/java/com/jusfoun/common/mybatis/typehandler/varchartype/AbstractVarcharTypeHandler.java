@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.type.JdbcType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
 
@@ -17,6 +19,8 @@ import com.jusfoun.common.mybatis.typehandler.AbstractComplexTypeHandler;
  * @date 2017年11月10日 下午12:44:32
  */
 public abstract class AbstractVarcharTypeHandler<T> extends AbstractComplexTypeHandler<T> {
+
+	private static final Logger log = LoggerFactory.getLogger(AbstractVarcharTypeHandler.class);
 
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, T t, JdbcType jdbcType) throws SQLException {
@@ -46,10 +50,16 @@ public abstract class AbstractVarcharTypeHandler<T> extends AbstractComplexTypeH
 	 * @param result
 	 *            字符字段值
 	 * @return 转化后实体对象
+	 * @throws SQLException
 	 */
-	public T getNullableResult(String result) {
-		if (StringUtils.isNotEmpty(result)) {
-			return translate2Bean(result);
+	public T getNullableResult(String result) throws SQLException {
+		try {
+			if (StringUtils.isNotEmpty(result)) {
+				return translate2Bean(result);
+			}
+		} catch (Exception e) {
+			log.error("数据反序列化失败", e);
+			throw new SQLException(e);
 		}
 		return null;
 	}

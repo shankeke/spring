@@ -39,7 +39,6 @@ import io.swagger.annotations.ApiModelProperty;
 		"clientId", //
 		"subList" //
 })
-
 @Table(name = "sys_privs")
 public class SysPrivs extends BaseEntity<SysPrivs> implements Treeable<SysPrivs> {
 	private static final long serialVersionUID = -518969013141251551L;

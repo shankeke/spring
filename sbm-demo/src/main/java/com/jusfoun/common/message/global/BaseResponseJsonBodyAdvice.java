@@ -3,6 +3,8 @@ package com.jusfoun.common.message.global;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -29,6 +31,8 @@ import com.jusfoun.common.message.result.ErrType;
  */
 @ControllerAdvice
 public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
+
+	private static final Logger log = LoggerFactory.getLogger(BaseResponseJsonBodyAdvice.class);
 
 	@Autowired
 	private ObjectMapper objectMapper;
@@ -73,8 +77,8 @@ public class BaseResponseJsonBodyAdvice implements ResponseBodyAdvice<Object> {
 		try {
 			jsonSerializer.toJson(response.getBody(), body);
 		} catch (Exception e) {
-			e.printStackTrace();
-			return BaseResponse.fail(ErrType.FAILED, "报文序列化失败，" + e.getCause());
+			log.error("报文序列化失败", e);
+			return BaseResponse.fail(ErrType.INTERNAL_SERVER_ERROR, "报文序列化失败，" + e.getCause());
 		}
 		return null;
 	}

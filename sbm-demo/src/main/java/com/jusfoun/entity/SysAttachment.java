@@ -9,6 +9,12 @@ import com.jusfoun.common.enums.ObjType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+/**
+ * 说明：附件信息表. <br>
+ * 
+ * @author yjw@jusfoun.com
+ * @date 2018年11月20日 下午3:00:36
+ */
 @ApiModel
 @Table(name = "sys_attachment")
 public class SysAttachment extends BaseEntity<SysAttachment> {

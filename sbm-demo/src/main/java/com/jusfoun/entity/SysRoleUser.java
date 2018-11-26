@@ -7,8 +7,8 @@ import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-@ApiModel
 
+@ApiModel
 @Table(name = "sys_role_user")
 public class SysRoleUser implements Serializable {
 	private static final long serialVersionUID = -1570907147241596748L;

@@ -18,7 +18,7 @@ import com.jusfoun.common.message.exception.CoreException;
 import com.jusfoun.common.message.result.BaseResponse;
 import com.jusfoun.common.message.result.ErrType;
 import com.jusfoun.security.exceptions.AuthenticationExceptionHandler;
-import com.jusfoun.security.exceptions.UnAuthorizedException;
+import com.jusfoun.security.exceptions.ForbiddenException;
 
 /**
  * 说明： 系统异常统一处理. <br>
@@ -43,21 +43,21 @@ public class GlobalExceptionHandler {
 			} else if (e instanceof NoHandlerFoundException) {
 				result = BaseResponse.exception(ErrType.NOT_FOUND);
 			} else if (e instanceof AuthenticationException || AuthenticationException.class.isAssignableFrom(e.getClass())) {
-				result = BaseResponse.exception(ErrType.AUTH_FAILED);
+				result = BaseResponse.exception(ErrType.UNAUTHORIZED);
 			} else if (e instanceof HttpMessageNotReadableException) {
-				result = BaseResponse.exception(ErrType.PARAMETERS_IS_NULL_ERROR);
+				result = BaseResponse.exception(ErrType.NOT_ACCEPTABLE);
 			} else if (e instanceof HttpRequestMethodNotSupportedException) {
-				result = BaseResponse.exception(ErrType.PARAMETERS_IS_NULL_ERROR);
+				result = BaseResponse.exception(ErrType.METHOD_NOT_ALLOWED);
 			} else if (e instanceof MaxUploadSizeExceededException || e instanceof SizeLimitExceededException) {
 				result = BaseResponse.exception(ErrType.FILE_MAX_UPLOAD_SIZE_EXCEEDED_ERROR);
 			} else if (e instanceof MultipartException) {
 				result = BaseResponse.exception(ErrType.FILE_IO_READ_ERROR);
-			} else if (e instanceof UnAuthorizedException) {
-				response.setStatus(ErrType.UN_AUTHORIZED.getCode());
-				result = BaseResponse.fail(ErrType.UN_AUTHORIZED);
+			} else if (e instanceof ForbiddenException) {
+				response.setStatus(ErrType.FORBIDDEN.getCode());
+				result = BaseResponse.fail(ErrType.FORBIDDEN);
 			} else if (e instanceof AuthenticationException) {
 				AuthenticationExceptionHandler handler = new AuthenticationExceptionHandler();
-				response.setStatus(ErrType.AUTH_FAILED.getCode());
+				response.setStatus(ErrType.UNAUTHORIZED.getCode());
 				result = handler.handle((AuthenticationException) e);
 			}
 		}
@@ -66,6 +66,6 @@ public class GlobalExceptionHandler {
 			return result;
 		}
 		// 其他异常
-		return BaseResponse.exception(ErrType.ERROR);
+		return BaseResponse.exception(ErrType.INTERNAL_SERVER_ERROR);
 	}
 }

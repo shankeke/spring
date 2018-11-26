@@ -21,7 +21,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年7月24日 上午10:08:21
  */
 @ApiModel
-
 @Table(name = "t_area")
 public class TArea extends IPageable implements Treeable<TArea>, Idable<Long> {
 	private static final long serialVersionUID = -3980406855769490927L;

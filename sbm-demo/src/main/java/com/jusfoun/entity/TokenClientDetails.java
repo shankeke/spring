@@ -47,8 +47,7 @@ import tk.mybatis.mapper.annotation.ColumnType;
 		"grantTypes", //
 		"accessTokenValidity", //
 		"refreshTokenValidity" //
-})	
-
+})
 @Table(name = "token_client_details")
 public class TokenClientDetails implements ClientDetails, Serializable {
 

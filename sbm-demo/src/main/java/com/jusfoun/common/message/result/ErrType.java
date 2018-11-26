@@ -10,21 +10,36 @@ import com.jusfoun.common.enums.valuable.IntegerValuable;
  */
 public enum ErrType implements IntegerValuable {
 
-	SUCCESS(0, "调用成功"), //
-	FAILED(1, "调用失败"), //
-	EMPTY(2, "暂无数据"), //
-	PARAMETERS_IS_NULL_ERROR(3, "参数为空"), //
-	PARAMETERS_IS_INVALIDAT_ERROR(4, "参数格式错误"), //
-	ERROR(9, "系统内部异常"), //
+	/*********************** 基础错误 ********************** */
+	SUCCESS(0, "请求成功"), //
+	FAILED(1, "请求失败"), //
 
-	/**
-	 * 权限和数据
-	 */
-	AUTH_FAILED(401, "认证失败"), //
-	UN_AUTHORIZED(403, "未授权的请求"), //
-	NOT_FOUND(404, "找不到请求的资源"), //
-	MOTHED_DISABLE(405, "方法禁用"), //
-	SERVICE_ERROR(500, "服务出错"), //
+	/*********************** 常用http请求错误 ********************** */
+	BAD_REQUEST(400, "请求参数错误"), //
+	UNAUTHORIZED(401, "请求未授权"), //
+	FORBIDDEN(403, "禁止访问"), //
+	NOT_FOUND(404, "请求资源未找到"), //
+	METHOD_NOT_ALLOWED(405, "请求方法不支持"), //
+	NOT_ACCEPTABLE(406, "响应失败"), //
+	PROXY_AUTHENTICATION_REQUIRED(407, "代理未授权"), //
+	REQUEST_TIMEOUT(408, "请求超时"), //
+	CONFLICT(409, "请求冲突"), //
+	GONE(410, "资源不可用"), //
+	INTERNAL_SERVER_ERROR(500, "内部服务器错误"), //
+	NOT_IMPLEMENTED(501, "请求资源未实现"), //
+	BAD_GATEWAY(502, "路由错误"), //
+	SERVICE_UNAVAILABLE(503, "服务不可用"), //
+	GATEWAY_TIMEOUT(504, "路由超时"),
+
+	/*********************** 通用实体错误 ********************** */
+	ENTITY_EMPTY(1001, "数据为空"), //
+	ENTITY_EXIST(1002, "数据已经存在"), //
+	ENTITY_NOT_EXIST(1003, "数据不存在"), //
+	ENTITY_SAVE_ERROR(1004, "数据保存失败"), //
+	ENTITY_UPDATE_ERROR(1005, "数据更新失败"), //
+	ENTITY_DELETE_ERROR(1006, "数据删除失败"), //
+	ENTITY_QUERY_LIST_ERROR(1007, "查询数据列表失败"), //
+	ENTITY_QUERY_INFO_ERROR(1008, "查询数据详情失败"), //
 
 	/*********************** 组织架构信息异常********************** */
 	SYSGOV_ENTITY_NULL(1541, "组织架构实体为空"), //
@@ -95,6 +110,11 @@ public enum ErrType implements IntegerValuable {
 	@Override
 	public Integer getValue() {
 		return code;
+	}
+
+	@Override
+	public String getLabel() {
+		return message;
 	}
 
 	public Integer getCode() {

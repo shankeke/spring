@@ -15,9 +15,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Api(tags = "COMMON-QCodeController", description = "二维码生成接口", value = "二维码生成接口类")
+@Api(tags = "PUBLIC-QCodeController", description = "二维码生成接口", value = "二维码生成接口类")
 @RestController
-@RequestMapping("/qcode")
+@RequestMapping(value = {"/v1/qcode", "/app/qcode"})
 public class QCodeController {
 
 	@ApiOperation(value = "生成二维码", notes = "生成二维码", hidden = false)
@@ -37,7 +37,7 @@ public class QCodeController {
 			// response.getOutputStream());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ControllerException(ErrType.ERROR);
+			throw new ControllerException(ErrType.INTERNAL_SERVER_ERROR);
 		}
 	}
 

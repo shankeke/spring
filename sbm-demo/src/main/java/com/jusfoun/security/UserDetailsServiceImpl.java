@@ -55,7 +55,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		// 账户失效
-		if (AccountStatus.DISABLED.equalsTo(sysUser.getStatus())) {
+		if (AccountStatus.DISABLED.equalsTo(sysUser.getStatus()) || AccountStatus.NOT_ENABLED.equalsTo(sysUser.getStatus())) {
 			throw new DisabledException(String.format("Disabled account '%s' !", username));
 		}
 

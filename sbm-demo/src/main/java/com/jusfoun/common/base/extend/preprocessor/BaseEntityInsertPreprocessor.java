@@ -20,9 +20,13 @@ public class BaseEntityInsertPreprocessor extends AbstractBaseEntityPreprocessor
 			return null;
 		}
 		BaseEntity<?> entity = (BaseEntity<?>) obj;
+		Date createDate = new Date();
 		entity.setCreatorId(userId);
 		entity.setCreatorName(realName);
-		entity.setCreateDate(new Date());
+		entity.setCreateDate(createDate);
+		entity.setUpdaterId(userId);
+		entity.setUpdaterName(realName);
+		entity.setUpdateDate(createDate);
 		return entity;
 	}
 

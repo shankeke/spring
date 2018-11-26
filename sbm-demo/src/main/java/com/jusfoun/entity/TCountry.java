@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel
 @Table(name = "t_country")
-public class TCountry extends IPageable implements Idable<Long>{
+public class TCountry extends IPageable implements Idable<Long> {
 	private static final long serialVersionUID = -2326084818533423613L;
 
 	/**
@@ -188,5 +188,5 @@ public class TCountry extends IPageable implements Idable<Long>{
 	public String toString() {
 		return "TCountry [id=" + id + ", zhName=" + zhName + ", shName=" + shName + ", enName=" + enName + "]";
 	}
- 
+
 }

@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.base.page.IPage;
 import com.jusfoun.common.base.page.IPageable;
+import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -27,7 +29,16 @@ public interface BasePageableController<T extends IPageable> extends BaseControl
 	default BaseResponse<List<T>> list(//
 			@ApiParam(value = "查询参数", required = true) @RequestBody T t//
 	) {
-		List<T> list = getBaseService().selectByPage(t, new IPage<T>(t));
+		if (t == null) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		List<T> list = null;
+		try {
+			list = getBaseService().selectByPage(t, new IPage<T>(t));
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_QUERY_LIST_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_QUERY_LIST_ERROR);
+		}
 		return BaseResponse.success(list);
 	}
 
@@ -36,7 +47,16 @@ public interface BasePageableController<T extends IPageable> extends BaseControl
 	default BaseResponse<IPage<T>> listPage(//
 			@ApiParam(value = "查询参数", required = true) @RequestBody T t//
 	) {
-		IPage<T> page = getBaseService().selectPage(t, new IPage<T>(t));
+		if (t == null) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		IPage<T> page = null;
+		try {
+			page = getBaseService().selectPage(t, new IPage<T>(t));
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_QUERY_LIST_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_QUERY_LIST_ERROR);
+		}
 		return BaseResponse.success(page);
 	}
 }

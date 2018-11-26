@@ -11,7 +11,7 @@ import com.jusfoun.service.TAreaService;
 
 import io.swagger.annotations.Api;
 
-@Api(tags = "COMMON-TAreaController", description = "地区信息管理", value = "地区信息管理接口类")
+@Api(tags = "PUBLIC-TAreaController", description = "地区信息管理", value = "地区信息管理接口类")
 @RestController
 @RequestMapping(value = {"/v1/area", "/app/area"})
 public class TAreaController implements BaseTreeableSelectController<TArea, Long> {

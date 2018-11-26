@@ -1,6 +1,6 @@
 package com.jusfoun.common.enums;
 
-import com.jusfoun.common.enums.valuable.ByteValuable;
+import com.jusfoun.common.enums.valuable.ValuableAndComparableAndLabelable;
 
 /**
  * 说明：账户状态枚举==> 0-未启用,1-已启用,2-已锁定,3-已禁用. <br>
@@ -8,7 +8,7 @@ import com.jusfoun.common.enums.valuable.ByteValuable;
  * @author yjw@jusfoun.com
  * @date 2017年9月12日 下午4:18:34
  */
-public enum AccountStatus implements ByteValuable {
+public enum AccountStatus implements ValuableAndComparableAndLabelable<Byte> {
 
 	UNKNOWN((byte) -1, "未知"), //
 	NOT_ENABLED((byte) 0, "未启用"), //

@@ -35,8 +35,8 @@ public class JasyptTest {
 	 */
 	@Test
 	public void encryptPwd() {
-		String result = stringEncryptor.encrypt("root");
-//		String result = stringEncryptor.encrypt("jusfoun");
+//		String result = stringEncryptor.encrypt("root");
+		String result = stringEncryptor.encrypt("jusfoun");
 		System.out.println(result);
 	}
 }

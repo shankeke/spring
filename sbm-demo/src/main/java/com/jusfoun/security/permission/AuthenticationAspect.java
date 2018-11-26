@@ -21,7 +21,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.jusfoun.common.message.exception.ServiceException;
 import com.jusfoun.common.utils.ICollections;
-import com.jusfoun.security.exceptions.UnAuthorizedException;
+import com.jusfoun.security.exceptions.ForbiddenException;
 import com.jusfoun.security.util.SecurityUtils;
 import com.jusfoun.service.SysPrivsService;
 
@@ -91,7 +91,7 @@ public class AuthenticationAspect {
 			Collection<String> grantedAuthorities = SecurityUtils.getCurrentUserAuthorities();
 			// 判断用户是否有该权限，如果没有该权限则抛出没有权限的异常，交给异常处理类处理
 			if (!ICollections.hasElements(grantedAuthorities) || !grantedAuthorities.contains(authority)) {
-				throw new UnAuthorizedException("未授权的请求", authority);
+				throw new ForbiddenException("未授权的请求", authority);
 			}
 		}
 	}

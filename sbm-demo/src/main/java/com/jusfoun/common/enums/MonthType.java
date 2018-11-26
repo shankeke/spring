@@ -24,13 +24,13 @@ public enum MonthType implements ByteValuable {
 	DEC((byte) 12, "十二月", "December", QuarterType.WINTER);//
 
 	private final Byte value;// 数字值
-	private final String label_cn;// 中文名称
+	private final String label;// 中文名称
 	private final String label_en;// 英文名称
 	private final QuarterType quarterType;// 季度
 
-	private MonthType(Byte value, String label_cn, String label_en, QuarterType quarterType) {
+	private MonthType(Byte value, String label, String label_en, QuarterType quarterType) {
 		this.value = value;
-		this.label_cn = label_cn;
+		this.label = label;
 		this.label_en = label_en;
 		this.quarterType = quarterType;
 	}
@@ -40,8 +40,8 @@ public enum MonthType implements ByteValuable {
 		return value;
 	}
 
-	public String getLabel_cn() {
-		return label_cn;
+	public String getLabel() {
+		return label;
 	}
 
 	public String getLabel_en() {

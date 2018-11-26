@@ -20,7 +20,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:10:08
  */
 @ApiModel
-
 @Table(name = "sys_role")
 public class SysRole extends BaseEntity<SysRole> {
 	private static final long serialVersionUID = -5436099250908436069L;

@@ -71,7 +71,8 @@ security:
       post-methods:
         - /country/export
       get-methods:
-        - /qcode/getCode
+        - /enums/**
+        - /*/qcode/getCode
         - /*/sysattachment/download
       static-resources:
         - /

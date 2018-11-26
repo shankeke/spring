@@ -15,12 +15,11 @@ public class ExceptionTest {
 		System.out.println(CoreException.class.isAssignableFrom(Exception.class));
 		System.out.println(ControllerException.class.isAssignableFrom(CoreException.class));
 		System.out.println(ServiceException.class.isAssignableFrom(CoreException.class));
-		System.out.println((new ControllerException(ErrType.ERROR)).getClass().isAssignableFrom(CoreException.class));
-		System.out.println((new ControllerException(ErrType.ERROR)).getClass().isAssignableFrom(Exception.class));
-		System.out.println((new ControllerException(ErrType.ERROR)).getClass().isAssignableFrom(Throwable.class));
-		System.out.println(
-				(new ControllerException(ErrType.ERROR)).getClass().isAssignableFrom(ControllerException.class));
-		System.out.println((new CoreException(ErrType.ERROR)).getClass().isAssignableFrom(ControllerException.class));
+		System.out.println((new ControllerException(ErrType.INTERNAL_SERVER_ERROR)).getClass().isAssignableFrom(CoreException.class));
+		System.out.println((new ControllerException(ErrType.INTERNAL_SERVER_ERROR)).getClass().isAssignableFrom(Exception.class));
+		System.out.println((new ControllerException(ErrType.INTERNAL_SERVER_ERROR)).getClass().isAssignableFrom(Throwable.class));
+		System.out.println((new ControllerException(ErrType.INTERNAL_SERVER_ERROR)).getClass().isAssignableFrom(ControllerException.class));
+		System.out.println((new CoreException(ErrType.INTERNAL_SERVER_ERROR)).getClass().isAssignableFrom(ControllerException.class));
 	}
 
 }

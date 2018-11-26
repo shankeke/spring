@@ -85,19 +85,19 @@
 				<artifactId>jasypt-spring-boot-starter</artifactId>
 				<version>${jasypt-spring-boot.version}</version>
 			</dependency>
-			<!--mybatis spring -->
+			<!-- mybatis spring -->
 			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>${mybatis-spring-boot.version}</version>
 			</dependency>
-			<!--mapper -->
+			<!-- mapper -->
 			<dependency>
 				<groupId>tk.mybatis</groupId>
 				<artifactId>mapper-spring-boot-starter</artifactId>
 				<version>${mapper-spring-boot.version}</version>
 			</dependency>
-			<!--pagehelper -->
+			<!-- pagehelper -->
 			<dependency>
 				<groupId>com.github.pagehelper</groupId>
 				<artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -329,11 +329,6 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml-schemas</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.mybatis.generator</groupId>
-			<artifactId>mybatis-generator-maven-plugin</artifactId>
-			<version>${mybatis-generator.version}</version>
-		</dependency>
 	</dependencies>
 	<profiles>
 		<profile>
@@ -413,7 +408,9 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
-					<!-- <compilerArguments> <bootclasspath> ${java.home}\lib\rt.jar;${java.home}\lib\jce.jar </bootclasspath> </compilerArguments> -->
+					<compilerArguments>
+						<bootclasspath> ${java.home}\lib\rt.jar;${java.home}\lib\jce.jar </bootclasspath>
+					</compilerArguments>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -448,8 +445,6 @@
 					</attributes>
 				</configuration>
 				<executions>
-					<!-- <execution> <id>generate-docs</id> <phase>test</phase> <goals> <goal>process-asciidoc</goal> </goals> <configuration> 
-						<backend>html5</backend> <outputDirectory>${project.basedir}/docs/asciidoc/html</outputDirectory> </configuration> </execution> -->
 					<execution>
 						<id>generate-docs</id>
 						<phase>prepare-package</phase>
@@ -466,7 +461,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- <plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<executions>
@@ -477,7 +472,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin> -->
+			</plugin>
 			<!-- 此插件用来生成通用mapper的代码 -->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
@@ -485,7 +480,7 @@
 				<version>${mybatis-generator.version}</version>
 				<configuration>
 					<!-- 注意跳过自动生成model，需要时再打开 -->
-					<skip>true</skip>
+					<skip>false</skip>
 					<verbose>true</verbose>
 					<overwrite>false</overwrite>
 					<configurationFile>${basedir}/src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>

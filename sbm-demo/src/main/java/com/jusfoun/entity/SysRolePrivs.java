@@ -15,7 +15,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年1月5日 上午9:10:21
  */
 @ApiModel
-
 @Table(name = "sys_role_privs")
 public class SysRolePrivs implements Serializable {
 	private static final long serialVersionUID = -8437861697252568978L;

@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jusfoun.common.base.id.Idable;
 import com.jusfoun.common.base.service.BaseIdableService;
+import com.jusfoun.common.message.exception.ControllerException;
 import com.jusfoun.common.message.result.BaseResponse;
+import com.jusfoun.common.message.result.ErrType;
+import com.jusfoun.common.utils.ICollections;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -31,7 +34,15 @@ public interface BaseIdableController<T extends Idable<PK>, PK extends Serializa
 	default BaseResponse<T> updateById(//
 			@ApiParam(value = "数据对象", required = true) @RequestBody T t//
 	) {
-		getBaseIdableService().updateByPrimaryKeySelective(t);
+		if (t == null) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		try {
+			getBaseIdableService().updateByPrimaryKeySelective(t);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_UPDATE_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_UPDATE_ERROR);
+		}
 		return BaseResponse.success(t);
 	}
 
@@ -40,7 +51,15 @@ public interface BaseIdableController<T extends Idable<PK>, PK extends Serializa
 	default BaseResponse<?> updateListById(//
 			@ApiParam(value = "数据对象集合", required = true) @RequestBody List<T> list//
 	) {
-		getBaseIdableService().updateListByPrimaryKeySelective(list);
+		if (list == null || ICollections.hasNoElements(list)) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		try {
+			getBaseIdableService().updateListByPrimaryKeySelective(list);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_UPDATE_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_UPDATE_ERROR);
+		}
 		return BaseResponse.success();
 	}
 
@@ -49,7 +68,15 @@ public interface BaseIdableController<T extends Idable<PK>, PK extends Serializa
 	default BaseResponse<?> deleteById(//
 			@ApiParam(value = "主键值", required = true) @RequestParam PK id//
 	) {
-		getBaseIdableService().deleteByPrimaryKey(id);
+		if (id == null) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		try {
+			getBaseIdableService().deleteByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_DELETE_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_DELETE_ERROR);
+		}
 		return BaseResponse.success();
 	}
 
@@ -58,7 +85,15 @@ public interface BaseIdableController<T extends Idable<PK>, PK extends Serializa
 	default BaseResponse<?> deleteByIds(//
 			@ApiParam(value = "ID集合", required = true) @RequestParam List<PK> ids//
 	) {
-		getBaseIdableService().deleteByPrimaryKeys(ids);
+		if (ids == null || ICollections.hasNoElements(ids)) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		try {
+			getBaseIdableService().deleteByPrimaryKeys(ids);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_DELETE_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_DELETE_ERROR);
+		}
 		return BaseResponse.success();
 	}
 
@@ -67,7 +102,16 @@ public interface BaseIdableController<T extends Idable<PK>, PK extends Serializa
 	default BaseResponse<T> infoById(//
 			@ApiParam(value = "主键值", required = true) @RequestParam PK id//
 	) {
-		T t = getBaseIdableService().selectByPrimaryKey(id);
+		if (id == null) {
+			throw new ControllerException(ErrType.BAD_REQUEST);
+		}
+		T t = null;
+		try {
+			t = getBaseIdableService().selectByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error(ErrType.ENTITY_QUERY_INFO_ERROR.getMessage(), e);
+			throw new ControllerException(ErrType.ENTITY_QUERY_INFO_ERROR);
+		}
 		return BaseResponse.success(t);
 	}
 }
