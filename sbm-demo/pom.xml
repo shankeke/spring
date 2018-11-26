@@ -480,7 +480,7 @@
 				<version>${mybatis-generator.version}</version>
 				<configuration>
 					<!-- 注意跳过自动生成model，需要时再打开 -->
-					<skip>false</skip>
+					<skip>true</skip>
 					<verbose>true</verbose>
 					<overwrite>false</overwrite>
 					<configurationFile>${basedir}/src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
