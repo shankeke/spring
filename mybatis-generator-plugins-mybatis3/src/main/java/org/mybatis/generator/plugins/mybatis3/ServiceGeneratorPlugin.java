@@ -1,14 +1,14 @@
-package org.mybatis.generator.mybatis3.plugins;
+package org.mybatis.generator.plugins.mybatis3;
 
 import java.util.Map;
 
 import org.mybatis.generator.internal.util.StringUtility;
 
 /**
- * 说明：Service层代码生成插件. <br>
+ * 说明： Service层代码生成插件.<br>
  * 
  * @author yjw@jusfoun.com
- * @date 2018年11月19日 下午4:21:24
+ * @date 2018-11-28 18:05:06
  */
 public class ServiceGeneratorPlugin extends AbstractGeneratorPlugin {
 

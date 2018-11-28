@@ -1,4 +1,4 @@
-package org.mybatis.generator.mybatis3.plugins;
+package org.mybatis.generator.plugins.mybatis3;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,10 +24,10 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateNotFoundException;
 
 /**
- * 说明：Service和Controller底层代码生成插件. <br>
+ * 说明： Service和Controller底层代码生成插件. <br>
  * 
  * @author yjw@jusfoun.com
- * @date 2018年11月19日 下午4:21:24
+ * @date 2018-11-28 18:04:51
  */
 public class ServiceAndControllerGeneratorPlugin extends PluginAdapter {
 

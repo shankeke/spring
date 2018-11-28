@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.mybatis.generator</groupId>
-	<artifactId>mybatis-generator-mybatis3-plugins</artifactId>
+	<artifactId>mybatis-generator-plugins-mybatis3</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>mybatis-generator-mybatis3-plugins</name>
+	<name>mybatis-generator-plugins-mybatis3</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -40,7 +40,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.8.0</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -49,10 +49,25 @@
 				</configuration>
 			</plugin>
 			<!--配置生成Javadoc包 -->
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId> <version>2.10.4</version> 
-				<configuration> <encoding>UTF-8</encoding> <aggregate>true</aggregate> <charset>UTF-8</charset> <docencoding>UTF-8</docencoding> 
-				</configuration> <executions> <execution> <id>attach-javadocs</id> <goals> <goal>jar</goal> </goals> </execution> </executions> 
-				</plugin> -->
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.1</version>
+				 <configuration>
+					<encoding>UTF-8</encoding>
+					<aggregate>true</aggregate>
+					<charset>UTF-8</charset>
+					<docencoding>UTF-8</docencoding>
+				</configuration>  
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
 			<!--配置生成源码包 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
