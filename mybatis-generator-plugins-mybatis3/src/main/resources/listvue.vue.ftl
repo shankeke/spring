@@ -17,11 +17,9 @@
             <el-table-column label="操作">
                 <template scope="scope">
                     <el-button v-if="${table.name}_upd" size="small" type="success"
-                               @click="handleUpdate(scope.row)">编辑
-                    </el-button>
+                               @click="handleUpdate(scope.row)">编辑</el-button>
                     <el-button v-if="${table.name}_del" size="mini" type="danger"
-                               @click="handleDelete(scope.row)">删除
-                    </el-button>
+                               @click="handleDelete(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -41,7 +39,7 @@
                 </#list>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click="cancel('form')">取 消</el-button>
+                <el-button @click="cancel('form')">取消</el-button>
                 <el-button v-if="dialogStatus=='create'" type="primary" @click="create('form')">确 定</el-button>
                 <el-button v-else type="primary" @click="update('form')">修 改</el-button>
             </div>
