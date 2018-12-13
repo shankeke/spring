@@ -28,19 +28,10 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateNotFoundException;
 
 /**
- * This plugin adds the com.jusfoun.common.base.id.Idable marker interface to
- * all generated model objects.
- * 
- * <p>
- * This plugin demonstrates adding capabilities to generated Java artifacts, and
- * shows the proper way to add imports to a compilation unit.
- * 
- * <p>
- * Important: This is a simplistic implementation of serializable and does not
- * attempt to do any versioning of classes.
+ * 生成前端页面，主要支持vue
  * 
  * @author yjw@jusfoun.com
- * 
+ * @date 2018-12-13 17:00:18
  */
 public class ResourcesGeneratorPlugin extends PluginAdapter {
 
@@ -109,9 +100,7 @@ public class ResourcesGeneratorPlugin extends PluginAdapter {
 	}
 
 	protected void makeIdable(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-
 		List<IntrospectedColumn> columns = introspectedTable.getAllColumns();
-
 		MyTable table = new MyTable();
 		if (columns != null && columns.size() > 0) {
 			List<MyField> myFields = new ArrayList<MyField>();
